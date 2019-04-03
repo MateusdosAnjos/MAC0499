@@ -1,0 +1,227 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"base",
+				"base2para10"
+			],
+			[
+				"soma",
+				"somaByte"
+			],
+			[
+				"quan",
+				"quantidade"
+			],
+			[
+				"item",
+				"itemComprado"
+			],
+			[
+				"lis",
+				"listaDeCompra"
+			],
+			[
+				"total",
+				"totalCompra"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"colors",
+				"UI: Select Color Scheme"
+			],
+			[
+				"colorsu",
+				"Colorsublime: Browse Themes Online"
+			],
+			[
+				"color",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"color sche",
+				"UI: Select Color Scheme"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/mateus/Programas/MAC0499"
+	],
+	"file_history":
+	[
+		"/home/mateus/Programas/Curso-Python/aula3/bytes.txt",
+		"/home/mateus/Programas/Curso-Python/aula3/somaByte.py",
+		"/home/mateus/Programas/Curso Python/aula2/loja.csv",
+		"/home/mateus/Programas/Curso Python/aula2/loja.txt",
+		"/home/mateus/Programas/Curso Python/aula2/listaDeCompra.txt",
+		"/home/mateus/Programas/Curso Python/aula2/atividade5.py",
+		"/home/mateus/Programas/Curso Python/aula2/atividade4.py",
+		"/home/mateus/Programas/Curso Python/aula2/atividade3.py",
+		"/home/mateus/Programas/Curso Python/aula2/atividade2.py",
+		"/home/mateus/.config/sublime-text-3/Packages/Colorsublime/Colorsublime.sublime-settings",
+		"/home/mateus/.config/sublime-text-3/Packages/User/Colorsublime.sublime-settings"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "TCC.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Programas/Curso-Python/Curso-Python.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 176.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
