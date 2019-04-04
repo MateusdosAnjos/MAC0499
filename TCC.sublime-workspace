@@ -88,6 +88,12 @@
 	],
 	"file_history":
 	[
+		"/home/mateus/Programas/MAC0499/Pagina-Web/mac0499/intro.html",
+		"/home/mateus/Programas/MAC0499/Pagina-Web/mac0499/contact.html",
+		"/home/mateus/Programas/MAC0499/Pagina-Web/mac0499/another_page.html",
+		"/home/mateus/Programas/MAC0499/Pagina-Web/index.html",
+		"/home/mateus/Programas/MAC0499/Pagina-Web/mac0499/page.html",
+		"/home/mateus/Programas/MAC0499/Pagina-Web/mac0499/index.html",
 		"/home/mateus/Programas/Curso-Python/aula3/bytes.txt",
 		"/home/mateus/Programas/Curso-Python/aula3/somaByte.py",
 		"/home/mateus/Programas/Curso Python/aula2/loja.csv",
@@ -102,13 +108,14 @@
 	],
 	"find":
 	{
-		"height": 31.0
+		"height": 28.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 105.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -116,6 +123,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"examples.html",
+			"Examples",
+			"intro.html",
+			"examples.html",
+			"Examples.html",
+			"Examples",
+			"examples.html",
+			"intro.html",
+			"examples.html"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -123,6 +139,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Introdução",
+			"intro.html",
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -140,11 +159,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 31.0
+		"height": 28.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 41.0
 	},
 	"layout":
 	{
@@ -177,7 +196,7 @@
 	"project": "TCC.sublime-project",
 	"replace":
 	{
-		"height": 58.0
+		"height": 52.0
 	},
 	"save_all_on_build": true,
 	"select_file":
