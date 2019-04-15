@@ -2,7 +2,7 @@
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if( request.message === "clicked_browser_action" ) {
-      var firstHref = $("a[href^='http']").eq(0).attr("href");
+      var firstHref = "https://linux.ime.usp.br/~mateusanjos/mac0499/"
 
       console.log(firstHref);
 
