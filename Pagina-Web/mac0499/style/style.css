@@ -222,9 +222,9 @@ ul#menu li a:hover
 
 #content
 { text-align: center;
-  width: 620px;
+  width: 880px;
   padding: 0 0 0 5px;
-  float: left;}
+  float: center;}
   
 #content ul
 { margin: 2px 0 22px 0px;}
