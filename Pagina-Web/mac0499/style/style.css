@@ -12,7 +12,7 @@ body
 
 p
 { padding: 0 0 20px 0;
-  line-height: 1.7em;}
+  line-height: 1.8em;}
 
 img
 { border: 0;}
@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6
   padding: 0 0 5px 0;}
 
 h1, h2, h3
-{ font: normal 170% 'century gothic', arial;
+{ font: normal 200% 'century gothic', arial;
   margin: 0 0 15px 0;
   padding: 15px 0 5px 0;
   color: #000;}
@@ -222,8 +222,8 @@ ul#menu li a:hover
 
 #content
 { text-align: center;
-  width: 880px;
-  padding: 0 0 0 5px;
+  width: 440px;
+  padding: 0 0 0 220px;
   float: center;}
   
 #content ul
