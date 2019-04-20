@@ -6,9 +6,9 @@ html
   padding: 0;}
 
 body
-{ font: normal .80em 'trebuchet ms', arial, sans-serif;
-  background: #FFF;
-  color: #555;}
+{ font: normal 0.9em 'trebuchet ms', arial, sans-serif;
+  background: #778899;
+  color: #000;}
 
 p
 { padding: 0 0 20px 0;
@@ -26,7 +26,7 @@ h1, h2, h3
 { font: normal 170% 'century gothic', arial;
   margin: 0 0 15px 0;
   padding: 15px 0 5px 0;
-  color: #0000CD;}
+  color: #000;}
 
 h2
 { font-size: 160%;
@@ -328,4 +328,4 @@ table tr th, table tr td
 table tr td
 { background: #E5E5DB;
   color: #47433F;
-  border-top: 4px solid #FFF;}
+  border-top: 0px solid #000;}
