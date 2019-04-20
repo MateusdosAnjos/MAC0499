@@ -32,10 +32,19 @@
 	"buffers":
 	[
 		{
-			"file": "Pagina-Web/mac0499/cronograma.html",
+			"file": "Pagina-Web/mac0499/index.html",
 			"settings":
 			{
-				"buffer_size": 9153,
+				"buffer_size": 4607,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Pagina-Web/mac0499/style/style.css",
+			"settings":
+			{
+				"buffer_size": 5633,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -44,16 +53,7 @@
 			"file": "Pagina-Web/mac0499/intro.html",
 			"settings":
 			{
-				"buffer_size": 7062,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Pagina-Web/mac0499/index.html",
-			"settings":
-			{
-				"buffer_size": 3622,
+				"buffer_size": 5329,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -62,26 +62,25 @@
 			"file": "Pagina-Web/mac0499/motivacao&Objetivos.html",
 			"settings":
 			{
-				"buffer_size": 5272,
+				"buffer_size": 5115,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Searching 9 files for \"home\" (whole word)\n\n/home/mateus/Programas/MAC0499/Pagina-Web/mac0499/contact.html:\n   24          <ul id=\"menu\">\n   25            <!-- put class=\"selected\" in the li tag for the selected page - to highlight which page you're on -->\n   26:           <li><a href=\"index.html\">Home</a></li>\n   27            <li><a href=\"intro.html\">Introdução</a></li>\n   28            <li><a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a></li>\n   ..\n   88      <div id=\"content_footer\"></div>\n   89      <div id=\"footer\">\n   90:       <p><a href=\"index.html\">Home</a> | <a href=\"intro.html\">Introdução</a> | <a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a> | <a href=\"cronograma.html\">Cronograma</a> | <a href=\"contact.html\">Contact Us</a></p>\n   91        <p>Copyright &copy; simplestyle_banner | <a href=\"http://validator.w3.org/check?uri=referer\">HTML5</a> | <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">CSS</a> | <a href=\"http://www.html5webtemplates.co.uk\">HTML5 Web Templates</a></p>\n   92      </div>\n\n/home/mateus/Programas/MAC0499/Pagina-Web/mac0499/cronograma.html:\n   24          <ul id=\"menu\">\n   25            <!-- put class=\"selected\" in the li tag for the selected page - to highlight which page you're on -->\n   26:           <li><a href=\"index.html\">Home</a></li>\n   27            <li><a href=\"intro.html\">Introdução</a></li>\n   28            <li><a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a></li>\n   ..\n  191      <div id=\"content_footer\"></div>\n  192      <div id=\"footer\">\n  193:       <p><a href=\"index.html\">Home</a> | <a href=\"intro.html\">Introdução</a> | <a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a> | <a href=\"cronograma.html\">Cronograma</a> | <a href=\"contact.html\">Contact Us</a></p>\n  194        <p>Copyright &copy; simplestyle_banner | <a href=\"http://validator.w3.org/check?uri=referer\">HTML5</a> | <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">CSS</a> | <a href=\"http://www.html5webtemplates.co.uk\">HTML5 Web Templates</a></p>\n  195      </div>\n\n/home/mateus/Programas/MAC0499/Pagina-Web/mac0499/intro.html:\n   24          <ul id=\"menu\">\n   25            <!-- put class=\"selected\" in the li tag for the selected page - to highlight which page you're on -->\n   26:           <li><a href=\"index.html\">Home</a></li>\n   27            <li class=\"selected\"><a href=\"intro.html\">Introdução</a></li>\n   28            <li><a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a></li>\n   ..\n  146      <div id=\"content_footer\"></div>\n  147      <div id=\"footer\">\n  148:       <p><a href=\"index.html\">Home</a> | <a href=\"intro.html\">Introdução</a> | <a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a> | <a href=\"cronograma.html\">Cronograma</a> | <a href=\"contact.html\">Contact Us</a></p>\n  149        <p>Copyright &copy; simplestyle_banner | <a href=\"http://validator.w3.org/check?uri=referer\">HTML5</a> | <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">CSS</a> | <a href=\"http://www.html5webtemplates.co.uk\">HTML5 Web Templates</a></p>\n  150      </div>\n\n/home/mateus/Programas/MAC0499/Pagina-Web/mac0499/motivacao&Objetivos.html:\n   24          <ul id=\"menu\">\n   25            <!-- put class=\"selected\" in the li tag for the selected page - to highlight which page you're on -->\n   26:           <li><a href=\"index.html\">Home</a></li>\n   27            <li><a href=\"intro.html\">Introdução</a></li>\n   28            <li class=\"selected\"><a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a></li>\n   ..\n   84      <div id=\"content_footer\"></div>\n   85      <div id=\"footer\">\n   86:       <p><a href=\"index.html\">Home</a> | <a href=\"intro.html\">Introdução</a> | <a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a> | <a href=\"cronograma.html\">Cronograma</a> | <a href=\"contact.html\">Contact Us</a></p>\n   87        <p>Copyright &copy; simplestyle_banner | <a href=\"http://validator.w3.org/check?uri=referer\">HTML5</a> | <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">CSS</a> | <a href=\"http://www.html5webtemplates.co.uk\">HTML5 Web Templates</a></p>\n   88      </div>\n\n8 matches across 4 files\n\n\nSearching 9 files for \"contact.html\" (whole word)\n\n/home/mateus/Programas/MAC0499/Pagina-Web/mac0499/contact.html:\n   28            <li><a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a></li>\n   29            <li><a href=\"cronograma.html\">Cronograma</a></li>\n   30:           <li class=\"selected\"><a href=\"contact.html\">Contact Us</a></li>\n   31          </ul>\n   32        </div>\n   ..\n   88      <div id=\"content_footer\"></div>\n   89      <div id=\"footer\">\n   90:       <p><a href=\"index.html\">Resumo</a> | <a href=\"intro.html\">Introdução</a> | <a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a> | <a href=\"cronograma.html\">Cronograma</a> | <a href=\"contact.html\">Contact Us</a></p>\n   91        <p>Copyright &copy; simplestyle_banner | <a href=\"http://validator.w3.org/check?uri=referer\">HTML5</a> | <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">CSS</a> | <a href=\"http://www.html5webtemplates.co.uk\">HTML5 Web Templates</a></p>\n   92      </div>\n\n/home/mateus/Programas/MAC0499/Pagina-Web/mac0499/cronograma.html:\n   28            <li><a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a></li>\n   29            <li class=\"selected\"><a href=\"cronograma.html\">Cronograma</a></li>\n   30:           <li><a href=\"contact.html\">Contact Us</a></li>\n   31          </ul>\n   32        </div>\n   ..\n  191      <div id=\"content_footer\"></div>\n  192      <div id=\"footer\">\n  193:       <p><a href=\"index.html\">Resumo</a> | <a href=\"intro.html\">Introdução</a> | <a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a> | <a href=\"cronograma.html\">Cronograma</a> | <a href=\"contact.html\">Contact Us</a></p>\n  194        <p>Copyright &copy; simplestyle_banner | <a href=\"http://validator.w3.org/check?uri=referer\">HTML5</a> | <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">CSS</a> | <a href=\"http://www.html5webtemplates.co.uk\">HTML5 Web Templates</a></p>\n  195      </div>\n\n/home/mateus/Programas/MAC0499/Pagina-Web/mac0499/intro.html:\n   28            <li><a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a></li>\n   29            <li><a href=\"cronograma.html\">Cronograma</a></li>\n   30:           <li><a href=\"contact.html\">Contact Us</a></li>\n   31          </ul>\n   32        </div>\n   ..\n  146      <div id=\"content_footer\"></div>\n  147      <div id=\"footer\">\n  148:       <p><a href=\"index.html\">Resumo</a> | <a href=\"intro.html\">Introdução</a> | <a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a> | <a href=\"cronograma.html\">Cronograma</a> | <a href=\"contact.html\">Contact Us</a></p>\n  149        <p>Copyright &copy; simplestyle_banner | <a href=\"http://validator.w3.org/check?uri=referer\">HTML5</a> | <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">CSS</a> | <a href=\"http://www.html5webtemplates.co.uk\">HTML5 Web Templates</a></p>\n  150      </div>\n\n/home/mateus/Programas/MAC0499/Pagina-Web/mac0499/motivacao&Objetivos.html:\n   28            <li class=\"selected\"><a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a></li>\n   29            <li><a href=\"cronograma.html\">Cronograma</a></li>\n   30:           <li><a href=\"contact.html\">Contact Us</a></li>\n   31          </ul>\n   32        </div>\n   ..\n   84      <div id=\"content_footer\"></div>\n   85      <div id=\"footer\">\n   86:       <p><a href=\"index.html\">Resumo</a> | <a href=\"intro.html\">Introdução</a> | <a href=\"motivacao&Objetivos.html\">Motivação e Objetivos</a> | <a href=\"cronograma.html\">Cronograma</a> | <a href=\"contact.html\">Contact Us</a></p>\n   87        <p>Copyright &copy; simplestyle_banner | <a href=\"http://validator.w3.org/check?uri=referer\">HTML5</a> | <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">CSS</a> | <a href=\"http://www.html5webtemplates.co.uk\">HTML5 Web Templates</a></p>\n   88      </div>\n\n8 matches across 4 files\n",
+			"file": "Pagina-Web/mac0499/cronograma.html",
 			"settings":
 			{
-				"buffer_size": 7957,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
+				"buffer_size": 8996,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "Pagina-Web/mac0499/contact.html",
 			"settings":
 			{
-				"buffer_size": 4352,
+				"buffer_size": 4192,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -139,9 +138,10 @@
 	},
 	"expanded_folders":
 	[
-		"/home/mateus/Programas/MAC0499",
-		"/home/mateus/Programas/MAC0499/Pagina-Web",
-		"/home/mateus/Programas/MAC0499/Pagina-Web/mac0499"
+		"/C/Users/usuario/Documents/GitHub/MAC0499",
+		"/C/Users/usuario/Documents/GitHub/MAC0499/Pagina-Web",
+		"/C/Users/usuario/Documents/GitHub/MAC0499/Pagina-Web/mac0499",
+		"/C/Users/usuario/Documents/GitHub/MAC0499/Pagina-Web/mac0499/style"
 	],
 	"file_history":
 	[
@@ -229,114 +229,24 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Pagina-Web/mac0499/cronograma.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9153,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								460,
-								460
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Pagina-Web/mac0499/intro.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7062,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "Pagina-Web/mac0499/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3622,
+						"buffer_size": 4607,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								885,
-								885
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Pagina-Web/mac0499/motivacao&Objetivos.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5272,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1189,
-								1189
+								1314,
+								1314
 							]
 						],
 						"settings":
@@ -353,126 +263,80 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 1,
+					"file": "Pagina-Web/mac0499/style/style.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7957,
+						"buffer_size": 5633,
 						"regions":
 						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										298,
-										302
-									],
-									[
-										576,
-										580
-									],
-									[
-										1310,
-										1314
-									],
-									[
-										1588,
-										1592
-									],
-									[
-										2317,
-										2321
-									],
-									[
-										2612,
-										2616
-									],
-									[
-										3355,
-										3359
-									],
-									[
-										3650,
-										3654
-									],
-									[
-										4469,
-										4481
-									],
-									[
-										4825,
-										4837
-									],
-									[
-										5405,
-										5417
-									],
-									[
-										5761,
-										5773
-									],
-									[
-										6319,
-										6331
-									],
-									[
-										6675,
-										6687
-									],
-									[
-										7264,
-										7276
-									],
-									[
-										7620,
-										7632
-									]
-								],
-								"scope": ""
-							}
 						},
 						"selection":
 						[
 							[
-								4153,
-								4153
+								1574,
+								1574
 							]
 						],
 						"settings":
 						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 2,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1675.0,
+						"translation.y": 1598.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Pagina-Web/mac0499/intro.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5329,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3766,
+								3766
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1636.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "Pagina-Web/mac0499/contact.html",
+					"buffer": 3,
+					"file": "Pagina-Web/mac0499/motivacao&Objetivos.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4352,
+						"buffer_size": 5115,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								398,
-								398
+								53,
+								53
 							]
 						],
 						"settings":
@@ -485,7 +349,67 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Pagina-Web/mac0499/cronograma.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8996,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								54,
+								54
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Pagina-Web/mac0499/contact.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4192,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

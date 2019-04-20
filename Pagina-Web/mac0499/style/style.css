@@ -98,7 +98,7 @@ ol li
   margin-right: auto;}
 
 #header
-{ background: #323534 url(back.png) repeat-x;
+{ background: #353534 url(back.png) repeat-x;
   height: 177px;}
   
 #banner
@@ -132,7 +132,7 @@ ol li
   text-decoration: none;}
 
 #logo_text h1 a .logo_colour
-{ color: #E4EC04;}
+{ color: #0000CD;}
 
 #logo_text a:hover .logo_colour
 { color: #FFF;}
@@ -140,7 +140,7 @@ ol li
 #logo_text h2
 { font-size: 120%;
   padding: 4px 0 0 0;
-  color: #999;}
+  color: #87CEEB;}
 
 #menubar
 { width: 880px;
@@ -181,7 +181,7 @@ ul#menu li.selected a, ul#menu li.selected a:hover
   color: #FFF;}
 
 ul#menu li a:hover
-{ color: #E4EC04;}
+{ color: #87CEEB;}
 
 #site_content
 { width: 880px;
@@ -196,7 +196,7 @@ ul#menu li a:hover
 .sidebar_top
 { width: 222px;
   height: 14px;
-  background: transparent url(side_top.png) no-repeat;}
+  background: #87CEEB url(side_top.png) no-repeat;}
 
 .sidebar_base
 { width: 222px;
