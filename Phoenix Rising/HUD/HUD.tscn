@@ -8,6 +8,7 @@ size = 64
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 32
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -31,10 +32,13 @@ text = "Phoenix Rising"
 align = 1
 
 [node name="Autor" type="Label" parent="."]
-margin_left = 660.0
-margin_top = 549.474
-margin_right = 989.0
-margin_bottom = 569.474
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -331.5
+margin_top = -45.0
+margin_right = 331.5
 custom_fonts/font = SubResource( 2 )
 text = "Criado por Mateus Agostinho dos Anjos"
 
@@ -53,10 +57,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -68.6842
-margin_top = 47.4736
-margin_right = 81.3158
-margin_bottom = 107.474
+margin_left = -75.0
+margin_top = 90.6316
+margin_right = 75.0
+margin_bottom = 150.632
 text = "Jogar!"
 
 [node name="MessageTimer" type="Timer" parent="."]
