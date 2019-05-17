@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://HUD/HUD.gd" type="Script" id=1]
+[ext_resource path="res://acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 2 )
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Titulo" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -278.5
+margin_top = -46.0
+margin_right = 278.5
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+text = "Phoenix Rising"
+align = 1
+
+[node name="Autor" type="Label" parent="."]
+margin_left = 660.0
+margin_top = 549.474
+margin_right = 989.0
+margin_bottom = 569.474
+custom_fonts/font = SubResource( 2 )
+text = "Criado por Mateus Agostinho dos Anjos"
+
+[node name="Message" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -212.0
+margin_top = 60.0
+margin_right = 200.0
+margin_bottom = 122.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+
+[node name="StartButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -68.6842
+margin_top = 47.4736
+margin_right = 81.3158
+margin_bottom = 107.474
+text = "Jogar!"
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]

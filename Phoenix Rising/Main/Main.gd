@@ -7,7 +7,6 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
     pass # Replace with function body.
-    $TimerInicio.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -15,6 +14,10 @@ func _ready():
 
 func new_game():
     $Phoenix.start($PosicaoInicial.position)
+    $HUD.show_message("Prepare-se!")
 
 func _on_TimerInicio_timeout():
+    pass
+
+func _on_HUD_start_game():
     new_game()
