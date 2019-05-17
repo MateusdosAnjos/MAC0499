@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Invertory.gd" type="Script" id=1]
+[ext_resource path="res://acessorios/art/grid.png" type="Texture" id=2]
+[ext_resource path="res://itensDoJogo/Grid.gd" type="Script" id=3]
+
+[node name="Invertory" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+script = ExtResource( 1 )
+
+[node name="InventoryBase" type="Panel" parent="."]
+margin_left = -502.0
+margin_top = -137.0
+margin_right = 103.0
+margin_bottom = 211.0
+
+[node name="Grid" type="TextureRect" parent="."]
+modulate = Color( 0.164706, 0.164706, 0.164706, 1 )
+margin_left = -466.316
+margin_top = -111.579
+margin_right = -18.3159
+margin_bottom = 144.421
+rect_scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
