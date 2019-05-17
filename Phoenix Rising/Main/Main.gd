@@ -13,10 +13,10 @@ func _ready():
 #    pass
 
 func new_game():
-    $Phoenix.start($PosicaoInicial.position)
+    $Phoenix.start($StartPosition.position)
     $HUD.show_message("Prepare-se!")
 
-func _on_TimerInicio_timeout():
+func _on_StartTimer_timeout():
     pass
 
 func _on_HUD_start_game():
