@@ -1,8 +1,11 @@
 extends Area2D
-signal hit
 
 export var speed = 400  # How fast the player will move (pixels/sec).
 var screen_size  # Size of the game window.
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,18 +35,3 @@ func _process(delta):
         $AnimatedSprite.flip_v = false
         # See the note below about boolean assignment
         $AnimatedSprite.flip_h = velocity.x < 0
-    elif velocity.y != 0:
-        $AnimatedSprite.animation = "cima"
-        $AnimatedSprite.flip_v = false
-
-
-func _on_Phoenix_body_entered(body):
-    hide()  # Player disappears after being hit.
-    emit_signal("hit")
-    $CollisionShape2D.set_deferred("disabled", true)
-
-func start(pos):
-    position = pos
-    show()
-    $CollisionShape2D.disabled = false
-        
