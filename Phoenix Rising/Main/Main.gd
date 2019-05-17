@@ -16,8 +16,5 @@ func new_game():
     $Phoenix.start($StartPosition.position)
     $HUD.show_message("Prepare-se!")
 
-func _on_StartTimer_timeout():
-    pass
-
 func _on_HUD_start_game():
     new_game()

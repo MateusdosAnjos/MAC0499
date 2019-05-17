@@ -20,9 +20,12 @@ func _ready():
 
 func _on_StartButton_pressed():
     $StartButton.hide()
+    $TitleScreenTimer.start()
     emit_signal("start_game")
 
 func _on_MessageTimer_timeout():
+    $Message.hide()
+
+func _on_TitleScreenTimer_timeout():
     $Title.hide()
     $Author.hide()
-    $Message.hide()
