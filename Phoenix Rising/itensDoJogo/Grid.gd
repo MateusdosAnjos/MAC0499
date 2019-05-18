@@ -45,7 +45,7 @@ func get_item_under_pos(pos):
     for item in items:
         if item.get_global_rect().has_point(pos):
             return item
-        return null        
+    return null       
 
 
 func set_grid_space (x, y, w, h, state):
