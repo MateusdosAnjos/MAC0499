@@ -50,9 +50,7 @@ func release(cursor_pos):
             return_item()
     else:
         return_item()                
-           
-        
-                
+                          
 func get_container_under_cursor(cursor_pos):
     var containers = [grid, inv_base, notGrid]
     for c in containers:

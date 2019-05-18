@@ -70,9 +70,7 @@ func pos_to_grid_coord(pos):
     results.x = int(local_pos.x / cell_size)
     results.y = int(local_pos.y / cell_size)
     return results
-            
-    
-              
+                         
 func get_grid_size(item):
     var results = {}
     var s = item.rect_size
