@@ -1,4 +1,4 @@
-extends Control
+extends Area2D
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -12,6 +12,5 @@ func _ready():
 #func _process(delta):
 #    pass
 
-
-func _on_HelpAreaCollision_mouse_entered():
-    print("OI")
+func _on_Help_mouse_entered():
+    print("Oe")
