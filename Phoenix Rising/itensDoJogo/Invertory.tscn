@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://itensDoJogo/Invertory.gd" type="Script" id=1]
 [ext_resource path="res://itensDoJogo/Grid.gd" type="Script" id=2]
+[ext_resource path="res://Help/Help.tscn" type="PackedScene" id=3]
 
 [node name="Invertory" type="Control"]
 anchor_left = 0.5
@@ -35,3 +36,9 @@ margin_left = -638.0
 margin_top = -358.0
 margin_right = 641.0
 margin_bottom = 183.0
+
+[node name="Help" parent="." instance=ExtResource( 3 )]
+margin_left = 439.656
+margin_top = -320.994
+margin_right = 639.656
+margin_bottom = -220.994

@@ -5,6 +5,7 @@ const item_base = preload("res://itensDoJogo/ItemBase.tscn")
 onready var inv_base = $InventoryBase
 onready var grid = $Grid
 onready var notGrid = $NotGrid
+onready var help = $Help
 
 
 var item_held = null
@@ -52,7 +53,7 @@ func release(cursor_pos):
         return_item()                
                           
 func get_container_under_cursor(cursor_pos):
-    var containers = [grid, inv_base, notGrid]
+    var containers = [grid, help, inv_base, notGrid]
     for c in containers:
         if c.get_global_rect().has_point(cursor_pos):
             return c
