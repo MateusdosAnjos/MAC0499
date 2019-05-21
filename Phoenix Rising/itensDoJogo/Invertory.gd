@@ -5,8 +5,7 @@ const item_base = preload("res://itensDoJogo/ItemBase.tscn")
 onready var inv_base = $InventoryBase
 onready var grid = $Grid
 onready var notGrid = $NotGrid
-onready var help = $Help
-
+onready var action = $ActionSpace
 
 var item_held = null
 var item_offset = Vector2()
@@ -21,12 +20,15 @@ func _ready():
             
 func _process(delta):
     var cursor_pos = get_global_mouse_position()
+    if Input.is_action_just_pressed("inv_help"):
+        item_help(cursor_pos)
     if Input.is_action_just_pressed("inv_grab"):
         grab(cursor_pos)
     if Input.is_action_just_released("inv_grab"):
         release(cursor_pos)
     if item_held != null:
         item_held.rect_global_position = cursor_pos + item_offset
+        
 
 func grab(cursor_pos):
     var c = get_container_under_cursor(cursor_pos)
@@ -53,7 +55,7 @@ func release(cursor_pos):
         return_item()                
                           
 func get_container_under_cursor(cursor_pos):
-    var containers = [grid, help, inv_base, notGrid]
+    var containers = [grid, action, inv_base, notGrid]
     for c in containers:
         if c.get_global_rect().has_point(cursor_pos):
             return c
@@ -76,4 +78,8 @@ func pickup_item(item_id):
     if !grid.insert_item_at_first_available_spot(item):
         item.queue_free()
         return false
-    return true                                 
+    return true
+
+func item_help(pos):
+    print("oe")    
+                                     

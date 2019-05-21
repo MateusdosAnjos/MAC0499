@@ -1,7 +1,5 @@
 extends TextureRect
 
-signal itemHelp
-
 var items = []
 var grid = {}
 
@@ -14,16 +12,7 @@ func _ready():
     var s = get_grid_size(self)
     grid_width = s.x
     grid_height = s.y
-
-func _process(delta):
-    if existItem:
-        item_helper(items[0])
-    else:
-        pass
-        
-func item_helper(item):
-    return
-                       
+                     
 func insert_item(item):  
     var item_pos = item.rect_global_position + Vector2(cell_size/2, cell_size/2)
     var g_pos = pos_to_grid_coord(item_pos)

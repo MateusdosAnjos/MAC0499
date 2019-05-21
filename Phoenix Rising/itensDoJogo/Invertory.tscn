@@ -2,7 +2,7 @@
 
 [ext_resource path="res://itensDoJogo/Invertory.gd" type="Script" id=1]
 [ext_resource path="res://itensDoJogo/Grid.gd" type="Script" id=2]
-[ext_resource path="res://Help/Help.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=3]
 
 [node name="Invertory" type="Control"]
 anchor_left = 0.5
@@ -37,8 +37,8 @@ margin_top = -356.834
 margin_right = 642.166
 margin_bottom = 184.166
 
-[node name="Help" parent="." instance=ExtResource( 3 )]
-margin_left = 452.0
-margin_top = -298.0
-margin_right = 623.0
-margin_bottom = -235.0
+[node name="ActionSpace" parent="." instance=ExtResource( 3 )]
+margin_left = -495.058
+margin_top = -205.469
+margin_right = -320.058
+margin_bottom = -131.469

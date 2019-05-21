@@ -1,49 +1,48 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Help/Help.gd" type="Script" id=1]
+[ext_resource path="res://ActionSpace/Action.gd" type="Script" id=1]
 [ext_resource path="res://acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=1]
 size = 32
 outline_size = 4
 outline_color = Color( 0.47451, 0.105882, 0.105882, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 24
 outline_size = 4
 outline_color = Color( 0.47451, 0.105882, 0.105882, 1 )
 font_data = ExtResource( 2 )
 
-[node name="Help" type="TextureRect"]
+[node name="ActionSpace" type="TextureRect"]
 margin_left = -20.0
 margin_top = -20.0
 margin_right = -20.0
 margin_bottom = -20.0
 script = ExtResource( 1 )
 
-[node name="HelpShape" type="Panel" parent="."]
+[node name="ActionShape" type="Panel" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -20.0
+margin_left = -21.1663
 margin_top = -20.0
-margin_right = 180.0
+margin_right = 178.834
 margin_bottom = 80.0
 
-[node name="HelpLabel" type="Label" parent="."]
+[node name="ActionLabel" type="Label" parent="."]
 margin_left = 31.2632
 margin_top = -63.0
 margin_right = 127.263
 margin_bottom = -23.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Ajuda"
+text = "Ação"
 
 [node name="HowToUse" type="Label" parent="."]
 margin_left = -11.5264
 margin_top = -0.0526733
 margin_right = 178.474
 margin_bottom = 62.9473
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Arraste o item
         aqui"
-[connection signal="itemHelp" from="." to="." method="_on_Help_itemHelp"]
