@@ -52,4 +52,13 @@ func get_grid_size(item):
     var s = item.rect_size
     results.x = clamp(int(s.x / cell_size), 1, 500)    
     results.y = clamp(int(s.y / cell_size), 1, 500)
-    return results    
+    return results
+
+func _on_Invertory_inv_help(pos):
+    var item = get_item_under_pos(pos)
+    if item == null:
+        return
+    else:    
+        var id = item.get_meta("id")
+        print(ItemDB.get_item(id)["help"])
+    return

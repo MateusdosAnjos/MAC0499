@@ -87,9 +87,11 @@ func insert_item_at_first_available_spot(item):
                     return true
     return false                        
     
-
 func _on_Invertory_inv_help(pos):
     var item = get_item_under_pos(pos)
-    var id = item.get_meta("id")
-    print(ItemDB.get_item(id)["help"])
+    if item == null:
+        return
+    else:    
+        var id = item.get_meta("id")
+        print(ItemDB.get_item(id)["help"])
     return
