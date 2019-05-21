@@ -5,10 +5,14 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
+outline_size = 4
+outline_color = Color( 0.47451, 0.105882, 0.105882, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
+outline_size = 4
+outline_color = Color( 0.47451, 0.105882, 0.105882, 1 )
 font_data = ExtResource( 2 )
 
 [node name="Control" type="Control"]
@@ -16,6 +20,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="HelpArea" type="Panel" parent="."]
+modulate = Color( 0, 0, 0, 1 )
 margin_left = 1080.0
 margin_top = 40.0
 margin_right = 1280.0
@@ -27,12 +32,13 @@ margin_left = 1147.37
 margin_right = 1222.37
 margin_bottom = 39.0
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Help"
 
 [node name="HowToUse" type="Label" parent="."]
-margin_left = 1082.79
+margin_left = 1084.9
 margin_top = 79.5789
-margin_right = 1277.79
+margin_right = 1279.9
 margin_bottom = 109.579
 custom_fonts/font = SubResource( 2 )
 text = "Drag item Here"

@@ -24,7 +24,4 @@ func help_area(event):
         if MousePos.x > PosX and MousePos.x < PosX + SizeX and MousePos.y > PosY and MousePos.y < PosY + SizeY:
             if has_item():
                 return true
-    return false
-   
-           
-    
+    return false  
