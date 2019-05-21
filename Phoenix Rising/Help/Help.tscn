@@ -46,3 +46,4 @@ margin_bottom = 62.9473
 custom_fonts/font = SubResource( 3 )
 text = "Arraste o item
         aqui"
+[connection signal="itemHelp" from="." to="." method="_on_Help_itemHelp"]
