@@ -14,6 +14,3 @@ func new_game():
 
 func _on_HUD_start_game():
     new_game()
-
-func _on_Help_mouse_entered():
-    print("Oe")

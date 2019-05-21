@@ -32,13 +32,13 @@ rect_scale = Vector2( 1, 0.6 )
 script = ExtResource( 2 )
 
 [node name="NotGrid" type="TextureRect" parent="."]
-margin_left = -638.0
-margin_top = -358.0
-margin_right = 641.0
-margin_bottom = 183.0
+margin_left = -636.834
+margin_top = -356.834
+margin_right = 642.166
+margin_bottom = 184.166
 
 [node name="Help" parent="." instance=ExtResource( 3 )]
-margin_left = 439.656
-margin_top = -320.994
-margin_right = 639.656
-margin_bottom = -220.994
+margin_left = 452.0
+margin_top = -298.0
+margin_right = 623.0
+margin_bottom = -235.0
