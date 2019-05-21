@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Help/Panel.gd" type="Script" id=1]
+[ext_resource path="res://Help/HelpArea.gd" type="Script" id=1]
 [ext_resource path="res://acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -15,7 +16,7 @@ outline_size = 4
 outline_color = Color( 0.47451, 0.105882, 0.105882, 1 )
 font_data = ExtResource( 2 )
 
-[node name="Control" type="Control"]
+[node name="Help" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
 
