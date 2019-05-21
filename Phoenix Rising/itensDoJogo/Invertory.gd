@@ -19,6 +19,8 @@ func _ready():
     pickup_item("godot")
     pickup_item("godot")
     pickup_item("godot")
+    pickup_item("phoenixD")
+    pickup_item("phoenixE")    
             
 func _process(delta):
     var cursor_pos = get_global_mouse_position()

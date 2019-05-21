@@ -7,6 +7,14 @@ const ITEMS = {
         "icon": ICON_PATH + "icon.png",
         "help": "Icone da Godot para testes"
     },
+    "phoenixD": {
+        "icon": ICON_PATH + "phoenix_direita.png",
+        "help": "Icone da Phoenix para a direita!!"
+    },
+    "phoenixE": {
+        "icon": ICON_PATH + "phoenix_esquerda.png",
+        "help": "Icone da Phoenix para a esquerda!!"
+    },         
     "error": {
         "icon": ICON_PATH + "enemyFlyingAlt_2.png",
         "help": "Icone de erro para testes"
