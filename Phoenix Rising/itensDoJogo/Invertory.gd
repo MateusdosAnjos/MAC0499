@@ -1,5 +1,7 @@
 extends Control
 
+signal inv_help
+
 const item_base = preload("res://itensDoJogo/ItemBase.tscn")
 
 onready var inv_base = $InventoryBase
@@ -21,7 +23,7 @@ func _ready():
 func _process(delta):
     var cursor_pos = get_global_mouse_position()
     if Input.is_action_just_pressed("inv_help"):
-        item_help(cursor_pos)
+        emit_signal("inv_help", cursor_pos)
     if Input.is_action_just_pressed("inv_grab"):
         grab(cursor_pos)
     if Input.is_action_just_released("inv_grab"):
@@ -78,8 +80,4 @@ func pickup_item(item_id):
     if !grid.insert_item_at_first_available_spot(item):
         item.queue_free()
         return false
-    return true
-
-func item_help(pos):
-    print("oe")    
-                                     
+    return true                                  

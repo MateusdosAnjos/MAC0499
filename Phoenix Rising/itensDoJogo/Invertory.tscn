@@ -42,3 +42,4 @@ margin_left = -495.058
 margin_top = -205.469
 margin_right = -320.058
 margin_bottom = -131.469
+[connection signal="inv_help" from="." to="Grid" method="_on_Invertory_inv_help"]
