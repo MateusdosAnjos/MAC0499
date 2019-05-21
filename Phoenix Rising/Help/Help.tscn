@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Help/Panel.gd" type="Script" id=1]
+[ext_resource path="res://acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="HelpArea" type="Panel" parent="."]
+margin_left = 1080.0
+margin_top = 40.0
+margin_right = 1280.0
+margin_bottom = 140.0
+script = ExtResource( 1 )
+
+[node name="HelpLabel" type="Label" parent="."]
+margin_left = 1147.37
+margin_right = 1222.37
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 1 )
+text = "Help"
+
+[node name="HowToUse" type="Label" parent="."]
+margin_left = 1082.79
+margin_top = 79.5789
+margin_right = 1277.79
+margin_bottom = 109.579
+custom_fonts/font = SubResource( 2 )
+text = "Drag item Here"
