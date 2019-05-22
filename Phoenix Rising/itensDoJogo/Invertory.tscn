@@ -37,7 +37,6 @@ margin_right = 302.0
 margin_bottom = -626.0
 
 [node name="HelpPopup" parent="Grid/ActionSpace" instance=ExtResource( 4 )]
-visible = false
 margin_left = -142.295
 margin_top = -211.887
 margin_right = 57.7052
