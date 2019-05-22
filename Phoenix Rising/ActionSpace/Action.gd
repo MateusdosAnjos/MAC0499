@@ -99,6 +99,7 @@ func _on_Invertory_inv_help(pos):
         return
     else:    
         var id = item.get_meta("id")
-        print(ItemDB.get_item(id)["help"])
-        helpPopup.popup()
+        var text = helpPopup.get_children()
+        text[0].set_bbcode(ItemDB.get_item(id)["help"])
+        helpPopup.popup()            
     return
