@@ -2,7 +2,7 @@
 
 [ext_resource path="res://itensDoJogo/Invertory.gd" type="Script" id=1]
 [ext_resource path="res://itensDoJogo/Grid.gd" type="Script" id=2]
-[ext_resource path="res://itensDoJogo/Popup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://itensDoJogo/HelpPopup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=4]
 
 [node name="Invertory" type="Control"]
@@ -32,11 +32,7 @@ margin_bottom = 473.0
 rect_scale = Vector2( 1, 0.6 )
 script = ExtResource( 2 )
 
-[node name="Popup" parent="Grid" instance=ExtResource( 3 )]
-margin_left = 524.805
-margin_top = -235.073
-margin_right = 962.805
-margin_bottom = -119.073
+[node name="HelpPopup" parent="Grid" instance=ExtResource( 3 )]
 
 [node name="ActionSpace" parent="." instance=ExtResource( 4 )]
 margin_left = -495.058
@@ -44,6 +40,6 @@ margin_top = -205.469
 margin_right = -320.058
 margin_bottom = -131.469
 
-[node name="Popup" parent="ActionSpace" instance=ExtResource( 3 )]
+[node name="HelpPopup" parent="ActionSpace" instance=ExtResource( 3 )]
 [connection signal="inv_help" from="." to="Grid" method="_on_Invertory_inv_help"]
 [connection signal="inv_help" from="." to="ActionSpace" method="_on_Invertory_inv_help"]

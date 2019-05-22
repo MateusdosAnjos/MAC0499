@@ -1,7 +1,0 @@
-[gd_scene format=2]
-
-[node name="HelpPopup" type="PopupPanel"]
-margin_left = 421.0
-margin_top = 109.0
-margin_right = 859.0
-margin_bottom = 225.0

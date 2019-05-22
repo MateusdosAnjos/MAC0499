@@ -8,6 +8,8 @@ var cell_size = 32
 var grid_width = 0
 var grid_height = 0
 
+onready var helpPopup = get_node("HelpPopup")   
+
 func _ready():
     var s = get_grid_size(self)
     grid_width = s.x
@@ -61,4 +63,5 @@ func _on_Invertory_inv_help(pos):
     else:    
         var id = item.get_meta("id")
         print(ItemDB.get_item(id)["help"])
+        helpPopup.popup()
     return

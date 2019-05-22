@@ -6,10 +6,10 @@ var grid = {}
 var cell_size = 32
 var grid_width = 0
 var grid_height = 0
-var helpPopup
+
+onready var helpPopup = get_node("HelpPopup")   
 
 func _ready():
-    helpPopup = get_node("Popup")    
     var s = get_grid_size(self)
     grid_width = s.x
     grid_height = s.y
