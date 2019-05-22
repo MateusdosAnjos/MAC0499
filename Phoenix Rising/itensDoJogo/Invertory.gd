@@ -4,7 +4,6 @@ signal inv_help
 
 const item_base = preload("res://itensDoJogo/ItemBase.tscn")
 
-onready var inv_base = $InventoryBase
 onready var grid = $Grid
 onready var action = $Grid/ActionSpace
 
@@ -58,7 +57,7 @@ func release(cursor_pos):
         return_item()                
                           
 func get_container_under_cursor(cursor_pos):
-    var containers = [grid, action, inv_base]
+    var containers = [grid, action]
     for c in containers:
         if c.get_global_rect().has_point(cursor_pos):
             return c
