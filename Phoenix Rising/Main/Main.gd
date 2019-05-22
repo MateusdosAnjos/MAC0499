@@ -14,3 +14,7 @@ func new_game():
 
 func _on_HUD_start_game():
     new_game()
+
+
+func _on_FullScreen_pressed():
+    OS.window_fullscreen = !OS.window_fullscreen
