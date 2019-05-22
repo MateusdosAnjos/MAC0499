@@ -37,9 +37,10 @@ margin_right = 302.0
 margin_bottom = -626.0
 
 [node name="HelpPopup" parent="Grid/ActionSpace" instance=ExtResource( 4 )]
-margin_left = 462.308
-margin_top = 265.953
-margin_right = 579.308
-margin_bottom = 356.953
-[connection signal="inv_help" from="." to="Grid/ActionSpace" method="_on_Invertory_inv_help"]
+visible = false
+margin_left = -142.295
+margin_top = -211.887
+margin_right = 57.7052
+margin_bottom = -111.887
 [connection signal="inv_help" from="." to="Grid" method="_on_Invertory_inv_help"]
+[connection signal="inv_help" from="." to="Grid/ActionSpace" method="_on_Invertory_inv_help"]

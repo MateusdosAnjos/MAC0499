@@ -1,6 +1,7 @@
 [gd_scene format=2]
 
 [node name="HelpPopup" type="PopupPanel"]
+visible = true
 margin_right = 200.0
 margin_bottom = 100.0
 
