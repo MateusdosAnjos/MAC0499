@@ -6,7 +6,6 @@ const item_base = preload("res://itensDoJogo/ItemBase.tscn")
 
 onready var inv_base = $InventoryBase
 onready var grid = $Grid
-onready var notGrid = $NotGrid
 onready var action = $ActionSpace
 
 var item_held = null
@@ -20,7 +19,7 @@ func _ready():
     pickup_item("godot")
     pickup_item("godot")
     pickup_item("phoenixD")
-    pickup_item("phoenixE")    
+    pickup_item("phoenixE")
             
 func _process(delta):
     var cursor_pos = get_global_mouse_position()
@@ -43,13 +42,13 @@ func grab(cursor_pos):
             last_pos = item_held.rect_global_position
             item_offset = item_held.rect_global_position - cursor_pos
             move_child(item_held, get_child_count())
-            
+                        
 func release(cursor_pos):
     if item_held == null:
         return
     var c = get_container_under_cursor(cursor_pos)
     if c == null:
-        drop_item()
+        return_item()
     elif c.has_method("insert_item"):
         if c.insert_item(item_held):
             item_held = null
@@ -59,7 +58,7 @@ func release(cursor_pos):
         return_item()                
                           
 func get_container_under_cursor(cursor_pos):
-    var containers = [grid, action, inv_base, notGrid]
+    var containers = [grid, action, inv_base]
     for c in containers:
         if c.get_global_rect().has_point(cursor_pos):
             return c
