@@ -7,7 +7,7 @@ var cell_size = 32
 var grid_width = 0
 var grid_height = 0
 
-onready var helpPopup = get_node("HelpPopup")   
+onready var helpPopup = get_node("ActionSpace/HelpPopup")   
 
 func _ready():
     var s = get_grid_size(self)
@@ -39,7 +39,6 @@ func grab_item(pos):
     var g_pos = pos_to_grid_coord(item_pos)
     var item_size = get_grid_size(item)
     set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, false)
-    
     items.remove(items.find(item))
     return item
         
@@ -48,7 +47,6 @@ func get_item_under_pos(pos):
         if item.get_global_rect().has_point(pos):
             return item
     return null       
-
 
 func set_grid_space (x, y, w, h, state):
         for i in range (x, x + w):

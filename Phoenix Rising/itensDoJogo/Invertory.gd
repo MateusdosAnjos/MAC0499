@@ -6,7 +6,7 @@ const item_base = preload("res://itensDoJogo/ItemBase.tscn")
 
 onready var inv_base = $InventoryBase
 onready var grid = $Grid
-onready var action = $ActionSpace
+onready var action = $Grid/ActionSpace
 
 var item_held = null
 var item_offset = Vector2()
