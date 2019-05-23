@@ -1,13 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://itensDoJogo/Invertory.tscn" type="PackedScene" id=3]
-[ext_resource path="res://acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://TelaInicial/FullScreen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Phoenix/Phoenix.tscn" type="PackedScene" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 4 )
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -24,15 +21,7 @@ color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="Invertory" parent="." instance=ExtResource( 3 )]
 
-[node name="FullScreen" type="Button" parent="."]
-modulate = Color( 0.541176, 0.733333, 1, 1 )
-margin_left = 1680.0
-margin_top = 40.0
-margin_right = 1785.0
-margin_bottom = 80.0
-custom_fonts/font = SubResource( 1 )
-text = "Tela Cheia"
+[node name="FullScreen" parent="." instance=ExtResource( 4 )]
 
 [node name="Phoenix" parent="." instance=ExtResource( 5 )]
 [connection signal="start_game" from="HUD" to="." method="_on_HUD_start_game"]
-[connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]

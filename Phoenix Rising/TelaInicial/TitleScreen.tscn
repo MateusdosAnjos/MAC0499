@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Acessorios/art/PhoenixLogo.png" type="Texture" id=1]
+[ext_resource path="res://Acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://TelaInicial/FullScreen.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 2 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 240.0
+margin_top = 160.0
+margin_right = 1600.0
+margin_bottom = 760.0
+
+[node name="TextureRect" type="TextureRect" parent="Menu"]
+margin_right = 1360.0
+margin_bottom = 524.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+
+[node name="NewGame" type="Button" parent="."]
+margin_left = 840.0
+margin_top = 720.0
+margin_right = 1040.0
+margin_bottom = 820.0
+custom_fonts/font = SubResource( 1 )
+flat = true
+
+[node name="Label" type="Label" parent="NewGame"]
+margin_right = 200.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0.713726, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+text = "Novo Jogo"
+align = 1
+valign = 1
+
+[node name="FullScreen" parent="." instance=ExtResource( 3 )]
+modulate = Color( 0.541176, 0.733333, 1, 1 )
