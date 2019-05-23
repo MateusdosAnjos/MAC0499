@@ -4,7 +4,7 @@ func _ready():
     pass # Replace with function body.
 
 func _on_NewGame_pressed():
-    get_tree().change_scene("res://Main/Main.tscn")
+    get_tree().change_scene("res://Tutorial/Tutorial.tscn")
 
 func _on_FullScreen_pressed():
     OS.window_fullscreen = !OS.window_fullscreen
