@@ -25,3 +25,4 @@ color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="Phoenix" parent="." instance=ExtResource( 5 )]
 [connection signal="start_game" from="HUD" to="." method="_on_HUD_start_game"]
+[connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
