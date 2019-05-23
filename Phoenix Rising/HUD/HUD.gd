@@ -1,11 +1,5 @@
 extends CanvasLayer
 
-signal start_game
-
-func show_message(text):
-    $Message.text = text
-    $Message.show()
-    $MessageTimer.start()
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -18,14 +12,7 @@ func _ready():
 #func _process(delta):
 #    pass
 
-func _on_StartButton_pressed():
-    $StartButton.hide()
-    $TitleScreenTimer.start()
-    emit_signal("start_game")
-
-func _on_MessageTimer_timeout():
-    $Message.hide()
-
-func _on_TitleScreenTimer_timeout():
+func _on_NewGame_pressed():
     $Title.hide()
     $Author.hide()
+    $NewGame.hide()
