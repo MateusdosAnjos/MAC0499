@@ -11,8 +11,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #    pass
-
-func _on_NewGame_pressed():
-    $Title.hide()
-    $Author.hide()
-    $NewGame.hide()
