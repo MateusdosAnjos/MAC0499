@@ -20,6 +20,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+TitleScreen="*res://TelaInicial/TitleScreen.tscn"
 ItemDB="*res://itensDoJogo/ItemDB.tscn"
 
 [display]
