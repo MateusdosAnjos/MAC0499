@@ -17,8 +17,8 @@ func _ready():
 
 func _on_Timer_timeout():
     set_visible_characters(get_visible_characters()+1)
-
-func _on_DialogBox_pressed():
+    
+func _on_Skip_pressed():
         if get_visible_characters() > get_total_character_count():
             if page < dialog.size()-1:
                 page += 1
@@ -26,3 +26,4 @@ func _on_DialogBox_pressed():
                 set_visible_characters(0)
         else:
             set_visible_characters(get_total_character_count())
+
