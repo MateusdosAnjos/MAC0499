@@ -12,7 +12,7 @@ body
 
 p
 { padding: 0 0 20px 0;
-  line-height: 1.8em;}
+  line-height: 1.7em;}
 
 img
 { border: 0;}
@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6
   padding: 0 0 5px 0;}
 
 h1, h2, h3
-{ font: normal 200% 'century gothic', arial;
+{ font: normal 170% 'century gothic', arial;
   margin: 0 0 15px 0;
   padding: 15px 0 5px 0;
   color: #000;}
@@ -102,7 +102,7 @@ ol li
   height: 177px;}
   
 #banner
-{  background: transparent url(cyber-eye.jpg) no-repeat;
+{  background: transparent url() no-repeat;
   width: 860px;
   height: 180px;
   margin-bottom: 20px;
@@ -132,7 +132,7 @@ ol li
   text-decoration: none;}
 
 #logo_text h1 a .logo_colour
-{ color: #0080FF;}
+{ color: #0000CD;}
 
 #logo_text a:hover .logo_colour
 { color: #FFF;}
@@ -190,8 +190,9 @@ ul#menu li a:hover
   padding: 0 0 10px 0;} 
 
 #sidebar_container
-{ float: right;
-  width: 224px;}
+{ position: static;
+  width: 224px;
+  left: 300px;}
 
 .sidebar_top
 { width: 222px;
@@ -221,10 +222,10 @@ ul#menu li a:hover
 { margin: 0;} 
 
 #content
-{ text-align: center;
-  width: 440px;
-  padding: 0 0 0 220px;
-  float: center;}
+{ text-align: left;
+  width: 620px;
+  padding: 0 0 0 5px;
+  float: left;}
   
 #content ul
 { margin: 2px 0 22px 0px;}
