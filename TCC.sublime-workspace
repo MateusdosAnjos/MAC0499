@@ -35,7 +35,7 @@
 			"file": "Pagina-Web/mac0499/index.html",
 			"settings":
 			{
-				"buffer_size": 4649,
+				"buffer_size": 2194,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -44,7 +44,7 @@
 			"file": "Pagina-Web/mac0499/intro.html",
 			"settings":
 			{
-				"buffer_size": 3481,
+				"buffer_size": 2109,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -53,7 +53,7 @@
 			"file": "Pagina-Web/mac0499/motivacao&Objetivos.html",
 			"settings":
 			{
-				"buffer_size": 3491,
+				"buffer_size": 2090,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -62,7 +62,7 @@
 			"file": "Pagina-Web/mac0499/cronograma.html",
 			"settings":
 			{
-				"buffer_size": 9044,
+				"buffer_size": 4653,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -71,19 +71,16 @@
 			"file": "Pagina-Web/mac0499/contact.html",
 			"settings":
 			{
-				"buffer_size": 3997,
+				"buffer_size": 2596,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "html\n{ height: 100%;}\n\n*\n{ margin: 0;\n  padding: 0;}\n\nbody\n{ font: normal 0.9em 'trebuchet ms', arial, sans-serif;\n  background: #778899;\n  color: #000;}\n\np\n{ padding: 0 0 20px 0;\n  line-height: 1.7em;}\n\nimg\n{ border: 0;}\n\nh1, h2, h3, h4, h5, h6 \n{ color: #362C20;\n  letter-spacing: 0em;\n  padding: 0 0 5px 0;}\n\nh1, h2, h3\n{ font: normal 170% 'century gothic', arial;\n  margin: 0 0 15px 0;\n  padding: 15px 0 5px 0;\n  color: #000;}\n\nh2\n{ font-size: 160%;\n  padding: 9px 0 5px 0;\n  color: #009FBC;}\n\nh3\n{ font-size: 140%;\n  padding: 5px 0 0 0;}\n\nh4, h6\n{ color: #009FBC;\n  padding: 0 0 5px 0;\n  font: normal 110% arial;\n  text-transform: uppercase;}\n\nh5, h6\n{ color: #888;\n  font: normal 95% arial;\n  letter-spacing: normal;\n  padding: 0 0 15px 0;}\n\na, a:hover\n{ outline: none;\n  text-decoration: underline;\n  color: #4169E1;}\n\na:hover\n{ text-decoration: none;}\n\nblockquote\n{ margin: 20px 0; \n  padding: 10px 20px 0 20px;\n  border: 1px solid #E5E5DB;\n  background: #FFF;}\n\nul\n{ margin: 2px 0 22px 17px;}\n\nul li\n{ list-style-type: circle;\n  margin: 0 0 6px 0; \n  padding: 0 0 4px 5px;\n  line-height: 1.5em;}\n\nol\n{ margin: 8px 0 22px 20px;}\n\nol li\n{ margin: 0 0 11px 0;}\n\n.left\n{ float: left;\n  width: auto;\n  margin-right: 10px;}\n\n.right\n{ float: right; \n  width: auto;\n  margin-left: 10px;}\n\n.center\n{ display: block;\n  text-align: center;\n  margin: 20px auto;}\n\n#main, #logo, #menubar, #site_content, #footer\n{ margin-left: auto; \n  margin-right: auto;}\n\n#header\n{ background: #353534 url(back.png) repeat-x;\n  height: 177px;}\n  \n#banner\n{  background: transparent url(cyber-eye.jpg) no-repeat;\n  width: 860px;\n  height: 180px;\n  margin-bottom: 20px;\n  border: 10px solid #DDD;}\n\n#logo\n{ width: 880px;\n  position: relative;\n  height: 140px;\n  background: transparent;}\n\n#logo #logo_text \n{ position: absolute; \n  top: 10px;\n  left: 0;}\n\n#logo h1, #logo h2\n{ font: normal 300% 'century gothic', arial, sans-serif;\n  border-bottom: 0;\n  text-transform: none;\n  margin: 0 0 0 9px;}\n\n#logo_text h1, #logo_text h1 a, #logo_text h1 a:hover \n{ padding: 22px 0 0 0;\n  color: #FFF;\n  letter-spacing: 0.1em;\n  text-decoration: none;}\n\n#logo_text h1 a .logo_colour\n{ color: #0000CD;}\n\n#logo_text a:hover .logo_colour\n{ color: #FFF;}\n\n#logo_text h2\n{ font-size: 120%;\n  padding: 4px 0 0 0;\n  color: #87CEEB;}\n\n#menubar\n{ width: 880px;\n  height: 46px;} \n\nul#menu\n{ float: right;\n  margin: 0;}\n\nul#menu li\n{ float: left;\n  padding: 0 0 0 9px;\n  list-style: none;\n  margin: 1px 2px 0 0;\n  background: #5A5A5A url(tab.png) no-repeat 0 0;}\n\nul#menu li a\n{ font: normal 100% 'trebuchet ms', sans-serif;\n  display: block; \n  float: left; \n  height: 20px;\n  padding: 6px 35px 5px 28px;\n  text-align: center;\n  color: #FFF;\n  text-decoration: none;\n  background: #5A5A5A url(tab.png) no-repeat 100% 0;} \n\nul#menu li.selected a\n{ height: 20px;\n  padding: 6px 35px 5px 28px;}\n\nul#menu li.selected\n{ margin: 1px 2px 0 0;\n  background: #00C6F0 url(tab_selected.png) no-repeat 0 0;}\n\nul#menu li.selected a, ul#menu li.selected a:hover\n{ background: #00C6F0 url(tab_selected.png) no-repeat 100% 0;\n  color: #191970;}\n\nul#menu li a:hover\n{ color: #191970;}\n\n#site_content\n{ width: 880px;\n  overflow: hidden;\n  margin: 20px auto 0 auto;\n  padding: 0 0 10px 0;} \n\n#sidebar_container\n{ position: static;\n  width: 224px;\n  left: 300px;}\n\n.sidebar_top\n{ width: 222px;\n  height: 14px;\n  background: transparent url(side_top.png) no-repeat;}\n\n.sidebar_base\n{ width: 222px;\n  height: 14px;\n  background: url(side_base.png) no-repeat;}\n\n.sidebar\n{ float: right;\n  width: 222px;\n  padding: 0;\n  margin: 0 0 16px 0;}\n\n.sidebar_item\n{ background: url(side_back.png) repeat-y;\n  padding: 0 15px;\n  width: 192px;}\n\n.sidebar li a.selected\n{ color: #444;} \n\n.sidebar ul\n{ margin: 0;} \n\n#content\n{ text-align: left;\n  width: 620px;\n  padding: 0 0 0 5px;\n  float: left;}\n  \n#content ul\n{ margin: 2px 0 22px 0px;}\n\n#content ul li, .sidebar ul li\n{ list-style-type: none;\n  background: url(bullet.png) no-repeat;\n  margin: 0 0 0 0; \n  padding: 0 0 4px 25px;\n  line-height: 1.5em;}\n\n#footer\n{ width: 100%;\n  font-family: 'trebuchet ms', sans-serif;\n  font-size: 100%;\n  height: 80px;\n  padding: 28px 0 5px 0;\n  text-align: center; \n  background: #3B3939 url(footer.png) repeat-x;\n  color: #A8AA94;}\n\n#footer p\n{ line-height: 1.7em;\n  padding: 0 0 10px 0;}\n\n#footer a\n{ color: #A8AA94;\n  text-decoration: none;}\n\n#footer a:hover\n{ color: #FFF;\n  text-decoration: none;}\n\n.search\n{ color: #5D5D5D; \n  border: 1px solid #BBB; \n  width: 134px; \n  padding: 4px; \n  font: 100% arial, sans-serif;}\n\n.form_settings\n{ margin: 15px 0 0 0;}\n\n.form_settings p\n{ padding: 0 0 4px 0;}\n\n.form_settings span\n{ float: left; \n  width: 200px; \n  text-align: left;}\n  \n.form_settings input, .form_settings textarea\n{ padding: 5px; \n  width: 299px; \n  font: 100% arial; \n  border: 1px solid #E5E5DB; \n  background: #FFF; \n  color: #47433F;}\n  \n.form_settings .submit\n{ font: 100% arial; \n  border: 0; \n  width: 99px; \n  margin: 0 0 0 212px; \n  height: 33px;\n  padding: 2px 0 3px 0;\n  cursor: pointer; \n  background: #3B3B3B; \n  color: #FFF;}\n\n.form_settings textarea, .form_settings select\n{ font: 100% arial; \n  width: 299px;}\n\n.form_settings select\n{ width: 310px;}\n\n.form_settings .checkbox\n{ margin: 4px 0; \n  padding: 0; \n  width: 14px;\n  border: 0;\n  background: none;}\n\n.separator\n{ width: 100%;\n  height: 0;\n  border-top: 4px solid #D9D5CF;\n  border-bottom: 4px solid #FFF;\n  margin: 0 0 20px 0;}\n  \ntable\n{ margin: 10px 0 40px 0;}\n\ntable tr th, table tr td\n{ background: #3B3B3B;\n  color: #FFF;\n  padding: 10px 6px;\n  text-align: center;}\n  \ntable tr td\n{ background: #E5E5DB;\n  color: #47433F;\n  border-top: 0px solid #000;}\n",
 			"file": "Pagina-Web/mac0499/style/style.css",
-			"file_size": 5998,
-			"file_write_time": 132002565250540652,
 			"settings":
 			{
-				"buffer_size": 5664,
+				"buffer_size": 5665,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -92,7 +89,7 @@
 			"file": "Pagina-Web/mac0499/templateExamples.html",
 			"settings":
 			{
-				"buffer_size": 1228,
+				"buffer_size": 2653,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -184,7 +181,7 @@
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -245,7 +242,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -254,15 +251,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4649,
+						"buffer_size": 2194,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2779,
-								2779
+								774,
+								774
 							]
 						],
 						"settings":
@@ -272,10 +269,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 449.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -284,15 +281,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3481,
+						"buffer_size": 2109,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2862,
-								2862
+								269,
+								269
 							]
 						],
 						"settings":
@@ -314,7 +311,37 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3491,
+						"buffer_size": 2090,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								719,
+								719
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 96.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Pagina-Web/mac0499/cronograma.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4653,
 						"regions":
 						{
 						},
@@ -332,40 +359,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 984.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Pagina-Web/mac0499/cronograma.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9044,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3171,
-								3125
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2011.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -374,15 +371,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3997,
+						"buffer_size": 2596,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2856,
-								2856
+								15,
+								15
 							]
 						],
 						"settings":
@@ -392,10 +389,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 957.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -404,28 +401,29 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5664,
+						"buffer_size": 5665,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3297,
-								3297
+								1678,
+								1678
 							]
 						],
 						"settings":
 						{
+							"spell_check": true,
 							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3098.0,
+						"translation.y": 1534.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -434,26 +432,28 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1228,
+						"buffer_size": 2653,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1228,
-								1228
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

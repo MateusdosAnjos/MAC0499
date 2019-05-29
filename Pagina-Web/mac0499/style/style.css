@@ -184,7 +184,7 @@ ul#menu li a:hover
 { color: #191970;}
 
 #site_content
-{ width: 880px;
+{ width: 1600px;
   overflow: hidden;
   margin: 20px auto 0 auto;
   padding: 0 0 10px 0;} 
@@ -223,7 +223,7 @@ ul#menu li a:hover
 
 #content
 { text-align: left;
-  width: 620px;
+  width: 1024px;
   padding: 0 0 0 5px;
   float: left;}
   
@@ -330,3 +330,23 @@ table tr td
 { background: #E5E5DB;
   color: #47433F;
   border-top: 0px solid #000;}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+}
+
+.left {
+  width: 30%;
+}
+
+.right {
+  width: 60%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
