@@ -1,7 +1,6 @@
 extends TextureRect
 
 var items = []
-
 var grid = {}
 var cell_size = 2
 var grid_width = 0
@@ -36,6 +35,7 @@ func insert_item(item):
             item.rect_global_position = rect_global_position + Vector2(g_pos.x, g_pos.y) * cell_size
             items.append(item)
             existItem = true
+            show_message(false)
             return true
         else:
             return false
@@ -52,6 +52,7 @@ func grab_item(pos):
     set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, false)
     items.remove(items.find(item))
     existItem = false
+    show_message(true)
     return item
         
 func get_item_under_pos(pos):
@@ -98,6 +99,14 @@ func insert_item_at_first_available_spot(item):
                 if insert_item(item):
                     return true
     return false                        
+
+func show_message(state):
+    var message = get_node("HowToUse")
+    if state:
+        message.show()
+    else:
+        message.hide()
+    return    
 
 func _on_Invertory_inv_help(pos):
     var item = get_item_under_pos(pos)
