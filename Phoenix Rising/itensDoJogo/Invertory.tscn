@@ -32,15 +32,15 @@ margin_bottom = 920.0
 script = ExtResource( 2 )
 
 [node name="ActionSpace" parent="Grid" instance=ExtResource( 3 )]
-margin_left = 240.0
-margin_top = -600.0
-margin_right = 400.0
-margin_bottom = -520.0
+margin_left = 243.0
+margin_top = -565.0
+margin_right = 443.0
+margin_bottom = -465.0
 
 [node name="HelpPopup" parent="Grid/ActionSpace" instance=ExtResource( 4 )]
 margin_left = -240.0
 margin_top = -300.0
 margin_right = -40.0
 margin_bottom = -200.0
-[connection signal="inv_help" from="." to="Grid" method="_on_Invertory_inv_help"]
 [connection signal="inv_help" from="." to="Grid/ActionSpace" method="_on_Invertory_inv_help"]
+[connection signal="inv_help" from="." to="Grid" method="_on_Invertory_inv_help"]

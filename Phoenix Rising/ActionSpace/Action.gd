@@ -3,9 +3,10 @@ extends TextureRect
 var items = []
 
 var grid = {}
-var cell_size = 32
+var cell_size = 2
 var grid_width = 0
 var grid_height = 0
+var grid_center = []
 
 onready var existItem = false
 onready var helpPopup = get_node("HelpPopup")   
@@ -14,7 +15,9 @@ func _ready():
     var s = get_grid_size(self)
     grid_width = s.x
     grid_height = s.y
-
+    #Used to place the item in the center of Action Space
+    grid_center = [grid_width/2, grid_height/2]
+    
     for x in range (grid_width):
         grid[x] = {}
         for y in range (grid_height):
@@ -22,8 +25,11 @@ func _ready():
             
 func insert_item(item):
     var item_pos = item.rect_global_position + Vector2(cell_size/2, cell_size/2)
-    var g_pos = pos_to_grid_coord(item_pos)
     var item_size = get_grid_size(item)
+    var g_pos = {}
+    #Always place in the center of Action Space
+    g_pos.x = grid_center[0] - (item_size.x)/2
+    g_pos.y = grid_center[1] - (item_size.y)/2
     if not existItem:
         if is_grid_space_available(g_pos.x, g_pos.y, item_size.x, item_size.y):
             set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, true)
