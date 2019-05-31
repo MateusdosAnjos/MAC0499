@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="Phoenix Rising"
 run/main_scene="res://TelaInicial/TitleScreen.tscn"
-config/icon="res://Acessorios/art/PhoenixLogo.png"
+config/icon="res://Acessorios/art/BluePhoenixLogo.png"
 
 [autoload]
 
