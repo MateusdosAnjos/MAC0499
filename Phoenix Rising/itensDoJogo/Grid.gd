@@ -7,7 +7,7 @@ var cell_size = 32
 var grid_width = 0
 var grid_height = 0
 
-onready var helpPopup = get_node("ActionSpace/HelpPopup")   
+onready var helpPopup = get_parent().get_node("HelpPopup")
 
 func _ready():
     var s = get_grid_size(self)

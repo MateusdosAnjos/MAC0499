@@ -8,7 +8,7 @@ var grid_height = 0
 var grid_center = []
 
 onready var existItem = false
-onready var helpPopup = get_node("HelpPopup")   
+onready var helpPopup = get_parent().get_node("HelpPopup")
 
 func _ready():
     var s = get_grid_size(self)

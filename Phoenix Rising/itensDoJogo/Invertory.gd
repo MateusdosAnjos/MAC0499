@@ -5,7 +5,7 @@ signal inv_help
 const item_base = preload("res://itensDoJogo/ItemBase.tscn")
 
 onready var grid = $Grid
-onready var action = $Grid/ActionSpace
+onready var action = $ActionSpace
 
 var item_held = null
 var item_offset = Vector2()
