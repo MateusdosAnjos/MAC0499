@@ -1,5 +1,7 @@
 extends TextureRect
 
+signal entered_tree(nodeName)
+
 var items = []
 var grid = {}
 var cell_size = 2
@@ -8,9 +10,10 @@ var grid_height = 0
 var grid_center = []
 
 onready var existItem = false
-onready var helpPopup = get_parent().get_node("HelpPopup")
+onready var helpPopup = get_node("HelpPopup")
 
 func _ready():
+    emit_signal("entered_tree", get_name())
     var s = get_grid_size(self)
     grid_width = s.x
     grid_height = s.y

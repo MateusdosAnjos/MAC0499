@@ -5,8 +5,8 @@ signal inv_help
 const item_base = preload("res://itensDoJogo/ItemBase.tscn")
 
 onready var grid = $Grid
-onready var action = $ActionSpace
 
+var containers = [null]
 var item_held = null
 var item_offset = Vector2()
 var last_container = null
@@ -19,7 +19,8 @@ func _ready():
     pickup_item("godot")
     pickup_item("phoenixD")
     pickup_item("phoenixE")
-            
+    containers[0] = grid
+
 func _process(delta):
     var cursor_pos = get_global_mouse_position()
     if Input.is_action_just_pressed("inv_help"):
@@ -57,7 +58,6 @@ func release(cursor_pos):
         return_item()                
                           
 func get_container_under_cursor(cursor_pos):
-    var containers = [grid, action]
     for c in containers:
         if c.get_global_rect().has_point(cursor_pos):
             return c
@@ -81,3 +81,11 @@ func pickup_item(item_id):
         item.queue_free()
         return false
     return true                                  
+
+func _on_ActionSpace_entered_tree(nodeName):
+    containers.append(get_node(nodeName))
+    return
+
+func _on_ActionSpace2_entered_tree(nodeName):
+    containers.append(get_node(nodeName))
+    return

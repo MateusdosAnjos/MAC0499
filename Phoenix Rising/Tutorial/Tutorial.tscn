@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Tutorial/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://Tutorial/DialogBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://itensDoJogo/Invertory.tscn" type="PackedScene" id=3]
-[ext_resource path="res://TelaInicial/FullScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ItensDoJogo/Invertory.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=4]
+[ext_resource path="res://TelaInicial/FullScreen.tscn" type="PackedScene" id=5]
 
 [node name="Tutorial" type="Control"]
 script = ExtResource( 1 )
@@ -23,5 +24,22 @@ margin_top = 0.0
 margin_right = 0.0
 margin_bottom = 0.0
 
-[node name="FullScreen" parent="." instance=ExtResource( 4 )]
+[node name="ActionSpace" parent="Invertory" instance=ExtResource( 4 )]
+editor/display_folded = true
+margin_left = 200.0
+margin_top = 200.0
+margin_right = 400.0
+margin_bottom = 300.0
+
+[node name="ActionSpace2" parent="Invertory" instance=ExtResource( 4 )]
+margin_left = 1400.0
+margin_top = 200.0
+margin_right = 1600.0
+margin_bottom = 300.0
+
+[node name="FullScreen" parent="." instance=ExtResource( 5 )]
+[connection signal="entered_tree" from="Invertory/ActionSpace" to="Invertory" method="_on_ActionSpace_entered_tree"]
+[connection signal="entered_tree" from="Invertory/ActionSpace2" to="Invertory" method="_on_ActionSpace2_entered_tree"]
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
+
+[editable path="Invertory/ActionSpace"]
