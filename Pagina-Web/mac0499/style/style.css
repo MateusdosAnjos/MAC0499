@@ -333,20 +333,16 @@ table tr td
 
 /* Create two unequal columns that floats next to each other */
 .column {
-  float: left;
-}
+  float: left;}
 
 .left {
-  width: 30%;
-}
+  width: 30%;}
 
 .right {
-  width: 60%;
-}
+  width: 60%;}
 
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
-  clear: both;
-}
+  clear: both;}
