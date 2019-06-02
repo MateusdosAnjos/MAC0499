@@ -318,18 +318,18 @@ ul#menu li a:hover
   margin: 0 0 20px 0;}
   
 table
-{ margin: 10px 0 40px 0;}
+{ margin: 10px 0 40px 0;
+  table-layout: fixed;
+  width: 100%;}
 
-table tr th, table tr td
-{ background: #3B3B3B;
-  color: #FFF;
-  padding: 10px 6px;
+td
+{ 
+  padding: 10px 4px;
   text-align: center;}
   
-table tr td
+tr
 { background: #E5E5DB;
-  color: #47433F;
-  border-top: 0px solid #000;}
+  color: #000;}
 
 /* Create two unequal columns that floats next to each other */
 .column {
