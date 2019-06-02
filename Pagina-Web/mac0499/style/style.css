@@ -328,8 +328,12 @@ td
   text-align: center;}
   
 tr
-{ background: #E5E5DB;
+{ background: #778899;
   color: #000;}
+
+table, th, td {
+  border: 1px solid black;
+}  
 
 /* Create two unequal columns that floats next to each other */
 .column {
