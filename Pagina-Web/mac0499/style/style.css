@@ -320,6 +320,7 @@ ul#menu li a:hover
 table
 { margin: 10px 0 40px 0;
   table-layout: fixed;
+  border-collapse: collapse;
   width: 100%;}
 
 td
