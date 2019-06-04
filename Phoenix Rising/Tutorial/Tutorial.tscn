@@ -46,8 +46,8 @@ margin_top = 664.761
 margin_right = 1807.45
 margin_bottom = 706.761
 text = "Nivel 1"
-[connection signal="inv_help" from="Invertory" to="Invertory/ActionSpace" method="_on_Invertory_inv_help"]
 [connection signal="inv_help" from="Invertory" to="Invertory/ActionSpace2" method="_on_Invertory_inv_help"]
+[connection signal="inv_help" from="Invertory" to="Invertory/ActionSpace" method="_on_Invertory_inv_help"]
 [connection signal="entered_tree" from="Invertory/ActionSpace" to="Invertory" method="_on_ActionSpace_entered_tree"]
 [connection signal="entered_tree" from="Invertory/ActionSpace2" to="Invertory" method="_on_ActionSpace2_entered_tree"]
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]

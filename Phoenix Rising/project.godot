@@ -21,7 +21,6 @@ config/icon="res://Acessorios/art/BluePhoenixLogo.png"
 
 [autoload]
 
-TitleScreen="*res://TelaInicial/TitleScreen.tscn"
 ItemDB="*res://itensDoJogo/ItemDB.tscn"
 
 [display]
