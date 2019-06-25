@@ -225,7 +225,9 @@ ul#menu li a:hover
 { text-align: left;
   width: 840px;
   padding: 0 0 0 5px;
-  float: left;}
+  float: left;
+  text-align: justify;
+  text-justify: inter-word;}
   
 #content ul
 { margin: 2px 0 22px 0px;}
