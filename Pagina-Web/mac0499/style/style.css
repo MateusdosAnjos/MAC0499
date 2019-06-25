@@ -223,7 +223,7 @@ ul#menu li a:hover
 
 #content
 { text-align: left;
-  width: 1024px;
+  width: 840px;
   padding: 0 0 0 5px;
   float: left;}
   
@@ -344,7 +344,7 @@ table, th, td {
   width: 30%;}
 
 .right {
-  width: 60%;}
+  width: 40%;}
 
 /* Clear floats after the columns */
 .row:after {
