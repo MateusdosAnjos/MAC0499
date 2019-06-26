@@ -39,7 +39,7 @@
 			"file": "Pagina-Web/mac0499/index.html",
 			"settings":
 			{
-				"buffer_size": 3093,
+				"buffer_size": 4161,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -48,7 +48,7 @@
 			"file": "Pagina-Web/mac0499/intro.html",
 			"settings":
 			{
-				"buffer_size": 2436,
+				"buffer_size": 3587,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -81,19 +81,10 @@
 			}
 		},
 		{
-			"file": "Pagina-Web/mac0499/templateExamples.html",
-			"settings":
-			{
-				"buffer_size": 3204,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "Pagina-Web/mac0499/style/style.css",
 			"settings":
 			{
-				"buffer_size": 5925,
+				"buffer_size": 5975,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -157,8 +148,9 @@
 	],
 	"file_history":
 	[
-		"/C/Users/usuario/Documents/GitHub/MAC0458/05-28-Liberdade de Expressão na Internet/Anotações Palestra 10.txt",
 		"/C/Users/usuario/Documents/GitHub/MAC0499/Pagina-Web/mac0499/templateExamples.html",
+		"/C/Users/usuario/Documents/GitHub/MAC0499/Pagina-Web/mac0499/style/style.css",
+		"/C/Users/usuario/Documents/GitHub/MAC0458/05-28-Liberdade de Expressão na Internet/Anotações Palestra 10.txt",
 		"/C/Users/usuario/Documents/GitHub/MAC0499/Pagina-Web/mac0499/intro.html",
 		"/C/Users/usuario/Documents/GitHub/MAC0499/Pagina-Web/mac0499/contact.html",
 		"/home/mateus/Programas/MAC0499/Pagina-Web/index.html",
@@ -201,6 +193,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"conten",
+			"content",
 			"</td>",
 			"<td>",
 			"logot",
@@ -256,7 +250,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -265,15 +259,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3093,
+						"buffer_size": 4161,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								662,
-								662
+								2409,
+								2409
 							]
 						],
 						"settings":
@@ -283,10 +277,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 387.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -295,15 +289,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2436,
+						"buffer_size": 3587,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								667,
-								667
+								2971,
+								2971
 							]
 						],
 						"settings":
@@ -313,10 +307,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 276.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -346,7 +340,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -362,8 +356,8 @@
 						"selection":
 						[
 							[
-								667,
-								667
+								1667,
+								1667
 							]
 						],
 						"settings":
@@ -373,10 +367,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 51.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -392,8 +386,8 @@
 						"selection":
 						[
 							[
-								1913,
-								1913
+								1139,
+								1139
 							]
 						],
 						"settings":
@@ -406,68 +400,37 @@
 						"translation.y": 128.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "Pagina-Web/mac0499/templateExamples.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3204,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3198,
-								3198
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 79.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
 					"file": "Pagina-Web/mac0499/style/style.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5925,
+						"buffer_size": 5975,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5591,
-								5591
+								3877,
+								3877
 							]
 						],
 						"settings":
 						{
-							"spell_check": true,
 							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4266.0,
+						"translation.y": 2899.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
