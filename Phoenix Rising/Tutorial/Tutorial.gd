@@ -8,3 +8,6 @@ func _on_FullScreen_pressed():
     
 func _on_Nivel_1_pressed():
     get_tree().change_scene("res://Nivel1/Nivel1.tscn")
+
+func _on_Run_pressed():
+    print("Oe")
