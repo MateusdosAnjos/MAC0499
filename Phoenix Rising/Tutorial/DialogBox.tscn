@@ -35,9 +35,9 @@ autostart = true
 
 [node name="Skip" type="Button" parent="."]
 modulate = Color( 0.286275, 0.560784, 0.992157, 1 )
-margin_left = 720.0
+margin_left = 700.0
 margin_top = 70.0
-margin_right = 764.0
+margin_right = 744.0
 margin_bottom = 90.0
 text = "Pular"
 [connection signal="timeout" from="Timer" to="RichTextLabel" method="_on_Timer_timeout"]
