@@ -10,4 +10,9 @@ func _on_Nivel_1_pressed():
     get_tree().change_scene("res://Nivel1/Nivel1.tscn")
 
 func _on_Run_pressed():
-    print("Oe")
+    var regex = RegEx.new()
+    regex.compile("ActionSpace*")
+    var inventoryNode = get_node("Invertory")
+    for node in inventoryNode.get_children():
+        if regex.search(node.get_name()):
+            print(node.get_name())

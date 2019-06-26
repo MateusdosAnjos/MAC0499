@@ -62,5 +62,3 @@ margin_bottom = 720.0
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
 [connection signal="pressed" from="Nivel 1" to="." method="_on_Nivel_1_pressed"]
 [connection signal="pressed" from="Run" to="." method="_on_Run_pressed"]
-
-[editable path="Invertory/ActionSpace"]
