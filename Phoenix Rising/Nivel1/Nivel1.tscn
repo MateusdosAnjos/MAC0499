@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://ItensDoJogo/Invertory.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ItensDoJogo/Inventory.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=2]
 [ext_resource path="res://EntradaSaida/InputOutput.tscn" type="PackedScene" id=3]
 
@@ -22,5 +22,4 @@ margin_right = 600.0
 margin_bottom = 300.0
 
 [node name="InputOutput" parent="." instance=ExtResource( 3 )]
-[connection signal="inv_help" from="Invertory" to="Invertory/ActionSpace" method="_on_Invertory_inv_help"]
 [connection signal="entered_tree" from="Invertory/ActionSpace" to="Invertory" method="_on_ActionSpace_entered_tree"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://itensDoJogo/Invertory.gd" type="Script" id=1]
+[ext_resource path="res://ItensDoJogo/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://itensDoJogo/Grid.gd" type="Script" id=2]
 [ext_resource path="res://itensDoJogo/HelpPopup.tscn" type="PackedScene" id=3]
 
-[node name="Invertory" type="Control"]
+[node name="Inventory" type="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

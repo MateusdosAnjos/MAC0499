@@ -109,9 +109,9 @@ func show_message(state):
         message.show()
     else:
         message.hide()
-    return    
+    return
 
-func _on_Invertory_inv_help(pos):
+func _on_Inventory_inv_help(pos):
     var item = get_item_under_pos(pos)
     if item == null:
         return
