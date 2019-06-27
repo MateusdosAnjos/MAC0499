@@ -110,14 +110,4 @@ func show_message(state):
     else:
         message.hide()
     return
-
-func _on_Inventory_inv_help(pos):
-    var item = get_item_under_pos(pos)
-    if item == null:
-        return
-    else:    
-        var id = item.get_meta("id")
-        var text = helpPopup.get_children()
-        text[0].set_bbcode(ItemDB.get_item(id)["help"])
-        helpPopup.popup_centered_ratio(0.5)           
-    return
+    
