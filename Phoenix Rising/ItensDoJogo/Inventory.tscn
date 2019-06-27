@@ -35,4 +35,4 @@ margin_left = 3.0
 margin_top = -145.0
 margin_right = 203.0
 margin_bottom = -45.0
-[connection signal="inv_help" from="." to="Grid" method="_on_Invertory_inv_help"]
+[connection signal="inv_help" from="." to="Grid" method="_on_Inventory_inv_help"]
