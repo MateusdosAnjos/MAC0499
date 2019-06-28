@@ -45,3 +45,7 @@ text = "Arraste o item
         aqui"
 
 [node name="HelpPanel" parent="." instance=ExtResource( 3 )]
+margin_left = 920.0
+margin_top = 410.0
+margin_right = 1120.0
+margin_bottom = 510.0
