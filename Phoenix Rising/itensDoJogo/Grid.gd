@@ -94,5 +94,5 @@ func _on_Inventory_inv_help(pos):
         var id = item.get_meta("id")
         var text = helpPopup.get_children()
         text[0].set_bbcode(ItemDB.get_item(id)["help"])
-        helpPopup.popup_centered_ratio(0.5)            
+        helpPopup.show()     
     return
