@@ -2,7 +2,7 @@
 
 [ext_resource path="res://ActionSpace/Action.gd" type="Script" id=1]
 [ext_resource path="res://acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://ItensDoJogo/HelpPopup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ItensDoJogo/HelpPanel.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -44,4 +44,4 @@ custom_fonts/font = SubResource( 2 )
 text = "Arraste o item
         aqui"
 
-[node name="HelpPopup" parent="." instance=ExtResource( 3 )]
+[node name="HelpPanel" parent="." instance=ExtResource( 3 )]

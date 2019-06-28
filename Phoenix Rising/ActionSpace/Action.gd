@@ -10,7 +10,7 @@ var grid_height = 0
 var grid_center = []
 
 onready var existItem = false
-onready var helpPopup = get_node("HelpPopup")
+onready var helpPanel = get_node("helpPanel")
 
 func _ready():
     emit_signal("entered_tree", get_name())
