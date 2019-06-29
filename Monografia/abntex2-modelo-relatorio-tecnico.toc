@@ -1,0 +1,17 @@
+\changetocdepth {3}
+\select@language {brazil}
+\contentsline {chapter}{\chapternumberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{9}{chapter.1}
+\contentsline {chapter}{\chapternumberline {2}Lorem ipsum dolor sit amet}{11}{chapter.2}
+\contentsline {section}{\numberline {2.1}Aliquam vestibulum fringilla lorem}{11}{section.2.1}
+\contentsline {chapter}{Conclus\IeC {\~a}o}{12}{chapter*.9}
+\renewcommand *{\cftappendixname }{AP\^ENDICE \space }
+\contentsline {part}{Ap\^endices}{13}{section*.10}
+\contentsline {appendix}{\chapternumberline {A}Quisque libero justo}{14}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula ac pretium ante justo a nulla curabitur tristique arcu eu metus}{15}{appendix.B}
+\cftinsert {AAA}
+\renewcommand *{\cftappendixname }{ANEXO \space }
+\contentsline {part}{Anexos}{16}{section*.11}
+\contentsline {appendix}{\chapternumberline {A}Morbi ultrices rutrum lorem.}{17}{appendix.anexochapback.1}
+\contentsline {appendix}{\chapternumberline {B}Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus}{18}{appendix.anexochapback.2}
+\contentsline {appendix}{\chapternumberline {C}Fusce facilisis lacinia dui}{19}{appendix.anexochapback.3}
+\contentsline {chapter}{Exemplo de Formul\IeC {\'a}rio de Identifica\IeC {\c c}\IeC {\~a}o}{20}{appendix*.12}
