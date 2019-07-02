@@ -14,17 +14,16 @@ func _ready():
 
 func _on_Run_pressed():
     var items = []
-    var actions = []
+    var actionsPath = []
     var regex = RegEx.new()
     regex.compile("ActionSpace*")
     var inventoryNode = (self.owner).get_node('Inventory')
     for node in inventoryNode.get_children():
-        if regex.search(node.get_name()):
-            items.append(node.placedItem)        
+        if regex.search(node.get_name()) and node.placedItem:
+            items.append(node.placedItem.get_meta("id"))        
     for item in items:
-        if item == null:
-            actions.append(null)
-        else:
-            var id = item.get_meta("id")        
-            actions.append(id)
-    print(actions)     
+        actionsPath.append(ItemDB.get_item(item)["codePath"])    
+    for action in actionsPath:
+        print(action)
+        #var instance = load(action).new()
+    
