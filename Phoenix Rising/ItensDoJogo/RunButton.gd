@@ -19,5 +19,5 @@ func _on_Run_pressed():
     var inventoryNode = (self.owner).get_node('Inventory')
     for node in inventoryNode.get_children():
         if regex.search(node.get_name()):
-            actions.append(node)
-            print(node.items)
+            actions.append(node.items)
+    print(actions)
