@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ActionSpace/Action.gd" type="Script" id=1]
 [ext_resource path="res://acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://ItensDoJogo/HelpPanel.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -43,9 +42,3 @@ margin_bottom = 83.0
 custom_fonts/font = SubResource( 2 )
 text = "Arraste o item
         aqui"
-
-[node name="HelpPanel" parent="." instance=ExtResource( 3 )]
-margin_left = 920.0
-margin_top = 410.0
-margin_right = 1120.0
-margin_bottom = 510.0
