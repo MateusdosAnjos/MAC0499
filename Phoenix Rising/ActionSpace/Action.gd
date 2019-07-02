@@ -2,7 +2,7 @@ extends TextureRect
 
 signal entered_tree(nodeName)
 
-var items = []
+var placedItem = null
 var grid = {}
 var cell_size = 2
 var grid_width = 0
@@ -36,7 +36,7 @@ func insert_item(item):
         if is_grid_space_available(g_pos.x, g_pos.y, item_size.x, item_size.y):
             set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, true)
             item.rect_global_position = rect_global_position + Vector2(g_pos.x, g_pos.y) * cell_size
-            items.append(item)
+            placedItem = item
             existItem = true
             show_message(false)
             return true
@@ -53,15 +53,14 @@ func grab_item(pos):
     var g_pos = pos_to_grid_coord(item_pos)
     var item_size = get_grid_size(item)
     set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, false)
-    items.remove(items.find(item))
+    placedItem = null
     existItem = false
     show_message(true)
     return item
         
 func get_item_under_pos(pos):
-    for item in items:
-        if item.get_global_rect().has_point(pos):
-            return item
+    if placedItem.get_global_rect().has_point(pos):
+        return placedItem
     return null       
 
 func set_grid_space (x, y, w, h, state):
