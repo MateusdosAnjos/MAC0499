@@ -13,11 +13,18 @@ func _ready():
 #    pass
 
 func _on_Run_pressed():
+    var items = []
     var actions = []
     var regex = RegEx.new()
     regex.compile("ActionSpace*")
     var inventoryNode = (self.owner).get_node('Inventory')
     for node in inventoryNode.get_children():
         if regex.search(node.get_name()):
-            actions.append(node.items)
-    print(actions)
+            items.append(node.placedItem)        
+    for item in items:
+        if item == null:
+            actions.append(null)
+        else:
+            var id = item.get_meta("id")        
+            actions.append(id)
+    print(actions)     
