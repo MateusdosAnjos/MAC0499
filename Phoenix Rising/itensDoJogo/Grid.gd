@@ -90,10 +90,9 @@ func _on_Inventory_inv_help(pos):
     var item = get_item_under_pos(pos)
     if item == null:
         return
-    else:    
+    else:
         var id = item.get_meta("id")
         var text = helpPanel.get_children()
         text[0].set_bbcode(ItemDB.get_item(id)["help"])
-        print(item.get_global_position())
         helpPanel.show()     
     return
