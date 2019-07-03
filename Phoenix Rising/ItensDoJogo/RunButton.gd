@@ -21,5 +21,5 @@ func _on_Run_pressed():
         actionsPath.append(ItemDB.get_item(item)["codePath"])    
     for action in actionsPath:
         var godotScript = load(action)
-        godotScript.new()
+        godotScript.new("agora imprime argumento")
     

@@ -4,8 +4,8 @@ extends Node
 # var a = 2
 # var b = "text"
 
-func _init():
-    print("GODOT script loaded")
+func _init(argument):
+    print(argument)
     
 # Called when the node enters the scene tree for the first time.
 func _ready():
