@@ -1,7 +1,12 @@
 extends Node
 
+const INPUT = 5
+const OUTPUT = 5
+
 func _ready():
-    pass # Replace with function body.
+    var inputText = get_node("InputOutput/InputBase/Input")
+    inputText.newline()
+    inputText.add_text(String(INPUT))
 
 func _on_FullScreen_pressed():
     OS.window_fullscreen = !OS.window_fullscreen
