@@ -13,8 +13,8 @@ func _on_Run_pressed():
     regex.compile("ActionSpace*")
     var inventoryNode = (self.owner).get_node('Inventory')
     for node in inventoryNode.get_children():
-        if regex.search(node.get_name()) and node.placedItem:
-            items.append(node.placedItem.get_meta("id"))        
+        if regex.search(node.get_name()) and node.placed_item:
+            items.append(node.placed_item.get_meta("id"))        
     for item in items:
         actionsPath.append(ItemDB.get_item(item)["codePath"])    
     for action in actionsPath:
