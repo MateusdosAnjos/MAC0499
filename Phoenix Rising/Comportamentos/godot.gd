@@ -1,11 +1,7 @@
 extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-func _init(argument):
-    print(argument)
+func _init(argument_list):
+    print(argument_list)
     
 # Called when the node enters the scene tree for the first time.
 func _ready():

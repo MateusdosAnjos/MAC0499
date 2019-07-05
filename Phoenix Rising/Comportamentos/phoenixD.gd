@@ -3,7 +3,7 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-func _init():
+func _init(argument_list):
     print("PHOENIXD script loaded")
     
 # Called when the node enters the scene tree for the first time.
