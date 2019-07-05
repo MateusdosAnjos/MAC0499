@@ -1,6 +1,6 @@
 extends TextureRect
 
-signal entered_tree(nodeName)
+signal entered_tree(node_name)
 
 var placed_item = null
 var grid = {}

@@ -82,10 +82,10 @@ func pickup_item(item_id):
         return false
     return true                                  
 
-func _on_ActionSpace_entered_tree(nodeName):
-    containers.append(get_node(nodeName))
+func _on_ActionSpace_entered_tree(node_name):
+    containers.append(get_node(node_name))
     return
 
-func _on_ActionSpace2_entered_tree(nodeName):
-    containers.append(get_node(nodeName))
+func _on_ActionSpace2_entered_tree(node_name):
+    containers.append(get_node(node_name))
     return
