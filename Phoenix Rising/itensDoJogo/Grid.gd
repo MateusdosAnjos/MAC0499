@@ -7,7 +7,7 @@ var cell_size = 32
 var grid_width = 0
 var grid_height = 0
 
-onready var helpPanel = get_parent().get_node("HelpPanel")
+onready var help_panel = get_parent().get_node("HelpPanel")
 
 func _ready():
     var s = get_grid_size(self)
@@ -92,7 +92,7 @@ func _on_Inventory_inv_help(pos):
         return
     else:
         var id = item.get_meta("id")
-        var text = helpPanel.get_children()
+        var text = help_panel.get_children()
         text[0].set_bbcode(ItemDB.get_item(id)["help"])
-        helpPanel.show()     
+        help_panel.show()     
     return
