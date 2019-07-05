@@ -5,21 +5,31 @@ var output
 
 func _ready():
     pass
-    
-func _on_Run_pressed():
-    var items = []
-    var actionsPath = []
+
+func _get_ActionSpaces_item_list(list):
     var regex = RegEx.new()
     regex.compile("ActionSpace*")
     var inventoryNode = (self.owner).get_node('Inventory')
     for node in inventoryNode.get_children():
         if regex.search(node.get_name()) and node.placed_item:
-            items.append(node.placed_item.get_meta("id"))        
+            list.append(node.placed_item.get_meta("id"))
+    return            
+
+func _get_items_code_path(items, code_paths):
     for item in items:
-        actionsPath.append(ItemDB.get_item(item)["codePath"])    
-    for action in actionsPath:
-        var godotScript = load(action)
-        godotScript.new("agora imprime argumento")
+        code_paths.append(ItemDB.get_item(item)["codePath"])
+
+func _process_input(input, code_paths):
+    for item_code in code_paths:
+        var godotScript = load(item_code)
+        godotScript.new(input)               
+    
+func _on_Run_pressed():
+    var items = []
+    var code_paths = []
+    _get_ActionSpaces_item_list(items)  
+    _get_items_code_path(items, code_paths)  
+    _process_input(input, code_paths)
     if (input == output):
         print("Parabéns voce conseguiu!")  
     
