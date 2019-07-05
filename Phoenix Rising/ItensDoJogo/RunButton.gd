@@ -20,6 +20,8 @@ func _on_Run_pressed():
     for action in actionsPath:
         var godotScript = load(action)
         godotScript.new("agora imprime argumento")
+    if (input == output):
+        print("Parabéns voce conseguiu!")  
     
 func _on_Tutorial_input_output_defined(inp, out):
     input = inp
