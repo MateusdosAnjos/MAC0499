@@ -9,7 +9,7 @@ var grid_width = 0
 var grid_height = 0
 var grid_center = []
 
-onready var existItem = false
+onready var exist_item = false
 onready var helpPanel = get_node("helpPanel")
 
 func _ready():
@@ -32,12 +32,12 @@ func insert_item(item):
     #Always place in the center of Action Space
     g_pos.x = grid_center[0] - (item_size.x)/2
     g_pos.y = grid_center[1] - (item_size.y)/2
-    if not existItem:
+    if not exist_item:
         if is_grid_space_available(g_pos.x, g_pos.y, item_size.x, item_size.y):
             set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, true)
             item.rect_global_position = rect_global_position + Vector2(g_pos.x, g_pos.y) * cell_size
             placed_item = item
-            existItem = true
+            exist_item = true
             show_message(false)
             return true
         else:
@@ -54,7 +54,7 @@ func grab_item(pos):
     var item_size = get_grid_size(item)
     set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, false)
     placed_item = null
-    existItem = false
+    exist_item = false
     show_message(true)
     return item
         
