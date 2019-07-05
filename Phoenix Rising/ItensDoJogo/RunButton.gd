@@ -1,7 +1,7 @@
 extends Button
 
-var INPUT
-var OUTPUT
+var input
+var output
 
 func _ready():
     pass
@@ -21,6 +21,6 @@ func _on_Run_pressed():
         var godotScript = load(action)
         godotScript.new("agora imprime argumento")
     
-func _on_Tutorial_input_output_defined(input, output):
-    INPUT = input
-    OUTPUT = output
+func _on_Tutorial_input_output_defined(inp, out):
+    input = inp
+    output = out
