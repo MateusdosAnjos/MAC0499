@@ -1,12 +1,15 @@
 extends Node
 
+signal input_output_defined(input, output)
+
 const INPUT = 5
 const OUTPUT = 5
 
 func _ready():
-    var inputText = get_node("InputOutput/InputBase/Input")
-    inputText.newline()
-    inputText.add_text(String(INPUT))
+    var input_text = get_node("InputOutput/InputBase/Input")
+    input_text.newline()
+    input_text.add_text(String(INPUT))
+    emit_signal("input_output_defined", INPUT, OUTPUT)
 
 func _on_FullScreen_pressed():
     OS.window_fullscreen = !OS.window_fullscreen

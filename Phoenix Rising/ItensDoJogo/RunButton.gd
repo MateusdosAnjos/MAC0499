@@ -1,9 +1,11 @@
 extends Button
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-    pass # Replace with function body.
+var INPUT
+var OUTPUT
 
+func _ready():
+    pass
+    
 func _on_Run_pressed():
     var items = []
     var actionsPath = []
@@ -19,3 +21,6 @@ func _on_Run_pressed():
         var godotScript = load(action)
         godotScript.new("agora imprime argumento")
     
+func _on_Tutorial_input_output_defined(input, output):
+    INPUT = input
+    OUTPUT = output

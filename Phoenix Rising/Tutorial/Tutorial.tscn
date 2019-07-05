@@ -58,6 +58,7 @@ margin_left = 1200.0
 margin_top = 200.0
 margin_right = 1400.0
 margin_bottom = 300.0
+[connection signal="input_output_defined" from="." to="Run" method="_on_Tutorial_input_output_defined"]
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
 [connection signal="pressed" from="Nivel 1" to="." method="_on_Nivel_1_pressed"]
 [connection signal="pressed" from="Run" to="Run" method="_on_Run_pressed"]
