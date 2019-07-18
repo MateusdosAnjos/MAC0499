@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ActionSpace/Action.gd" type="Script" id=1]
 [ext_resource path="res://acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ActionSpace/ArgumentButton.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -42,3 +43,24 @@ margin_bottom = 83.0
 custom_fonts/font = SubResource( 2 )
 text = "Arraste o item
         aqui"
+
+[node name="ArgumentButton" type="Button" parent="."]
+margin_top = 100.0
+margin_right = 200.0
+margin_bottom = 120.0
+text = "Argumentos"
+script = ExtResource( 3 )
+
+[node name="Argument" type="TextEdit" parent="ArgumentButton"]
+margin_top = 20.0
+margin_right = 200.0
+margin_bottom = 100.0
+
+[node name="ArgumentOk" type="Button" parent="ArgumentButton/Argument"]
+margin_left = 170.0
+margin_top = 60.0
+margin_right = 200.0
+margin_bottom = 80.0
+text = "Ok"
+[connection signal="pressed" from="ArgumentButton" to="ArgumentButton" method="_on_ArgumentButton_pressed"]
+[connection signal="pressed" from="ArgumentButton/Argument/ArgumentOk" to="ArgumentButton" method="_on_ArgumentOk_pressed"]
