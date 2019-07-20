@@ -112,4 +112,3 @@ func show_message(state):
     
 func _on_ArgumentButton_sent_arguments(arguments):
     argument_list = arguments
-    print(argument_list)
