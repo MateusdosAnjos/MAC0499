@@ -8,6 +8,7 @@ var cell_size = 2
 var grid_width = 0
 var grid_height = 0
 var grid_center = []
+var argument_list = []
 
 onready var exist_item = false
 
@@ -109,3 +110,6 @@ func show_message(state):
         message.hide()
     return
     
+func _on_ArgumentButton_sent_arguments(arguments):
+    argument_list = arguments
+    print(argument_list)

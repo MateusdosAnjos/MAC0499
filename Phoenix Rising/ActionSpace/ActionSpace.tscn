@@ -63,4 +63,5 @@ margin_right = 200.0
 margin_bottom = 80.0
 text = "Ok"
 [connection signal="pressed" from="ArgumentButton" to="ArgumentButton" method="_on_ArgumentButton_pressed"]
+[connection signal="sent_arguments" from="ArgumentButton" to="." method="_on_ArgumentButton_sent_arguments"]
 [connection signal="pressed" from="ArgumentButton/Argument/ArgumentOk" to="ArgumentButton" method="_on_ArgumentOk_pressed"]

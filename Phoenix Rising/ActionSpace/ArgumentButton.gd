@@ -1,5 +1,7 @@
 extends Button
 
+signal sent_arguments(arguments)
+
 func _ready():
     $Argument.hide()
 
@@ -8,4 +10,5 @@ func _on_ArgumentButton_pressed():
     
 func _on_ArgumentOk_pressed():
     self.text = $Argument.text
+    emit_signal("sent_arguments", $Argument.text)
     $Argument.hide()
