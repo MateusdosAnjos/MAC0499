@@ -28,12 +28,16 @@ func _get_items_arguments(node_list, arguments_list):
     for item in node_list:
         arguments_list.append(item.argument_list)        
 
-func _process_input(input, code_paths):
-    var processed_input = input
+func _process_input(input, code_paths, arguments_list):
+    var processed_input = [input]
+    var arguments = null
+    var i = 0
     for item_code in code_paths:
         var input_process_code = load(item_code)
         var code_node = input_process_code.new()
-        processed_input = code_node.execute(processed_input)      
+        arguments = arguments_list[i]
+        i = i + 1
+        processed_input = code_node.execute(processed_input, arguments)     
     return processed_input                 
     
 func _on_Run_pressed():
@@ -45,8 +49,9 @@ func _on_Run_pressed():
     _get_ActionSpaces_item_list(item_list, node_list)  
     _get_items_code_path(item_list, code_paths)
     _get_items_arguments(node_list, arguments_list)
-    print(arguments_list)
-    if (_process_input(input, code_paths) == output):
+    var player_output_list = _process_input(input, code_paths, arguments_list)
+    var player_output_string = PoolStringArray(player_output_list).join("")
+    if (player_output_string == output):
         print("Parabéns voce conseguiu!")
     else:
         print("Ops, algo está errado!")     

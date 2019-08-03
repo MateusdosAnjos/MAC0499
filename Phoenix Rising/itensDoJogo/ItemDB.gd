@@ -8,10 +8,10 @@ const ITEMS = {
         "help": "Icone da Godot para testes",
         "codePath": BEHAVIOR_PATH + "godot.gd"
     },
-    "phoenixD": {
+    "print": {
         "icon": ICON_PATH + "phoenix_direita.png",
-        "help": "Icone da Phoenix para a direita!!",
-        "codePath": BEHAVIOR_PATH + "phoenixD.gd"
+        "help": "Icone do comando Print",
+        "codePath": BEHAVIOR_PATH + "print.gd"
     },
     "phoenixE": {
         "icon": ICON_PATH + "phoenix_esquerda.png",

@@ -17,7 +17,7 @@ func _ready():
     pickup_item("godot")
     pickup_item("godot")
     pickup_item("godot")
-    pickup_item("phoenixD")
+    pickup_item("print")
     pickup_item("phoenixE")
     containers[0] = grid
 
