@@ -42,8 +42,8 @@ func _process_input(input, code_paths, arguments_list):
     return player_answer                 
 
 func _set_answer_on_screen(answer):
-    var oi = get_parent().get_node("InputOutput/OutputBase/PlayerOutput")
-    oi.text = answer
+    var PlayerOutput = get_parent().get_node("InputOutput/OutputBase/PlayerOutput")
+    PlayerOutput.text = answer
     return
     
 func _on_Run_pressed():
@@ -55,10 +55,10 @@ func _on_Run_pressed():
     _get_ActionSpaces_item_list(item_list, node_list)  
     _get_items_code_path(item_list, code_paths)
     _get_items_arguments(node_list, arguments_list)
-    var player_output_list = _process_input(input, code_paths, arguments_list)
-    var player_output_string = PoolStringArray(player_output_list).join(" ")
-    _set_answer_on_screen(player_output_string)
-    if (player_output_string == output):
+    var answer_list = _process_input(input, code_paths, arguments_list)
+    var answer_string = PoolStringArray(answer_list).join(" ")
+    _set_answer_on_screen(answer_string)
+    if (answer_string == output):
         print("Parabéns voce conseguiu!")
     else:
         print("Ops, algo está errado!")     
