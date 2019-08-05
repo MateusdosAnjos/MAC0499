@@ -29,7 +29,8 @@ func _get_items_arguments(node_list, arguments_list):
         arguments_list.append(item.argument_list)        
 
 func _process_input(input, code_paths, arguments_list):
-    var processed_input = [input]
+    var processed_input = input
+    var player_answer = []
     var arguments = null
     var i = 0
     for item_code in code_paths:
@@ -37,8 +38,8 @@ func _process_input(input, code_paths, arguments_list):
         var code_node = input_process_code.new()
         arguments = arguments_list[i]
         i = i + 1
-        processed_input = code_node.execute(processed_input, arguments) 
-    return processed_input                 
+        processed_input = code_node.execute(processed_input, arguments, player_answer)
+    return player_answer                 
 
 func _set_answer_on_screen(answer):
     var oi = get_parent().get_node("InputOutput/OutputBase/PlayerOutput")
