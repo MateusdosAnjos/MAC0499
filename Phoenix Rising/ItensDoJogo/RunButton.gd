@@ -66,3 +66,6 @@ func _on_Run_pressed():
 func _on_Tutorial_input_output_defined(inp, out):
     input = inp
     output = out
+    var ExpectedOutput = get_parent().get_node("InputOutput/OutputBase/ExpectedOutput")
+    ExpectedOutput.text = output  
+    
