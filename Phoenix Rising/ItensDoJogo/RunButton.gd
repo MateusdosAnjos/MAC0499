@@ -55,7 +55,7 @@ func _on_Run_pressed():
     _get_items_code_path(item_list, code_paths)
     _get_items_arguments(node_list, arguments_list)
     var player_output_list = _process_input(input, code_paths, arguments_list)
-    var player_output_string = PoolStringArray(player_output_list).join("")
+    var player_output_string = PoolStringArray(player_output_list).join(" ")
     _set_answer_on_screen(player_output_string)
     if (player_output_string == output):
         print("Parabéns voce conseguiu!")
