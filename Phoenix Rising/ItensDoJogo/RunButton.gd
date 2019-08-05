@@ -37,7 +37,7 @@ func _process_input(input, code_paths, arguments_list):
         var code_node = input_process_code.new()
         arguments = arguments_list[i]
         i = i + 1
-        processed_input = code_node.execute(processed_input, arguments)     
+        processed_input = code_node.execute(processed_input, arguments) 
     return processed_input                 
 
 func _set_answer_on_screen(answer):
