@@ -39,6 +39,11 @@ func _process_input(input, code_paths, arguments_list):
         i = i + 1
         processed_input = code_node.execute(processed_input, arguments)     
     return processed_input                 
+
+func _set_answer_on_screen(answer):
+    var oi = get_parent().get_node("InputOutput/OutputBase/PlayerOutput")
+    oi.text = answer
+    return
     
 func _on_Run_pressed():
     var node_list = []
@@ -51,6 +56,7 @@ func _on_Run_pressed():
     _get_items_arguments(node_list, arguments_list)
     var player_output_list = _process_input(input, code_paths, arguments_list)
     var player_output_string = PoolStringArray(player_output_list).join("")
+    _set_answer_on_screen(player_output_string)
     if (player_output_string == output):
         print("Parabéns voce conseguiu!")
     else:
