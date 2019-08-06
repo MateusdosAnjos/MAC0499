@@ -2,8 +2,8 @@ extends Node
 
 signal input_output_defined(input, output)
 
-const INPUT = '5'
-const OUTPUT = '5'
+const INPUT = 'Mensagem de teste'
+const OUTPUT = 'Mensagem de teste'
 
 func _ready():
     var input_text = get_node("InputOutput/InputBase/Input")
