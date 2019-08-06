@@ -27,6 +27,7 @@ func _on_Timer_timeout():
 func _on_Skip_pressed():
         if SkipButton.text == "Esconder":
             get_parent().hide()
+            get_tree().paused = false
         else:    
             if get_visible_characters() > get_total_character_count():
                 if page < dialog.size()-1:

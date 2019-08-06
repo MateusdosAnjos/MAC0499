@@ -19,8 +19,10 @@ margin_bottom = 920.0
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="DialogBox" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
 
 [node name="FullScreen" parent="." instance=ExtResource( 3 )]
+pause_mode = 2
 
 [node name="InputOutput" parent="." instance=ExtResource( 4 )]
 

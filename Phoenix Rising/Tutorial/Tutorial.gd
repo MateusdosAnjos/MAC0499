@@ -10,6 +10,7 @@ func _ready():
     input_text.newline()
     input_text.add_text(String(INPUT))
     emit_signal("input_output_defined", INPUT, OUTPUT)
+    get_tree().paused = true
 
 func _on_FullScreen_pressed():
     OS.window_fullscreen = !OS.window_fullscreen
