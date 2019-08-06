@@ -22,13 +22,6 @@ color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="FullScreen" parent="." instance=ExtResource( 3 )]
 
-[node name="Nivel 1" type="Button" parent="."]
-margin_left = 1700.0
-margin_top = 800.0
-margin_right = 1806.0
-margin_bottom = 842.0
-text = "Nivel 1"
-
 [node name="InputOutput" parent="." instance=ExtResource( 4 )]
 
 [node name="Run" type="Button" parent="."]
@@ -58,9 +51,16 @@ margin_left = 1200.0
 margin_top = 200.0
 margin_right = 1400.0
 margin_bottom = 300.0
+
+[node name="Nivel 1" type="Button" parent="."]
+margin_left = 1700.0
+margin_top = 800.0
+margin_right = 1806.0
+margin_bottom = 842.0
+text = "Nivel 1"
 [connection signal="input_output_defined" from="." to="Run" method="_on_Tutorial_input_output_defined"]
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
-[connection signal="pressed" from="Nivel 1" to="." method="_on_Nivel_1_pressed"]
 [connection signal="pressed" from="Run" to="Run" method="_on_Run_pressed"]
 [connection signal="entered_tree" from="Inventory/ActionSpace" to="Inventory" method="_on_ActionSpace_entered_tree"]
 [connection signal="entered_tree" from="Inventory/ActionSpace2" to="Inventory" method="_on_ActionSpace2_entered_tree"]
+[connection signal="pressed" from="Nivel 1" to="." method="_on_Nivel_1_pressed"]
