@@ -6,7 +6,7 @@
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 1 )
 
@@ -14,7 +14,7 @@ font_data = ExtResource( 1 )
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 32
 font_data = ExtResource( 1 )
 
@@ -45,7 +45,7 @@ color = Color( 0.109804, 0.129412, 0.196078, 1 )
 [node name="ExpectedOutputTitle" type="RichTextLabel" parent="OutputBase"]
 margin_right = 300.0
 margin_bottom = 50.0
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "Saída Esperada:"
 
 [node name="ExpectedOutput" type="RichTextLabel" parent="OutputBase"]
@@ -65,4 +65,4 @@ text = "Sua Saída:"
 margin_top = 319.0
 margin_right = 300.0
 margin_bottom = 519.0
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 4 )
