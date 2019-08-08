@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BluePhoenix.png-6ccab0de7231de64e8a9ac3a951a6d2f.stex"
+path="res://.import/PhoenixLogo.png-498c4825a00bdb576da013cc938b9d35.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://acessorios/art/BluePhoenix.png"
-dest_files=[ "res://.import/BluePhoenix.png-6ccab0de7231de64e8a9ac3a951a6d2f.stex" ]
+source_file="res://Acessorios/art/PhoenixLogo.png"
+dest_files=[ "res://.import/PhoenixLogo.png-498c4825a00bdb576da013cc938b9d35.stex" ]
 
 [params]
 

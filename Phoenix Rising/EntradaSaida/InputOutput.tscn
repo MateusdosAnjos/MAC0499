@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -10,17 +11,21 @@ font_data = ExtResource( 1 )
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 size = 32
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 32
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [node name="InputOutput" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -1.97626
+margin_top = -1.97626
+margin_right = -1.97632
+margin_bottom = -1.97626
 
 [node name="InputBase" type="ColorRect" parent="."]
 margin_left = 20.0
@@ -58,7 +63,7 @@ custom_fonts/normal_font = SubResource( 1 )
 margin_top = 269.0
 margin_right = 300.0
 margin_bottom = 319.0
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 5 )
 text = "Sua Saída:"
 
 [node name="PlayerOutput" type="RichTextLabel" parent="OutputBase"]
