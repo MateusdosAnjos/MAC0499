@@ -4,11 +4,12 @@ extends RichTextLabel
 # Variables
 var dialog = [
     'Bem vindo ao Phoenix Rising!\nPara jogar você deve terminar o tutorial.\nClique em "Pular" para ir para a próxima mensagem.',
-    "Eita lasquera",
+    'O jogo consiste em: A partir do valor de ENTRADA você deve obter o valor de SAIDA que seja IGUAL ao valor descrito em SAIDA ESPERADA',
+    'Note que ENTRADA está marcada com o retângulo AZUL\nSAIDA ESPERADA está marcada com o retângulo VERMELHO\nSAIDA está marcada com o retângulo VERDE.'
     ]    
-var visual_dialog_nodes = ["mano", "teste"]    
+var visual_dialog_nodes = ["mano", "teste", "mano"]    
 var page = 0
-var max_pages = 1
+var max_pages = 2
 
 onready var SkipButton = get_parent().get_node("Skip")
 
