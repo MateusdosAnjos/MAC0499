@@ -3,12 +3,11 @@ extends RichTextLabel
 
 # Variables
 var dialog = [
-    "Bem vindo ao Phoenix Rising.",
-    "Este é o tutorial.",
-    "Agora adicionei algumas mensagens de teste.",
+    'Bem vindo ao Phoenix Rising!\nPara jogar você deve terminar o tutorial.\nClique em "Pular" para ir para a próxima mensagem.',
+    "Eita lasquera",
     ]
 var page = 0
-var max_pages = 2
+var max_pages = 1
 
 onready var SkipButton = get_parent().get_node("Skip")
 
