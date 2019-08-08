@@ -59,6 +59,8 @@ func grab_item(pos):
     return item
         
 func get_item_under_pos(pos):
+    if placed_item == null:
+        return null
     if placed_item.get_global_rect().has_point(pos):
         return placed_item
     return null       
