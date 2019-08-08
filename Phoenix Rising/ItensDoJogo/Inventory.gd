@@ -2,7 +2,7 @@ extends Control
 
 signal inv_help
 
-const item_base = preload("res://itensDoJogo/ItemBase.tscn")
+const item_base = preload("res://ItensDoJogo/ItemBase.tscn")
 
 onready var grid = $Grid
 

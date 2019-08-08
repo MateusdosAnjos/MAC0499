@@ -21,7 +21,7 @@ config/icon="res://acessorios/art/BluePhoenixLogo.png"
 
 [autoload]
 
-ItemDB="*res://itensDoJogo/ItemDB.tscn"
+ItemDB="*res://ItensDoJogo/ItemDB.tscn"
 
 [display]
 
