@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/phoenix_esquerda.png-3b082e4c9744c7f782bc68f6fe36de18.stex"
+path="res://.import/phoenix_esquerda.png-facca024b58988dbca278d7898b76832.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Acessorios/art/phoenix_esquerda.png"
-dest_files=[ "res://.import/phoenix_esquerda.png-3b082e4c9744c7f782bc68f6fe36de18.stex" ]
+source_file="res://acessorios/art/phoenix_esquerda.png"
+dest_files=[ "res://.import/phoenix_esquerda.png-facca024b58988dbca278d7898b76832.stex" ]
 
 [params]
 
