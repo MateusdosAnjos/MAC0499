@@ -9,6 +9,9 @@ func _on_ArgumentButton_pressed():
     $Argument.show()
     
 func _on_ArgumentOk_pressed():
-    self.text = $Argument.text
+    if $Argument.get_text() == '':
+        self.text = "Argumentos" 
+    else:    
+        self.text = $Argument.text
     emit_signal("sent_arguments", $Argument.text)
     $Argument.hide()
