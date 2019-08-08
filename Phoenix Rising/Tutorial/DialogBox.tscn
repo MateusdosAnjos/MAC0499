@@ -40,5 +40,19 @@ margin_top = 70.0
 margin_right = 744.0
 margin_bottom = 90.0
 text = "Pular"
+
+[node name="mano" type="ColorRect" parent="."]
+margin_left = -187.187
+margin_top = -233.125
+margin_right = -55.1874
+margin_bottom = -132.125
+color = Color( 0.996078, 0.972549, 0.972549, 1 )
+
+[node name="teste" type="ColorRect" parent="."]
+margin_left = 556.875
+margin_top = -324.0
+margin_right = 793.875
+margin_bottom = -284.0
+color = Color( 0.556863, 0.0509804, 0.0509804, 1 )
 [connection signal="timeout" from="Timer" to="RichTextLabel" method="_on_Timer_timeout"]
 [connection signal="pressed" from="Skip" to="RichTextLabel" method="_on_Skip_pressed"]

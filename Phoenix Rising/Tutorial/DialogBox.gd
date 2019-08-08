@@ -5,7 +5,8 @@ extends RichTextLabel
 var dialog = [
     'Bem vindo ao Phoenix Rising!\nPara jogar você deve terminar o tutorial.\nClique em "Pular" para ir para a próxima mensagem.',
     "Eita lasquera",
-    ]
+    ]    
+var visual_dialog_nodes = ["mano", "teste"]    
 var page = 0
 var max_pages = 1
 
@@ -16,9 +17,12 @@ func _ready():
     set_process_input(true)
     set_bbcode(dialog[page])
     set_visible_characters(0)
+    for node_name in visual_dialog_nodes:
+        get_parent().get_node(node_name).hide()
     
 
 func _on_Timer_timeout():
+    get_parent().get_node(visual_dialog_nodes[page]).show()
     set_visible_characters(get_visible_characters()+1)
     if page == max_pages and get_visible_characters() > get_total_character_count():
         SkipButton.text = "Esconder"   
