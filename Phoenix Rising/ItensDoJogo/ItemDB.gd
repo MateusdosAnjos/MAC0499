@@ -9,7 +9,7 @@ const ITEMS = {
         "codePath": BEHAVIOR_PATH + "godot.gd"
     },
     "print": {
-        "icon": ICON_PATH + "phoenix_direita.png",
+        "icon": ICON_PATH + "print.png",
         "help": "Icone do comando Print",
         "codePath": BEHAVIOR_PATH + "print.gd"
     },
