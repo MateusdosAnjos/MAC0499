@@ -23,9 +23,11 @@ custom_styles/panel = SubResource( 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 20.0
-margin_top = 20.0
+margin_top = 20.9025
 margin_right = 780.0
-margin_bottom = 80.0
+margin_bottom = 80.9025
+rect_pivot_offset = Vector2( -470, -380.902 )
+bbcode_enabled = true
 visible_characters = 0
 script = ExtResource( 1 )
 
