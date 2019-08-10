@@ -8,16 +8,21 @@ const ITEMS = {
         "help": "Icone de soma",
         "codePath": BEHAVIOR_PATH + "soma.gd"
     },
-    "print": {
-        "icon": ICON_PATH + "print.png",
-        "help": "Icone do comando Print",
-        "codePath": BEHAVIOR_PATH + "print.gd"
+    "subtracao": {
+        "icon": ICON_PATH + "subtracao.png",
+        "help": "Icone de subtração",
+        "codePath": BEHAVIOR_PATH + "subtracao.gd"
     },
     "multi": {
         "icon": ICON_PATH + "multi.png",
         "help": "Icone de multiplicação",
         "codePath": BEHAVIOR_PATH + "multi.gd"
-    },         
+    },        
+    "print": {
+        "icon": ICON_PATH + "print.png",
+        "help": "Icone do comando Print",
+        "codePath": BEHAVIOR_PATH + "print.gd"
+    },        
     "error": {
         "icon": ICON_PATH + "enemyFlyingAlt_2.png",
         "help": "Icone de erro para testes",
