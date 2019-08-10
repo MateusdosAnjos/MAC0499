@@ -13,10 +13,7 @@ var last_container = null
 var last_pos = Vector2()
 
 func _ready():
-    pickup_item("godot")
-    pickup_item("godot")
-    pickup_item("godot")
-    pickup_item("godot")
+    pickup_item("soma")
     pickup_item("print")
     pickup_item("phoenixE")
     containers[0] = grid

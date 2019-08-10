@@ -3,10 +3,10 @@ extends Node2D
 const ICON_PATH = "res://Acessorios/art/"
 const BEHAVIOR_PATH = "res://Comportamentos/"
 const ITEMS = {
-    "godot": {
-        "icon": ICON_PATH + "icon.png",
-        "help": "Icone da Godot para testes",
-        "codePath": BEHAVIOR_PATH + "godot.gd"
+    "soma": {
+        "icon": ICON_PATH + "soma.png",
+        "help": "Icone de soma",
+        "codePath": BEHAVIOR_PATH + "soma.gd"
     },
     "print": {
         "icon": ICON_PATH + "print.png",
