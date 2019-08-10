@@ -13,10 +13,10 @@ const ITEMS = {
         "help": "Icone do comando Print",
         "codePath": BEHAVIOR_PATH + "print.gd"
     },
-    "phoenixE": {
-        "icon": ICON_PATH + "phoenix_esquerda.png",
-        "help": "Icone da Phoenix para a esquerda!!",
-        "codePath": BEHAVIOR_PATH + "phoenixE.gd"
+    "multi": {
+        "icon": ICON_PATH + "multi.png",
+        "help": "Icone de multiplicação",
+        "codePath": BEHAVIOR_PATH + "multi.gd"
     },         
     "error": {
         "icon": ICON_PATH + "enemyFlyingAlt_2.png",

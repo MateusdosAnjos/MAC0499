@@ -15,7 +15,7 @@ var last_pos = Vector2()
 func _ready():
     pickup_item("soma")
     pickup_item("print")
-    pickup_item("phoenixE")
+    pickup_item("multi")
     containers[0] = grid
 
 func _process(delta):
