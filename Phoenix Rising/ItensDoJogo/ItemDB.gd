@@ -22,7 +22,12 @@ const ITEMS = {
         "icon": ICON_PATH + "print.png",
         "help": "Icone do comando Print",
         "codePath": BEHAVIOR_PATH + "print.gd"
-    },        
+    },
+    "if/else": {
+        "icon": ICON_PATH + "icon.png",
+        "help": "Icone do comando if/else",
+        "codePath": BEHAVIOR_PATH + "ifelse.gd"
+    },          
     "error": {
         "icon": ICON_PATH + "enemyFlyingAlt_2.png",
         "help": "Icone de erro para testes",

@@ -17,6 +17,7 @@ func _ready():
     pickup_item("subtracao")
     pickup_item("multi")
     pickup_item("print")
+    pickup_item("if/else")    
     containers[0] = grid
 
 func _process(delta):
