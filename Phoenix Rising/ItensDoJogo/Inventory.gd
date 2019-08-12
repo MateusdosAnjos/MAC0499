@@ -84,7 +84,3 @@ func pickup_item(item_id):
 func _on_ActionSpace_entered_tree(node_name):
     containers.append(get_node(node_name))
     return
-
-func _on_ActionSpace2_entered_tree(node_name):
-    containers.append(get_node(node_name))
-    return

@@ -76,5 +76,7 @@ text = "Nivel 1"
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
 [connection signal="pressed" from="Run" to="Run" method="_on_Run_pressed"]
 [connection signal="entered_tree" from="Inventory/ActionSpace" to="Inventory" method="_on_ActionSpace_entered_tree"]
-[connection signal="entered_tree" from="Inventory/ActionSpace2" to="Inventory" method="_on_ActionSpace2_entered_tree"]
+[connection signal="entered_tree" from="Inventory/ActionSpace2" to="Inventory" method="_on_ActionSpace_entered_tree"]
+[connection signal="entered_tree" from="Inventory/ActionSpace3" to="Inventory" method="_on_ActionSpace_entered_tree"]
+[connection signal="entered_tree" from="Inventory/ActionSpace4" to="Inventory" method="_on_ActionSpace_entered_tree"]
 [connection signal="pressed" from="Nivel 1" to="." method="_on_Nivel_1_pressed"]

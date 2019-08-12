@@ -8,6 +8,10 @@ func execute(input, arguments, player_answer):
     if (arguments.size() < 2):
         #wrong_arguments_message()
         return null
+    if (arguments[0] == 'input'):
+        arguments[0] = input
+    if (arguments[1] == 'input'):
+        arguments[1] = input        
     if (arguments[0].is_valid_integer() and arguments[1].is_valid_integer()):
         return (int(arguments[0]) * int(arguments[1]))
     elif (arguments[0].is_valid_float() and arguments[1].is_valid_float()):
