@@ -7,7 +7,7 @@ var dialog = [
     'A partir do valor de [color=green][b] ENTRADA [/b][/color] você deve obter o valor de SAÍDA que seja IGUAL ao valor descrito em SAÍDA ESPERADA',
     'Note que ENTRADA está marcada com o retângulo AZUL\nSAIDA ESPERADA está marcada com o retângulo VERMELHO\nSAIDA está marcada com o retângulo VERDE.'
     ]    
-var visual_dialog_nodes = ["mano", "teste", "mano"]    
+var visual_dialog_nodes = ["InputFrame", "ExpectedOutputFrame", "PlayerOutputFrame"]    
 var page = 0
 var max_pages = 2
 

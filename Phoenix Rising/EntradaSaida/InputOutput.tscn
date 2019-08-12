@@ -30,8 +30,10 @@ margin_bottom = 700.0
 color = Color( 0.109804, 0.129412, 0.196078, 1 )
 
 [node name="Input" type="RichTextLabel" parent="InputBase"]
-margin_right = 300.0
-margin_bottom = 520.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 290.0
+margin_bottom = 510.0
 custom_fonts/normal_font = SubResource( 1 )
 text = "Entrada:"
 
@@ -43,26 +45,31 @@ margin_bottom = 700.0
 color = Color( 0.109804, 0.129412, 0.196078, 1 )
 
 [node name="ExpectedOutputTitle" type="RichTextLabel" parent="OutputBase"]
-margin_right = 300.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 290.0
 margin_bottom = 50.0
 custom_fonts/normal_font = SubResource( 2 )
 text = "Saída Esperada:"
 
 [node name="ExpectedOutput" type="RichTextLabel" parent="OutputBase"]
+margin_left = 10.0
 margin_top = 50.0
-margin_right = 300.0
+margin_right = 290.0
 margin_bottom = 250.0
 custom_fonts/normal_font = SubResource( 1 )
 
 [node name="PlayerOutputTitle" type="RichTextLabel" parent="OutputBase"]
-margin_top = 269.0
-margin_right = 300.0
-margin_bottom = 319.0
+margin_left = 10.0
+margin_top = 270.0
+margin_right = 290.0
+margin_bottom = 310.0
 custom_fonts/normal_font = SubResource( 3 )
 text = "Sua Saída:"
 
 [node name="PlayerOutput" type="RichTextLabel" parent="OutputBase"]
-margin_top = 319.0
-margin_right = 300.0
-margin_bottom = 519.0
+margin_left = 10.0
+margin_top = 310.0
+margin_right = 290.0
+margin_bottom = 510.0
 custom_fonts/normal_font = SubResource( 4 )

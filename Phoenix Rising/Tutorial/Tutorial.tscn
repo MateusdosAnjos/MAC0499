@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Tutorial/Tutorial.gd" type="Script" id=1]
-[ext_resource path="res://Tutorial/DialogBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://TelaInicial/FullScreen.tscn" type="PackedScene" id=3]
-[ext_resource path="res://EntradaSaida/InputOutput.tscn" type="PackedScene" id=4]
+[ext_resource path="res://EntradaSaida/InputOutput.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tutorial/DialogBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TelaInicial/FullScreen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ItensDoJogo/RunButton.gd" type="Script" id=5]
 [ext_resource path="res://ItensDoJogo/Inventory.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=7]
@@ -18,13 +18,13 @@ margin_right = 1840.0
 margin_bottom = 920.0
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
-[node name="DialogBox" parent="." instance=ExtResource( 2 )]
+[node name="InputOutput" parent="." instance=ExtResource( 2 )]
+
+[node name="DialogBox" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
 
-[node name="FullScreen" parent="." instance=ExtResource( 3 )]
+[node name="FullScreen" parent="." instance=ExtResource( 4 )]
 pause_mode = 2
-
-[node name="InputOutput" parent="." instance=ExtResource( 4 )]
 
 [node name="Run" type="Button" parent="."]
 anchor_right = 1.0
