@@ -1,4 +1,4 @@
-extends TextureRect
+extends Control
 
 signal entered_tree(node_name)
 
@@ -26,7 +26,6 @@ func _ready():
             grid[x][y] = false
             
 func insert_item(item):
-    var item_pos = item.rect_global_position + Vector2(cell_size/2, cell_size/2)
     var item_size = get_grid_size(item)
     var g_pos = {}
     #Always place in the center of Action Space
