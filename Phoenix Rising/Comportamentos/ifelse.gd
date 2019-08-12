@@ -16,4 +16,6 @@ func execute(input, arguments, player_answer):
             return input >= arguments[1]
         '==':
             return input == arguments[1]
-        _: print("Nenhuma das anteriores")
+        _:
+            #wrong_arguments_message()
+            print("Nenhuma das anteriores")
