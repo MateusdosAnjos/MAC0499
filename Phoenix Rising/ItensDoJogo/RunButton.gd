@@ -39,7 +39,6 @@ func _process_input(input, code_paths, arguments_list):
         arguments = arguments_list[i]
         i = i + 1
         processed_input = code_node.execute(processed_input, arguments, player_answer)
-        print(processed_input)
     return player_answer                 
 
 func _set_answer_on_screen(answer):
