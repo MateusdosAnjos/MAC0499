@@ -20,24 +20,25 @@ func _ready():
     set_visible_characters(0)
     for node_name in visual_dialog_nodes:
         get_parent().get_node(node_name).hide()
-    
 
 func _on_Timer_timeout():
-    get_parent().get_node(visual_dialog_nodes[page]).show()
     set_visible_characters(get_visible_characters()+1)
     if page == max_pages and get_visible_characters() > get_total_character_count():
         SkipButton.text = "Esconder"   
     
 func _on_Skip_pressed():
-        if SkipButton.text == "Esconder":
-            get_parent().hide()
-            get_tree().paused = false
-        else:    
-            if get_visible_characters() > get_total_character_count():
-                if page < dialog.size()-1:
-                    page += 1
-                    set_bbcode(dialog[page])
-                    set_visible_characters(0)
-            else:
-                set_visible_characters(get_total_character_count())
+    show_visual()
+    if SkipButton.text == "Esconder":
+        get_parent().hide()
+        get_tree().paused = false
+    else:    
+        if get_visible_characters() > get_total_character_count():
+            if page < dialog.size()-1:
+                page += 1
+                set_bbcode(dialog[page])
+                set_visible_characters(0)
+        else:
+            set_visible_characters(get_total_character_count())
 
+func show_visual():
+    get_parent().get_node(visual_dialog_nodes[page]).show()
