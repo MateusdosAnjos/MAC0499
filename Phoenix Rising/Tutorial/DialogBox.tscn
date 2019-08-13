@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Tutorial/DialogBox.gd" type="Script" id=1]
 [ext_resource path="res://Acessorios/art/blue_frame.png" type="Texture" id=2]
@@ -20,6 +20,22 @@ corner_radius_bottom_left = 30
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 4.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 4.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 4 ), null ],
 "loop": true,
 "name": "flashy",
 "speed": 4.0
@@ -54,34 +70,22 @@ margin_right = 744.0
 margin_bottom = 90.0
 text = "Pular"
 
-[node name="InputFrame" type="TextureRect" parent="."]
-margin_left = -505.0
-margin_top = -430.0
-margin_right = -200.0
-margin_bottom = 110.0
-texture = ExtResource( 2 )
-expand = true
-
-[node name="ExpectedOutputFrame" type="TextureRect" parent="."]
-margin_left = 995.0
-margin_top = -420.0
-margin_right = 1305.0
-margin_bottom = -160.0
-texture = ExtResource( 3 )
-expand = true
-
-[node name="PlayerOutputFrame" type="TextureRect" parent="."]
-margin_left = 995.0
-margin_top = -160.0
-margin_right = 1305.0
-margin_bottom = 100.0
-texture = ExtResource( 4 )
-expand = true
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="InputFrame" type="AnimatedSprite" parent="."]
 position = Vector2( -350, -160 )
 scale = Vector2( 1.18773, 2.10874 )
 frames = SubResource( 2 )
+animation = "flashy"
+
+[node name="ExpectedOutputFrame" type="AnimatedSprite" parent="."]
+position = Vector2( 1150, -290 )
+scale = Vector2( 1.2, 1.02 )
+frames = SubResource( 3 )
+animation = "flashy"
+
+[node name="PlayerOutputFrame" type="AnimatedSprite" parent="."]
+position = Vector2( 1150, -30.9025 )
+scale = Vector2( 1.2, 1.01 )
+frames = SubResource( 4 )
 animation = "flashy"
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Skip" to="." method="_on_Skip_pressed"]
