@@ -23,36 +23,39 @@ func _ready():
     TextBox.set_visible_characters(0)
     for node_name in visual_dialog_nodes:
         get_node(node_name).hide()
-        
-func _process(delta):
-    if page == 1:
-        for node_name in visual_dialog_nodes:
-            get_node(node_name).show()       
-    if page == 2:
-        $InputFrame.play("flashy")
-    if page == 3:    
-        $InputFrame.stop()
-        $ExpectedOutputFrame.play("flashy")
-    if page == 4:
-        $ExpectedOutputFrame.stop()
-        $PlayerOutputFrame.play("flashy")      
-        
+            
 func _on_Timer_timeout():
-    TextBox.set_visible_characters(TextBox.get_visible_characters()+1)
-    if page == max_pages and TextBox.get_visible_characters() > TextBox.get_total_character_count():
+    TextBox.set_visible_characters(TextBox.get_visible_characters() + 1)
+    if page == max_pages and TextBox.get_visible_characters() >= TextBox.get_total_character_count():
         SkipButton.text = "Esconder"   
     
 func _on_Skip_pressed():
     if SkipButton.text == "Esconder":
         $DialogBox.hide()
-        $PlayerOutputFrame.stop() 
+        $PlayerOutputFrame.stop()
+        $PlayerOutputFrame.set_frame(0)
         get_tree().paused = false
     else:    
-        if TextBox.get_visible_characters() > TextBox.get_total_character_count():
+        if TextBox.get_visible_characters() >= TextBox.get_total_character_count():
             if page < max_pages:
                 page += 1
                 TextBox.set_bbcode(dialog[page])
                 TextBox.set_visible_characters(0)
+                show_visuals()
         else:
             TextBox.set_visible_characters(TextBox.get_total_character_count())
-    
+
+func show_visuals():
+    if page == 1:
+        for node_name in visual_dialog_nodes:
+            get_node(node_name).show()       
+    if page == 2:
+        $InputFrame.play("flashy")
+    if page == 3:
+        $InputFrame.stop()
+        $InputFrame.set_frame(0)
+        $ExpectedOutputFrame.play("flashy")
+    if page == 4:
+        $ExpectedOutputFrame.stop()
+        $ExpectedOutputFrame.set_frame(0)
+        $PlayerOutputFrame.play("flashy")     
