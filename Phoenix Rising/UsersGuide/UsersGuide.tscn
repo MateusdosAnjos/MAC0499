@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UsersGuide/UsersGuide.gd" type="Script" id=1]
 [ext_resource path="res://Acessorios/art/blue_frame.png" type="Texture" id=2]
 [ext_resource path="res://Acessorios/art/green_frame.png" type="Texture" id=3]
 [ext_resource path="res://Acessorios/art/red_frame.png" type="Texture" id=4]
+[ext_resource path="res://Acessorios/art/arrow.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
@@ -36,6 +37,14 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 4 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 4.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 5 ), null ],
 "loop": true,
 "name": "flashy",
 "speed": 4.0
@@ -91,6 +100,12 @@ animation = "flashy"
 position = Vector2( 1670, 569 )
 scale = Vector2( 1.2, 1.01 )
 frames = SubResource( 4 )
+animation = "flashy"
+
+[node name="InventoryArrow" type="AnimatedSprite" parent="."]
+position = Vector2( 150, 600 )
+rotation = 4.71239
+frames = SubResource( 5 )
 animation = "flashy"
 [connection signal="timeout" from="DialogBox/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="DialogBox/Skip" to="." method="_on_Skip_pressed"]
