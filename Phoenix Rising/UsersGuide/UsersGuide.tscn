@@ -88,7 +88,7 @@ frames = SubResource( 3 )
 animation = "flashy"
 
 [node name="PlayerOutputFrame" type="AnimatedSprite" parent="."]
-position = Vector2( 1670, 569.097 )
+position = Vector2( 1670, 569 )
 scale = Vector2( 1.2, 1.01 )
 frames = SubResource( 4 )
 animation = "flashy"

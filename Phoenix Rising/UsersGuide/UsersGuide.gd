@@ -25,16 +25,17 @@ func _ready():
         get_node(node_name).hide()
         
 func _process(delta):
-    if page == 0:
+    if page == 1:
+        for node_name in visual_dialog_nodes:
+            get_node(node_name).show()       
+    if page == 2:
         $InputFrame.play("flashy")
-    if page == 1:    
+    if page == 3:    
         $InputFrame.stop()
         $ExpectedOutputFrame.play("flashy")
-    if page == 2:
+    if page == 4:
         $ExpectedOutputFrame.stop()
-        $PlayerOutputFrame.play("flashy")
-    if page == 3:
-        $PlayerOutputFrame.stop()       
+        $PlayerOutputFrame.play("flashy")      
         
 func _on_Timer_timeout():
     TextBox.set_visible_characters(TextBox.get_visible_characters()+1)
@@ -42,20 +43,16 @@ func _on_Timer_timeout():
         SkipButton.text = "Esconder"   
     
 func _on_Skip_pressed():
-    show_visual()
     if SkipButton.text == "Esconder":
         $DialogBox.hide()
+        $PlayerOutputFrame.stop() 
         get_tree().paused = false
     else:    
         if TextBox.get_visible_characters() > TextBox.get_total_character_count():
-            if page < dialog.size()-1:
+            if page < max_pages:
                 page += 1
                 TextBox.set_bbcode(dialog[page])
                 TextBox.set_visible_characters(0)
         else:
             TextBox.set_visible_characters(TextBox.get_total_character_count())
-
-func show_visual():
-    if page < 3:
-        get_node(visual_dialog_nodes[page]).show()
     
