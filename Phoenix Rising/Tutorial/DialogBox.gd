@@ -4,12 +4,14 @@ extends Panel
 # Variables
 var dialog = [
     'Bem vindo ao Phoenix Rising!\nPara jogar você deve terminar o tutorial.\nClique em "Pular" para ver a próxima mensagem.',
-    'A partir do valor de [color=green][b] ENTRADA [/b][/color] você deve obter o valor de SAÍDA que seja IGUAL ao valor descrito em SAÍDA ESPERADA',
-    'Note que ENTRADA está marcada com o retângulo AZUL\nSAIDA ESPERADA está marcada com o retângulo VERMELHO\nSAIDA está marcada com o retângulo VERDE.'
+    'A partir do valor de [color=#00007f][b] ENTRADA [/b][/color] você deve obter o valor de [color=green][b] SAÍDA ESPERADA[/b][/color].\nVocê pode visualizar sua saída em [color=red][b] SAÍDA [/b][/color]',
+    '[color=#00007f][b] ENTRADA [/b][/color] está marcada com o retângulo [color=#00007f][b] AZUL[/b][/color].',
+    '[color=green][b] SAÍDA ESPERADA [/b][/color] está marcada com o retângulo [color=green][b] VERDE[/b][/color].',    
+    '[color=red][b] SAÍDA [/b][/color] está marcada com o retângulo [color=red][b] VERMELHO[/b][/color].',  
     ]    
 var visual_dialog_nodes = ["InputFrame", "ExpectedOutputFrame", "PlayerOutputFrame"]    
 var page = 0
-var max_pages = 2
+var max_pages = 4
 
 onready var SkipButton = get_node("Skip")
 onready var TextBox = get_node("TextBox")
@@ -42,7 +44,7 @@ func _on_Timer_timeout():
 func _on_Skip_pressed():
     show_visual()
     if SkipButton.text == "Esconder":
-        hide()
+        TextBox.hide()
         get_tree().paused = false
     else:    
         if TextBox.get_visible_characters() > TextBox.get_total_character_count():
@@ -54,5 +56,6 @@ func _on_Skip_pressed():
             TextBox.set_visible_characters(TextBox.get_total_character_count())
 
 func show_visual():
-    get_node(visual_dialog_nodes[page]).show()
+    if page < 3:
+        get_node(visual_dialog_nodes[page]).show()
     
