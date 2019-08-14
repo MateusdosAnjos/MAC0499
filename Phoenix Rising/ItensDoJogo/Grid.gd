@@ -93,5 +93,6 @@ func _on_Inventory_inv_help(pos):
         var id = item.get_meta("id")
         var text = help_panel.get_children()
         text[0].set_bbcode(ItemDB.get_item(id)["help"])
+        get_parent().move_child(help_panel, get_parent().get_child_count())
         help_panel.show()     
     return

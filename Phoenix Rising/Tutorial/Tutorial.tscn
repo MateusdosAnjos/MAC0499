@@ -2,11 +2,11 @@
 
 [ext_resource path="res://Tutorial/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://EntradaSaida/InputOutput.tscn" type="PackedScene" id=2]
-[ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=3]
-[ext_resource path="res://TelaInicial/FullScreen.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ItensDoJogo/RunButton.gd" type="Script" id=5]
-[ext_resource path="res://ItensDoJogo/Inventory.tscn" type="PackedScene" id=6]
-[ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=7]
+[ext_resource path="res://TelaInicial/FullScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ItensDoJogo/RunButton.gd" type="Script" id=4]
+[ext_resource path="res://ItensDoJogo/Inventory.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=7]
 
 [node name="Tutorial" type="Control"]
 script = ExtResource( 1 )
@@ -20,9 +20,7 @@ color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="InputOutput" parent="." instance=ExtResource( 2 )]
 
-[node name="UsersGuide" parent="." instance=ExtResource( 3 )]
-
-[node name="FullScreen" parent="." instance=ExtResource( 4 )]
+[node name="FullScreen" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
 
 [node name="Run" type="Button" parent="."]
@@ -33,37 +31,39 @@ margin_top = 700.0
 margin_right = 950.0
 margin_bottom = 720.0
 text = "Rodar!"
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
-[node name="Inventory" parent="." instance=ExtResource( 6 )]
+[node name="Inventory" parent="." instance=ExtResource( 5 )]
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 0.0
 margin_bottom = 0.0
 
-[node name="ActionSpace" parent="Inventory" instance=ExtResource( 7 )]
+[node name="ActionSpace" parent="Inventory" instance=ExtResource( 6 )]
 margin_left = 400.0
 margin_top = 200.0
 margin_right = 600.0
 margin_bottom = 300.0
 
-[node name="ActionSpace2" parent="Inventory" instance=ExtResource( 7 )]
+[node name="ActionSpace2" parent="Inventory" instance=ExtResource( 6 )]
 margin_left = 700.0
 margin_top = 200.0
 margin_right = 900.0
 margin_bottom = 300.0
 
-[node name="ActionSpace3" parent="Inventory" instance=ExtResource( 7 )]
+[node name="ActionSpace3" parent="Inventory" instance=ExtResource( 6 )]
 margin_left = 1000.0
 margin_top = 40.0
 margin_right = 1200.0
 margin_bottom = 140.0
 
-[node name="ActionSpace4" parent="Inventory" instance=ExtResource( 7 )]
+[node name="ActionSpace4" parent="Inventory" instance=ExtResource( 6 )]
 margin_left = 1000.0
 margin_top = 340.0
 margin_right = 1200.0
 margin_bottom = 440.0
+
+[node name="UsersGuide" parent="." instance=ExtResource( 7 )]
 
 [node name="Nivel 1" type="Button" parent="."]
 margin_left = 1700.0
