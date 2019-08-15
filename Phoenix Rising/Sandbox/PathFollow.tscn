@@ -21,3 +21,8 @@ rotation = -0.0131649
 position = Vector2( 5.47115, 19.149 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+[connection signal="timeout" from="Timer" to="Path2D/PathFollow2D/Sprite" method="_on_Timer_timeout"]
