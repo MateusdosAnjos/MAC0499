@@ -1,6 +1,6 @@
 extends Sprite
 
-onready var texture1 = preload("res://Acessorios/art/icon.png")
+onready var texture1 = preload("res://Acessorios/art/BluePhoenixLogo.png")
 onready var texture2 = preload("res://Acessorios/art/PhoenixLogo.png")
 
 var i = 0
