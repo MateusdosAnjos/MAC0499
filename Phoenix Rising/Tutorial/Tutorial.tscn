@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Tutorial/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://EntradaSaida/InputOutput.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://ItensDoJogo/Inventory.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sandbox/MovableActionSpace.tscn" type="PackedScene" id=8]
 
 [node name="Tutorial" type="Control"]
 script = ExtResource( 1 )
@@ -73,9 +72,6 @@ margin_top = 800.0
 margin_right = 1806.0
 margin_bottom = 842.0
 text = "Nivel 1"
-
-[node name="MovableActionSpace" parent="." instance=ExtResource( 8 )]
-position = Vector2( 409.136, 475.294 )
 [connection signal="input_output_defined" from="." to="Run" method="_on_Tutorial_input_output_defined"]
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
 [connection signal="pressed" from="Run" to="Run" method="_on_Run_pressed"]
