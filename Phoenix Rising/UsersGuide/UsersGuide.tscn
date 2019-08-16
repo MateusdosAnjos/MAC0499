@@ -78,11 +78,19 @@ autostart = true
 
 [node name="Skip" type="Button" parent="DialogBox"]
 modulate = Color( 0.286275, 0.560784, 0.992157, 1 )
-margin_left = 700.0
+margin_left = 660.0
 margin_top = 70.0
-margin_right = 744.0
+margin_right = 704.0
 margin_bottom = 90.0
 text = "Pular"
+
+[node name="Close" type="Button" parent="DialogBox"]
+modulate = Color( 0.286275, 0.560784, 0.992157, 1 )
+margin_left = 720.0
+margin_top = 70.0
+margin_right = 767.0
+margin_bottom = 90.0
+text = "Close"
 
 [node name="InputFrame" type="AnimatedSprite" parent="."]
 position = Vector2( 170, 440 )
@@ -109,3 +117,4 @@ frames = SubResource( 5 )
 animation = "flashy"
 [connection signal="timeout" from="DialogBox/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="DialogBox/Skip" to="." method="_on_Skip_pressed"]
+[connection signal="pressed" from="DialogBox/Close" to="." method="_on_Close_pressed"]

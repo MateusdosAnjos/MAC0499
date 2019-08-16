@@ -64,3 +64,22 @@ func show_visuals():
         $PlayerOutputFrame.set_frame(0)
         $InventoryArrow.show()
         $InventoryArrow.play("flashy")          
+
+func _on_Close_pressed(): 
+    if page == 0 or page == 1:
+        get_node(visual_dialog_nodes[0]).show()
+        get_node(visual_dialog_nodes[1]).show()   
+        get_node(visual_dialog_nodes[2]).show()     
+    if page == 2 or page == 3:
+        $InputFrame.stop()
+        $InputFrame.set_frame(0)
+    if page == 3 or page == 4:
+        $ExpectedOutputFrame.stop()
+        $ExpectedOutputFrame.set_frame(0)
+    if page == 4 or page == 5:
+        $PlayerOutputFrame.stop()
+        $PlayerOutputFrame.set_frame(0)
+        $InventoryArrow.show()
+    $InventoryArrow.hide()    
+    $DialogBox.hide()
+    get_tree().paused = false  
