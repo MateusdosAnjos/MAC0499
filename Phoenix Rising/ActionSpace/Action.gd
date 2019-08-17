@@ -1,7 +1,5 @@
 extends Control
 
-signal entered_tree(node_name)
-
 var placed_item = null
 var grid = {}
 var cell_size = 2
@@ -13,7 +11,6 @@ var argument_list = []
 onready var exist_item = false
 
 func _ready():
-    emit_signal("entered_tree", get_name())
     var s = get_grid_size(self)
     grid_width = s.x
     grid_height = s.y

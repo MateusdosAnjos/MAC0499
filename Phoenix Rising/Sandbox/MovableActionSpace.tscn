@@ -5,7 +5,7 @@
 [ext_resource path="res://Acessorios/art/open_hand_icon.png" type="Texture" id=3]
 [ext_resource path="res://Acessorios/art/closed_hand_icon.png" type="Texture" id=4]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
@@ -13,7 +13,7 @@ animations = [ {
 "speed": 2.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 9.50925, 11.8146 )
 
 [node name="MovableActionSpace" type="Node2D"]
@@ -29,11 +29,11 @@ margin_bottom = 114.292
 
 [node name="OpenCloseHand" type="AnimatedSprite" parent="Area2D"]
 scale = Vector2( 0.025, 0.028 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "open_close_hand"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, 2 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

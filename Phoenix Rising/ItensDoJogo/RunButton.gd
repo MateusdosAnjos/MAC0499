@@ -8,11 +8,11 @@ func _ready():
 
 func _get_ActionSpaces_node_list(node_list):
     var regex = RegEx.new()
-    regex.compile("ActionSpace*")
+    regex.compile("MovableActionSpace*")
     var inventoryNode = (self.owner).get_node('Inventory')
     for node in inventoryNode.get_children():
-        if regex.search(node.get_name()) and node.placed_item:
-            node_list.append(node)
+        if regex.search(node.get_name()) and node.get_node("ActionSpace").placed_item:
+            node_list.append(node.get_node("ActionSpace"))
     return
             
 func _get_ActionSpaces_item_list(item_list, node_list):

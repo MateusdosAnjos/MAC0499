@@ -1,8 +1,13 @@
 extends Node2D
 
+signal entered_tree(node_name)
+
 var mouseIn = false
 onready var HandSprite = get_node("Area2D/OpenCloseHand")
 
+func _ready():
+    emit_signal("entered_tree", get_name())
+    
 func _process(delta):
     # You need to create a action caleld "click"(Left mouse click) in the project input map.
     # Você precisa criar uma ação chamada click(botão esquerdo do mouse) no input map do seu projeto
