@@ -81,8 +81,9 @@ func pickup_item(item_id):
         return false
     return true                                  
 
+#This function searches for the fixed ActionSpace (Control)
+#and append it on the containers list
 func _on_MovableActionSpace_entered_tree(node_name):
-    var node_finder = get_node(node_name)
-    print(node_finder.get_node("ActionSpace"))
-    containers.append(node_finder.get_node("ActionSpace"))
+    var movable_node_name = get_node(node_name)
+    containers.append(movable_node_name.get_node("ActionSpace"))
     return
