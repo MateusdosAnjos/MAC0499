@@ -1,9 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Sandbox/MovableActionSpace.gd" type="Script" id=1]
+[ext_resource path="res://ActionSpace/MovableActionSpace.gd" type="Script" id=1]
 [ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Acessorios/art/open_hand_icon.png" type="Texture" id=3]
 [ext_resource path="res://Acessorios/art/closed_hand_icon.png" type="Texture" id=4]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
