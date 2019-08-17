@@ -3,7 +3,7 @@ extends Node2D
 signal entered_tree(node_name)
 
 var mouseIn = false
-onready var HandSprite = get_node("Area2D/OpenCloseHand")
+onready var HandSprite = get_node("ClickDragArea/OpenCloseHand")
 
 func _ready():
     emit_signal("entered_tree", get_name())
@@ -30,3 +30,11 @@ func _on_Area2D_mouse_exited():
     HandSprite.set_frame(0)
     mouseIn = false
 
+
+
+func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
+    print("Opa Input")
+
+
+func _on_OutputArea_area_shape_entered(area_id, area, area_shape, self_shape):
+    print("Opa Output")
