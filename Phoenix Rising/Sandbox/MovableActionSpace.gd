@@ -12,10 +12,14 @@ func _process(delta):
     #Created new input, same as 'inv_grab' for easier understanding
     #of the code
     if(mouseIn && Input.is_action_pressed("mouse_click")):
+        click_and_drag()
+    pass
+
+func click_and_drag():
+    if not $ActionSpace.placed_item:
         HandSprite.stop()
         HandSprite.set_frame(1)
-        set_position(get_viewport().get_mouse_position())
-    pass
+        set_position(get_viewport().get_mouse_position())   
 
 func _on_Area2D_mouse_entered():
     HandSprite.play("open_close_hand")
