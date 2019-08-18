@@ -45,7 +45,6 @@ margin_bottom = 114.0
 scale = Vector2( 0.025, 0.028 )
 frames = SubResource( 1 )
 animation = "open_close_hand"
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickDragArea"]
 position = Vector2( 0, 2 )
