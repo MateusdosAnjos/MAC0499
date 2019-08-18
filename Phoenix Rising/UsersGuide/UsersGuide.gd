@@ -28,21 +28,17 @@ func _ready():
 func _on_Timer_timeout():
     TextBox.set_visible_characters(TextBox.get_visible_characters() + 1)
     if page == max_pages and TextBox.get_visible_characters() >= TextBox.get_total_character_count():
-        SkipButton.text = "Esconder"   
+        SkipButton.hide()  
     
 func _on_Skip_pressed():
-    if SkipButton.text == "Esconder":
-        $DialogBox.hide()
-        get_tree().paused = false
-    else:    
-        if TextBox.get_visible_characters() >= TextBox.get_total_character_count():
-            if page < max_pages:
-                page += 1
-                TextBox.set_bbcode(dialog[page])
-                TextBox.set_visible_characters(0)
-                show_visuals()
-        else:
-            TextBox.set_visible_characters(TextBox.get_total_character_count())
+    if TextBox.get_visible_characters() >= TextBox.get_total_character_count():
+        if page < max_pages:
+            page += 1
+            TextBox.set_bbcode(dialog[page])
+            TextBox.set_visible_characters(0)
+            show_visuals()
+    else:
+        TextBox.set_visible_characters(TextBox.get_total_character_count())
 
 func show_visuals():
     if page == 1:
