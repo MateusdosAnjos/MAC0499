@@ -96,20 +96,22 @@ func _on_MovableActionSpace_entered_tree(node_name):
     return
 
 # This functions handles the signals of the endpoints connections
-func _on_InputOutput_start_input_entered():
+func _on_InputOutput_start_input_entered(area):
     # Pegar o Action space que está conectado e atribuir o valor 1
+    area.get_parent().get_node("ActionNumber").text = str(current_action)
+    current_action += 1
     pass
 
-func _on_InputOutput_start_input_exited():
+func _on_InputOutput_start_input_exited(area):
     # Desconectar todos os ActionSpaces
     pass
 
-func _on_InputOutput_finish_input_entered():
+func _on_InputOutput_finish_input_entered(area):
     # Conectar o ultimo comando à saida e setar o valor para que
     # seja possivel "rodar" o programa
     pass
     
-func _on_InputOutput_finish_input_exited():
+func _on_InputOutput_finish_input_exited(area):
     # Desconectar o ultimo action space e impedir que o programa
     # "rode"
     pass
