@@ -99,12 +99,14 @@ func _on_MovableActionSpace_entered_tree(node_name):
 
 # This functions handles the signals of the endpoints connections
 func _on_InputOutput_start_input_entered(area):
-    # Pegar o Action space que está conectado e atribuir o valor 1
+    #Sets the Action Number of the Movable Action Space conected to
+    #the source to 1
     area.get_parent().get_node("ActionNumber").text = "1"
     pass
 
 func _on_InputOutput_start_input_exited(area):
-    # Desconectar todos os ActionSpaces
+    #Sets '0' for all Movable Action Spaces once the source
+    #is not conected
     for node in ordered_action_nodes:
         node.get_node("ActionNumber").text = "0"  
     pass
