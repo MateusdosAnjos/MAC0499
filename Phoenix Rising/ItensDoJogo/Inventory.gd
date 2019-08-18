@@ -87,3 +87,22 @@ func _on_MovableActionSpace_entered_tree(node_name):
     var movable_node_name = get_node(node_name)
     containers.append(movable_node_name.get_node("ActionSpace"))
     return
+
+# This functions handles the signals of the endpoints connections
+func _on_InputOutput_start_input_entered():
+    # Pegar o Action space que está conectado e atribuir o valor 1
+    pass
+
+func _on_InputOutput_start_input_exited():
+    # Desconectar todos os ActionSpaces
+    pass
+
+func _on_InputOutput_finish_input_entered():
+    # Conectar o ultimo comando à saida e setar o valor para que
+    # seja possivel "rodar" o programa
+    pass
+    
+func _on_InputOutput_finish_input_exited():
+    # Desconectar o ultimo action space e impedir que o programa
+    # "rode"
+    pass
