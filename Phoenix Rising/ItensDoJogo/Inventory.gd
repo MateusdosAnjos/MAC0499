@@ -1,16 +1,23 @@
 extends Control
 
+#Used to signal when the player asks for an item help
 signal inv_help
 
+#Used to load the base scene of an item
 const item_base = preload("res://ItensDoJogo/ItemBase.tscn")
 
+#Variables that handles the Inventory Items and Containers
 onready var grid = $Grid
-
 var containers = [null]
 var item_held = null
 var item_offset = Vector2()
 var last_container = null
 var last_pos = Vector2()
+
+#Variables that handles the enumeration of Actions
+#and if the system is ready to run
+var current_action = 1
+var all_connected = false
 
 func _ready():
     pickup_item("soma")
