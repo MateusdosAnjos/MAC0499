@@ -16,7 +16,7 @@ var last_pos = Vector2()
 
 #Variables that handles the enumeration of Actions
 #and if the system is ready to run
-var all_connected = false
+var all_conected = false
 var ordered_action_nodes = []
 
 func _ready():
@@ -104,7 +104,7 @@ func _on_InputOutput_start_input_entered(area):
     area.get_parent().get_node("ActionNumber").text = "1"
     pass
 
-func _on_InputOutput_start_input_exited(area):
+func _on_InputOutput_start_input_exited():
     #Sets '0' for all Movable Action Spaces once the source
     #is not conected
     for node in ordered_action_nodes:
@@ -112,11 +112,15 @@ func _on_InputOutput_start_input_exited(area):
     pass
 
 func _on_InputOutput_finish_input_entered(area):
-    # Conectar o ultimo comando à saida e setar o valor para que
-    # seja possivel "rodar" o programa
+    #Sets 'all_conected' to true when the system conects the input source
+    #to the players output using Movables Action Spaces.
+    #Remember: The ActionNumber text of an MovableActionSpace is not 0
+    #when he is somehow conected to the input source
+    if area.get_parent().get_node("ActionNumber").text != "0":
+        all_conected = true
     pass
     
-func _on_InputOutput_finish_input_exited(area):
-    # Desconectar o ultimo action space e impedir que o programa
-    # "rode"
+func _on_InputOutput_finish_input_exited():
+    #If don't reach the endline it's not conected
+    all_conected = false
     pass
