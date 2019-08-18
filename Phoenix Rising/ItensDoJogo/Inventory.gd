@@ -16,7 +16,6 @@ var last_pos = Vector2()
 
 #Variables that handles the enumeration of Actions
 #and if the system is ready to run
-var current_action = 1
 var all_connected = false
 var ordered_action_nodes = []
 
@@ -101,15 +100,13 @@ func _on_MovableActionSpace_entered_tree(node_name):
 # This functions handles the signals of the endpoints connections
 func _on_InputOutput_start_input_entered(area):
     # Pegar o Action space que está conectado e atribuir o valor 1
-    area.get_parent().get_node("ActionNumber").text = str(current_action)
-    current_action += 1
+    area.get_parent().get_node("ActionNumber").text = "1"
     pass
 
 func _on_InputOutput_start_input_exited(area):
     # Desconectar todos os ActionSpaces
     for node in ordered_action_nodes:
-        node.get_node("ActionNumber").text = str(0)
-    current_action = 1    
+        node.get_node("ActionNumber").text = "0"  
     pass
 
 func _on_InputOutput_finish_input_entered(area):

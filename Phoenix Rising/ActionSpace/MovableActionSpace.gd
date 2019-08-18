@@ -43,11 +43,15 @@ func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
         #and acess the 'text' field(the action number), transforming the string
         #into an int to perform operations
         var action_number = int(area.get_parent().get_node("ActionNumber").text)
-        #Increase the action number by 1 (that's why is the 'next'). Now we have
-        #the action number of the node we are moving in the game
-        var next_action_number = action_number + 1
-        #Place the correct number for the moving ActionSpace in game
-        $ActionNumber.text = str(next_action_number)
+        #Checks if the previous action is somehow conected with the Input because 
+        #only makes sense to enumerate when the system is conected with input
+        #source
+        if action_number != 0:
+            #Increase the action number by 1 (that's why is the 'next'). Now we have
+            #the action number of the node we are moving in the game
+            var next_action_number = action_number + 1
+            #Place the correct number for the moving ActionSpace in game
+            $ActionNumber.text = str(next_action_number)
 
 func _on_InputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     $InputArea/Sprite.texture = not_connected_texture
