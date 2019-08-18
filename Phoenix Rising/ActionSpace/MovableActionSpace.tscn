@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ActionSpace/MovableActionSpace.gd" type="Script" id=1]
 [ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Acessorios/art/open_hand_icon.png" type="Texture" id=3]
 [ext_resource path="res://Acessorios/art/closed_hand_icon.png" type="Texture" id=4]
 [ext_resource path="res://Acessorios/art/input_output_no_connection.png" type="Texture" id=5]
+[ext_resource path="res://Acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -22,6 +23,12 @@ extents = Vector2( 23.066, 1.97204 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 23.1737, 1.76979 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
 
 [node name="MovableActionSpace" type="Node2D"]
 script = ExtResource( 1 )
@@ -65,6 +72,14 @@ flip_h = true
 [node name="OutputCollisionShape" type="CollisionShape2D" parent="OutputArea"]
 position = Vector2( 38, 64.5 )
 shape = SubResource( 4 )
+
+[node name="ActionNumber" type="RichTextLabel" parent="."]
+margin_left = -180.0
+margin_top = -16.0
+margin_right = -140.0
+margin_bottom = 24.0
+custom_fonts/normal_font = SubResource( 5 )
+text = "0"
 [connection signal="mouse_entered" from="ClickDragArea" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="ClickDragArea" to="." method="_on_Area2D_mouse_exited"]
 [connection signal="area_shape_entered" from="InputArea" to="." method="_on_InputArea_area_shape_entered"]
