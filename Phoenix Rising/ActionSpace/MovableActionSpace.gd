@@ -12,21 +12,23 @@ const DEFAULT_PATH = "res://Acessorios/art/"
 var current_input = 0
 var current_output = 0
 #Total number of diferent connections on one side (input OR output)
-var num_connections = 2
+var num_connections = 3
 #The input connection nodes
-onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConnection]
+onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConnection, $InputArea/LongConnection]
 #The output connection nodes
-onready var output_connections = [$OutputArea/DefaultConnection, $OutputArea/ZConnection]
+onready var output_connections = [$OutputArea/DefaultConnection, $OutputArea/ZConnection, $OutputArea/LongConnection]
 #The input collision nodes
-onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputArea/ZInputCollisionShape]
+onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputArea/ZInputCollisionShape, $InputArea/LongCollisionShape]
 #The output collision nodes
-onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape]
+onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape, $OutputArea/LongCollisionShape]
 #The connected textures paths
 onready var connected_textures = [DEFAULT_PATH + "input_output_with_connection.png", 
-                                 DEFAULT_PATH + "z_output_with_connection.png"]
+                                 DEFAULT_PATH + "z_output_with_connection.png",
+                                 DEFAULT_PATH + "long_with_connection.png"]
 #The not connected texture paths                               
 onready var not_connected_textures = [DEFAULT_PATH + "input_output_no_connection.png", 
-                                     DEFAULT_PATH + "z_output_no_connection.png"]
+                                     DEFAULT_PATH + "z_output_no_connection.png",
+                                     DEFAULT_PATH + "long_no_connection.png"]
 
 #Hides all but the default connection on the Movable Action Space
 func _hide_connections():

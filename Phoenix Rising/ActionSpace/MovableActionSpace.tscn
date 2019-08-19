@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://ActionSpace/MovableActionSpace.gd" type="Script" id=1]
 [ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Acessorios/art/closed_hand_icon.png" type="Texture" id=4]
 [ext_resource path="res://Acessorios/art/input_output_no_connection.png" type="Texture" id=5]
 [ext_resource path="res://Acessorios/art/z_output_no_connection.png" type="Texture" id=6]
-[ext_resource path="res://Acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Acessorios/art/change_button.png" type="Texture" id=8]
+[ext_resource path="res://Acessorios/art/long_no_connection.png" type="Texture" id=7]
+[ext_resource path="res://Acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Acessorios/art/change_button.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -26,17 +27,23 @@ extents = Vector2( 23.066, 1.97204 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 7.66721, 4.53635 )
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 47.7396, 2.45097 )
+
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 23.1737, 1.76979 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 8.1463, 4.22729 )
 
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 48.0884, 2.45097 )
+
 [sub_resource type="DynamicFont" id=5]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [node name="MovableActionSpace" type="Node2D"]
 script = ExtResource( 1 )
@@ -61,44 +68,70 @@ shape = SubResource( 2 )
 [node name="InputArea" type="Area2D" parent="."]
 
 [node name="DefaultConnection" type="Sprite" parent="InputArea"]
+visible = false
 position = Vector2( -208, 64.5 )
 scale = Vector2( 0.4, 0.14 )
 texture = ExtResource( 5 )
 
 [node name="DefaultInputCollisionShape" type="CollisionShape2D" parent="InputArea"]
+visible = false
 position = Vector2( -208, 64.5 )
 shape = SubResource( 3 )
 
 [node name="ZConnection" type="Sprite" parent="InputArea"]
+visible = false
 position = Vector2( -196, 32 )
 scale = Vector2( 0.4, 0.6 )
 texture = ExtResource( 6 )
 
 [node name="ZInputCollisionShape" type="CollisionShape2D" parent="InputArea"]
+visible = false
 position = Vector2( -200, -0.5 )
 shape = SubResource( 7 )
+
+[node name="LongConnection" type="Sprite" parent="InputArea"]
+position = Vector2( -234, 64.5 )
+scale = Vector2( 0.4, 0.14 )
+texture = ExtResource( 7 )
+
+[node name="LongCollisionShape" type="CollisionShape2D" parent="InputArea"]
+position = Vector2( -235, 64.5 )
+shape = SubResource( 8 )
 
 [node name="OutputArea" type="Area2D" parent="."]
 
 [node name="DefaultConnection" type="Sprite" parent="OutputArea"]
+visible = false
 position = Vector2( 38, 64.595 )
 scale = Vector2( 0.4, 0.14 )
 texture = ExtResource( 5 )
 flip_h = true
 
 [node name="DefaultOutputCollisionShape" type="CollisionShape2D" parent="OutputArea"]
+visible = false
 position = Vector2( 38, 64.5 )
 scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="ZConnection" type="Sprite" parent="OutputArea"]
+visible = false
 position = Vector2( 26, 97 )
 scale = Vector2( 0.4, 0.6 )
 texture = ExtResource( 6 )
 
 [node name="ZOutputCollisionShape" type="CollisionShape2D" parent="OutputArea"]
+visible = false
 position = Vector2( 30, 129.5 )
 shape = SubResource( 6 )
+
+[node name="LongConnection" type="Sprite" parent="OutputArea"]
+position = Vector2( 65, 64.5 )
+scale = Vector2( 0.4, 0.14 )
+texture = ExtResource( 7 )
+
+[node name="LongCollisionShape" type="CollisionShape2D" parent="OutputArea"]
+position = Vector2( 65, 64.5 )
+shape = SubResource( 9 )
 
 [node name="ActionNumber" type="RichTextLabel" parent="."]
 margin_left = -185.0
@@ -114,7 +147,7 @@ margin_top = -10.0
 margin_right = -35.0
 margin_bottom = 14.0
 hint_tooltip = "Alterar formato do output"
-texture_normal = ExtResource( 8 )
+texture_normal = ExtResource( 9 )
 expand = true
 
 [node name="InputChangeButton" type="TextureButton" parent="."]
@@ -122,7 +155,7 @@ margin_left = -135.0
 margin_top = -10.0
 margin_right = -111.0
 margin_bottom = 14.0
-texture_normal = ExtResource( 8 )
+texture_normal = ExtResource( 9 )
 expand = true
 [connection signal="mouse_entered" from="ClickDragArea" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="ClickDragArea" to="." method="_on_Area2D_mouse_exited"]
