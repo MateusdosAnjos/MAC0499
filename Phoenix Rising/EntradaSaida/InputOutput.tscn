@@ -4,12 +4,8 @@
 [ext_resource path="res://Acessorios/art/input_output_no_connection.png" type="Texture" id=2]
 [ext_resource path="res://Acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.3553, 1.63721 )
-
-[sub_resource type="DynamicFont" id=1]
-size = 32
-font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -20,6 +16,10 @@ size = 32
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
 size = 32
 font_data = ExtResource( 3 )
 
@@ -39,7 +39,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartInputArea"]
 position = Vector2( 340, 210 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="FinishInputArea" type="Area2D" parent="."]
 input_pickable = false
@@ -51,7 +51,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishInputArea"]
 position = Vector2( 1500, 474 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="InputBase" type="ColorRect" parent="."]
 margin_left = 20.0
@@ -65,7 +65,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 290.0
 margin_bottom = 510.0
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "Entrada:"
 
 [node name="OutputBase" type="ColorRect" parent="."]
@@ -80,7 +80,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 290.0
 margin_bottom = 50.0
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "Saída Esperada:"
 
 [node name="ExpectedOutput" type="RichTextLabel" parent="OutputBase"]
@@ -88,14 +88,14 @@ margin_left = 10.0
 margin_top = 50.0
 margin_right = 290.0
 margin_bottom = 250.0
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 
 [node name="PlayerOutputTitle" type="RichTextLabel" parent="OutputBase"]
 margin_left = 10.0
 margin_top = 270.0
 margin_right = 290.0
 margin_bottom = 310.0
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 text = "Sua Saída:"
 
 [node name="PlayerOutput" type="RichTextLabel" parent="OutputBase"]
@@ -103,7 +103,7 @@ margin_left = 10.0
 margin_top = 310.0
 margin_right = 290.0
 margin_bottom = 510.0
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
 [connection signal="area_entered" from="StartInputArea" to="." method="_on_StartInputArea_area_entered"]
 [connection signal="area_exited" from="StartInputArea" to="." method="_on_StartInputArea_area_exited"]
 [connection signal="area_entered" from="FinishInputArea" to="." method="_on_FinishInputArea_area_entered"]

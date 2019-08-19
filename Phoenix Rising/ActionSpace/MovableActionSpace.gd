@@ -55,6 +55,7 @@ func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
 
 func _on_InputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     $InputArea/Sprite.texture = not_connected_texture
+    $ActionNumber.text = "0"
 
 func _on_OutputArea_area_shape_entered(area_id, area, area_shape, self_shape):
     $OutputArea/Sprite.texture = connected_texture
