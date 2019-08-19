@@ -16,6 +16,8 @@ func _ready():
     emit_signal("entered_tree", get_name())
     $OutputArea/ZConnection.hide()
     $OutputArea/ZOutputCollisionShape.set_disabled(true)
+    $InputArea/ZConnection.hide()
+    $InputArea/ZInputCollisionShape.set_disabled(true)
     
 func _process(delta):
     #Created new input, same as 'inv_grab' for easier understanding
@@ -42,6 +44,7 @@ func _on_Area2D_mouse_exited():
 func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
     #Changes the texture to the green one
     $InputArea/DefaultConnection.texture = connected_texture
+    $InputArea/ZConnection.texture = z_connected_texture
     #StartInputArea is the action with number 0 and has no atribute "text" 
     if area.name != "StartInputArea":
         #'area' holds the area2D of the MovableActionSpace that is fixed (not
@@ -62,6 +65,7 @@ func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
 
 func _on_InputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     $InputArea/DefaultConnection.texture = not_connected_texture
+    $InputArea/ZConnection.texture = z_not_connected_texture
     $ActionNumber.text = "0"
 
 func _on_OutputArea_area_shape_entered(area_id, area, area_shape, self_shape):
@@ -85,3 +89,17 @@ func _on_OutputChangeButton_pressed():
         $OutputArea/DefaultOutputCollisionShape.set_disabled(false)    
         $OutputArea/ZConnection.hide()
         $OutputArea/ZOutputCollisionShape.set_disabled(true)
+
+
+func _on_InputChangeButton_pressed():
+    if $InputArea/DefaultConnection.is_visible_in_tree():
+        $InputArea/DefaultConnection.hide()
+        $InputArea/DefaultInputCollisionShape.set_disabled(true)    
+        $InputArea/ZConnection.show()
+        $InputArea/ZInputCollisionShape.set_disabled(false)
+        
+    else:
+        $InputArea/DefaultConnection.show()
+        $InputArea/DefaultInputCollisionShape.set_disabled(false)    
+        $InputArea/ZConnection.hide()
+        $InputArea/ZInputCollisionShape.set_disabled(true)

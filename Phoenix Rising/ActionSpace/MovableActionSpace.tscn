@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://ActionSpace/MovableActionSpace.gd" type="Script" id=1]
 [ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=2]
@@ -22,6 +22,9 @@ extents = Vector2( 9.50925, 11.8146 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 23.066, 1.97204 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 7.66721, 4.53635 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 23.1737, 1.76979 )
@@ -62,9 +65,18 @@ position = Vector2( -208, 64.5 )
 scale = Vector2( 0.4, 0.14 )
 texture = ExtResource( 5 )
 
-[node name="InputCollisionShape" type="CollisionShape2D" parent="InputArea"]
+[node name="DefaultInputCollisionShape" type="CollisionShape2D" parent="InputArea"]
 position = Vector2( -208, 64.5 )
 shape = SubResource( 3 )
+
+[node name="ZConnection" type="Sprite" parent="InputArea"]
+position = Vector2( -196, 32 )
+scale = Vector2( 0.4, 0.6 )
+texture = ExtResource( 6 )
+
+[node name="ZInputCollisionShape" type="CollisionShape2D" parent="InputArea"]
+position = Vector2( -200, -0.5 )
+shape = SubResource( 7 )
 
 [node name="OutputArea" type="Area2D" parent="."]
 
@@ -119,3 +131,4 @@ expand = true
 [connection signal="area_shape_entered" from="OutputArea" to="." method="_on_OutputArea_area_shape_entered"]
 [connection signal="area_shape_exited" from="OutputArea" to="." method="_on_OutputArea_area_shape_exited"]
 [connection signal="pressed" from="OutputChangeButton" to="." method="_on_OutputChangeButton_pressed"]
+[connection signal="pressed" from="InputChangeButton" to="." method="_on_InputChangeButton_pressed"]
