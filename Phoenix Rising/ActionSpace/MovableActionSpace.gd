@@ -3,20 +3,28 @@ extends Node2D
 signal entered_tree(node_name)
 
 var mouse_in = false
-
 onready var HandSprite = get_node("ClickDragArea/OpenCloseHand")
 
-onready var connected_texture = preload("res://Acessorios/art/input_output_with_connection.png")
-onready var not_connected_texture = preload("res://Acessorios/art/input_output_no_connection.png")
-onready var z_connected_texture = preload("res://Acessorios/art/z_output_with_connection.png")
-onready var z_not_connected_texture = preload("res://Acessorios/art/z_output_no_connection.png")
-
-var current_input_connection = 0
-var current_output_connection = 0
+#Variables that holds the current connection on the Movable
+#Action Space
+var current_input = 0
+var current_output = 0
+#Total number of diferent connections on one side (input OR output)
+var num_connections = 2
+#The input connection nodes
 onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConnection]
+#The output connection nodes
 onready var output_connections = [$OutputArea/DefaultConnection, $OutputArea/ZConnection]
+#The input collision nodes
 onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputArea/ZInputCollisionShape]
+#The output collision nodes
 onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape]
+#The connected textures paths
+onready var connected_textures = ["res://Acessorios/art/input_output_with_connection.png", 
+                                 "res://Acessorios/art/z_output_with_connection.png"]
+#The not connected texture paths                               
+onready var not_connected_textures = ["res://Acessorios/art/input_output_no_connection.png", 
+                                     "res://Acessorios/art/z_output_no_connection.png"]
 
 #Hides all but the default connection on the Movable Action Space
 func _hide_connections():
@@ -64,9 +72,8 @@ func _on_Area2D_mouse_exited():
     mouse_in = false
 
 func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    #Changes the texture to the green one
-    $InputArea/DefaultConnection.texture = connected_texture
-    $InputArea/ZConnection.texture = z_connected_texture
+    #Changes the texture to the connected (green one)
+    input_connections[current_input].texture = load(connected_textures[current_input])
     #StartInputArea is the action with number 0 and has no atribute "text" 
     if area.name != "StartInputArea":
         #'area' holds the area2D of the MovableActionSpace that is fixed (not
@@ -86,42 +93,25 @@ func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
             $ActionNumber.text = str(next_action_number)
 
 func _on_InputArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    $InputArea/DefaultConnection.texture = not_connected_texture
-    $InputArea/ZConnection.texture = z_not_connected_texture
+    input_connections[current_input].texture = load(not_connected_textures[current_input])
     $ActionNumber.text = "0"
 
 func _on_OutputArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    $OutputArea/DefaultConnection.texture = connected_texture
-    $OutputArea/ZConnection.texture = z_connected_texture
+    output_connections[current_output].texture = load(connected_textures[current_output])
 
 func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    $OutputArea/DefaultConnection.texture = not_connected_texture
-    $OutputArea/ZConnection.texture = z_not_connected_texture
-
-
-func _on_OutputChangeButton_pressed():
-    if $OutputArea/DefaultConnection.is_visible_in_tree():
-        $OutputArea/DefaultConnection.hide()
-        $OutputArea/DefaultOutputCollisionShape.set_disabled(true)    
-        $OutputArea/ZConnection.show()
-        $OutputArea/ZOutputCollisionShape.set_disabled(false)
-        
-    else:
-        $OutputArea/DefaultConnection.show()
-        $OutputArea/DefaultOutputCollisionShape.set_disabled(false)    
-        $OutputArea/ZConnection.hide()
-        $OutputArea/ZOutputCollisionShape.set_disabled(true)
-
+    output_connections[current_output].texture = load(not_connected_textures[current_output])
 
 func _on_InputChangeButton_pressed():
-    if $InputArea/DefaultConnection.is_visible_in_tree():
-        $InputArea/DefaultConnection.hide()
-        $InputArea/DefaultInputCollisionShape.set_disabled(true)    
-        $InputArea/ZConnection.show()
-        $InputArea/ZInputCollisionShape.set_disabled(false)
-        
-    else:
-        $InputArea/DefaultConnection.show()
-        $InputArea/DefaultInputCollisionShape.set_disabled(false)    
-        $InputArea/ZConnection.hide()
-        $InputArea/ZInputCollisionShape.set_disabled(true)
+    input_connections[current_input].hide()
+    input_collisions[current_input].set_disabled(true)
+    current_input = (current_input + 1) % num_connections
+    input_connections[current_input].show()
+    input_collisions[current_input].set_disabled(false)
+
+func _on_OutputChangeButton_pressed():
+    output_connections[current_output].hide()
+    output_collisions[current_output].set_disabled(true)
+    current_output = (current_output + 1) % num_connections
+    output_connections[current_output].show()
+    output_collisions[current_output].set_disabled(false)
