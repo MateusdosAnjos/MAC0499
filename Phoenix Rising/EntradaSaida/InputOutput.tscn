@@ -34,7 +34,7 @@ input_pickable = false
 
 [node name="Sprite" type="Sprite" parent="StartInputArea"]
 position = Vector2( 340, 210 )
-scale = Vector2( 0.4, 0.08 )
+scale = Vector2( 0.4, 0.14 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartInputArea"]
@@ -46,7 +46,7 @@ input_pickable = false
 
 [node name="Sprite" type="Sprite" parent="FinishInputArea"]
 position = Vector2( 1500, 474 )
-scale = Vector2( 0.4, 0.08 )
+scale = Vector2( 0.4, 0.14 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishInputArea"]

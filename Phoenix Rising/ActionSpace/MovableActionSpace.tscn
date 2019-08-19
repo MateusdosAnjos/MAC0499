@@ -56,7 +56,7 @@ shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="InputArea"]
 position = Vector2( -208, 64.5 )
-scale = Vector2( 0.4, 0.08 )
+scale = Vector2( 0.4, 0.14 )
 texture = ExtResource( 5 )
 
 [node name="InputCollisionShape" type="CollisionShape2D" parent="InputArea"]
@@ -67,7 +67,7 @@ shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="OutputArea"]
 position = Vector2( 38, 64.595 )
-scale = Vector2( 0.4, 0.1 )
+scale = Vector2( 0.4, 0.14 )
 texture = ExtResource( 5 )
 flip_h = true
 
