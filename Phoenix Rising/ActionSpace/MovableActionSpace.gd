@@ -9,6 +9,7 @@ onready var not_connected_texture = preload("res://Acessorios/art/input_output_n
 
 func _ready():
     emit_signal("entered_tree", get_name())
+    $OutputArea/Sprite2.hide()
     
 func _process(delta):
     #Created new input, same as 'inv_grab' for easier understanding
@@ -62,3 +63,14 @@ func _on_OutputArea_area_shape_entered(area_id, area, area_shape, self_shape):
 
 func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     $OutputArea/Sprite.texture = not_connected_texture
+
+
+func _on_ChangeButton_pressed():
+    if $OutputArea/Sprite.is_visible_in_tree():
+        $OutputArea/Sprite.hide()    
+        $OutputArea/Sprite2.show()
+        $OutputArea/OutputCollisionShape.set_disabled(true)
+    else:
+        $OutputArea/Sprite.show()    
+        $OutputArea/Sprite2.hide()
+        $OutputArea/OutputCollisionShape.set_disabled(false)
