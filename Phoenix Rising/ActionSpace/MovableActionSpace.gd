@@ -2,19 +2,25 @@ extends Node2D
 
 signal entered_tree(node_name)
 
-var mouseIn = false
+var mouse_in = false
+
 onready var HandSprite = get_node("ClickDragArea/OpenCloseHand")
+onready var CurrentInputConnection = $InputArea/DefaultConnection
+onready var CurrentOutputConnection = $OutputArea/DefaultConnection
 onready var connected_texture = preload("res://Acessorios/art/input_output_with_connection.png")
 onready var not_connected_texture = preload("res://Acessorios/art/input_output_no_connection.png")
+onready var z_connected_texture = preload("res://Acessorios/art/z_output_with_connection.png")
+onready var z_not_connected_texture = preload("res://Acessorios/art/z_output_no_connection.png")
 
 func _ready():
     emit_signal("entered_tree", get_name())
-    $OutputArea/Sprite2.hide()
+    $OutputArea/ZConnection.hide()
+    $OutputArea/ZOutputCollisionShape.set_disabled(true)
     
 func _process(delta):
     #Created new input, same as 'inv_grab' for easier understanding
     #of the code
-    if(mouseIn && Input.is_action_pressed("mouse_click")):
+    if(mouse_in && Input.is_action_pressed("mouse_click")):
         click_and_drag()
     pass
 
@@ -26,16 +32,16 @@ func click_and_drag():
 
 func _on_Area2D_mouse_entered():
     HandSprite.play("open_close_hand")
-    mouseIn = true
+    mouse_in = true
 
 func _on_Area2D_mouse_exited():
     HandSprite.stop()
     HandSprite.set_frame(0)
-    mouseIn = false
+    mouse_in = false
 
 func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
     #Changes the texture to the green one
-    $InputArea/Sprite.texture = connected_texture
+    $InputArea/DefaultConnection.texture = connected_texture
     #StartInputArea is the action with number 0 and has no atribute "text" 
     if area.name != "StartInputArea":
         #'area' holds the area2D of the MovableActionSpace that is fixed (not
@@ -55,22 +61,27 @@ func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
             $ActionNumber.text = str(next_action_number)
 
 func _on_InputArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    $InputArea/Sprite.texture = not_connected_texture
+    $InputArea/DefaultConnection.texture = not_connected_texture
     $ActionNumber.text = "0"
 
 func _on_OutputArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    $OutputArea/Sprite.texture = connected_texture
+    $OutputArea/DefaultConnection.texture = connected_texture
+    $OutputArea/ZConnection.texture = z_connected_texture
 
 func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    $OutputArea/Sprite.texture = not_connected_texture
+    $OutputArea/DefaultConnection.texture = not_connected_texture
+    $OutputArea/ZConnection.texture = z_not_connected_texture
 
 
 func _on_OutputChangeButton_pressed():
-    if $OutputArea/Sprite.is_visible_in_tree():
-        $OutputArea/Sprite.hide()    
-        $OutputArea/Sprite2.show()
-        $OutputArea/OutputCollisionShape.set_disabled(true)
+    if $OutputArea/DefaultConnection.is_visible_in_tree():
+        $OutputArea/DefaultConnection.hide()
+        $OutputArea/DefaultOutputCollisionShape.set_disabled(true)    
+        $OutputArea/ZConnection.show()
+        $OutputArea/ZOutputCollisionShape.set_disabled(false)
+        
     else:
-        $OutputArea/Sprite.show()    
-        $OutputArea/Sprite2.hide()
-        $OutputArea/OutputCollisionShape.set_disabled(false)
+        $OutputArea/DefaultConnection.show()
+        $OutputArea/DefaultOutputCollisionShape.set_disabled(false)    
+        $OutputArea/ZConnection.hide()
+        $OutputArea/ZOutputCollisionShape.set_disabled(true)
