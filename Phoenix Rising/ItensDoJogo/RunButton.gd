@@ -6,6 +6,18 @@ var output
 func _ready():
     pass
 
+#This function sorts the Movable Action Spaces on the scene tree
+#using the Action Number as comparision. The smaller the number
+#higher on the tree it will be.
+func _sort_MovableActionSpaces():
+    var regex = RegEx.new()
+    regex.compile("MovableActionSpace*")
+    var InventoryNode = (self.owner).get_node('Inventory')
+    for node in InventoryNode.get_children():
+        if regex.search(node.get_name()):
+            node.get_parent().move_child(node, int(node.get_node("ActionNumber").text))
+    return
+        
 func _get_ActionSpaces_node_list(node_list):
     var regex = RegEx.new()
     regex.compile("MovableActionSpace*")
@@ -51,6 +63,7 @@ func _on_Run_pressed():
     var item_list = []
     var code_paths = []
     var arguments_list = []
+    _sort_MovableActionSpaces()
     _get_ActionSpaces_node_list(node_list)
     _get_ActionSpaces_item_list(item_list, node_list)  
     _get_items_code_path(item_list, code_paths)
