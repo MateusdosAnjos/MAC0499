@@ -44,7 +44,13 @@ margin_bottom = 0.0
 position = Vector2( 600, 200 )
 
 [node name="MovableActionSpace2" parent="Inventory" instance=ExtResource( 6 )]
-position = Vector2( 1280, 200 )
+position = Vector2( 1213.84, 201.741 )
+
+[node name="MovableActionSpace3" parent="Inventory" instance=ExtResource( 6 )]
+position = Vector2( 1465.93, 45.2661 )
+
+[node name="MovableActionSpace4" parent="Inventory" instance=ExtResource( 6 )]
+position = Vector2( 922.732, 45.2661 )
 
 [node name="UsersGuide" parent="." instance=ExtResource( 7 )]
 
@@ -63,4 +69,6 @@ text = "Nivel 1"
 [connection signal="pressed" from="Run" to="Run" method="_on_Run_pressed"]
 [connection signal="entered_tree" from="Inventory/MovableActionSpace" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
 [connection signal="entered_tree" from="Inventory/MovableActionSpace2" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
+[connection signal="entered_tree" from="Inventory/MovableActionSpace3" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
+[connection signal="entered_tree" from="Inventory/MovableActionSpace4" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
 [connection signal="pressed" from="Nivel 1" to="." method="_on_Nivel_1_pressed"]
