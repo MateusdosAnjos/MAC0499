@@ -5,19 +5,41 @@ signal entered_tree(node_name)
 var mouse_in = false
 
 onready var HandSprite = get_node("ClickDragArea/OpenCloseHand")
-onready var CurrentInputConnection = $InputArea/DefaultConnection
-onready var CurrentOutputConnection = $OutputArea/DefaultConnection
+
 onready var connected_texture = preload("res://Acessorios/art/input_output_with_connection.png")
 onready var not_connected_texture = preload("res://Acessorios/art/input_output_no_connection.png")
 onready var z_connected_texture = preload("res://Acessorios/art/z_output_with_connection.png")
 onready var z_not_connected_texture = preload("res://Acessorios/art/z_output_no_connection.png")
 
+var current_input_connection = 0
+var current_output_connection = 0
+onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConnection]
+onready var output_connections = [$OutputArea/DefaultConnection, $OutputArea/ZConnection]
+onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputArea/ZInputCollisionShape]
+onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape]
+
+#Hides all but the default connection on the Movable Action Space
+func _hide_connections():
+    for connection in input_connections:
+        connection.hide()
+    for connection in output_connections:
+        connection.hide()   
+    input_connections[0].show()
+    output_connections[0].show()
+
+#Disables all but the default collision on the Movable Action Space  
+func _disable_collisions():
+    for collision in input_collisions:
+         collision.set_disabled(true)
+    for collision in output_collisions:
+         collision.set_disabled(true)
+    input_collisions[0].set_disabled(false)
+    output_collisions[0].set_disabled(false)
+                 
 func _ready():
     emit_signal("entered_tree", get_name())
-    $OutputArea/ZConnection.hide()
-    $OutputArea/ZOutputCollisionShape.set_disabled(true)
-    $InputArea/ZConnection.hide()
-    $InputArea/ZInputCollisionShape.set_disabled(true)
+    _hide_connections()
+    _disable_collisions()
     
 func _process(delta):
     #Created new input, same as 'inv_grab' for easier understanding
