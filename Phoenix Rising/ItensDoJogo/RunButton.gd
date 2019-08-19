@@ -28,8 +28,7 @@ func _get_ActionSpaces_node_list(node_list):
     for node in inventoryNode.get_children():
         if regex.search(node.get_name()) and node.get_node("ActionSpace").placed_item:
             if node.get_node("ActionNumber").text != "0":
-                node_list.append(node.get_node("ActionSpace"))
-    print(node_list)            
+                node_list.append(node.get_node("ActionSpace"))           
     return
             
 func _get_ActionSpaces_item_list(item_list, node_list):
