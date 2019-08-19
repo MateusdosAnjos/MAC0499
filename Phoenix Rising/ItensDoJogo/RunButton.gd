@@ -10,25 +10,31 @@ func _ready():
 #using the Action Number as comparision. The smaller the number
 #higher on the tree it will be.
 func _sort_MovableActionSpaces():
+    var InventoryNode = (self.owner).get_node('Inventory')
     var regex = RegEx.new()
     regex.compile("MovableActionSpace*")
-    var InventoryNode = (self.owner).get_node('Inventory')
     for node in InventoryNode.get_children():
         if regex.search(node.get_name()):
-            node.get_parent().move_child(node, int(node.get_node("ActionNumber").text))
+            InventoryNode.move_child(node, int(node.get_node("ActionNumber").text))
     return
-        
+
+#Gets the ActionSpaces list following the tree order.
+#node_list will maintain the ActionNumber order, because the
+#ActionSpaces are ordered in the tree.
 func _get_ActionSpaces_node_list(node_list):
     var regex = RegEx.new()
     regex.compile("MovableActionSpace*")
     var inventoryNode = (self.owner).get_node('Inventory')
     for node in inventoryNode.get_children():
         if regex.search(node.get_name()) and node.get_node("ActionSpace").placed_item:
-            node_list.append(node.get_node("ActionSpace"))
+            if node.get_node("ActionNumber").text != "0":
+                node_list.append(node.get_node("ActionSpace"))
+    print(node_list)            
     return
             
 func _get_ActionSpaces_item_list(item_list, node_list):
     for node in node_list:
+        if node.placed_item != null:
             item_list.append(node.placed_item.get_meta("id"))
     return            
 
