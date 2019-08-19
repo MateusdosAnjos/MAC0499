@@ -5,6 +5,8 @@ signal entered_tree(node_name)
 var mouse_in = false
 onready var HandSprite = get_node("ClickDragArea/OpenCloseHand")
 
+#The default path of the textures
+const DEFAULT_PATH = "res://Acessorios/art/"
 #Variables that holds the current connection on the Movable
 #Action Space
 var current_input = 0
@@ -20,11 +22,11 @@ onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputAre
 #The output collision nodes
 onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape]
 #The connected textures paths
-onready var connected_textures = ["res://Acessorios/art/input_output_with_connection.png", 
-                                 "res://Acessorios/art/z_output_with_connection.png"]
+onready var connected_textures = [DEFAULT_PATH + "input_output_with_connection.png", 
+                                 DEFAULT_PATH + "z_output_with_connection.png"]
 #The not connected texture paths                               
-onready var not_connected_textures = ["res://Acessorios/art/input_output_no_connection.png", 
-                                     "res://Acessorios/art/z_output_no_connection.png"]
+onready var not_connected_textures = [DEFAULT_PATH + "input_output_no_connection.png", 
+                                     DEFAULT_PATH + "z_output_no_connection.png"]
 
 #Hides all but the default connection on the Movable Action Space
 func _hide_connections():
