@@ -65,7 +65,7 @@ func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     $OutputArea/Sprite.texture = not_connected_texture
 
 
-func _on_ChangeButton_pressed():
+func _on_OutputChangeButton_pressed():
     if $OutputArea/Sprite.is_visible_in_tree():
         $OutputArea/Sprite.hide()    
         $OutputArea/Sprite2.show()
