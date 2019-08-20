@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://ActionSpace/MovableActionSpace.gd" type="Script" id=1]
 [ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=2]
@@ -24,22 +24,28 @@ extents = Vector2( 9.50925, 11.8146 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 23.066, 1.97204 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 7.66721, 4.53635 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 47.7396, 2.45097 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 23.1737, 1.76979 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 8.1463, 4.22729 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 48.0884, 2.45097 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 7.46057, 3.48124 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 7.46057, 3.33614 )
+
+[sub_resource type="DynamicFont" id=9]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -68,13 +74,11 @@ shape = SubResource( 2 )
 [node name="InputArea" type="Area2D" parent="."]
 
 [node name="DefaultConnection" type="Sprite" parent="InputArea"]
-visible = false
 position = Vector2( -208, 64.5 )
 scale = Vector2( 0.4, 0.14 )
 texture = ExtResource( 5 )
 
 [node name="DefaultInputCollisionShape" type="CollisionShape2D" parent="InputArea"]
-visible = false
 position = Vector2( -208, 64.5 )
 shape = SubResource( 3 )
 
@@ -87,16 +91,18 @@ texture = ExtResource( 6 )
 [node name="ZInputCollisionShape" type="CollisionShape2D" parent="InputArea"]
 visible = false
 position = Vector2( -200, -0.5 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="LongConnection" type="Sprite" parent="InputArea"]
+visible = false
 position = Vector2( -234, 64.5 )
 scale = Vector2( 0.4, 0.14 )
 texture = ExtResource( 7 )
 
 [node name="LongCollisionShape" type="CollisionShape2D" parent="InputArea"]
+visible = false
 position = Vector2( -235, 64.5 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="OutputArea" type="Area2D" parent="."]
 
@@ -110,8 +116,7 @@ flip_h = true
 [node name="DefaultOutputCollisionShape" type="CollisionShape2D" parent="OutputArea"]
 visible = false
 position = Vector2( 38, 64.5 )
-scale = Vector2( 1, 1 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="ZConnection" type="Sprite" parent="OutputArea"]
 visible = false
@@ -122,23 +127,44 @@ texture = ExtResource( 6 )
 [node name="ZOutputCollisionShape" type="CollisionShape2D" parent="OutputArea"]
 visible = false
 position = Vector2( 30, 129.5 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="LongConnection" type="Sprite" parent="OutputArea"]
+visible = false
 position = Vector2( 65, 64.5 )
 scale = Vector2( 0.4, 0.14 )
 texture = ExtResource( 7 )
 
 [node name="LongCollisionShape" type="CollisionShape2D" parent="OutputArea"]
+visible = false
 position = Vector2( 65, 64.5 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
+
+[node name="IfConnection" type="Sprite" parent="OutputArea"]
+position = Vector2( 26, 14 )
+scale = Vector2( 0.4, 0.6 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="IfCollisionShape2D" type="CollisionShape2D" parent="OutputArea"]
+position = Vector2( 30, -18 )
+shape = SubResource( 10 )
+
+[node name="ElseConnection" type="Sprite" parent="OutputArea"]
+position = Vector2( 26, 114 )
+scale = Vector2( 0.4, 0.6 )
+texture = ExtResource( 6 )
+
+[node name="ElseCollisionShape2D" type="CollisionShape2D" parent="OutputArea"]
+position = Vector2( 30, 146 )
+shape = SubResource( 11 )
 
 [node name="ActionNumber" type="RichTextLabel" parent="."]
 margin_left = -185.0
 margin_top = -18.0
 margin_right = -145.0
 margin_bottom = 22.0
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 9 )
 text = "0"
 
 [node name="OutputChangeButton" type="TextureButton" parent="."]
