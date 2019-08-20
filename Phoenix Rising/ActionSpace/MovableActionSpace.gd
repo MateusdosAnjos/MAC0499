@@ -11,8 +11,9 @@ const DEFAULT_PATH = "res://Acessorios/art/"
 #Action Space
 var current_input = 0
 var current_output = 0
-#Total number of diferent connections on one side (input OR output)
-var num_connections = 5
+#Total number of diferent connections for each side
+var num_input_connections = 3
+var num_output_connections = 5
 #The input connection nodes
 onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConnection, $InputArea/LongConnection]
 #The output connection nodes
@@ -116,13 +117,20 @@ func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
 func _on_InputChangeButton_pressed():
     input_connections[current_input].hide()
     input_collisions[current_input].set_disabled(true)
-    current_input = (current_input + 1) % num_connections
+    current_input = (current_input + 1) % num_input_connections
     input_connections[current_input].show()
     input_collisions[current_input].set_disabled(false)
+    if current_input == 5:
+        _on_InputChangeButton_pressed()
 
 func _on_OutputChangeButton_pressed():
     output_connections[current_output].hide()
     output_collisions[current_output].set_disabled(true)
-    current_output = (current_output + 1) % num_connections
+    current_output = (current_output + 1) % num_output_connections
     output_connections[current_output].show()
     output_collisions[current_output].set_disabled(false)
+    if current_output == 3:
+        _on_OutputChangeButton_pressed()
+        output_connections[current_output-1].show()
+        output_collisions[current_output-1].set_disabled(false)
+        
