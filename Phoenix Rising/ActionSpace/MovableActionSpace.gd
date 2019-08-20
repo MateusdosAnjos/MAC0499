@@ -18,13 +18,13 @@ var num_output_connections = 5
 onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConnection, $InputArea/LongConnection]
 #The output connection nodes
 onready var output_connections = [$OutputArea/DefaultConnection, $OutputArea/ZConnection, $OutputArea/LongConnection,
-                                  $OutputArea/IfConnection, $OutputArea/ElseConnection]
+                                  $IfArea/IfConnection, $ElseArea/ElseConnection]
 #The input collision nodes
 onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputArea/ZInputCollisionShape,
                                 $InputArea/LongCollisionShape]
 #The output collision nodes
 onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape, 
-                                 $OutputArea/LongCollisionShape, $OutputArea/IfCollisionShape2D, $OutputArea/ElseCollisionShape2D]
+                                 $OutputArea/LongCollisionShape, $IfArea/IfCollisionShape, $ElseArea/ElseCollisionShape]
 #The connected textures paths
 onready var connected_textures = [DEFAULT_PATH + "input_output_with_connection.png", 
                                  DEFAULT_PATH + "z_output_with_connection.png",
@@ -114,6 +114,18 @@ func _on_OutputArea_area_shape_entered(area_id, area, area_shape, self_shape):
 func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     output_connections[current_output].texture = load(not_connected_textures[current_output])
 
+func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):
+    output_connections[3].texture = load(connected_textures[3])
+
+func _on_IfArea_area_shape_exited(area_id, area, area_shape, self_shape):
+    output_connections[3].texture = load(not_connected_textures[3])
+
+func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
+    output_connections[4].texture = load(connected_textures[4])
+
+func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):
+    output_connections[4].texture = load(not_connected_textures[4])    
+
 func _on_InputChangeButton_pressed():
     input_connections[current_input].hide()
     input_collisions[current_input].set_disabled(true)
@@ -124,6 +136,9 @@ func _on_InputChangeButton_pressed():
         _on_InputChangeButton_pressed()
 
 func _on_OutputChangeButton_pressed():
+    if current_output == 4:
+        output_connections[current_output-1].hide()
+        output_collisions[current_output-1].set_disabled(true)
     output_connections[current_output].hide()
     output_collisions[current_output].set_disabled(true)
     current_output = (current_output + 1) % num_output_connections

@@ -140,22 +140,26 @@ visible = false
 position = Vector2( 65, 64.5 )
 shape = SubResource( 8 )
 
-[node name="IfConnection" type="Sprite" parent="OutputArea"]
+[node name="IfArea" type="Area2D" parent="."]
+
+[node name="IfConnection" type="Sprite" parent="IfArea"]
 position = Vector2( 26, 14 )
 scale = Vector2( 0.4, 0.6 )
 texture = ExtResource( 6 )
 flip_h = true
 
-[node name="IfCollisionShape2D" type="CollisionShape2D" parent="OutputArea"]
+[node name="IfCollisionShape" type="CollisionShape2D" parent="IfArea"]
 position = Vector2( 30, -18 )
 shape = SubResource( 10 )
 
-[node name="ElseConnection" type="Sprite" parent="OutputArea"]
+[node name="ElseArea" type="Area2D" parent="."]
+
+[node name="ElseConnection" type="Sprite" parent="ElseArea"]
 position = Vector2( 26, 114 )
 scale = Vector2( 0.4, 0.6 )
 texture = ExtResource( 6 )
 
-[node name="ElseCollisionShape2D" type="CollisionShape2D" parent="OutputArea"]
+[node name="ElseCollisionShape" type="CollisionShape2D" parent="ElseArea"]
 position = Vector2( 30, 146 )
 shape = SubResource( 11 )
 
@@ -189,5 +193,9 @@ expand = true
 [connection signal="area_shape_exited" from="InputArea" to="." method="_on_InputArea_area_shape_exited"]
 [connection signal="area_shape_entered" from="OutputArea" to="." method="_on_OutputArea_area_shape_entered"]
 [connection signal="area_shape_exited" from="OutputArea" to="." method="_on_OutputArea_area_shape_exited"]
+[connection signal="area_shape_entered" from="IfArea" to="." method="_on_IfArea_area_shape_entered"]
+[connection signal="area_shape_exited" from="IfArea" to="." method="_on_IfArea_area_shape_exited"]
+[connection signal="area_shape_entered" from="ElseArea" to="." method="_on_ElseArea_area_shape_entered"]
+[connection signal="area_shape_exited" from="ElseArea" to="." method="_on_ElseArea_area_shape_exited"]
 [connection signal="pressed" from="OutputChangeButton" to="." method="_on_OutputChangeButton_pressed"]
 [connection signal="pressed" from="InputChangeButton" to="." method="_on_InputChangeButton_pressed"]
