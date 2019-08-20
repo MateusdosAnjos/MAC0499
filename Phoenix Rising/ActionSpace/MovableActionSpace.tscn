@@ -107,14 +107,12 @@ shape = SubResource( 5 )
 [node name="OutputArea" type="Area2D" parent="."]
 
 [node name="DefaultConnection" type="Sprite" parent="OutputArea"]
-visible = false
 position = Vector2( 38, 64.595 )
 scale = Vector2( 0.4, 0.14 )
 texture = ExtResource( 5 )
 flip_h = true
 
 [node name="DefaultOutputCollisionShape" type="CollisionShape2D" parent="OutputArea"]
-visible = false
 position = Vector2( 38, 64.5 )
 shape = SubResource( 6 )
 
@@ -141,6 +139,7 @@ position = Vector2( 65, 64.5 )
 shape = SubResource( 8 )
 
 [node name="IfArea" type="Area2D" parent="."]
+visible = false
 
 [node name="IfConnection" type="Sprite" parent="IfArea"]
 position = Vector2( 26, 14 )
@@ -153,6 +152,7 @@ position = Vector2( 30, -18 )
 shape = SubResource( 10 )
 
 [node name="ElseArea" type="Area2D" parent="."]
+visible = false
 
 [node name="ElseConnection" type="Sprite" parent="ElseArea"]
 position = Vector2( 26, 114 )
