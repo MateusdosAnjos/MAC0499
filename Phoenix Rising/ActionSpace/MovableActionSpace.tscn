@@ -114,17 +114,17 @@ shape = SubResource( 5 )
 [node name="ConvergeConnection" type="Sprite" parent="InputArea"]
 visible = false
 position = Vector2( -196, 64.5 )
-scale = Vector2( 0.4, 0.6 )
+scale = Vector2( 0.4, 0.7 )
 texture = ExtResource( 8 )
 
 [node name="IfConvergeCollisionShape" type="CollisionShape2D" parent="InputArea"]
 visible = false
-position = Vector2( -200, -7 )
+position = Vector2( -200, -18 )
 shape = SubResource( 12 )
 
 [node name="ElseConvergeCollisionShape" type="CollisionShape2D" parent="InputArea"]
 visible = false
-position = Vector2( -200, 135 )
+position = Vector2( -200, 147 )
 shape = SubResource( 13 )
 
 [node name="OutputArea" type="Area2D" parent="."]

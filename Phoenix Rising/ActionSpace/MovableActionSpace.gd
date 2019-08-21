@@ -31,15 +31,11 @@ onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $Outpu
 onready var connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
                                  DEFAULT_PATH + "z_with_connection.png",
                                  DEFAULT_PATH + "long_with_connection.png",
-                                 DEFAULT_PATH + "z_with_connection.png",
-                                 DEFAULT_PATH + "z_with_connection.png",
                                  DEFAULT_PATH + "converge_with_connection.png",]
 #The not connected texture paths                               
 onready var not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
                                      DEFAULT_PATH + "z_no_connection.png",
                                      DEFAULT_PATH + "long_no_connection.png",
-                                     DEFAULT_PATH + "z_no_connection.png",
-                                     DEFAULT_PATH + "z_no_connection.png",
                                      DEFAULT_PATH + "converge_no_connection.png",]
 
 #Hides all but the default connection on the Movable Action Space
@@ -119,16 +115,16 @@ func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     output_connections[current_output].texture = load(not_connected_textures[current_output])
 
 func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    output_connections[3].texture = load(connected_textures[3])
+    output_connections[3].texture = load(connected_textures[1])
 
 func _on_IfArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    output_connections[3].texture = load(not_connected_textures[3])
+    output_connections[3].texture = load(not_connected_textures[1])
 
 func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    output_connections[4].texture = load(connected_textures[4])
+    output_connections[4].texture = load(connected_textures[1])
 
 func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    output_connections[4].texture = load(not_connected_textures[4])    
+    output_connections[4].texture = load(not_connected_textures[1])    
 
 func _on_InputChangeButton_pressed():
     input_connections[current_input].hide()
