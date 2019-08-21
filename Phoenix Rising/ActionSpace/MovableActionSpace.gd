@@ -12,16 +12,18 @@ const DEFAULT_PATH = "res://Acessorios/art/"
 var current_input = 0
 var current_output = 0
 #Total number of diferent connections for each side
-var num_input_connections = 3
+var num_input_connections = 4
 var num_output_connections = 5
 #The input connection nodes
-onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConnection, $InputArea/LongConnection]
+onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConnection, $InputArea/LongConnection,
+                                 $InputArea/ConvergeConnection]
 #The output connection nodes
 onready var output_connections = [$OutputArea/DefaultConnection, $OutputArea/ZConnection, $OutputArea/LongConnection,
                                   $IfArea/IfConnection, $ElseArea/ElseConnection]
 #The input collision nodes
 onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputArea/ZInputCollisionShape,
-                                $InputArea/LongCollisionShape]
+                                $InputArea/LongCollisionShape, $InputArea/IfConvergeCollisionShape,
+                                $InputArea/ElseConvergeCollisionShape]
 #The output collision nodes
 onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape, 
                                  $OutputArea/LongCollisionShape, $IfArea/IfCollisionShape, $ElseArea/ElseCollisionShape]
@@ -30,13 +32,15 @@ onready var connected_textures = [DEFAULT_PATH + "default_with_connection.png",
                                  DEFAULT_PATH + "z_with_connection.png",
                                  DEFAULT_PATH + "long_with_connection.png",
                                  DEFAULT_PATH + "z_with_connection.png",
-                                 DEFAULT_PATH + "z_with_connection.png",]
+                                 DEFAULT_PATH + "z_with_connection.png",
+                                 DEFAULT_PATH + "converge_with_connection.png",]
 #The not connected texture paths                               
 onready var not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
                                      DEFAULT_PATH + "z_no_connection.png",
                                      DEFAULT_PATH + "long_no_connection.png",
                                      DEFAULT_PATH + "z_no_connection.png",
-                                     DEFAULT_PATH + "z_no_connection.png",]
+                                     DEFAULT_PATH + "z_no_connection.png",
+                                     DEFAULT_PATH + "converge_no_connection.png",]
 
 #Hides all but the default connection on the Movable Action Space
 func _hide_connections():
@@ -132,8 +136,6 @@ func _on_InputChangeButton_pressed():
     current_input = (current_input + 1) % num_input_connections
     input_connections[current_input].show()
     input_collisions[current_input].set_disabled(false)
-    if current_input == 5:
-        _on_InputChangeButton_pressed()
 
 func _on_OutputChangeButton_pressed():
     if current_output == 4:

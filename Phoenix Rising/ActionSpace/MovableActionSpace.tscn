@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://ActionSpace/MovableActionSpace.gd" type="Script" id=1]
 [ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://Acessorios/art/default_no_connection.png" type="Texture" id=5]
 [ext_resource path="res://Acessorios/art/z_no_connection.png" type="Texture" id=6]
 [ext_resource path="res://Acessorios/art/long_no_connection.png" type="Texture" id=7]
-[ext_resource path="res://Acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://Acessorios/art/change_button.png" type="Texture" id=9]
+[ext_resource path="res://Acessorios/art/converge_no_connection.png" type="Texture" id=8]
+[ext_resource path="res://Acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Acessorios/art/change_button.png" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -30,6 +31,12 @@ extents = Vector2( 7.66721, 4.53635 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 47.7396, 2.45097 )
 
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 7.17244, 4.47795 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 7.59949, 4.04787 )
+
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 23.1737, 1.76979 )
 
@@ -49,7 +56,7 @@ extents = Vector2( 7.46057, 3.33614 )
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 8 )
+font_data = ExtResource( 9 )
 
 [node name="MovableActionSpace" type="Node2D"]
 script = ExtResource( 1 )
@@ -103,6 +110,22 @@ texture = ExtResource( 7 )
 visible = false
 position = Vector2( -235, 64.5 )
 shape = SubResource( 5 )
+
+[node name="ConvergeConnection" type="Sprite" parent="InputArea"]
+visible = false
+position = Vector2( -196, 64.5 )
+scale = Vector2( 0.4, 0.6 )
+texture = ExtResource( 8 )
+
+[node name="IfConvergeCollisionShape" type="CollisionShape2D" parent="InputArea"]
+visible = false
+position = Vector2( -200, -7 )
+shape = SubResource( 12 )
+
+[node name="ElseConvergeCollisionShape" type="CollisionShape2D" parent="InputArea"]
+visible = false
+position = Vector2( -200, 135 )
+shape = SubResource( 13 )
 
 [node name="OutputArea" type="Area2D" parent="."]
 
@@ -179,7 +202,7 @@ margin_top = -10.0
 margin_right = -35.0
 margin_bottom = 14.0
 hint_tooltip = "Alterar formato do output"
-texture_normal = ExtResource( 9 )
+texture_normal = ExtResource( 10 )
 expand = true
 
 [node name="InputChangeButton" type="TextureButton" parent="."]
@@ -187,7 +210,7 @@ margin_left = -135.0
 margin_top = -10.0
 margin_right = -111.0
 margin_bottom = 14.0
-texture_normal = ExtResource( 9 )
+texture_normal = ExtResource( 10 )
 expand = true
 [connection signal="mouse_entered" from="ClickDragArea" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="ClickDragArea" to="." method="_on_Area2D_mouse_exited"]
