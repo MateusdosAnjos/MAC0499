@@ -24,9 +24,9 @@ const ITEMS = {
         "codePath": BEHAVIOR_PATH + "print.gd"
     },
     "if/else": {
-        "icon": ICON_PATH + "icon.png",
+        "icon": ICON_PATH + "if_else.png",
         "help": "Icone do comando if/else",
-        "codePath": BEHAVIOR_PATH + "ifelse.gd"
+        "codePath": BEHAVIOR_PATH + "if_else.gd"
     },          
     "error": {
         "icon": ICON_PATH + "enemyFlyingAlt_2.png",
