@@ -46,13 +46,13 @@ extents = Vector2( 7.46057, 3.48124 )
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 7.46057, 3.33614 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 7.17244, 4.47795 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 7.59949, 4.04787 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=13]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -178,7 +178,6 @@ position = Vector2( 30, 146 )
 shape = SubResource( 10 )
 
 [node name="ConvergeArea" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="ConvergeConnection" type="Sprite" parent="ConvergeArea"]
 position = Vector2( -196, 64.5 )
@@ -187,18 +186,18 @@ texture = ExtResource( 8 )
 
 [node name="IfConvergeCollisionShape" type="CollisionShape2D" parent="ConvergeArea"]
 position = Vector2( -200, -18 )
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 
 [node name="ElseConvergeCollisionShape" type="CollisionShape2D" parent="ConvergeArea"]
 position = Vector2( -200, 147 )
-shape = SubResource( 13 )
+shape = SubResource( 12 )
 
 [node name="ActionNumber" type="RichTextLabel" parent="."]
 margin_left = -185.0
 margin_top = -18.0
 margin_right = -145.0
 margin_bottom = 22.0
-custom_fonts/normal_font = SubResource( 11 )
+custom_fonts/normal_font = SubResource( 13 )
 text = "0"
 
 [node name="OutputChangeButton" type="TextureButton" parent="."]

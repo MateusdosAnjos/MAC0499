@@ -38,6 +38,10 @@ onready var not_connected_textures = [DEFAULT_PATH + "default_no_connection.png"
                                      DEFAULT_PATH + "long_no_connection.png",
                                      DEFAULT_PATH + "converge_no_connection.png",]
 
+#Handles is both if and else paths are connected to the converge connection
+onready var if_connected = false
+onready var else_connected = false
+
 #Hides all but the default connection on the Movable Action Space
 func _hide_connections():
     for connection in input_connections:
@@ -127,10 +131,20 @@ func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):
     output_connections[4].texture = load(not_connected_textures[1])    
 
 func _on_ConvergeArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    pass # Replace with function body.
+    if self_shape == 0:
+        if_connected = true
+    else:
+        else_connected = true
+    if if_connected and else_connected:
+        input_connections[current_input].texture = load(connected_textures[current_input])     
 
 func _on_ConvergeArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    pass # Replace with function body.
+    if self_shape == 0:
+        if_connected = false
+    else:
+        else_connected = false
+    if not(if_connected or else_connected):
+        input_connections[current_input].texture = load(not_connected_textures[current_input]) 
        
 func _on_InputChangeButton_pressed():
     input_connections[current_input].hide()
@@ -138,6 +152,8 @@ func _on_InputChangeButton_pressed():
     current_input = (current_input + 1) % num_input_connections
     input_connections[current_input].show()
     input_collisions[current_input].set_disabled(false)
+    if current_input == 3:
+       input_collisions[current_input+1].set_disabled(false) 
 
 func _on_OutputChangeButton_pressed():
     if current_output == 4:
