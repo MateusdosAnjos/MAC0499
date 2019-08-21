@@ -27,16 +27,16 @@ onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $Outpu
                                  $OutputArea/LongCollisionShape, $IfArea/IfCollisionShape, $ElseArea/ElseCollisionShape]
 #The connected textures paths
 onready var connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
-                                 DEFAULT_PATH + "z_output_with_connection.png",
+                                 DEFAULT_PATH + "z_with_connection.png",
                                  DEFAULT_PATH + "long_with_connection.png",
-                                 DEFAULT_PATH + "z_output_with_connection.png",
-                                 DEFAULT_PATH + "z_output_with_connection.png",]
+                                 DEFAULT_PATH + "z_with_connection.png",
+                                 DEFAULT_PATH + "z_with_connection.png",]
 #The not connected texture paths                               
 onready var not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
-                                     DEFAULT_PATH + "z_output_no_connection.png",
+                                     DEFAULT_PATH + "z_no_connection.png",
                                      DEFAULT_PATH + "long_no_connection.png",
-                                     DEFAULT_PATH + "z_output_no_connection.png",
-                                     DEFAULT_PATH + "z_output_no_connection.png",]
+                                     DEFAULT_PATH + "z_no_connection.png",
+                                     DEFAULT_PATH + "z_no_connection.png",]
 
 #Hides all but the default connection on the Movable Action Space
 func _hide_connections():
