@@ -87,9 +87,7 @@ func _on_Area2D_mouse_exited():
     HandSprite.set_frame(0)
     mouse_in = false
 
-func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    #Changes the texture to the connected (green one)
-    input_connections[current_input].texture = load(connected_textures[current_input])
+func _enumerate_action(area):
     #StartInputArea is the action with number 0 and has no atribute "text" 
     if area.name != "StartInputArea":
         #'area' holds the area2D of the MovableActionSpace that is fixed (not
@@ -107,6 +105,11 @@ func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
             var next_action_number = action_number + 1
             #Place the correct number for the moving ActionSpace in game
             $ActionNumber.text = str(next_action_number)
+            
+func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
+    #Changes the texture to the connected (green one)
+    input_connections[current_input].texture = load(connected_textures[current_input])
+    _enumerate_action(area)
 
 func _on_InputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     input_connections[current_input].texture = load(not_connected_textures[current_input])
@@ -136,7 +139,8 @@ func _on_ConvergeArea_area_shape_entered(area_id, area, area_shape, self_shape):
     else:
         else_connected = true
     if if_connected and else_connected:
-        input_connections[current_input].texture = load(connected_textures[current_input])     
+        input_connections[current_input].texture = load(connected_textures[current_input])
+    _enumerate_action(area)
 
 func _on_ConvergeArea_area_shape_exited(area_id, area, area_shape, self_shape):
     if self_shape == 0:
