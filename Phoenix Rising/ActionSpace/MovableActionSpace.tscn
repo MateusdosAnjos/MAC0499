@@ -31,12 +31,6 @@ extents = Vector2( 7.66721, 4.53635 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 47.7396, 2.45097 )
 
-[sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 7.17244, 4.47795 )
-
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 7.59949, 4.04787 )
-
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 23.1737, 1.76979 )
 
@@ -51,6 +45,12 @@ extents = Vector2( 7.46057, 3.48124 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 7.46057, 3.33614 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 7.17244, 4.47795 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 7.59949, 4.04787 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 32
@@ -68,6 +68,7 @@ margin_right = 15.0
 margin_bottom = 114.0
 
 [node name="ClickDragArea" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="OpenCloseHand" type="AnimatedSprite" parent="ClickDragArea"]
 scale = Vector2( 0.025, 0.028 )
@@ -79,6 +80,7 @@ position = Vector2( 0, 2 )
 shape = SubResource( 2 )
 
 [node name="InputArea" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="DefaultConnection" type="Sprite" parent="InputArea"]
 position = Vector2( -208, 64.5 )
@@ -111,23 +113,8 @@ visible = false
 position = Vector2( -235, 64.5 )
 shape = SubResource( 5 )
 
-[node name="ConvergeConnection" type="Sprite" parent="InputArea"]
-visible = false
-position = Vector2( -196, 64.5 )
-scale = Vector2( 0.4, 0.7 )
-texture = ExtResource( 8 )
-
-[node name="IfConvergeCollisionShape" type="CollisionShape2D" parent="InputArea"]
-visible = false
-position = Vector2( -200, -18 )
-shape = SubResource( 12 )
-
-[node name="ElseConvergeCollisionShape" type="CollisionShape2D" parent="InputArea"]
-visible = false
-position = Vector2( -200, 147 )
-shape = SubResource( 13 )
-
 [node name="OutputArea" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="DefaultConnection" type="Sprite" parent="OutputArea"]
 position = Vector2( 38, 64.595 )
@@ -162,6 +149,7 @@ position = Vector2( 65, 64.5 )
 shape = SubResource( 8 )
 
 [node name="IfArea" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="IfConnection" type="Sprite" parent="IfArea"]
 visible = false
@@ -176,6 +164,7 @@ position = Vector2( 30, -18 )
 shape = SubResource( 9 )
 
 [node name="ElseArea" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="ElseConnection" type="Sprite" parent="ElseArea"]
 visible = false
@@ -187,6 +176,22 @@ texture = ExtResource( 6 )
 visible = false
 position = Vector2( 30, 146 )
 shape = SubResource( 10 )
+
+[node name="ConvergeArea" type="Area2D" parent="."]
+editor/display_folded = true
+
+[node name="ConvergeConnection" type="Sprite" parent="ConvergeArea"]
+position = Vector2( -196, 64.5 )
+scale = Vector2( 0.4, 0.7 )
+texture = ExtResource( 8 )
+
+[node name="IfConvergeCollisionShape" type="CollisionShape2D" parent="ConvergeArea"]
+position = Vector2( -200, -18 )
+shape = SubResource( 12 )
+
+[node name="ElseConvergeCollisionShape" type="CollisionShape2D" parent="ConvergeArea"]
+position = Vector2( -200, 147 )
+shape = SubResource( 13 )
 
 [node name="ActionNumber" type="RichTextLabel" parent="."]
 margin_left = -185.0
@@ -222,5 +227,7 @@ expand = true
 [connection signal="area_shape_exited" from="IfArea" to="." method="_on_IfArea_area_shape_exited"]
 [connection signal="area_shape_entered" from="ElseArea" to="." method="_on_ElseArea_area_shape_entered"]
 [connection signal="area_shape_exited" from="ElseArea" to="." method="_on_ElseArea_area_shape_exited"]
+[connection signal="area_shape_entered" from="ConvergeArea" to="." method="_on_ConvergeArea_area_shape_entered"]
+[connection signal="area_shape_exited" from="ConvergeArea" to="." method="_on_ConvergeArea_area_shape_exited"]
 [connection signal="pressed" from="OutputChangeButton" to="." method="_on_OutputChangeButton_pressed"]
 [connection signal="pressed" from="InputChangeButton" to="." method="_on_InputChangeButton_pressed"]

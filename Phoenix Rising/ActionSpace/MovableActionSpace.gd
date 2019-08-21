@@ -16,14 +16,14 @@ var num_input_connections = 4
 var num_output_connections = 5
 #The input connection nodes
 onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConnection, $InputArea/LongConnection,
-                                 $InputArea/ConvergeConnection]
+                                 $ConvergeArea/ConvergeConnection]
 #The output connection nodes
 onready var output_connections = [$OutputArea/DefaultConnection, $OutputArea/ZConnection, $OutputArea/LongConnection,
                                   $IfArea/IfConnection, $ElseArea/ElseConnection]
 #The input collision nodes
 onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputArea/ZInputCollisionShape,
-                                $InputArea/LongCollisionShape, $InputArea/IfConvergeCollisionShape,
-                                $InputArea/ElseConvergeCollisionShape]
+                                $InputArea/LongCollisionShape, $ConvergeArea/IfConvergeCollisionShape,
+                                $ConvergeArea/ElseConvergeCollisionShape]
 #The output collision nodes
 onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape, 
                                  $OutputArea/LongCollisionShape, $IfArea/IfCollisionShape, $ElseArea/ElseCollisionShape]
@@ -126,6 +126,12 @@ func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
 func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):
     output_connections[4].texture = load(not_connected_textures[1])    
 
+func _on_ConvergeArea_area_shape_entered(area_id, area, area_shape, self_shape):
+    pass # Replace with function body.
+
+func _on_ConvergeArea_area_shape_exited(area_id, area, area_shape, self_shape):
+    pass # Replace with function body.
+       
 func _on_InputChangeButton_pressed():
     input_connections[current_input].hide()
     input_collisions[current_input].set_disabled(true)
@@ -146,4 +152,3 @@ func _on_OutputChangeButton_pressed():
         _on_OutputChangeButton_pressed()
         output_connections[current_output-1].show()
         output_collisions[current_output-1].set_disabled(false)
-        
