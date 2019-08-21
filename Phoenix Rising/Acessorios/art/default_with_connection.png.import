@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/input_output_no_connection.png-6281575c153be66387369c075e5b7d65.stex"
+path="res://.import/default_with_connection.png-e5a120432ec980c286c393b25bc8d128.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Acessorios/art/input_output_no_connection.png"
-dest_files=[ "res://.import/input_output_no_connection.png-6281575c153be66387369c075e5b7d65.stex" ]
+source_file="res://Acessorios/art/default_with_connection.png"
+dest_files=[ "res://.import/default_with_connection.png-e5a120432ec980c286c393b25bc8d128.stex" ]
 
 [params]
 

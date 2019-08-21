@@ -26,13 +26,13 @@ onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputAre
 onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape, 
                                  $OutputArea/LongCollisionShape, $IfArea/IfCollisionShape, $ElseArea/ElseCollisionShape]
 #The connected textures paths
-onready var connected_textures = [DEFAULT_PATH + "input_output_with_connection.png", 
+onready var connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
                                  DEFAULT_PATH + "z_output_with_connection.png",
                                  DEFAULT_PATH + "long_with_connection.png",
                                  DEFAULT_PATH + "z_output_with_connection.png",
                                  DEFAULT_PATH + "z_output_with_connection.png",]
 #The not connected texture paths                               
-onready var not_connected_textures = [DEFAULT_PATH + "input_output_no_connection.png", 
+onready var not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
                                      DEFAULT_PATH + "z_output_no_connection.png",
                                      DEFAULT_PATH + "long_no_connection.png",
                                      DEFAULT_PATH + "z_output_no_connection.png",
