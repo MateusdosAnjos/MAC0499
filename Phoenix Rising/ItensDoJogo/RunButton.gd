@@ -3,16 +3,21 @@ extends Button
 var input
 var output
 
+onready var InventoryNode = (self.owner).get_node('Inventory')
+
 func _ready():
     pass
+
+func create_regex(regex_string):
+    var regex = RegEx.new()
+    regex.compile(str(regex_string))
+    return regex
 
 #This function sorts the Movable Action Spaces on the scene tree
 #using the Action Number as comparision. The smaller the number
 #higher on the tree it will be.
 func _sort_MovableActionSpaces():
-    var InventoryNode = (self.owner).get_node('Inventory')
-    var regex = RegEx.new()
-    regex.compile("MovableActionSpace*")
+    var regex = create_regex("MovableActionSpace*")
     for node in InventoryNode.get_children():
         if regex.search(node.get_name()):
             InventoryNode.move_child(node, int(node.get_node("ActionNumber").text))
@@ -22,10 +27,8 @@ func _sort_MovableActionSpaces():
 #node_list will maintain the ActionNumber order, because the
 #ActionSpaces are ordered in the tree.
 func _get_ActionSpaces_node_list(node_list):
-    var regex = RegEx.new()
-    regex.compile("MovableActionSpace*")
-    var inventoryNode = (self.owner).get_node('Inventory')
-    for node in inventoryNode.get_children():
+    var regex = create_regex("MovableActionSpace*")    
+    for node in InventoryNode.get_children():
         if regex.search(node.get_name()) and node.get_node("ActionSpace").placed_item:
             if node.get_node("ActionNumber").text != "0":
                 node_list.append(node.get_node("ActionSpace"))           
