@@ -9,4 +9,4 @@ func execute(input, arguments, player_answer):
             player_answer.append(arguments)
         else:
             player_answer.append(input)   
-    return input
+    return [input, true]
