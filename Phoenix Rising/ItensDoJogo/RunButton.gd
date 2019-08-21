@@ -16,6 +16,8 @@ func create_regex(regex_string):
 #This function sorts the Movable Action Spaces on the scene tree
 #using the Action Number as comparision. The smaller the number
 #higher on the tree it will be.
+#ActionSpaces that are not connected to the source (action number == 0)
+#don't need to be promoted in the tree
 func _sort_MovableActionSpaces():
     var regex = create_regex("MovableActionSpace*")
     for node in InventoryNode.get_children():
