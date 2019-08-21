@@ -19,7 +19,7 @@ func create_regex(regex_string):
 func _sort_MovableActionSpaces():
     var regex = create_regex("MovableActionSpace*")
     for node in InventoryNode.get_children():
-        if regex.search(node.get_name()):
+        if regex.search(node.get_name()) and node.get_node("ActionNumber").text != "0":
             InventoryNode.move_child(node, int(node.get_node("ActionNumber").text))
     return
 
