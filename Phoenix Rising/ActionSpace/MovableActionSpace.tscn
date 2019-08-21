@@ -39,13 +39,13 @@ extents = Vector2( 8.1463, 4.22729 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 48.0884, 2.45097 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 7.46057, 3.48124 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 7.46057, 3.33614 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=11]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -139,36 +139,38 @@ position = Vector2( 65, 64.5 )
 shape = SubResource( 8 )
 
 [node name="IfArea" type="Area2D" parent="."]
-visible = false
 
 [node name="IfConnection" type="Sprite" parent="IfArea"]
+visible = false
 position = Vector2( 26, 14 )
 scale = Vector2( 0.4, 0.6 )
 texture = ExtResource( 6 )
 flip_h = true
 
 [node name="IfCollisionShape" type="CollisionShape2D" parent="IfArea"]
+visible = false
 position = Vector2( 30, -18 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="ElseArea" type="Area2D" parent="."]
-visible = false
 
 [node name="ElseConnection" type="Sprite" parent="ElseArea"]
+visible = false
 position = Vector2( 26, 114 )
 scale = Vector2( 0.4, 0.6 )
 texture = ExtResource( 6 )
 
 [node name="ElseCollisionShape" type="CollisionShape2D" parent="ElseArea"]
+visible = false
 position = Vector2( 30, 146 )
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 
 [node name="ActionNumber" type="RichTextLabel" parent="."]
 margin_left = -185.0
 margin_top = -18.0
 margin_right = -145.0
 margin_bottom = 22.0
-custom_fonts/normal_font = SubResource( 9 )
+custom_fonts/normal_font = SubResource( 11 )
 text = "0"
 
 [node name="OutputChangeButton" type="TextureButton" parent="."]
