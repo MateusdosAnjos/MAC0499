@@ -178,17 +178,21 @@ position = Vector2( 30, 146 )
 shape = SubResource( 10 )
 
 [node name="ConvergeArea" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="ConvergeConnection" type="Sprite" parent="ConvergeArea"]
+visible = false
 position = Vector2( -196, 64.5 )
 scale = Vector2( 0.4, 0.7 )
 texture = ExtResource( 8 )
 
 [node name="IfConvergeCollisionShape" type="CollisionShape2D" parent="ConvergeArea"]
+visible = false
 position = Vector2( -200, -18 )
 shape = SubResource( 11 )
 
 [node name="ElseConvergeCollisionShape" type="CollisionShape2D" parent="ConvergeArea"]
+visible = false
 position = Vector2( -200, 147 )
 shape = SubResource( 12 )
 
