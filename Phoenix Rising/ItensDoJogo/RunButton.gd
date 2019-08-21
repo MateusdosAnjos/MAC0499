@@ -8,6 +8,19 @@ onready var InventoryNode = (self.owner).get_node('Inventory')
 func _ready():
     pass
 
+func print_tree():
+    _sort_MovableActionSpaces()
+    print("INICIO DE UM NOVO RUN!!!")
+    var regex = create_regex("MovableActionSpace*")
+    for node in InventoryNode.get_children():
+        if regex.search(node.get_name()) and node.get_node("ActionNumber").text != "0":
+            print(node.name)
+            if node.right_child != null:
+                print(node.right_child.name)
+            if node.left_child != null:    
+                print(node.left_child.name)
+            print("--------------------")
+
 func create_regex(regex_string):
     var regex = RegEx.new()
     regex.compile(str(regex_string))
@@ -73,6 +86,7 @@ func _on_Run_pressed():
     var item_list = []
     var code_paths = []
     var arguments_list = []
+    print_tree()
     _sort_MovableActionSpaces()
     _get_ActionSpaces_node_list(node_list)
     _get_ActionSpaces_item_list(item_list, node_list)  

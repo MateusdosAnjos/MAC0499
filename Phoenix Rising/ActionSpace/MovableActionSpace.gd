@@ -7,13 +7,16 @@ onready var HandSprite = get_node("ClickDragArea/OpenCloseHand")
 
 #The default path of the textures
 const DEFAULT_PATH = "res://Acessorios/art/"
+
 #Variables that holds the current connection on the Movable
 #Action Space
 var current_input = 0
 var current_output = 0
+
 #Total number of diferent connections for each side
 var num_input_connections = 4
 var num_output_connections = 5
+
 #The input connection nodes
 onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConnection, $InputArea/LongConnection,
                                  $ConvergeArea/ConvergeConnection]
@@ -24,14 +27,17 @@ onready var output_connections = [$OutputArea/DefaultConnection, $OutputArea/ZCo
 onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputArea/ZInputCollisionShape,
                                 $InputArea/LongCollisionShape, $ConvergeArea/IfConvergeCollisionShape,
                                 $ConvergeArea/ElseConvergeCollisionShape]
+
 #The output collision nodes
 onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape, 
                                  $OutputArea/LongCollisionShape, $IfArea/IfCollisionShape, $ElseArea/ElseCollisionShape]
+
 #The connected textures paths
 onready var connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
                                  DEFAULT_PATH + "z_with_connection.png",
                                  DEFAULT_PATH + "long_with_connection.png",
                                  DEFAULT_PATH + "converge_with_connection.png",]
+
 #The not connected texture paths                               
 onready var not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
                                      DEFAULT_PATH + "z_no_connection.png",
@@ -41,6 +47,10 @@ onready var not_connected_textures = [DEFAULT_PATH + "default_no_connection.png"
 #Handles is both if and else paths are connected to the converge connection
 onready var if_connected = false
 onready var else_connected = false
+
+#Used to create the Movable Action Space execution tree (see RunButton.gd)
+onready var right_child = null
+onready var left_child = null
 
 #Hides all but the default connection on the Movable Action Space
 func _hide_connections():
@@ -117,22 +127,28 @@ func _on_InputArea_area_shape_exited(area_id, area, area_shape, self_shape):
 
 func _on_OutputArea_area_shape_entered(area_id, area, area_shape, self_shape):
     output_connections[current_output].texture = load(connected_textures[current_output])
+    right_child = area.get_parent()
 
 func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     output_connections[current_output].texture = load(not_connected_textures[current_output])
+    right_child = null
 
 func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):
     output_connections[3].texture = load(connected_textures[1])
+    right_child = area.get_parent()
 
 func _on_IfArea_area_shape_exited(area_id, area, area_shape, self_shape):
     output_connections[3].texture = load(not_connected_textures[1])
+    right_child = null
 
 func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
     output_connections[4].texture = load(connected_textures[1])
-
+    left_child = area.get_parent()
+    
 func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):
     output_connections[4].texture = load(not_connected_textures[1])    
-
+    left_child = null
+    
 func _on_ConvergeArea_area_shape_entered(area_id, area, area_shape, self_shape):
     if self_shape == 0:
         if_connected = true
