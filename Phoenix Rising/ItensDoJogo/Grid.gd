@@ -11,7 +11,7 @@ var grid_width = 0
 var grid_height = 0
 
 #Used to load the Node HelpPanel
-onready var help_panel = get_parent().get_node("HelpPanel")
+onready var HelpPanel = get_parent().get_node("HelpPanel")
 
 func _ready():
     var s = get_grid_size(self)
@@ -98,8 +98,8 @@ func _on_Inventory_inv_help(pos):
         return
     else:
         var id = item.get_meta("id")
-        var text = help_panel.get_children()
+        var text = HelpPanel.get_children()
         text[0].set_bbcode(ItemDB.get_item(id)["help"])
-        get_parent().move_child(help_panel, get_parent().get_child_count())
-        help_panel.show()     
+        get_parent().move_child(HelpPanel, get_parent().get_child_count())
+        HelpPanel.show()     
     return
