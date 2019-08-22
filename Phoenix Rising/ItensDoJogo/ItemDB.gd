@@ -34,6 +34,9 @@ const ITEMS = {
         "codePath": BEHAVIOR_PATH + "error.gd"
        }
 }
+
+#Used to search in data base for corresponding item using
+#item_id
 func get_item(item_id):
     if item_id in ITEMS:
         return ITEMS[item_id]
