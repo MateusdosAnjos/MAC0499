@@ -19,6 +19,7 @@ var last_pos = Vector2()
 var all_conected = false
 var movable_action_nodes = []
 
+#Used to initialize the inventory items
 func _ready():
     pickup_item("soma")
     pickup_item("subtracao")
@@ -39,7 +40,9 @@ func _process(delta):
         release(cursor_pos)
     if item_held != null:
         item_held.rect_global_position = cursor_pos + item_offset
-        
+
+#Grabs the item under the cursor position (cursor_pos), allowing
+#to move it on screen       
 func grab(cursor_pos):
     var c = get_container_under_cursor(cursor_pos)
     if c != null and c.has_method("grab_item"):
@@ -49,7 +52,10 @@ func grab(cursor_pos):
             last_pos = item_held.rect_global_position
             item_offset = item_held.rect_global_position - cursor_pos
             move_child(item_held, get_child_count())
-                        
+
+#Releases the item in the container under the cursor position (cursor_pos)
+#returns the item to the last position if there is no container under
+#the cursor                        
 func release(cursor_pos):
     if item_held == null:
         return
@@ -63,22 +69,28 @@ func release(cursor_pos):
             return_item()
     else:
         return_item()                
-                          
+ 
+#Returns which container is under the cursor, if
+#there is no container under it returns null                         
 func get_container_under_cursor(cursor_pos):
     for c in containers:
         if c.get_global_rect().has_point(cursor_pos):
             return c
     return null
 
+#Throws the item away
 func drop_item():
     item_held.queue_free()
     item_held = null 
 
+#Returns the item to it's last position
 func return_item():
     item_held.rect_global_position = last_pos
     last_container.insert_item(item_held)
     item_held = null  
 
+#Loads the item from ItemDB and place it on inventory grid
+#Return true when sucessful and false when it's not
 func pickup_item(item_id):
     var item = item_base.instance()
     item.set_meta("id", item_id)
