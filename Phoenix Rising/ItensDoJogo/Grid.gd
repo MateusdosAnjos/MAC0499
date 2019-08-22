@@ -13,6 +13,7 @@ var grid_height = 0
 #Used to load the Node HelpPanel
 onready var HelpPanel = get_parent().get_node("HelpPanel")
 
+#_ready initializes the grid
 func _ready():
     var s = get_grid_size(self)
     grid_width = s.x
@@ -22,7 +23,9 @@ func _ready():
         grid[x] = {}
         for y in range (grid_height):
             grid[x][y] = false
-            
+
+#This function inserts the item on Action Space if it is possible
+#returns true when it was possible to insert and false when it's not           
 func insert_item(item):
     var item_pos = item.rect_global_position + Vector2(cell_size/2, cell_size/2)
     var g_pos = pos_to_grid_coord(item_pos)
@@ -35,6 +38,8 @@ func insert_item(item):
     else:
         return false
 
+#Receives a position(pos) and tries to grab an item under it
+#returning the item if it was sucessfull or null when it's not
 func grab_item(pos):
     var item = get_item_under_pos(pos)
     if item == null:
@@ -44,7 +49,9 @@ func grab_item(pos):
     var item_size = get_grid_size(item)
     set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, false)
     return item
-        
+    
+#Given a position (pos) returns the item under it or null when
+#there is no item under it.        
 func get_item_under_pos(pos):
     for item in items:
         if item.get_global_rect().has_point(pos):
@@ -101,5 +108,5 @@ func _on_Inventory_inv_help(pos):
         var text = HelpPanel.get_children()
         text[0].set_bbcode(ItemDB.get_item(id)["help"])
         get_parent().move_child(HelpPanel, get_parent().get_child_count())
-        HelpPanel.show()     
+        HelpPanel.show()
     return
