@@ -51,6 +51,7 @@ func insert_item(item):
         return false        
 
 #Receives a position(pos) and tries to grab the item under it
+#returning the item if it was sucessfull or null when it's not
 #(Each Action Space holds a maximum of 1 item, that's why it's THE
 #item)
 func grab_item(pos):
