@@ -40,7 +40,6 @@ func _process(delta):
     if item_held != null:
         item_held.rect_global_position = cursor_pos + item_offset
         
-
 func grab(cursor_pos):
     var c = get_container_under_cursor(cursor_pos)
     if c != null and c.has_method("grab_item"):
@@ -97,32 +96,28 @@ func _on_MovableActionSpace_entered_tree(node_name):
     var movable_node_name = get_node(node_name)
     containers.append(movable_node_name.get_node("ActionSpace"))
     movable_action_nodes.append(movable_node_name)
-    return
 
-# This functions handles the signals of the endpoints connections
+#This functions handles the signals of the endpoints connections
+#Sets the Action Number of the Movable Action Space conected to
+#the source to 1
 func _on_InputOutput_start_input_entered(area):
-    #Sets the Action Number of the Movable Action Space conected to
-    #the source to 1
     area.get_parent().get_node("ActionNumber").text = "1"
-    pass
 
+#Sets '0' for all Movable Action Spaces once the source
+#is not conected
 func _on_InputOutput_start_input_exited():
-    #Sets '0' for all Movable Action Spaces once the source
-    #is not conected
     for node in movable_action_nodes:
         node.get_node("ActionNumber").text = "0"  
-    pass
 
+#Sets 'all_conected' to true when the system conects the input source
+#to the players output using Movables Action Spaces.
+#Remember: The ActionNumber text of an MovableActionSpace is not 0
+#when he is somehow conected to the input source
 func _on_InputOutput_finish_input_entered(area):
-    #Sets 'all_conected' to true when the system conects the input source
-    #to the players output using Movables Action Spaces.
-    #Remember: The ActionNumber text of an MovableActionSpace is not 0
-    #when he is somehow conected to the input source
     if area.get_parent().get_node("ActionNumber").text != "0":
         all_conected = true
-    pass
     
+#If don't reach the endline it's not conected    
 func _on_InputOutput_finish_input_exited():
-    #If don't reach the endline it's not conected
     all_conected = false
-    pass
+    
