@@ -58,11 +58,17 @@ func get_item_under_pos(pos):
             return item
     return null       
 
+#Receives a (x, y) grid position and sets to
+#state every position on the rectangle (x, x+w, y, y+h)
 func set_grid_space (x, y, w, h, state):
         for i in range (x, x + w):
             for j in range (y, y + h):
                 grid[i][j] = state
-                   
+
+#Receives a rectangle with edges (x, y, x+w, y+h)
+#and checks if there is space on the grid to position
+#this rectangle
+#Returns true if there is grid space and false if there is not                  
 func is_grid_space_available(x, y, w, h):
     if x < 0 or y < 0:
         return false
@@ -73,14 +79,18 @@ func is_grid_space_available(x, y, w, h):
             if grid[i][j]:
                 return false
     return true
-                                
+
+#Receives a position (pos) and convert it to the
+#grid coordenation system                                 
 func pos_to_grid_coord(pos):
     var local_pos = pos - rect_global_position
     var results = {}
     results.x = int(local_pos.x / cell_size)
     results.y = int(local_pos.y / cell_size)
     return results
-                         
+
+#Receives an item and return it's size (width and height) using
+#the grid coordenation system                           
 func get_grid_size(item):
     var results = {}
     var s = item.rect_size
@@ -98,7 +108,9 @@ func insert_item_at_first_available_spot(item):
                 if insert_item(item):
                     return true
     return false                        
-    
+
+#Shows the help panel of the item under given position (pos)
+#if there is no item under it, nothing happens
 func _on_Inventory_inv_help(pos):
     var item = get_item_under_pos(pos)
     if item == null:
