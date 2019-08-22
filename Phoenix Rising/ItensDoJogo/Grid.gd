@@ -1,11 +1,16 @@
 extends TextureRect
 
+#The list of every item in the grid
 var items = []
+#Used to create a metric for item positioning
 var grid = {}
+#Size of each grid cell
 var cell_size = 32
+#Size of the grid
 var grid_width = 0
 var grid_height = 0
 
+#Used to load the Node HelpPanel
 onready var help_panel = get_parent().get_node("HelpPanel")
 
 func _ready():
