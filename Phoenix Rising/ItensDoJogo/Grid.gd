@@ -75,7 +75,9 @@ func get_grid_size(item):
     results.x = clamp(int(s.x / cell_size), 1, 500)    
     results.y = clamp(int(s.y / cell_size), 1, 500)
     return results
-    
+
+#Receives an item and place it in the first available
+#spot of the grid
 func insert_item_at_first_available_spot(item):
     for y in range (grid_height):
         for x in range (grid_width):
