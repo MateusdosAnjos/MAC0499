@@ -4,6 +4,7 @@ var input
 var output
 
 onready var InventoryNode = (self.owner).get_node('Inventory')
+onready var InputOutputNode = (self.owner).get_node('InputOutput')
    
 func create_regex(regex_string):
     var regex = RegEx.new()
@@ -46,16 +47,17 @@ func _set_answer_on_screen(answer):
     return
     
 func _on_Run_pressed():
-    var item_list = []
-    var code_paths = []
-    var arguments_list = []
-    var answer_list = _process_input(input)
-    var answer_string = PoolStringArray(answer_list).join(" ")
-    _set_answer_on_screen(answer_string)
-    if (answer_string == output):
-        print("Parabéns voce conseguiu!")
-    else:
-        print("Ops, algo está errado!")     
+    if InputOutputNode.input_connected and InputOutputNode.output_connected:
+        var item_list = []
+        var code_paths = []
+        var arguments_list = []
+        var answer_list = _process_input(input)
+        var answer_string = PoolStringArray(answer_list).join(" ")
+        _set_answer_on_screen(answer_string)
+        if (answer_string == output):
+            print("Parabéns voce conseguiu!")
+        else:
+            print("Ops, algo está errado!")    
     
 func _on_Tutorial_input_output_defined(inp, out):
     input = inp
