@@ -4,7 +4,7 @@ extends Control
 signal inv_help
 
 #Used to load the base scene of an item
-const item_base = preload("res://ItensDoJogo/ItemBase.tscn")
+const item_base = preload("res://GenericGameScenes/ItemBase.tscn")
 
 #Variables that handles the Inventory Items and Containers
 onready var grid = $Grid
