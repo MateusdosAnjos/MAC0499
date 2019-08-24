@@ -2,14 +2,14 @@
 
 [ext_resource path="res://ActionSpace/MovableActionSpace.gd" type="Script" id=1]
 [ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Acessorios/art/open_hand_icon.png" type="Texture" id=3]
-[ext_resource path="res://Acessorios/art/closed_hand_icon.png" type="Texture" id=4]
-[ext_resource path="res://Acessorios/art/default_no_connection.png" type="Texture" id=5]
-[ext_resource path="res://Acessorios/art/z_no_connection.png" type="Texture" id=6]
-[ext_resource path="res://Acessorios/art/long_no_connection.png" type="Texture" id=7]
-[ext_resource path="res://Acessorios/art/converge_no_connection.png" type="Texture" id=8]
-[ext_resource path="res://Acessorios/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://Acessorios/art/change_button.png" type="Texture" id=10]
+[ext_resource path="res://Accessories/art/open_hand_icon.png" type="Texture" id=3]
+[ext_resource path="res://Accessories/art/closed_hand_icon.png" type="Texture" id=4]
+[ext_resource path="res://Accessories/art/default_no_connection.png" type="Texture" id=5]
+[ext_resource path="res://Accessories/art/z_no_connection.png" type="Texture" id=6]
+[ext_resource path="res://Accessories/art/long_no_connection.png" type="Texture" id=7]
+[ext_resource path="res://Accessories/art/converge_no_connection.png" type="Texture" id=8]
+[ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Accessories/art/change_button.png" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

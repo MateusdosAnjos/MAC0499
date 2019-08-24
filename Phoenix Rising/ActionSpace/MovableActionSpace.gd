@@ -6,7 +6,7 @@ var mouse_in = false
 onready var HandSprite = get_node("ClickDragArea/OpenCloseHand")
 
 #The default path of the textures
-const DEFAULT_PATH = "res://Acessorios/art/"
+const DEFAULT_PATH = "res://Accessories/art/"
 
 #Variables that holds the current connection on the Movable
 #Action Space

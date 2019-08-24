@@ -1,10 +1,11 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UsersGuide/UsersGuide.gd" type="Script" id=1]
-[ext_resource path="res://Acessorios/art/blue_frame.png" type="Texture" id=2]
-[ext_resource path="res://Acessorios/art/green_frame.png" type="Texture" id=3]
-[ext_resource path="res://Acessorios/art/red_frame.png" type="Texture" id=4]
-[ext_resource path="res://Acessorios/art/arrow.png" type="Texture" id=5]
+[ext_resource path="res://Accessories/art/blue_frame.png" type="Texture" id=2]
+[ext_resource path="res://Accessories/art/green_frame.png" type="Texture" id=3]
+[ext_resource path="res://Accessories/art/red_frame.png" type="Texture" id=4]
+[ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=5]
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )

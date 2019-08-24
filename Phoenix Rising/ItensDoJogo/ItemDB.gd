@@ -1,6 +1,6 @@
 extends Node2D
 
-const ICON_PATH = "res://Acessorios/art/"
+const ICON_PATH = "res://Accessories/art/"
 const BEHAVIOR_PATH = "res://Comportamentos/"
 const ITEMS = {
     "soma": {

@@ -22,4 +22,3 @@ margin_right = 600.0
 margin_bottom = 300.0
 
 [node name="InputOutput" parent="." instance=ExtResource( 3 )]
-[connection signal="entered_tree" from="Invertory/ActionSpace" to="Invertory" method="_on_ActionSpace_entered_tree"]
