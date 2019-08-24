@@ -46,6 +46,12 @@ func _set_answer_on_screen(answer):
     PlayerOutput.text = answer
     return
     
+func success_routine():
+    print("Acertou")
+
+func failure_routine():
+    print("Errou")  
+     
 func _on_Run_pressed():
     if InputOutputNode.input_connected and InputOutputNode.output_connected:
         var item_list = []
@@ -55,9 +61,9 @@ func _on_Run_pressed():
         var answer_string = PoolStringArray(answer_list).join(" ")
         _set_answer_on_screen(answer_string)
         if (answer_string == output):
-            print("Parabéns voce conseguiu!")
+            success_routine()
         else:
-            print("Ops, algo está errado!")    
+            failure_routine()
     
 func _on_Tutorial_input_output_defined(inp, out):
     input = inp
