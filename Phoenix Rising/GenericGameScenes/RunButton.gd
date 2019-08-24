@@ -25,7 +25,7 @@ func _process_input(input):
     var node_code_instance = null
     
     var CurrentNode = _find_root()
-    while CurrentNode != null:
+    while CurrentNode != null and CurrentNode.name != "InputOutput":
         if CurrentNode.get_node("ActionSpace").placed_item:
             node_item = CurrentNode.get_node("ActionSpace").placed_item.get_meta("id")
             input_process_code = load(ItemDB.get_item(node_item)["codePath"])
