@@ -21,7 +21,8 @@ func _on_StartInputArea_area_exited(area):
 
 func _on_FinishInputArea_area_entered(area):
     $FinishInputArea/Sprite.texture = connected_texture
-    output_connected = true
+    if area.get_parent().get_node("ActionNumber").text != "0":
+        output_connected = true
     
 func _on_FinishInputArea_area_exited(area):
     $FinishInputArea/Sprite.texture = not_connected_texture
