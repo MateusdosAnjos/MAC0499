@@ -8,8 +8,6 @@
 [ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=7]
 
-
-
 [node name="Tutorial" type="Control"]
 script = ExtResource( 1 )
 
@@ -56,12 +54,12 @@ position = Vector2( 922.732, 45.2661 )
 
 [node name="UsersGuide" parent="." instance=ExtResource( 7 )]
 
-[node name="Nivel 1" type="Button" parent="."]
+[node name="Level1" type="Button" parent="."]
 margin_left = 1700.0
 margin_top = 800.0
 margin_right = 1806.0
 margin_bottom = 842.0
-text = "Nivel 1"
+text = "Level 1"
 [connection signal="input_output_defined" from="." to="Run" method="_on_Tutorial_input_output_defined"]
 [connection signal="finish_input_entered" from="InputOutput" to="Inventory" method="_on_InputOutput_finish_input_entered"]
 [connection signal="finish_input_exited" from="InputOutput" to="Inventory" method="_on_InputOutput_finish_input_exited"]
@@ -73,4 +71,4 @@ text = "Nivel 1"
 [connection signal="entered_tree" from="Inventory/MovableActionSpace2" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
 [connection signal="entered_tree" from="Inventory/MovableActionSpace3" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
 [connection signal="entered_tree" from="Inventory/MovableActionSpace4" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
-[connection signal="pressed" from="Nivel 1" to="." method="_on_Nivel_1_pressed"]
+[connection signal="pressed" from="Level1" to="." method="_on_Level1_pressed"]
