@@ -15,8 +15,6 @@ var last_container = null
 var last_pos = Vector2()
 
 #Variables that handles the enumeration of Actions
-#and if the system is ready to run
-var all_conected = false
 var movable_action_nodes = []
 
 #Used to initialize the inventory items
@@ -120,16 +118,4 @@ func _on_InputOutput_start_input_entered(area):
 func _on_InputOutput_start_input_exited():
     for node in movable_action_nodes:
         node.get_node("ActionNumber").text = "0"  
-
-#Sets 'all_conected' to true when the system conects the input source
-#to the players output using Movables Action Spaces.
-#Remember: The ActionNumber text of an MovableActionSpace is not 0
-#when he is somehow conected to the input source
-func _on_InputOutput_finish_input_entered(area):
-    if area.get_parent().get_node("ActionNumber").text != "0":
-        all_conected = true
-    
-#If don't reach the endline it's not conected    
-func _on_InputOutput_finish_input_exited():
-    all_conected = false
     
