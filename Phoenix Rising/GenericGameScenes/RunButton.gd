@@ -53,7 +53,8 @@ func failure_routine():
     print("Errou")  
      
 func _on_Run_pressed():
-    if InputOutputNode.input_connected and InputOutputNode.output_connected:
+    #if InputOutputNode.input_connected and InputOutputNode.output_connected:
+    if true:
         var item_list = []
         var code_paths = []
         var arguments_list = []
