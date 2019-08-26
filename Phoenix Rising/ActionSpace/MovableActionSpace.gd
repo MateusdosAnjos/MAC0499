@@ -128,6 +128,9 @@ func _enumerate_action(area):
             #Place the correct number for the moving ActionSpace in game
             $ActionNumber.text = str(next_action_number)
 
+###################################################################################################
+#                                        INPUT CONNECTIONS                                        #
+###################################################################################################
 #Changes the texture to the connected (green one) and enumerate the movable action space
 func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
     input_connections[current_input].texture = load(input_connected_textures[current_input])
@@ -137,28 +140,6 @@ func _on_InputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     input_connections[current_input].texture = load(input_not_connected_textures[current_input])
     $ActionNumber.text = "0"
 
-func _on_OutputArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    output_connections[current_output].texture = load(output_connected_textures[current_output])
-    right_child = area.get_parent()
-
-func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    output_connections[current_output].texture = load(output_not_connected_textures[current_output])
-    right_child = null
-
-func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    output_connections[current_output].texture = load(output_connected_textures[current_output])
-    right_child = area.get_parent()
-
-func _on_IfArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    output_connections[current_output].texture = load(output_not_connected_textures[current_output])
-    right_child = null
-
-func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    left_child = area.get_parent()
-    
-func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):   
-    left_child = null
-    
 func _on_ConvergeArea_area_shape_entered(area_id, area, area_shape, self_shape):
     if_connected = true
     if if_connected or else_connected:
@@ -167,7 +148,7 @@ func _on_ConvergeArea_area_shape_entered(area_id, area, area_shape, self_shape):
     
 func _on_ConvergeArea_area_shape_exited(area_id, area, area_shape, self_shape):
     if_connected = false
-    input_connections[current_input].texture = load(input_not_connected_textures[current_input]) 
+    input_connections[current_input].texture = load(input_not_connected_textures[current_input])
 
 func _on_ElseConverge_area_shape_entered(area_id, area, area_shape, self_shape):
     else_connected = true
@@ -177,7 +158,44 @@ func _on_ElseConverge_area_shape_entered(area_id, area, area_shape, self_shape):
 func _on_ElseConverge_area_shape_exited(area_id, area, area_shape, self_shape):
     else_connected = false
     input_connections[current_input].texture = load(input_not_connected_textures[current_input])
-      
+
+###################################################################################################
+#                                       OUTPUT CONNECTIONS                                        #
+###################################################################################################
+func _on_OutputArea_area_shape_entered(area_id, area, area_shape, self_shape):
+    output_connections[current_output].texture = load(output_connected_textures[current_output])
+    area = area.get_parent()
+    while (not ("MovableActionSpace" in area.name)):
+        area = area.get_parent()
+    right_child = area
+
+func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
+    output_connections[current_output].texture = load(output_not_connected_textures[current_output])
+    right_child = null
+
+func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):
+    output_connections[current_output].texture = load(output_connected_textures[current_output])
+    area = area.get_parent()
+    while (not ("MovableActionSpace" in area.name)):
+        area = area.get_parent()
+    right_child = area
+
+func _on_IfArea_area_shape_exited(area_id, area, area_shape, self_shape):
+    output_connections[current_output].texture = load(output_not_connected_textures[current_output])
+    right_child = null
+
+func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
+    area = area.get_parent()
+    while (not ("MovableActionSpace" in area.name)):
+        area = area.get_parent()
+    left_child = area
+    
+func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):   
+    left_child = null   
+
+###################################################################################################
+#                                        CHANGING CONNECTIONS                                     #
+###################################################################################################   
 func _on_InputChangeButton_pressed():
     input_connections[current_input].hide()
     input_collisions[current_input].set_disabled(true)
