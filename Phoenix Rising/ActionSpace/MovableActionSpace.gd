@@ -114,7 +114,10 @@ func _enumerate_action(area):
         #First gets the parent of 'area', then gets the "ActionNumber" node
         #and acess the 'text' field(the action number), transforming the string
         #into an int to perform operations
-        var action_number = int(area.get_parent().get_node("ActionNumber").text)
+        area = area.get_parent()
+        while (not ("MovableActionSpace" in area.name)):
+            area = area.get_parent()
+        var action_number = int(area.get_node("ActionNumber").text)
         #Checks if the previous action is somehow conected with the Input because 
         #only makes sense to enumerate when the system is conected with input
         #source
