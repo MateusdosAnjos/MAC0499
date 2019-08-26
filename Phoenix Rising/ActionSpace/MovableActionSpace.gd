@@ -15,34 +15,43 @@ var current_output = 0
 
 #Total number of diferent connections for each side
 var num_input_connections = 4
-var num_output_connections = 5
+var num_output_connections = 4
 
 #The input connection nodes
 onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConnection, $InputArea/LongConnection,
                                  $ConvergeArea/ConvergeConnection]
 #The output connection nodes
 onready var output_connections = [$OutputArea/DefaultConnection, $OutputArea/ZConnection, $OutputArea/LongConnection,
-                                  $IfArea/IfConnection, $ElseArea/ElseConnection]
+                                  $IfArea/IfConnection,]
 #The input collision nodes
 onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputArea/ZInputCollisionShape,
-                                $InputArea/LongCollisionShape, $ConvergeArea/IfConvergeCollisionShape,
-                                $ConvergeArea/ElseConvergeCollisionShape]
+                                $InputArea/LongCollisionShape, $ConvergeArea/IfConvergeCollisionShape,]
 
 #The output collision nodes
 onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape, 
-                                 $OutputArea/LongCollisionShape, $IfArea/IfCollisionShape, $ElseArea/ElseCollisionShape]
+                                 $OutputArea/LongCollisionShape, $IfArea/IfCollisionShape]
 
 #The connected textures paths
-onready var connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
-                                 DEFAULT_PATH + "z_with_connection.png",
-                                 DEFAULT_PATH + "long_with_connection.png",
-                                 DEFAULT_PATH + "converge_with_connection.png",]
+onready var input_connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
+                                        DEFAULT_PATH + "z_with_connection.png",
+                                        DEFAULT_PATH + "long_with_connection.png",
+                                        DEFAULT_PATH + "converge_with_connection.png",]
+                                
+onready var output_connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
+                                        DEFAULT_PATH + "z_with_connection.png",
+                                        DEFAULT_PATH + "long_with_connection.png",
+                                        DEFAULT_PATH + "if_else_with_connection.png",]
 
 #The not connected texture paths                               
-onready var not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
-                                     DEFAULT_PATH + "z_no_connection.png",
-                                     DEFAULT_PATH + "long_no_connection.png",
-                                     DEFAULT_PATH + "converge_no_connection.png",]
+onready var input_not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
+                                            DEFAULT_PATH + "z_no_connection.png",
+                                            DEFAULT_PATH + "long_no_connection.png",
+                                            DEFAULT_PATH + "converge_no_connection.png",]
+                                            
+onready var output_not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
+                                             DEFAULT_PATH + "z_no_connection.png",
+                                             DEFAULT_PATH + "long_no_connection.png",
+                                             DEFAULT_PATH + "if_else_no_connection.png",]
 
 #Handles is both if and else paths are connected to the converge connection
 onready var if_connected = false
@@ -105,7 +114,10 @@ func _enumerate_action(area):
         #First gets the parent of 'area', then gets the "ActionNumber" node
         #and acess the 'text' field(the action number), transforming the string
         #into an int to perform operations
-        var action_number = int(area.get_parent().get_node("ActionNumber").text)
+        area = area.get_parent()
+        while (not ("MovableActionSpace" in area.name)):
+            area = area.get_parent()
+        var action_number = int(area.get_node("ActionNumber").text)
         #Checks if the previous action is somehow conected with the Input because 
         #only makes sense to enumerate when the system is conected with input
         #source
@@ -115,76 +127,69 @@ func _enumerate_action(area):
             var next_action_number = action_number + 1
             #Place the correct number for the moving ActionSpace in game
             $ActionNumber.text = str(next_action_number)
-            
+
+#Changes the texture to the connected (green one) and enumerate the movable action space
 func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    #Changes the texture to the connected (green one)
-    input_connections[current_input].texture = load(connected_textures[current_input])
+    input_connections[current_input].texture = load(input_connected_textures[current_input])
     _enumerate_action(area)
 
 func _on_InputArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    input_connections[current_input].texture = load(not_connected_textures[current_input])
+    input_connections[current_input].texture = load(input_not_connected_textures[current_input])
     $ActionNumber.text = "0"
 
 func _on_OutputArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    output_connections[current_output].texture = load(connected_textures[current_output])
+    output_connections[current_output].texture = load(output_connected_textures[current_output])
     right_child = area.get_parent()
 
 func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    output_connections[current_output].texture = load(not_connected_textures[current_output])
+    output_connections[current_output].texture = load(output_not_connected_textures[current_output])
     right_child = null
 
 func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    output_connections[3].texture = load(connected_textures[1])
+    output_connections[current_output].texture = load(output_connected_textures[current_output])
     right_child = area.get_parent()
 
 func _on_IfArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    output_connections[3].texture = load(not_connected_textures[1])
+    output_connections[current_output].texture = load(output_not_connected_textures[current_output])
     right_child = null
 
 func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    output_connections[4].texture = load(connected_textures[1])
     left_child = area.get_parent()
     
-func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    output_connections[4].texture = load(not_connected_textures[1])    
+func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):   
     left_child = null
     
 func _on_ConvergeArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    if self_shape == 0:
-        if_connected = true
-    else:
-        else_connected = true
-    if if_connected and else_connected:
-        input_connections[current_input].texture = load(connected_textures[current_input])
+    if_connected = true
+    if if_connected or else_connected:
+        input_connections[current_input].texture = load(input_connected_textures[current_input])
     _enumerate_action(area)
-
+    
 func _on_ConvergeArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    if self_shape == 0:
-        if_connected = false
-    else:
-        else_connected = false
-    if not(if_connected or else_connected):
-        input_connections[current_input].texture = load(not_connected_textures[current_input]) 
-       
+    if_connected = false
+    input_connections[current_input].texture = load(input_not_connected_textures[current_input]) 
+
+func _on_ElseConverge_area_shape_entered(area_id, area, area_shape, self_shape):
+    else_connected = true
+    if if_connected or else_connected:
+        input_connections[current_input].texture = load(input_connected_textures[current_input])
+
+func _on_ElseConverge_area_shape_exited(area_id, area, area_shape, self_shape):
+    else_connected = false
+    input_connections[current_input].texture = load(input_not_connected_textures[current_input])
+      
 func _on_InputChangeButton_pressed():
     input_connections[current_input].hide()
     input_collisions[current_input].set_disabled(true)
+    input_connections[current_input].texture = load(input_not_connected_textures[current_input])
     current_input = (current_input + 1) % num_input_connections
     input_connections[current_input].show()
     input_collisions[current_input].set_disabled(false)
-    if current_input == 3:
-       input_collisions[current_input+1].set_disabled(false) 
 
 func _on_OutputChangeButton_pressed():
-    if current_output == 4:
-        output_connections[current_output-1].hide()
-        output_collisions[current_output-1].set_disabled(true)
     output_connections[current_output].hide()
     output_collisions[current_output].set_disabled(true)
+    output_connections[current_output].texture = load(output_not_connected_textures[current_output])
     current_output = (current_output + 1) % num_output_connections
     output_connections[current_output].show()
-    output_collisions[current_output].set_disabled(false)
-    if current_output == 3:
-        _on_OutputChangeButton_pressed()
-        output_connections[current_output-1].show()
-        output_collisions[current_output-1].set_disabled(false)
+    output_collisions[current_output].set_disabled(false)    

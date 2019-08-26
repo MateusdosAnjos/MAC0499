@@ -17,6 +17,9 @@ var last_pos = Vector2()
 #Variables that handles the enumeration of Actions
 var movable_action_nodes = []
 
+#List of possibles connection areas
+onready var connection_area = ["InputArea", "OutputArea", "IfArea", "ConvergeArea"]
+
 #Used to initialize the inventory items
 func _ready():
     pickup_item("soma")
@@ -111,7 +114,10 @@ func _on_MovableActionSpace_entered_tree(node_name):
 #Sets the Action Number of the Movable Action Space conected to
 #the source to 1
 func _on_InputOutput_start_input_entered(area):
-    area.get_parent().get_node("ActionNumber").text = "1"
+    area = area.get_parent()
+    while (not ("MovableActionSpace" in area.name)):
+        area = area.get_parent()
+    area.get_node("ActionNumber").text = "1"
 
 #Sets '0' for all Movable Action Spaces once the source
 #is not conected
