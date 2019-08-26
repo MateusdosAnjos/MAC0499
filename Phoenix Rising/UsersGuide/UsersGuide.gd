@@ -49,7 +49,7 @@ func show_visuals():
         get_node(visual_dialog_nodes[1]).show()   
         get_node(visual_dialog_nodes[2]).show()         
     if page == 2:
-        emit_signal("frame_flashy", "InputFrame", 0)
+        emit_signal("frame_flashy", "InputFrame", 2)
     if page == 3:
         emit_signal("stop_flashy", "InputFrame")
         emit_signal("frame_flashy", "ExpectedOutputFrame", 0)
