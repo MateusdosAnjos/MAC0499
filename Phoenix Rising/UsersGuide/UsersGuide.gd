@@ -28,6 +28,7 @@ func _ready():
     TextBox.set_bbcode(dialog[page])
     TextBox.set_visible_characters(0)
     emit_signal("hide_all")
+    $InventoryArrow.hide()
             
 func _on_Timer_timeout():
     TextBox.set_visible_characters(TextBox.get_visible_characters() + 1)
