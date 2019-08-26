@@ -143,19 +143,19 @@ func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     right_child = null
 
 func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    output_connections[3].texture = load(connected_textures[1])
+    output_connections[3].texture = load(output_connected_textures[1])
     right_child = area.get_parent()
 
 func _on_IfArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    output_connections[3].texture = load(not_connected_textures[1])
+    output_connections[3].texture = load(output_not_connected_textures[1])
     right_child = null
 
 func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    output_connections[4].texture = load(connected_textures[1])
+    output_connections[4].texture = load(output_connected_textures[1])
     left_child = area.get_parent()
     
 func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    output_connections[4].texture = load(not_connected_textures[1])    
+    output_connections[4].texture = load(output_not_connected_textures[1])    
     left_child = null
     
 func _on_ConvergeArea_area_shape_entered(area_id, area, area_shape, self_shape):
@@ -164,7 +164,7 @@ func _on_ConvergeArea_area_shape_entered(area_id, area, area_shape, self_shape):
     else:
         else_connected = true
     if if_connected and else_connected:
-        input_connections[current_input].texture = load(connected_textures[current_input])
+        input_connections[current_input].texture = load(input_connected_textures[current_input])
     _enumerate_action(area)
 
 func _on_ConvergeArea_area_shape_exited(area_id, area, area_shape, self_shape):
@@ -173,7 +173,7 @@ func _on_ConvergeArea_area_shape_exited(area_id, area, area_shape, self_shape):
     else:
         else_connected = false
     if not(if_connected or else_connected):
-        input_connections[current_input].texture = load(not_connected_textures[current_input]) 
+        input_connections[current_input].texture = load(input_not_connected_textures[current_input]) 
        
 func _on_InputChangeButton_pressed():
     input_connections[current_input].hide()
