@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://BaseLevel/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://TitleScreen/FullScreen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GenericGameScenes/RunButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GenericGameScenes/Inventory.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=7]
 
 [node name="BaseLevel" type="Control"]
 anchor_right = 1.0
@@ -13,6 +14,7 @@ anchor_bottom = 1.0
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+pause_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
@@ -27,6 +29,8 @@ pause_mode = 2
 [node name="RunButton" parent="." instance=ExtResource( 5 )]
 
 [node name="Inventory" parent="." instance=ExtResource( 6 )]
+
+[node name="UsersGuide" parent="." instance=ExtResource( 7 )]
 [connection signal="input_output_defined" from="." to="RunButton" method="_on_input_output_defined"]
 [connection signal="start_input_entered" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_entered"]
 [connection signal="start_input_exited" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_exited"]
@@ -34,3 +38,7 @@ pause_mode = 2
 [connection signal="frame_flashy" from="RunButton" to="ColoredFrames" method="_on_RunButton_frame_flashy"]
 [connection signal="level_succeded" from="RunButton" to="ColoredFrames" method="_on_RunButton_level_succeded"]
 [connection signal="pressed" from="RunButton" to="RunButton" method="_on_RunButton_pressed"]
+[connection signal="frame_flashy" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_frame_flashy"]
+[connection signal="hide_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_hide_all"]
+[connection signal="show_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_show_all"]
+[connection signal="stop_flashy" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_stop_flashy"]
