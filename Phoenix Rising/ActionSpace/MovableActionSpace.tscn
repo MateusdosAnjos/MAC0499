@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://ActionSpace/MovableActionSpace.gd" type="Script" id=1]
 [ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=2]
@@ -7,9 +7,10 @@
 [ext_resource path="res://Accessories/art/default_no_connection.png" type="Texture" id=5]
 [ext_resource path="res://Accessories/art/z_no_connection.png" type="Texture" id=6]
 [ext_resource path="res://Accessories/art/long_no_connection.png" type="Texture" id=7]
-[ext_resource path="res://Accessories/art/converge_no_connection.png" type="Texture" id=8]
-[ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://Accessories/art/change_button.png" type="Texture" id=10]
+[ext_resource path="res://Accessories/art/if_else_no_connection.png" type="Texture" id=8]
+[ext_resource path="res://Accessories/art/converge_no_connection.png" type="Texture" id=9]
+[ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Accessories/art/change_button.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -41,10 +42,10 @@ extents = Vector2( 8.1463, 4.22729 )
 extents = Vector2( 48.0884, 2.45097 )
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 7.46057, 3.48124 )
+extents = Vector2( 7.84308, 4.54547 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 7.46057, 3.33614 )
+extents = Vector2( 7.35434, 4.78407 )
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 7.17244, 4.47795 )
@@ -56,7 +57,7 @@ extents = Vector2( 7.59949, 4.04787 )
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 9 )
+font_data = ExtResource( 10 )
 
 [node name="MovableActionSpace" type="Node2D"]
 script = ExtResource( 1 )
@@ -81,6 +82,7 @@ shape = SubResource( 2 )
 
 [node name="InputArea" type="Area2D" parent="."]
 editor/display_folded = true
+visible = false
 
 [node name="DefaultConnection" type="Sprite" parent="InputArea"]
 position = Vector2( -208, 64.5 )
@@ -115,6 +117,7 @@ shape = SubResource( 5 )
 
 [node name="OutputArea" type="Area2D" parent="."]
 editor/display_folded = true
+visible = false
 
 [node name="DefaultConnection" type="Sprite" parent="OutputArea"]
 position = Vector2( 38, 64.595 )
@@ -149,32 +152,21 @@ position = Vector2( 65, 64.5 )
 shape = SubResource( 8 )
 
 [node name="IfArea" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="IfConnection" type="Sprite" parent="IfArea"]
-visible = false
-position = Vector2( 26, 14 )
-scale = Vector2( 0.4, 0.6 )
-texture = ExtResource( 6 )
+position = Vector2( 27, 64.5 )
+scale = Vector2( 0.4, 0.66 )
+texture = ExtResource( 8 )
 flip_h = true
 
 [node name="IfCollisionShape" type="CollisionShape2D" parent="IfArea"]
-visible = false
-position = Vector2( 30, -18 )
+position = Vector2( 31, -18 )
 shape = SubResource( 9 )
 
-[node name="ElseArea" type="Area2D" parent="."]
-editor/display_folded = true
+[node name="ElseArea" type="Area2D" parent="IfArea"]
 
-[node name="ElseConnection" type="Sprite" parent="ElseArea"]
-visible = false
-position = Vector2( 26, 114 )
-scale = Vector2( 0.4, 0.6 )
-texture = ExtResource( 6 )
-
-[node name="ElseCollisionShape" type="CollisionShape2D" parent="ElseArea"]
-visible = false
-position = Vector2( 30, 146 )
+[node name="ElseCollisionShape" type="CollisionShape2D" parent="IfArea/ElseArea"]
+position = Vector2( 31, 145 )
 shape = SubResource( 10 )
 
 [node name="ConvergeArea" type="Area2D" parent="."]
@@ -184,7 +176,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( -196, 64.5 )
 scale = Vector2( 0.4, 0.7 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="IfConvergeCollisionShape" type="CollisionShape2D" parent="ConvergeArea"]
 visible = false
@@ -210,7 +202,7 @@ margin_top = -10.0
 margin_right = -35.0
 margin_bottom = 14.0
 hint_tooltip = "Alterar formato do output"
-texture_normal = ExtResource( 10 )
+texture_normal = ExtResource( 11 )
 expand = true
 
 [node name="InputChangeButton" type="TextureButton" parent="."]
@@ -218,7 +210,7 @@ margin_left = -135.0
 margin_top = -10.0
 margin_right = -111.0
 margin_bottom = 14.0
-texture_normal = ExtResource( 10 )
+texture_normal = ExtResource( 11 )
 expand = true
 [connection signal="mouse_entered" from="ClickDragArea" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="ClickDragArea" to="." method="_on_Area2D_mouse_exited"]
@@ -228,8 +220,7 @@ expand = true
 [connection signal="area_shape_exited" from="OutputArea" to="." method="_on_OutputArea_area_shape_exited"]
 [connection signal="area_shape_entered" from="IfArea" to="." method="_on_IfArea_area_shape_entered"]
 [connection signal="area_shape_exited" from="IfArea" to="." method="_on_IfArea_area_shape_exited"]
-[connection signal="area_shape_entered" from="ElseArea" to="." method="_on_ElseArea_area_shape_entered"]
-[connection signal="area_shape_exited" from="ElseArea" to="." method="_on_ElseArea_area_shape_exited"]
+[connection signal="area_entered" from="IfArea/ElseArea" to="." method="_on_ElseArea_area_entered"]
 [connection signal="area_shape_entered" from="ConvergeArea" to="." method="_on_ConvergeArea_area_shape_entered"]
 [connection signal="area_shape_exited" from="ConvergeArea" to="." method="_on_ConvergeArea_area_shape_exited"]
 [connection signal="pressed" from="OutputChangeButton" to="." method="_on_OutputChangeButton_pressed"]

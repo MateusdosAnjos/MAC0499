@@ -15,14 +15,14 @@ var current_output = 0
 
 #Total number of diferent connections for each side
 var num_input_connections = 4
-var num_output_connections = 5
+var num_output_connections = 4
 
 #The input connection nodes
 onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConnection, $InputArea/LongConnection,
                                  $ConvergeArea/ConvergeConnection]
 #The output connection nodes
 onready var output_connections = [$OutputArea/DefaultConnection, $OutputArea/ZConnection, $OutputArea/LongConnection,
-                                  $IfArea/IfConnection, $ElseArea/ElseConnection]
+                                  $IfArea/IfConnection,]
 #The input collision nodes
 onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputArea/ZInputCollisionShape,
                                 $InputArea/LongCollisionShape, $ConvergeArea/IfConvergeCollisionShape,
@@ -30,7 +30,7 @@ onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputAre
 
 #The output collision nodes
 onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape, 
-                                 $OutputArea/LongCollisionShape, $IfArea/IfCollisionShape, $ElseArea/ElseCollisionShape]
+                                 $OutputArea/LongCollisionShape, $IfArea/IfCollisionShape]
 
 #The connected textures paths
 onready var connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
@@ -188,3 +188,7 @@ func _on_OutputChangeButton_pressed():
         _on_OutputChangeButton_pressed()
         output_connections[current_output-1].show()
         output_collisions[current_output-1].set_disabled(false)
+
+
+func _on_ElseArea_area_entered(area):
+    pass # Replace with function body.
