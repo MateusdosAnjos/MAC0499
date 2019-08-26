@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Tutorial/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -7,9 +7,29 @@
 [ext_resource path="res://GenericGameScenes/RunButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GenericGameScenes/Inventory.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Tutorial/TutorialGuide.gd" type="Script" id=9]
+[ext_resource path="res://Tutorial/TutorialGuide.gd" type="Script" id=8]
+[ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=9]
 [ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=10]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.14902, 0.427451, 0.866667, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 9 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 4.0
+} ]
 
 [node name="Tutorial" type="Control"]
 script = ExtResource( 1 )
@@ -56,9 +76,54 @@ position = Vector2( 821.754, 31.3381 )
 [node name="MovableActionSpace5" parent="Inventory" instance=ExtResource( 7 )]
 position = Vector2( 1371.91, 339.496 )
 
-[node name="UsersGuide" parent="." instance=ExtResource( 8 )]
+[node name="UsersGuide" type="Control" parent="."]
+pause_mode = 2
 editor/display_folded = true
-script = ExtResource( 9 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+
+[node name="DialogBox" type="Panel" parent="UsersGuide"]
+margin_left = 520.0
+margin_top = 600.0
+margin_right = 1320.0
+margin_bottom = 700.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="TextBox" type="RichTextLabel" parent="UsersGuide/DialogBox"]
+margin_left = 20.0
+margin_top = 20.9025
+margin_right = 780.0
+margin_bottom = 80.9025
+rect_pivot_offset = Vector2( -470, -380.902 )
+bbcode_enabled = true
+visible_characters = 0
+
+[node name="Timer" type="Timer" parent="UsersGuide/DialogBox"]
+wait_time = 0.04
+autostart = true
+
+[node name="Skip" type="Button" parent="UsersGuide/DialogBox"]
+modulate = Color( 0.286275, 0.560784, 0.992157, 1 )
+margin_left = 660.0
+margin_top = 70.0
+margin_right = 704.0
+margin_bottom = 90.0
+text = "Pular"
+
+[node name="Close" type="Button" parent="UsersGuide/DialogBox"]
+modulate = Color( 0.286275, 0.560784, 0.992157, 1 )
+margin_left = 720.0
+margin_top = 70.0
+margin_right = 774.0
+margin_bottom = 90.0
+text = "Fechar"
+
+[node name="InventoryArrow" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 150, 600 )
+rotation = 4.71239
+frames = SubResource( 2 )
+animation = "flashy"
 
 [node name="NextLevel" parent="." instance=ExtResource( 10 )]
 [connection signal="input_output_defined" from="." to="RunButton" method="_on_input_output_defined"]
@@ -77,6 +142,7 @@ script = ExtResource( 9 )
 [connection signal="hide_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_hide_all"]
 [connection signal="show_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_show_all"]
 [connection signal="stop_flashy" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_stop_flashy"]
+[connection signal="timeout" from="UsersGuide/DialogBox/Timer" to="UsersGuide" method="_on_Timer_timeout"]
+[connection signal="pressed" from="UsersGuide/DialogBox/Skip" to="UsersGuide" method="_on_Skip_pressed"]
+[connection signal="pressed" from="UsersGuide/DialogBox/Close" to="UsersGuide" method="_on_Close_pressed"]
 [connection signal="pressed" from="NextLevel" to="." method="_on_NextLevel_pressed"]
-
-[editable path="UsersGuide"]

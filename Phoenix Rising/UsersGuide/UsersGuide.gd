@@ -1,4 +1,5 @@
 #Basic UsersGuide.gd, when creating a new level rename it to LevelxGuide.gd and attach the script
+#To create new sprites, instance UsersGuide to your new level and make it local
 extends Control
 
 signal frame_flashy(node_name, seconds)
@@ -23,7 +24,6 @@ func _ready():
     TextBox.set_bbcode(dialog[page])
     TextBox.set_visible_characters(0)
     emit_signal("hide_all")
-    $InventoryArrow.hide()
             
 func _on_Timer_timeout():
     TextBox.set_visible_characters(TextBox.get_visible_characters() + 1)
