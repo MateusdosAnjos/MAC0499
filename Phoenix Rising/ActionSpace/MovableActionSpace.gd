@@ -161,7 +161,7 @@ func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):
     
 func _on_ConvergeArea_area_shape_entered(area_id, area, area_shape, self_shape):
     if_connected = true
-    if if_connected and else_connected:
+    if if_connected or else_connected:
         input_connections[current_input].texture = load(input_connected_textures[current_input])
     _enumerate_action(area)
     
@@ -171,7 +171,7 @@ func _on_ConvergeArea_area_shape_exited(area_id, area, area_shape, self_shape):
 
 func _on_ElseConverge_area_shape_entered(area_id, area, area_shape, self_shape):
     else_connected = true
-    if if_connected and else_connected:
+    if if_connected or else_connected:
         input_connections[current_input].texture = load(input_connected_textures[current_input])
 
 func _on_ElseConverge_area_shape_exited(area_id, area, area_shape, self_shape):
