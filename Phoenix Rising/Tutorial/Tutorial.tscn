@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tutorial/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://GenericGameScenes/Inventory.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Tutorial/TutorialGuide.gd" type="Script" id=9]
 
 [node name="Tutorial" type="Control"]
 script = ExtResource( 1 )
@@ -56,6 +57,7 @@ position = Vector2( 1371.91, 339.496 )
 
 [node name="UsersGuide" parent="." instance=ExtResource( 8 )]
 editor/display_folded = true
+script = ExtResource( 9 )
 
 [node name="Level1" type="Button" parent="."]
 margin_left = 1700.0
