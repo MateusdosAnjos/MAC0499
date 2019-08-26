@@ -6,10 +6,17 @@ func _frame_flashy(node_name, seconds):
     var AnimatedSpriteName = get_node(node_name) 
     if seconds == 0:
         AnimatedSpriteName.play("flashy")
-    else:
+    else:  
+        var animation_timer = Timer.new()
+        animation_timer.set_wait_time(seconds)
+        animation_timer.set_one_shot(true)
+        self.add_child(animation_timer)
+        animation_timer.start()
         AnimatedSpriteName.play("flashy")
+        yield(animation_timer, "timeout")
         AnimatedSpriteName.set_frame(0)
         AnimatedSpriteName.stop()
+        animation_timer.queue_free()
 
 #Stops the animation "flashy" in the node named 'node_name'
 func _stop_flashy(node_name):
