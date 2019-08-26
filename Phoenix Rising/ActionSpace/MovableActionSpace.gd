@@ -25,24 +25,33 @@ onready var output_connections = [$OutputArea/DefaultConnection, $OutputArea/ZCo
                                   $IfArea/IfConnection,]
 #The input collision nodes
 onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputArea/ZInputCollisionShape,
-                                $InputArea/LongCollisionShape, $ConvergeArea/IfConvergeCollisionShape,
-                                $ConvergeArea/ElseConvergeCollisionShape]
+                                $InputArea/LongCollisionShape, $ConvergeArea/IfConvergeCollisionShape,]
 
 #The output collision nodes
 onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape, 
                                  $OutputArea/LongCollisionShape, $IfArea/IfCollisionShape]
 
 #The connected textures paths
-onready var connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
-                                 DEFAULT_PATH + "z_with_connection.png",
-                                 DEFAULT_PATH + "long_with_connection.png",
-                                 DEFAULT_PATH + "converge_with_connection.png",]
+onready var input_connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
+                                        DEFAULT_PATH + "z_with_connection.png",
+                                        DEFAULT_PATH + "long_with_connection.png",
+                                        DEFAULT_PATH + "converge_with_connection.png",]
+                                
+onready var output_connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
+                                        DEFAULT_PATH + "z_with_connection.png",
+                                        DEFAULT_PATH + "long_with_connection.png",
+                                        DEFAULT_PATH + "if_else_with_connection.png",]
 
 #The not connected texture paths                               
-onready var not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
-                                     DEFAULT_PATH + "z_no_connection.png",
-                                     DEFAULT_PATH + "long_no_connection.png",
-                                     DEFAULT_PATH + "converge_no_connection.png",]
+onready var input_not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
+                                            DEFAULT_PATH + "z_no_connection.png",
+                                            DEFAULT_PATH + "long_no_connection.png",
+                                            DEFAULT_PATH + "converge_no_connection.png",]
+                                            
+onready var output_not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
+                                             DEFAULT_PATH + "z_no_connection.png",
+                                             DEFAULT_PATH + "long_no_connection.png",
+                                             DEFAULT_PATH + "if_else_no_connection.png",]
 
 #Handles is both if and else paths are connected to the converge connection
 onready var if_connected = false
@@ -118,19 +127,19 @@ func _enumerate_action(area):
             
 func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
     #Changes the texture to the connected (green one)
-    input_connections[current_input].texture = load(connected_textures[current_input])
+    input_connections[current_input].texture = load(input_connected_textures[current_input])
     _enumerate_action(area)
 
 func _on_InputArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    input_connections[current_input].texture = load(not_connected_textures[current_input])
+    input_connections[current_input].texture = load(input_not_connected_textures[current_input])
     $ActionNumber.text = "0"
 
 func _on_OutputArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    output_connections[current_output].texture = load(connected_textures[current_output])
+    output_connections[current_output].texture = load(output_connected_textures[current_output])
     right_child = area.get_parent()
 
 func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    output_connections[current_output].texture = load(not_connected_textures[current_output])
+    output_connections[current_output].texture = load(output_not_connected_textures[current_output])
     right_child = null
 
 func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):

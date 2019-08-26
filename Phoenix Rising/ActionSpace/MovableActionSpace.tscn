@@ -183,7 +183,9 @@ visible = false
 position = Vector2( -200, -18 )
 shape = SubResource( 11 )
 
-[node name="ElseConvergeCollisionShape" type="CollisionShape2D" parent="ConvergeArea"]
+[node name="ElseConverge" type="Area2D" parent="ConvergeArea"]
+
+[node name="ElseConvergeCollisionShape" type="CollisionShape2D" parent="ConvergeArea/ElseConverge"]
 visible = false
 position = Vector2( -200, 147 )
 shape = SubResource( 12 )
