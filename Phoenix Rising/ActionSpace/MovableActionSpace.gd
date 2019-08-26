@@ -143,19 +143,17 @@ func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     right_child = null
 
 func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    output_connections[3].texture = load(output_connected_textures[1])
+    output_connections[current_output].texture = load(output_connected_textures[current_output])
     right_child = area.get_parent()
 
 func _on_IfArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    output_connections[3].texture = load(output_not_connected_textures[1])
+    output_connections[current_output].texture = load(output_not_connected_textures[current_output])
     right_child = null
 
 func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    output_connections[4].texture = load(output_connected_textures[1])
     left_child = area.get_parent()
     
-func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    output_connections[4].texture = load(output_not_connected_textures[1])    
+func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):   
     left_child = null
     
 func _on_ConvergeArea_area_shape_entered(area_id, area, area_shape, self_shape):
@@ -181,23 +179,10 @@ func _on_InputChangeButton_pressed():
     current_input = (current_input + 1) % num_input_connections
     input_connections[current_input].show()
     input_collisions[current_input].set_disabled(false)
-    if current_input == 3:
-       input_collisions[current_input+1].set_disabled(false) 
 
 func _on_OutputChangeButton_pressed():
-    if current_output == 4:
-        output_connections[current_output-1].hide()
-        output_collisions[current_output-1].set_disabled(true)
     output_connections[current_output].hide()
     output_collisions[current_output].set_disabled(true)
     current_output = (current_output + 1) % num_output_connections
     output_connections[current_output].show()
     output_collisions[current_output].set_disabled(false)
-    if current_output == 3:
-        _on_OutputChangeButton_pressed()
-        output_connections[current_output-1].show()
-        output_collisions[current_output-1].set_disabled(false)
-
-
-func _on_ElseArea_area_entered(area):
-    pass # Replace with function body.
