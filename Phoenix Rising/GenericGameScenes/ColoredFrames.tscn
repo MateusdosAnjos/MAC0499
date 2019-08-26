@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://GenericGameScenes/ColoredFrames.gd" type="Script" id=1]
+[ext_resource path="res://Accessories/art/blue_frame.png" type="Texture" id=2]
+[ext_resource path="res://Accessories/art/green_frame.png" type="Texture" id=3]
+[ext_resource path="res://Accessories/art/red_frame.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 4.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 4.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 4.0
+} ]
+
+[node name="ColoredFrames" type="Control"]
+script = ExtResource( 1 )
+
+[node name="InputFrame" type="AnimatedSprite" parent="."]
+position = Vector2( 170, 440 )
+scale = Vector2( 1.18773, 2.10874 )
+frames = SubResource( 1 )
+animation = "flashy"
+
+[node name="ExpectedOutputFrame" type="AnimatedSprite" parent="."]
+position = Vector2( 1670, 310 )
+scale = Vector2( 1.2, 1.02 )
+frames = SubResource( 2 )
+animation = "flashy"
+
+[node name="PlayerOutputFrame" type="AnimatedSprite" parent="."]
+position = Vector2( 1670, 569 )
+scale = Vector2( 1.2, 1.01 )
+frames = SubResource( 3 )
+animation = "flashy"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

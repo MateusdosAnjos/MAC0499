@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UsersGuide/UsersGuide.gd" type="Script" id=1]
-[ext_resource path="res://Accessories/art/blue_frame.png" type="Texture" id=2]
-[ext_resource path="res://Accessories/art/green_frame.png" type="Texture" id=3]
-[ext_resource path="res://Accessories/art/red_frame.png" type="Texture" id=4]
-[ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=5]
+[ext_resource path="res://GenericGameScenes/ColoredFrames.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
@@ -20,31 +18,7 @@ corner_radius_bottom_left = 30
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 2 ), null ],
-"loop": true,
-"name": "flashy",
-"speed": 4.0
-} ]
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
 "frames": [ ExtResource( 3 ), null ],
-"loop": true,
-"name": "flashy",
-"speed": 4.0
-} ]
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 4 ), null ],
-"loop": true,
-"name": "flashy",
-"speed": 4.0
-} ]
-
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 5 ), null ],
 "loop": true,
 "name": "flashy",
 "speed": 4.0
@@ -92,29 +66,15 @@ margin_right = 767.0
 margin_bottom = 90.0
 text = "Close"
 
-[node name="InputFrame" type="AnimatedSprite" parent="."]
-position = Vector2( 170, 440 )
-scale = Vector2( 1.18773, 2.10874 )
-frames = SubResource( 2 )
-animation = "flashy"
-
-[node name="ExpectedOutputFrame" type="AnimatedSprite" parent="."]
-position = Vector2( 1670, 310 )
-scale = Vector2( 1.2, 1.02 )
-frames = SubResource( 3 )
-animation = "flashy"
-
-[node name="PlayerOutputFrame" type="AnimatedSprite" parent="."]
-position = Vector2( 1670, 569 )
-scale = Vector2( 1.2, 1.01 )
-frames = SubResource( 4 )
-animation = "flashy"
+[node name="ColoredFrames" parent="." instance=ExtResource( 2 )]
 
 [node name="InventoryArrow" type="AnimatedSprite" parent="."]
 position = Vector2( 150, 600 )
 rotation = 4.71239
-frames = SubResource( 5 )
+frames = SubResource( 2 )
 animation = "flashy"
+[connection signal="frame_flashy" from="." to="ColoredFrames" method="_on_UsersGuide_frame_flashy"]
+[connection signal="stop_flashy" from="." to="ColoredFrames" method="_on_UsersGuide_stop_flashy"]
 [connection signal="timeout" from="DialogBox/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="DialogBox/Skip" to="." method="_on_Skip_pressed"]
 [connection signal="pressed" from="DialogBox/Close" to="." method="_on_Close_pressed"]
