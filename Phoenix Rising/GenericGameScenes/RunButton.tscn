@@ -2,11 +2,12 @@
 
 [ext_resource path="res://GenericGameScenes/RunButton.gd" type="Script" id=1]
 
-
 [node name="RunButton" type="Button"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1760.0
-margin_bottom = -896.0
+margin_left = 890.0
+margin_top = 700.0
+margin_right = -890.0
+margin_bottom = -200.0
 text = "Rodar!"
 script = ExtResource( 1 )

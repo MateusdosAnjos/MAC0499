@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GenericGameScenes/ColoredFrames.tscn" type="PackedScene" id=3]
 [ext_resource path="res://TitleScreen/FullScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GenericGameScenes/RunButton.tscn" type="PackedScene" id=5]
 
 [node name="BaseLevel" type="Control"]
 anchor_right = 1.0
@@ -21,4 +22,6 @@ color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="FullScreen" parent="." instance=ExtResource( 4 )]
 pause_mode = 2
+
+[node name="RunButton" parent="." instance=ExtResource( 5 )]
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
