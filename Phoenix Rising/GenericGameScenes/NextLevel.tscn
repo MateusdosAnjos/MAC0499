@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="NextLevel" type="Button"]
+margin_left = 1700.0
+margin_top = 800.0
+margin_right = 1806.0
+margin_bottom = 842.0
+text = "Próximo Nivel"

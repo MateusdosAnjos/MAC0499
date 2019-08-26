@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tutorial/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Tutorial/TutorialGuide.gd" type="Script" id=9]
+[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=10]
 
 [node name="Tutorial" type="Control"]
 script = ExtResource( 1 )
@@ -59,12 +60,7 @@ position = Vector2( 1371.91, 339.496 )
 editor/display_folded = true
 script = ExtResource( 9 )
 
-[node name="Level1" type="Button" parent="."]
-margin_left = 1700.0
-margin_top = 800.0
-margin_right = 1806.0
-margin_bottom = 842.0
-text = "Level 1"
+[node name="NextLevel" parent="." instance=ExtResource( 10 )]
 [connection signal="input_output_defined" from="." to="RunButton" method="_on_input_output_defined"]
 [connection signal="start_input_entered" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_entered"]
 [connection signal="start_input_exited" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_exited"]
@@ -81,6 +77,6 @@ text = "Level 1"
 [connection signal="hide_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_hide_all"]
 [connection signal="show_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_show_all"]
 [connection signal="stop_flashy" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_stop_flashy"]
-[connection signal="pressed" from="Level1" to="." method="_on_Level1_pressed"]
+[connection signal="pressed" from="NextLevel" to="." method="_on_NextLevel_pressed"]
 
 [editable path="UsersGuide"]
