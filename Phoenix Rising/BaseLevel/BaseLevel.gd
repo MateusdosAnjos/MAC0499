@@ -1,8 +1,11 @@
+#Rename the root to Levelx
+#Create a new script called Levelx.gd and attach it here
+#This is the template
 extends Node
 
 signal input_output_defined(input, output)
 
-#Input of the level
+#Input and Output of the level, replace it to customize you own level
 const INPUT = 'Base Level Input'
 const OUTPUT = 'Base Level Output'
 
