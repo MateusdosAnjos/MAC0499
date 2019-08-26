@@ -56,7 +56,7 @@ func success_routine():
 func failure_routine():
     emit_signal("frame_flashy", "PlayerOutputFrame", 4)  
      
-func _on_Run_pressed():
+func _on_RunButton_pressed():
     #if InputOutputNode.input_connected and InputOutputNode.output_connected:
     if true:
         var item_list = []
@@ -70,7 +70,7 @@ func _on_Run_pressed():
         else:
             failure_routine()
     
-func _on_Tutorial_input_output_defined(inp, out):
+func _on_input_output_defined(inp, out):
     input = inp
     output = out
     var ExpectedOutput = get_parent().get_node("InputOutput/OutputBase/ExpectedOutput")

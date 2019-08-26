@@ -4,7 +4,7 @@
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GenericGameScenes/ColoredFrames.tscn" type="PackedScene" id=3]
 [ext_resource path="res://TitleScreen/FullScreen.tscn" type="PackedScene" id=4]
-[ext_resource path="res://GenericGameScenes/RunButton.gd" type="Script" id=5]
+[ext_resource path="res://GenericGameScenes/RunButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GenericGameScenes/Inventory.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=8]
@@ -28,15 +28,9 @@ pause_mode = 2
 [node name="FullScreen" parent="." instance=ExtResource( 4 )]
 pause_mode = 2
 
-[node name="Run" type="Button" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 890.0
-margin_top = 700.0
-margin_right = 950.0
+[node name="RunButton" parent="." instance=ExtResource( 5 )]
+margin_right = 942.0
 margin_bottom = 720.0
-text = "Rodar!"
-script = ExtResource( 5 )
 
 [node name="Inventory" parent="." instance=ExtResource( 6 )]
 editor/display_folded = true
@@ -69,13 +63,13 @@ margin_top = 800.0
 margin_right = 1806.0
 margin_bottom = 842.0
 text = "Level 1"
-[connection signal="input_output_defined" from="." to="Run" method="_on_Tutorial_input_output_defined"]
+[connection signal="input_output_defined" from="." to="RunButton" method="_on_input_output_defined"]
 [connection signal="start_input_entered" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_entered"]
 [connection signal="start_input_exited" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_exited"]
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
-[connection signal="frame_flashy" from="Run" to="ColoredFrames" method="_on_Run_frame_flashy"]
-[connection signal="level_succeded" from="Run" to="ColoredFrames" method="_on_Run_level_succeded"]
-[connection signal="pressed" from="Run" to="Run" method="_on_Run_pressed"]
+[connection signal="frame_flashy" from="RunButton" to="ColoredFrames" method="_on_RunButton_frame_flashy"]
+[connection signal="level_succeded" from="RunButton" to="ColoredFrames" method="_on_RunButton_level_succeded"]
+[connection signal="pressed" from="RunButton" to="RunButton" method="_on_RunButton_pressed"]
 [connection signal="entered_tree" from="Inventory/MovableActionSpace" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
 [connection signal="entered_tree" from="Inventory/MovableActionSpace2" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
 [connection signal="entered_tree" from="Inventory/MovableActionSpace3" to="Inventory" method="_on_MovableActionSpace_entered_tree"]

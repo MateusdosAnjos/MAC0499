@@ -24,4 +24,8 @@ color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 pause_mode = 2
 
 [node name="RunButton" parent="." instance=ExtResource( 5 )]
+[connection signal="input_output_defined" from="." to="RunButton" method="_on_input_output_defined"]
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
+[connection signal="frame_flashy" from="RunButton" to="ColoredFrames" method="_on_RunButton_frame_flashy"]
+[connection signal="level_succeded" from="RunButton" to="ColoredFrames" method="_on_RunButton_level_succeded"]
+[connection signal="pressed" from="RunButton" to="RunButton" method="_on_RunButton_pressed"]
