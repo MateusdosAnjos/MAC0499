@@ -124,9 +124,9 @@ func _enumerate_action(area):
             var next_action_number = action_number + 1
             #Place the correct number for the moving ActionSpace in game
             $ActionNumber.text = str(next_action_number)
-            
+
+#Changes the texture to the connected (green one) and enumerate the movable action space
 func _on_InputArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    #Changes the texture to the connected (green one)
     input_connections[current_input].texture = load(input_connected_textures[current_input])
     _enumerate_action(area)
 
