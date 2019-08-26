@@ -181,6 +181,7 @@ func _on_ElseConverge_area_shape_exited(area_id, area, area_shape, self_shape):
 func _on_InputChangeButton_pressed():
     input_connections[current_input].hide()
     input_collisions[current_input].set_disabled(true)
+    input_connections[current_input].texture = load(input_not_connected_textures[current_input])
     current_input = (current_input + 1) % num_input_connections
     input_connections[current_input].show()
     input_collisions[current_input].set_disabled(false)
@@ -188,6 +189,7 @@ func _on_InputChangeButton_pressed():
 func _on_OutputChangeButton_pressed():
     output_connections[current_output].hide()
     output_collisions[current_output].set_disabled(true)
+    output_connections[current_output].texture = load(output_not_connected_textures[current_output])
     current_output = (current_output + 1) % num_output_connections
     output_connections[current_output].show()
     output_collisions[current_output].set_disabled(false)    
