@@ -1,4 +1,5 @@
-# UsersGuide.gd
+#Basic UsersGuide.gd, when creating a new level rename it to LevelxGuide.gd and attach the script
+#To create new sprites, instance UsersGuide to your new level and make it local
 extends Control
 
 signal frame_flashy(node_name, seconds)
@@ -8,16 +9,11 @@ signal show_all()
 
 # Variables
 var dialog = [
-    'Bem vindo ao Phoenix Rising!\nPara jogar você deve terminar o tutorial.\nClique em "Pular" para ver a próxima mensagem.',
-    'A partir do valor de [color=#00007f][b] ENTRADA [/b][/color] você deve obter o valor de [color=green][b] SAÍDA ESPERADA[/b][/color].\nVocê pode visualizar sua saída em [color=red][b] SAÍDA [/b][/color]',
-    '[color=#00007f][b] ENTRADA [/b][/color] está marcada com o retângulo [color=#00007f][b] AZUL[/b][/color].',
-    '[color=green][b] SAÍDA ESPERADA [/b][/color] está marcada com o retângulo [color=green][b] VERDE[/b][/color].',    
-    '[color=red][b] SAÍDA [/b][/color] está marcada com o retângulo [color=red][b] VERMELHO[/b][/color].',
-    'Para obter a resposta você deve utilizar os comandos disponibilizados na sua [color=black][b] ÁREA DE COMANDOS[/b][/color].\nLembre-se de que nem sempre você precisará utilizar todos eles!',
+    'Insert your messages here! [color=#00007f][b] Colored too [/b][/color]',
     ]    
         
 var page = 0
-var max_pages = 5
+var max_pages = 0
 
 onready var SkipButton = get_node("DialogBox/Skip")
 onready var TextBox = get_node("DialogBox/TextBox")
@@ -28,7 +24,6 @@ func _ready():
     TextBox.set_bbcode(dialog[page])
     TextBox.set_visible_characters(0)
     emit_signal("hide_all")
-    $InventoryArrow.hide()
             
 func _on_Timer_timeout():
     TextBox.set_visible_characters(TextBox.get_visible_characters() + 1)
@@ -45,32 +40,15 @@ func _on_Skip_pressed():
     else:
         TextBox.set_visible_characters(TextBox.get_total_character_count())
 
+#Use this function to manage which frames will show
 func show_visuals():
     if page == 1:
-        emit_signal("show_all")        
-    if page == 2:
-        emit_signal("frame_flashy", "InputFrame", 0)
-    if page == 3:
-        emit_signal("stop_flashy", "InputFrame")
-        emit_signal("frame_flashy", "ExpectedOutputFrame", 0)
-    if page == 4:
-        emit_signal("stop_flashy", "ExpectedOutputFrame")
-        emit_signal("frame_flashy", "PlayerOutputFrame", 0)
-    if page == 5:
-        emit_signal("stop_flashy", "PlayerOutputFrame")
-        $InventoryArrow.show()
-        $InventoryArrow.play("flashy")          
+        emit_signal("show_all")      
 
+#Use this to manage when close is pressed
 func _on_Close_pressed(): 
     if page == 0 or page == 1:
-        emit_signal("show_all")    
-    if page == 2 or page == 3:
-        emit_signal("stop_flashy", "InputFrame")
-    if page == 3 or page == 4:
-        emit_signal("stop_flashy", "ExpectedOutputFrame")
-    if page == 4 or page == 5:
-        emit_signal("stop_flashy", "PlayerOutputFrame")
-        $InventoryArrow.show()
-    $InventoryArrow.hide()    
-    $DialogBox.hide()
+        emit_signal("show_all")
+    self.hide()
+    #Use this to unfreeze the game screen
     get_tree().paused = false  

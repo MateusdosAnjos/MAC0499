@@ -5,6 +5,9 @@ signal input_output_defined(input, output)
 const INPUT = 'Mensagem de teste'
 const OUTPUT = 'Mensagem de teste'
 
+#List of items to be picked up
+var pickup_item_list = ["soma", "subtracao", "multi", "print", "print", "print", "if/else"]
+
 func _ready():
     var input_text = get_node("InputOutput/InputBase/Input")
     input_text.newline()
@@ -14,6 +17,6 @@ func _ready():
 
 func _on_FullScreen_pressed():
     OS.window_fullscreen = !OS.window_fullscreen
-        
-func _on_Level1_pressed():
+    
+func _on_NextLevel_pressed():
     get_tree().change_scene("res://Level1/Level1.tscn")

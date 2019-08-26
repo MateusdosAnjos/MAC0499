@@ -22,13 +22,8 @@ onready var connection_area = ["InputArea", "OutputArea", "IfArea", "ConvergeAre
 
 #Used to initialize the inventory items
 func _ready():
-    pickup_item("soma")
-    pickup_item("subtracao")
-    pickup_item("multi")
-    pickup_item("print")
-    pickup_item("print")
-    pickup_item("print")
-    pickup_item("if/else")    
+    for item in get_parent().pickup_item_list:
+        pickup_item(item)
     containers[0] = grid
 
 func _process(delta):
