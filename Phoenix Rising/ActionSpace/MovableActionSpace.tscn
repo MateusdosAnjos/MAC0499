@@ -150,6 +150,7 @@ position = Vector2( 65, 64.5 )
 shape = SubResource( 8 )
 
 [node name="IfArea" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="IfConnection" type="Sprite" parent="IfArea"]
 visible = false
@@ -173,7 +174,6 @@ position = Vector2( 31, 145 )
 shape = SubResource( 10 )
 
 [node name="ConvergeArea" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="ConvergeConnection" type="Sprite" parent="ConvergeArea"]
 visible = false
@@ -229,5 +229,7 @@ expand = true
 [connection signal="area_shape_entered" from="IfArea/ElseArea" to="." method="_on_ElseArea_area_shape_entered"]
 [connection signal="area_shape_entered" from="ConvergeArea" to="." method="_on_ConvergeArea_area_shape_entered"]
 [connection signal="area_shape_exited" from="ConvergeArea" to="." method="_on_ConvergeArea_area_shape_exited"]
+[connection signal="area_shape_entered" from="ConvergeArea/ElseConverge" to="." method="_on_ElseConverge_area_shape_entered"]
+[connection signal="area_shape_exited" from="ConvergeArea/ElseConverge" to="." method="_on_ElseConverge_area_shape_exited"]
 [connection signal="pressed" from="OutputChangeButton" to="." method="_on_OutputChangeButton_pressed"]
 [connection signal="pressed" from="InputChangeButton" to="." method="_on_InputChangeButton_pressed"]

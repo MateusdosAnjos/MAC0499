@@ -160,22 +160,24 @@ func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):
     left_child = null
     
 func _on_ConvergeArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    if self_shape == 0:
-        if_connected = true
-    else:
-        else_connected = true
+    if_connected = true
     if if_connected and else_connected:
         input_connections[current_input].texture = load(input_connected_textures[current_input])
     _enumerate_action(area)
-
+    
 func _on_ConvergeArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    if self_shape == 0:
-        if_connected = false
-    else:
-        else_connected = false
-    if not(if_connected or else_connected):
-        input_connections[current_input].texture = load(input_not_connected_textures[current_input]) 
-       
+    if_connected = false
+    input_connections[current_input].texture = load(input_not_connected_textures[current_input]) 
+
+func _on_ElseConverge_area_shape_entered(area_id, area, area_shape, self_shape):
+    else_connected = true
+    if if_connected and else_connected:
+        input_connections[current_input].texture = load(input_connected_textures[current_input])
+
+func _on_ElseConverge_area_shape_exited(area_id, area, area_shape, self_shape):
+    else_connected = false
+    input_connections[current_input].texture = load(input_not_connected_textures[current_input])
+      
 func _on_InputChangeButton_pressed():
     input_connections[current_input].hide()
     input_collisions[current_input].set_disabled(true)
@@ -188,4 +190,4 @@ func _on_OutputChangeButton_pressed():
     output_collisions[current_output].set_disabled(true)
     current_output = (current_output + 1) % num_output_connections
     output_connections[current_output].show()
-    output_collisions[current_output].set_disabled(false)
+    output_collisions[current_output].set_disabled(false)    
