@@ -1,5 +1,7 @@
 extends Button
 
+signal frame_flashy(node_name, seconds)
+
 var input
 var output
 
@@ -47,7 +49,7 @@ func _set_answer_on_screen(answer):
     return
     
 func success_routine():
-    print("Acertou")
+    emit_signal("frame_flashy", "PlayerOutputFrame", 4)
 
 func failure_routine():
     print("Errou")  

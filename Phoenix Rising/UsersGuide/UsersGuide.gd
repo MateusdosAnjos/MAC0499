@@ -3,6 +3,8 @@ extends Control
 
 signal frame_flashy(node_name, seconds)
 signal stop_flashy(node_name)
+signal hide_all()
+signal show_all()
 
 # Variables
 var dialog = [
@@ -13,7 +15,7 @@ var dialog = [
     '[color=red][b] SAÍDA [/b][/color] está marcada com o retângulo [color=red][b] VERMELHO[/b][/color].',
     'Para obter a resposta você deve utilizar os comandos disponibilizados na sua [color=black][b] ÁREA DE COMANDOS[/b][/color].\nLembre-se de que nem sempre você precisará utilizar todos eles!',
     ]    
-var visual_dialog_nodes = ["ColoredFrames/InputFrame", "ColoredFrames/ExpectedOutputFrame", "ColoredFrames/PlayerOutputFrame", "InventoryArrow"]    
+        
 var page = 0
 var max_pages = 5
 
@@ -25,8 +27,7 @@ func _ready():
     set_process_input(true)
     TextBox.set_bbcode(dialog[page])
     TextBox.set_visible_characters(0)
-    for node_name in visual_dialog_nodes:
-        get_node(node_name).hide()
+    emit_signal("hide_all")
             
 func _on_Timer_timeout():
     TextBox.set_visible_characters(TextBox.get_visible_characters() + 1)
@@ -45,9 +46,7 @@ func _on_Skip_pressed():
 
 func show_visuals():
     if page == 1:
-        get_node(visual_dialog_nodes[0]).show()
-        get_node(visual_dialog_nodes[1]).show()   
-        get_node(visual_dialog_nodes[2]).show()         
+        emit_signal("show_all")        
     if page == 2:
         emit_signal("frame_flashy", "InputFrame", 0)
     if page == 3:
@@ -63,9 +62,7 @@ func show_visuals():
 
 func _on_Close_pressed(): 
     if page == 0 or page == 1:
-        get_node(visual_dialog_nodes[0]).show()
-        get_node(visual_dialog_nodes[1]).show()   
-        get_node(visual_dialog_nodes[2]).show()     
+        emit_signal("show_all")    
     if page == 2 or page == 3:
         emit_signal("stop_flashy", "InputFrame")
     if page == 3 or page == 4:

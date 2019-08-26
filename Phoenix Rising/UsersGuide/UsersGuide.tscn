@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UsersGuide/UsersGuide.gd" type="Script" id=1]
-[ext_resource path="res://GenericGameScenes/ColoredFrames.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=3]
+[ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
@@ -18,7 +17,7 @@ corner_radius_bottom_left = 30
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 3 ), null ],
+"frames": [ ExtResource( 2 ), null ],
 "loop": true,
 "name": "flashy",
 "speed": 4.0
@@ -66,15 +65,11 @@ margin_right = 767.0
 margin_bottom = 90.0
 text = "Close"
 
-[node name="ColoredFrames" parent="." instance=ExtResource( 2 )]
-
 [node name="InventoryArrow" type="AnimatedSprite" parent="."]
 position = Vector2( 150, 600 )
 rotation = 4.71239
 frames = SubResource( 2 )
 animation = "flashy"
-[connection signal="frame_flashy" from="." to="ColoredFrames" method="_on_UsersGuide_frame_flashy"]
-[connection signal="stop_flashy" from="." to="ColoredFrames" method="_on_UsersGuide_stop_flashy"]
 [connection signal="timeout" from="DialogBox/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="DialogBox/Skip" to="." method="_on_Skip_pressed"]
 [connection signal="pressed" from="DialogBox/Close" to="." method="_on_Close_pressed"]
