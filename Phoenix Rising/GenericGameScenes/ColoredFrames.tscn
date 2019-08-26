@@ -27,6 +27,11 @@ animations = [ {
 "loop": true,
 "name": "flashy",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 3 ), null ],
+"loop": true,
+"name": "success_flashy",
+"speed": 4.0
 } ]
 
 [node name="ColoredFrames" type="Control"]
@@ -48,4 +53,4 @@ animation = "flashy"
 position = Vector2( 1670, 569 )
 scale = Vector2( 1.2, 1.01 )
 frames = SubResource( 3 )
-animation = "flashy"
+animation = "success_flashy"

@@ -1,6 +1,7 @@
 extends Button
 
 signal frame_flashy(node_name, seconds)
+signal level_succeded()
 
 var input
 var output
@@ -49,10 +50,11 @@ func _set_answer_on_screen(answer):
     return
     
 func success_routine():
+    emit_signal("level_succeded")
     emit_signal("frame_flashy", "PlayerOutputFrame", 4)
 
 func failure_routine():
-    print("Errou")  
+    emit_signal("frame_flashy", "PlayerOutputFrame", 4)  
      
 func _on_Run_pressed():
     #if InputOutputNode.input_connected and InputOutputNode.output_connected:
