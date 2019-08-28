@@ -1,6 +1,6 @@
 extends Node
 
-func execute(input, arguments, player_answer):
+func execute(input, arguments, player_answer, action_number):
     arguments = arguments.split(", ")
     
     #Arguments check

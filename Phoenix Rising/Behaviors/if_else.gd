@@ -49,7 +49,7 @@ func number_comparision_routine(input, arguments):
             #wrong_arguments_message()
             print("Nenhuma das anteriores")
 
-func execute(input, arguments, player_answer):
+func execute(input, arguments, player_answer, action_number):
     arguments = arguments.split(" ", true, 1)
     if arguments[1][0] == '"' or arguments[1][0] == "'":
         return string_comparision_routine(input, arguments)
