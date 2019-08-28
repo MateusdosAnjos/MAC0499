@@ -17,4 +17,11 @@ margin_top = 700.0
 margin_right = -890.0
 margin_bottom = -200.0
 text = "Rodar!"
+
+[node name="Popup" type="Popup" parent="."]
+visible = true
+margin_left = 440.0
+margin_top = 560.0
+margin_right = 1440.0
+margin_bottom = 680.0
 [connection signal="pressed" from="RunButton" to="." method="_on_RunButton_pressed"]
