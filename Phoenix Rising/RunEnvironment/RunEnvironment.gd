@@ -25,14 +25,16 @@ func _process_input(input):
     var arguments = null
     var node_item = null
     var input_process_code = null
+    var CurrentActionSpace = null
     
     var CurrentNode = _find_root()
     while CurrentNode != null and CurrentNode.name != "InputOutput":
-        if CurrentNode.get_node("ActionSpace").placed_item:
-            node_item = CurrentNode.get_node("ActionSpace").placed_item.get_meta("id")
+        CurrentActionSpace = CurrentNode.get_node("ActionSpace")
+        if CurrentActionSpace.placed_item:
+            node_item = CurrentActionSpace.placed_item.get_meta("id")
             input_process_code = load(ItemDB.get_item(node_item)["codePath"])
             $RunScript.set_script(input_process_code)
-            arguments = CurrentNode.get_node("ActionSpace").argument_list
+            arguments = CurrentActionSpace.argument_list
             processed_values = $RunScript.execute(processed_values[0], arguments, player_answer)
             if (processed_values[1]):
                 CurrentNode = CurrentNode.right_child
