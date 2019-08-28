@@ -18,7 +18,11 @@ margin_right = -890.0
 margin_bottom = -200.0
 text = "Rodar!"
 
-[node name="Popup" type="Popup" parent="."]
+[node name="RunScript" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ErrorMessages" type="Popup" parent="RunScript"]
 visible = true
 margin_left = 440.0
 margin_top = 560.0

@@ -33,6 +33,7 @@ func _process_input(input):
             node_item = CurrentNode.get_node("ActionSpace").placed_item.get_meta("id")
             input_process_code = load(ItemDB.get_item(node_item)["codePath"])
             node_code_instance = input_process_code.new()
+            $RunScript.set_script(input_process_code)
             arguments = CurrentNode.get_node("ActionSpace").argument_list
             processed_values = node_code_instance.execute(processed_values[0], arguments, player_answer)
             if (processed_values[1]):
