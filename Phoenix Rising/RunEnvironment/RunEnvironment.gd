@@ -1,4 +1,4 @@
-extends Button
+extends Control
 
 signal frame_flashy(node_name, seconds)
 signal level_succeded()
@@ -59,9 +59,6 @@ func failure_routine():
 func _on_RunButton_pressed():
     #if InputOutputNode.input_connected and InputOutputNode.output_connected:
     if true:
-        var item_list = []
-        var code_paths = []
-        var arguments_list = []
         var answer_list = _process_input(input)
         var answer_string = PoolStringArray(answer_list).join(" ")
         _set_answer_on_screen(answer_string)
@@ -75,4 +72,4 @@ func _on_input_output_defined(inp, out):
     output = out
     var ExpectedOutput = get_parent().get_node("InputOutput/OutputBase/ExpectedOutput")
     ExpectedOutput.text = output  
-    
+

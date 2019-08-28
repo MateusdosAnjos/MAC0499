@@ -57,7 +57,7 @@ onready var output_not_connected_textures = [DEFAULT_PATH + "default_no_connecti
 onready var if_connected = false
 onready var else_connected = false
 
-#Used to create the Movable Action Space execution tree (see RunButton.gd)
+#Used to create the Movable Action Space execution tree (see RunEnvironment.gd)
 onready var right_child = null
 onready var left_child = null
 
