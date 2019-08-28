@@ -7,7 +7,6 @@ var input
 var output
 
 onready var InventoryNode = (self.owner).get_node('Inventory')
-onready var InputOutputNode = (self.owner).get_node('InputOutput')
    
 func create_regex(regex_string):
     var regex = RegEx.new()
@@ -71,5 +70,4 @@ func _on_input_output_defined(inp, out):
     input = inp
     output = out
     var ExpectedOutput = get_parent().get_node("InputOutput/OutputBase/ExpectedOutput")
-    ExpectedOutput.text = output  
-
+    ExpectedOutput.text = output
