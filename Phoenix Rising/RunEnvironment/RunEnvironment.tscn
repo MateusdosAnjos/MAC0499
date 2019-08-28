@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://RunEnvironment/RunEnvironment.gd" type="Script" id=1]
+[ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 2 )
 
 [node name="RunEnvironment" type="Control"]
 anchor_right = 1.0
@@ -23,9 +28,16 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="ErrorMessages" type="Popup" parent="RunScript"]
-visible = true
 margin_left = 440.0
 margin_top = 560.0
 margin_right = 1440.0
 margin_bottom = 680.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RunScript/ErrorMessages"]
+margin_left = 100.0
+margin_top = 10.0
+margin_right = 900.0
+margin_bottom = 110.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Teste"
 [connection signal="pressed" from="RunButton" to="." method="_on_RunButton_pressed"]
