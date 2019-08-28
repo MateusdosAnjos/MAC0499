@@ -51,7 +51,7 @@ func _on_UsersGuide_show_all():
     _show_all()
 
 ###############################################################
-#              Signals from Run (RunEnvironment.gd)                #
+#              Signals from Run (RunEnvironment.gd)           #
 ###############################################################
 func _on_RunEnvironment_level_succeded():
     $PlayerOutputFrame.set_animation("success_flashy")
