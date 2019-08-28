@@ -1,8 +1,5 @@
 extends Node
 
-func _init():
-    pass
-
 func string_comparision_routine(input, arguments):
     var word_length = arguments[1].length()
     var word = arguments[1].substr(1, word_length - 2)

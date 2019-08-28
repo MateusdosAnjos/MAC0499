@@ -1,8 +1,5 @@
 extends Node
 
-func _init():
-    pass
-
 #Checks if the argument starts and end with " " or ' '
 func _argument_check(arguments, word_length):
     if ((arguments[0] == '"' and arguments[word_length-1] == '"') or (arguments[0] == "'" and arguments[word_length-1] == "'")):

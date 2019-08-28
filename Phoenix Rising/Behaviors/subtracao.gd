@@ -1,8 +1,5 @@
 extends Node
 
-func _init():
-    pass
-
 func execute(input, arguments, player_answer):
     arguments = arguments.split(", ")
     
