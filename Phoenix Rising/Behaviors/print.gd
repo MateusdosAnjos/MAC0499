@@ -15,5 +15,7 @@ func execute(input, arguments, player_answer):
             else:
                 $ErrorMessages.show_error_message("print")
         else:
-            player_answer.append(input)   
+            player_answer.append(input)
+    else:
+        $ErrorMessages.show_error_message("print")  
     return [input, true]
