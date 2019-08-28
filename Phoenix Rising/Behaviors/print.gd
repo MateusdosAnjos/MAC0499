@@ -13,8 +13,7 @@ func execute(input, arguments, player_answer):
                 var word = arguments.substr(1, word_length - 2)
                 player_answer.append(word)
             else:
-                $ErrorMessages.popup()
-                print("Uso errado da função print!")
+                $ErrorMessages.show_error_message()
         else:
             player_answer.append(input)   
     return [input, true]
