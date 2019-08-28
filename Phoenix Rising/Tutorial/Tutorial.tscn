@@ -32,7 +32,6 @@ animations = [ {
 } ]
 
 [node name="Tutorial" type="Control"]
-editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
