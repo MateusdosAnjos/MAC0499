@@ -1,4 +1,4 @@
-extends Button
+extends Control
 
 signal frame_flashy(node_name, seconds)
 signal level_succeded()
@@ -7,7 +7,6 @@ var input
 var output
 
 onready var InventoryNode = (self.owner).get_node('Inventory')
-onready var InputOutputNode = (self.owner).get_node('InputOutput')
    
 func create_regex(regex_string):
     var regex = RegEx.new()
@@ -26,16 +25,19 @@ func _process_input(input):
     var arguments = null
     var node_item = null
     var input_process_code = null
-    var node_code_instance = null
+    var CurrentActionSpace = null
+    var action_number = 0
     
     var CurrentNode = _find_root()
     while CurrentNode != null and CurrentNode.name != "InputOutput":
-        if CurrentNode.get_node("ActionSpace").placed_item:
-            node_item = CurrentNode.get_node("ActionSpace").placed_item.get_meta("id")
+        CurrentActionSpace = CurrentNode.get_node("ActionSpace")
+        if CurrentActionSpace.placed_item:
+            action_number = CurrentNode.get_node("ActionNumber").text
+            node_item = CurrentActionSpace.placed_item.get_meta("id")
             input_process_code = load(ItemDB.get_item(node_item)["codePath"])
-            node_code_instance = input_process_code.new()
-            arguments = CurrentNode.get_node("ActionSpace").argument_list
-            processed_values = node_code_instance.execute(processed_values[0], arguments, player_answer)
+            $RunScript.set_script(input_process_code)
+            arguments = CurrentActionSpace.argument_list
+            processed_values = $RunScript.execute(processed_values[0], arguments, player_answer, action_number)
             if (processed_values[1]):
                 CurrentNode = CurrentNode.right_child
             else:
@@ -59,9 +61,6 @@ func failure_routine():
 func _on_RunButton_pressed():
     #if InputOutputNode.input_connected and InputOutputNode.output_connected:
     if true:
-        var item_list = []
-        var code_paths = []
-        var arguments_list = []
         var answer_list = _process_input(input)
         var answer_string = PoolStringArray(answer_list).join(" ")
         _set_answer_on_screen(answer_string)
@@ -74,5 +73,4 @@ func _on_input_output_defined(inp, out):
     input = inp
     output = out
     var ExpectedOutput = get_parent().get_node("InputOutput/OutputBase/ExpectedOutput")
-    ExpectedOutput.text = output  
-    
+    ExpectedOutput.text = output

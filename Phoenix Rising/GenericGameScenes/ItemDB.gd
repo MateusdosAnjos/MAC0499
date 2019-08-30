@@ -20,7 +20,7 @@ const ITEMS = {
     },        
     "print": {
         "icon": ICON_PATH + "print.png",
-        "help": "Icone do comando Print",
+        "help": "Comando Print.\nPara imprimir o input passe como argumento a palavra 'input' (sem as aspas).\nPara exibir o que foi digitado como argumento escreva entre aspas simples (') ou duplas (\")",
         "codePath": BEHAVIOR_PATH + "print.gd"
     },
     "if/else": {

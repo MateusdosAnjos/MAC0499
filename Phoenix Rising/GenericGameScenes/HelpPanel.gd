@@ -4,5 +4,5 @@ extends Panel
 func _ready():
     self.hide()
 
-func _on_Button_pressed():
+func _on_Close_pressed():
     self.hide()

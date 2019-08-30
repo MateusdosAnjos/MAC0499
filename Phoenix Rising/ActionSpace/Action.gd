@@ -11,7 +11,7 @@ var grid_width = 0
 var grid_height = 0
 #The grid center, used to position the item
 var grid_center = []
-#Argument list to be passed when executing the item code (see RunButton.gd)
+#Argument list to be passed when executing the item code (see RunEnvironment.gd)
 var argument_list = []
 #Used to know when ActionSpace already has an item placed
 onready var exist_item = false

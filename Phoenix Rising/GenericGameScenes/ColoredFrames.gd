@@ -51,10 +51,10 @@ func _on_UsersGuide_show_all():
     _show_all()
 
 ###############################################################
-#              Signals from Run (RunButton.gd)                #
+#              Signals from Run (RunEnvironment.gd)           #
 ###############################################################
-func _on_RunButton_level_succeded():
+func _on_RunEnvironment_level_succeded():
     $PlayerOutputFrame.set_animation("success_flashy")
 
-func _on_RunButton_frame_flashy(node_name, seconds):
+func _on_RunEnvironment_frame_flashy(node_name, seconds):
     _frame_flashy(node_name, seconds)

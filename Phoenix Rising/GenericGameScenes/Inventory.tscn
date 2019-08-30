@@ -32,11 +32,11 @@ script = ExtResource( 2 )
 
 [node name="HelpPanel" parent="." instance=ExtResource( 3 )]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 820.0
-margin_top = 410.0
-margin_right = 1020.0
-margin_bottom = 510.0
+anchor_bottom = 1.0
+margin_left = 720.0
+margin_top = 360.0
+margin_right = 1120.0
+margin_bottom = 560.0
 [connection signal="inv_help" from="." to="Grid" method="_on_Inventory_inv_help"]
