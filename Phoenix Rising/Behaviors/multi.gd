@@ -15,9 +15,9 @@ func execute(input, arguments, player_answer, action_number):
     var values = _split_arguments(arguments)
     if (values != null):
         if (values[0] == 'input'):
-            values[0] = input
+            values[0] = str(input)
         if (values[1] == 'input'):
-            values[1] = input
+            values[1] = str(input)
         #Checking types to perform the right "*" operation            
         if (values[0].is_valid_integer() and values[1].is_valid_integer()):
             return [(int(values[0]) * int(values[1])), true]
