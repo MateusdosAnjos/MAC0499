@@ -33,18 +33,23 @@ func string_comparision_routine(input, arguments):
             #wrong_arguments_message()
             print("Nenhuma das anteriores")
             
-func number_comparision_routine(input, arguments):
+func number_comparision_routine(input, arguments, number_type):
+    var compare_number = null
+    if (number_type == TYPE_INT):
+        compare_number = int(arguments[1])
+    elif (number_type == TYPE_REAL):
+        compare_number = float(arguments[1])
     match arguments[0]:
         '<':
-            return [input, input < int(arguments[1])] 
+            return [input, input < compare_number] 
         '<=':
-            return [input, input <= int(arguments[1])]
+            return [input, input <= compare_number]
         '>':
-            return [input, input > int(arguments[1])]
+            return [input, input > compare_number]
         '>=':
-            return [input, input >= int(arguments[1])]
+            return [input, input >= compare_number]
         '==':
-            return [input, input == int(arguments[1])]
+            return [input, input == compare_number]
         _:
             #wrong_arguments_message()
             print("Nenhuma das anteriores")
@@ -73,6 +78,9 @@ func _argument_check(input, arguments):
         elif (typeof(input) == TYPE_INT):
             if (not key_words[1].is_valid_integer()):
                 return null
+        elif (typeof(input) == TYPE_REAL):
+            if (not key_words[1].is_valid_float()):
+                return null
         else:
             return null    
     return key_words
@@ -83,7 +91,9 @@ func execute(input, arguments, player_answer, action_number):
         if (typeof(input) == TYPE_STRING):
             return string_comparision_routine(input, key_words)
         elif (typeof(input) == TYPE_INT):
-           return number_comparision_routine(input, key_words)
+           return number_comparision_routine(input, key_words, TYPE_INT)
+        elif (typeof(input) == TYPE_REAL):
+           return number_comparision_routine(input, key_words, TYPE_REAL)
     else:
         $ErrorMessages.show_error_message("if/else", action_number)
         return [input, false]
