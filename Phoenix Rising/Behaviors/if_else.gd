@@ -71,7 +71,8 @@ func _argument_check(input, arguments):
             if (key_words[1][0] != key_words[1][key_words[1].length()-1]):
                 return null
         elif (typeof(input) == TYPE_INT):
-            pass
+            if (not key_words[1].is_valid_integer()):
+                return null
         else:
             return null    
     return key_words
