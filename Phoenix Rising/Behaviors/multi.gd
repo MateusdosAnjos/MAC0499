@@ -1,5 +1,6 @@
 extends Node
 
+#Verify if there is the correct number of arguments
 func _split_arguments(arguments):
     if (not arguments.empty()):
         var values = arguments.split(", ", false, 1)
