@@ -58,18 +58,28 @@ func _split_arguments(arguments):
     else:
         return key_words
 
-#Checks if the arguments are correctly formated. Returns null if it's
-#not correctly formated
-func _argument_check(arguments):
+#Checks if the arguments are correctly formated given the input.
+#Returns null if it's not correctly formated
+func _argument_check(input, arguments):
     if (arguments.empty()):
         return null
-    var key_words = _split_arguments(arguments)        
+    var key_words = _split_arguments(arguments)
+    if (key_words != null):
+        if (typeof(input) == TYPE_STRING and key_words[1].length() > 2):
+            if (key_words[1][0] != "'" and key_words[1][0] != '"'):
+                return null
+            if (key_words[1][0] != key_words[1][key_words[1].length()-1]):
+                return null
+        elif (typeof(input) == TYPE_INT):
+            pass
+        else:
+            return null    
     return key_words
         
 func execute(input, arguments, player_answer, action_number):
-    var key_words = _argument_check(arguments)
+    var key_words = _argument_check(input, arguments)
     if (key_words != null):
-        if (typeof(input) == TYPE_STRING) and (key_words[1][0] == '"' or key_words[1][0] == "'"):
+        if (typeof(input) == TYPE_STRING):
             return string_comparision_routine(input, key_words)
         elif (typeof(input) == TYPE_INT):
            return number_comparision_routine(input, key_words)
