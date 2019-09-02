@@ -30,7 +30,7 @@ const ITEMS = {
     },          
     "error": {
         "icon": ICON_PATH + "error.png",
-        "help": "Icone de erro para testes",
+        "help": "Icone de Erro. Mostrado quando não foi possível carregar algum item do inventário.",
         "codePath": BEHAVIOR_PATH + "error.gd"
        }
 }
