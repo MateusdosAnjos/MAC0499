@@ -2,12 +2,10 @@ extends Node
 
 func execute(input, arguments, player_answer, action_number):
     arguments = arguments.split(", ")
-    
     #Arguments check
     if (arguments.size() < 2):
-        #wrong_arguments_message()
-        return [null, true]
-    #Accepting "input" as part of operations    
+        $ErrorMessages.show_error_message("multi", action_number)
+        return [input, true]   
     if (arguments[0] == 'input'):
         arguments[0] = input
     if (arguments[1] == 'input'):
@@ -16,7 +14,8 @@ func execute(input, arguments, player_answer, action_number):
     if (arguments[0].is_valid_integer() and arguments[1].is_valid_integer()):
         return [(int(arguments[0]) * int(arguments[1])), true]
     elif (arguments[0].is_valid_float() and arguments[1].is_valid_float()):
-        return [(float(arguments[0]) * float(arguments[1])), true]
-    #This one is for Strings        
+        return [(float(arguments[0]) * float(arguments[1])), true]      
     else:
-        return [null, true]
+        $ErrorMessages.show_error_message("multi", action_number)
+        return [input, true]
+        
