@@ -5,7 +5,7 @@ const BEHAVIOR_PATH = "res://Behaviors/"
 const ITEMS = {
     "soma": {
         "icon": ICON_PATH + "soma.png",
-        "help": "Icone de soma",
+        "help": "Comando de soma\nPode receber como argumento dois números separados por uma vírgula e um espaço (obrigatórios) e devolve o resultado de sua soma, podendo ser um número inteiro ou um número real. Também pode receber como argumento duas palavras entre aspas (simples ' ou duplas \") separados por uma vírgula e um espaço (obrigatórios) e devolve o resultado de sua concatenação.\nPodemos operar com o valor do input escrevendo 'input' como argumento (sem aspas).\nObserve os exemplos de argumentos abaixo:\n3, 4\ninput, 8\n4.2, 2\n1.2, 6.4\ninput, input\n\"Palavras\", ' concatenadas'\nDentre os exemplos vemos a soma de dois inteiros, valor de entrada e um inteiro, valor real e inteiro, dois valores reais, soma do input com ele mesmo e, por último, a concatenação de duas palavras.",
         "codePath": BEHAVIOR_PATH + "soma.gd"
     },
     "subtracao": {
