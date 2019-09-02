@@ -1,11 +1,14 @@
 extends Node
 
 func _split_arguments(arguments):
-    var values = arguments.split(", ", false, 1)
-    if (values.size() < 2):
-        return null
+    if (not arguments.empty()):
+        var values = arguments.split(", ", false, 1)
+        if (values.size() < 2):
+            return null
+        else:
+            return values
     else:
-        return values
+        return null
 
 func execute(input, arguments, player_answer, action_number):
     var values = _split_arguments(arguments)
