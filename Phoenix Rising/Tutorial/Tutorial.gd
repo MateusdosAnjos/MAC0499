@@ -6,7 +6,7 @@ const INPUT = 'Mensagem de teste'
 const OUTPUT = 'Mensagem de teste'
 
 #List of items to be picked up
-var pickup_item_list = ["soma", "subtracao", "multi", "print", "print", "print", "if/else"]
+var pickup_item_list = ["soma", "subtracao", "multi", "print", "print", "print", "if/else", "naoTem"]
 
 func _ready():
     var input_text = get_node("InputOutput/InputBase/Input")

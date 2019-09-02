@@ -29,7 +29,7 @@ const ITEMS = {
         "codePath": BEHAVIOR_PATH + "if_else.gd"
     },          
     "error": {
-        "icon": ICON_PATH + "enemyFlyingAlt_2.png",
+        "icon": ICON_PATH + "error.png",
         "help": "Icone de erro para testes",
         "codePath": BEHAVIOR_PATH + "error.gd"
        }
