@@ -50,11 +50,12 @@ func number_comparision_routine(input, arguments):
             print("Nenhuma das anteriores")
 
 func execute(input, arguments, player_answer, action_number):
-    arguments = arguments.split(" ", true, 1)
-    if (typeof(input) == TYPE_STRING) and (arguments[1][0] == '"' or arguments[1][0] == "'"):
-        return string_comparision_routine(input, arguments)
-    elif (typeof(input) == TYPE_INT):
-       return number_comparision_routine(input, arguments)
+    if (not arguments.empty()):
+        arguments = arguments.split(" ", true, 1)
+        if (typeof(input) == TYPE_STRING) and (arguments[1][0] == '"' or arguments[1][0] == "'"):
+            return string_comparision_routine(input, arguments)
+        elif (typeof(input) == TYPE_INT):
+           return number_comparision_routine(input, arguments)
     else:
         $ErrorMessages.show_error_message("if/else", action_number)
         return [input, false]
