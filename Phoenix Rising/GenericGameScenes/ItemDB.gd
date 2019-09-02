@@ -5,7 +5,7 @@ const BEHAVIOR_PATH = "res://Behaviors/"
 const ITEMS = {
     "soma": {
         "icon": ICON_PATH + "soma.png",
-        "help": "Comando de Soma\nPode receber como argumento dois números separados por uma vírgula e um espaço (obrigatórios) e devolve o resultado de sua soma, podendo ser um número inteiro ou um número real. Também pode receber como argumento duas palavras entre aspas (simples ' ou duplas \") separados por uma vírgula e um espaço (obrigatórios) e devolve o resultado de sua concatenação.\nPodemos operar com o valor do input escrevendo 'input' como argumento (sem aspas).\nObserve os exemplos de argumentos abaixo:\n3, 4\ninput, 8\n4.2, 2\n1.2, 6.4\ninput, input\n\"Palavras\", ' concatenadas'\nDentre os exemplos vemos a soma de dois inteiros, valor de entrada e um inteiro, valor real e inteiro, dois valores reais, soma do input com ele mesmo e, por último, a concatenação de duas palavras.",
+        "help": "Comando de Soma\nPode receber como argumento dois números separados por uma vírgula e um espaço (obrigatórios) e devolve o resultado de sua soma, podendo ser um número inteiro ou um número real. Também pode receber como argumento duas palavras entre aspas (simples ' ou duplas \") separados por uma vírgula e um espaço (obrigatórios) e devolve o resultado de sua concatenação.\nPodemos operar com o valor do input escrevendo 'input' como argumento (sem aspas), porém deve-se tomar cuidado com o tipo do input (número ou string) para efetuar a operação correta.\nObserve os exemplos de argumentos abaixo:\n3, 4\ninput, 8\n4.2, 2\n1.2, 6.4\ninput, input\n\"Palavras\", ' concatenadas'\nDentre os exemplos vemos a soma de dois inteiros, valor de entrada e um inteiro, valor real e inteiro, dois valores reais, soma do input com ele mesmo e, por último, a concatenação de duas palavras.",
         "codePath": BEHAVIOR_PATH + "soma.gd"
     },
     "subtracao": {
@@ -15,7 +15,7 @@ const ITEMS = {
     },
     "multi": {
         "icon": ICON_PATH + "multi.png",
-        "help": "Comando de Multiplicação.\nRecebe como argumentos dois números separados por uma vírgula e um espaço (obrigatórios) e devolve o resultado de sua multiplicação, podendo ser um número inteiro ou um número real.\nPodemos operar com o valor do input escrevendo 'input' como argumento (sem aspas).\nObserve os exemplos de argumentos abaixo:\n3, 4\ninput, 8\n4.2, 2\n1.2, 6.4\ninput, input\nDentre os exemplos vemos multiplicação de dois inteiros, valor de entrada e um inteiro, valor real e inteiro, dois valores reais e, por último, a multiplicação do input por ele mesmo.",
+        "help": "Comando de Multiplicação.\nRecebe como argumentos dois números separados por uma vírgula e um espaço (obrigatórios) e devolve o resultado de sua multiplicação, podendo ser um número inteiro ou um número real.\nPodemos operar com o valor do input escrevendo 'input' como argumento (sem aspas), desde que o input seja um número inteiro ou real.\nObserve os exemplos de argumentos abaixo:\n3, 4\ninput, 8\n4.2, 2\n1.2, 6.4\ninput, input\nDentre os exemplos vemos multiplicação de dois inteiros, valor de entrada e um inteiro, valor real e inteiro, dois valores reais e, por último, a multiplicação do input por ele mesmo.",
         "codePath": BEHAVIOR_PATH + "multi.gd"
     },        
     "print": {
