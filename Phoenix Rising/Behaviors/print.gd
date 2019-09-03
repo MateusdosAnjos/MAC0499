@@ -13,9 +13,9 @@ func execute(input, arguments, player_answer, action_number):
                 var word = arguments.substr(1, word_length - 2)
                 player_answer.append(word)
             else:
-                $ErrorMessages.show_error_message("print", action_number)
+                return $ErrorMessages.show_error_message("print", action_number)
         else:
             player_answer.append(input)
     else:
-        $ErrorMessages.show_error_message("print", action_number)  
+        return $ErrorMessages.show_error_message("print", action_number)  
     return [input, true]

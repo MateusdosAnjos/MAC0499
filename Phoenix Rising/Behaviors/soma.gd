@@ -33,5 +33,4 @@ func execute(input, arguments, player_answer, action_number):
         else:
             if (_string_check(values[0]) and _string_check(values[1])):
                 return [(values[0].substr(1, values[0].length()-2) + values[1].substr(1, values[1].length()-2)), true]
-    $ErrorMessages.show_error_message("soma", action_number)
-    return [input, true]
+    return $ErrorMessages.show_error_message("soma", action_number)

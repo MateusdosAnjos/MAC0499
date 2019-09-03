@@ -24,9 +24,7 @@ func execute(input, arguments, player_answer, action_number):
         elif (values[0].is_valid_float() and values[1].is_valid_float()):
             return [(float(values[0]) * float(values[1])), true]      
         else:
-            $ErrorMessages.show_error_message("multi", action_number)
-            return [input, true]
+            return $ErrorMessages.show_error_message("multi", action_number)
     else:
-        $ErrorMessages.show_error_message("multi", action_number)
-        return [input, true]
+        return $ErrorMessages.show_error_message("multi", action_number)
         

@@ -31,8 +31,7 @@ func _string_comparision_routine(input, arguments, action_number):
             else:
                 return [input, false]
         _:
-            $ErrorMessages.show_error_message("if/else", action_number)
-            return [input, true]
+            return $ErrorMessages.show_error_message("if/else", action_number)
 
 #Makes the number comparision based on number_type           
 func _number_comparision_routine(input, arguments, number_type, action_number):
@@ -53,8 +52,7 @@ func _number_comparision_routine(input, arguments, number_type, action_number):
         '==':
             return [input, input == compare_number]
         _:
-            $ErrorMessages.show_error_message("if/else", action_number)
-            return [input, true]
+            return $ErrorMessages.show_error_message("if/else", action_number)
 
 #Tries to split the arguments in 2. Returns the splited arguments in
 #'key_word' and null if not successful
@@ -97,5 +95,4 @@ func execute(input, arguments, player_answer, action_number):
         elif (typeof(input) == TYPE_REAL):
            return _number_comparision_routine(input, key_words, TYPE_REAL, action_number)
     else:
-        $ErrorMessages.show_error_message("if/else", action_number)
-        return [input, true]
+        return $ErrorMessages.show_error_message("if/else", action_number)
