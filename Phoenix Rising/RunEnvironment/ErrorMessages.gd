@@ -7,6 +7,7 @@ func show_error_message(item, action_number):
     $Message.add_text("\nClique em 'Entendido!' para continuar")
     self.show()
     get_tree().paused = true
+    return null
     
 func _on_Understood_pressed():
     self.hide()
