@@ -5,19 +5,19 @@
 [ext_resource path="res://InputOutput/FinishInputArea.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=4]
 
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 4 )
+
 [sub_resource type="DynamicFont" id=3]
 size = 32
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 32
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 32
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=6]
 size = 32
 font_data = ExtResource( 4 )
 
@@ -44,7 +44,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 290.0
 margin_bottom = 510.0
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 1 )
 text = "Entrada:"
 
 [node name="OutputBase" type="ColorRect" parent="."]
@@ -59,7 +59,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 290.0
 margin_bottom = 50.0
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "Saída Esperada:"
 
 [node name="ExpectedOutput" type="RichTextLabel" parent="OutputBase"]
@@ -67,14 +67,14 @@ margin_left = 10.0
 margin_top = 50.0
 margin_right = 290.0
 margin_bottom = 250.0
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 1 )
 
 [node name="PlayerOutputTitle" type="RichTextLabel" parent="OutputBase"]
 margin_left = 10.0
 margin_top = 270.0
 margin_right = 290.0
 margin_bottom = 310.0
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "Sua Saída:"
 
 [node name="PlayerOutput" type="RichTextLabel" parent="OutputBase"]
@@ -82,7 +82,7 @@ margin_left = 10.0
 margin_top = 310.0
 margin_right = 290.0
 margin_bottom = 510.0
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 4 )
 [connection signal="area_entered" from="StartInputArea" to="." method="_on_StartInputArea_area_entered"]
 [connection signal="area_exited" from="StartInputArea" to="." method="_on_StartInputArea_area_exited"]
 [connection signal="area_entered" from="FinishInputArea" to="." method="_on_FinishInputArea_area_entered"]
