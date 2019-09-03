@@ -31,6 +31,7 @@ script = ExtResource( 1 )
 position = Vector2( 370, 230 )
 
 [node name="FinishInputArea" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1470, 560 )
 
 [node name="InputBase" type="ColorRect" parent="."]
 margin_left = 20.0
