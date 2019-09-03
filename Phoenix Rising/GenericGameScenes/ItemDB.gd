@@ -10,7 +10,7 @@ const ITEMS = {
     },
     "subtracao": {
         "icon": ICON_PATH + "subtracao.png",
-        "help": "Icone de subtração",
+        "help": "Comando de Subtração\nRecebe como argumento dois números separados por uma vírgula e um espaço (obrigatórios) e devolve o resultado de sua subtração, podendo ser um número inteiro ou um número real.\nPodemos operar com o valor do input escrevendo 'input' como argumento (sem aspas), porém deve-se tomar cuidado com o tipo do input para efetuar a operação correta.\nObserve os exemplos de argumentos abaixo:\n3, 4\ninput, 8\n4.2, 2\n1.2, 6.4\ninput, input\nDentre os exemplos vemos a subtração de dois inteiros, valor de entrada e um inteiro, valor real e inteiro, dois valores reais, e, por último, a subtração do input com ele mesmo.",
         "codePath": BEHAVIOR_PATH + "subtracao.gd"
     },
     "multi": {
