@@ -3,8 +3,8 @@ extends Control
 signal start_input_entered(area)
 signal start_input_exited()
 
-onready var connected_texture = preload("res://Accessories/art/default_with_connection.png")
-onready var not_connected_texture = preload("res://Accessories/art/default_no_connection.png")
+onready var connected_texture = preload("res://Accessories/art/input_with_connection.png")
+onready var not_connected_texture = preload("res://Accessories/art/input_no_connection.png")
 
 var input_connected = false
 var output_connected = false
