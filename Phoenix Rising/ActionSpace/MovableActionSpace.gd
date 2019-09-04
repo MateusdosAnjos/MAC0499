@@ -213,8 +213,10 @@ func _on_InputChangeButton_pressed():
 
 func _on_OutputChangeButton_pressed():
     output_connections[current_output].hide()
-    output_collisions[current_output].set_disabled(true)
+    for collisions in output_collisions[current_output]: 
+        collisions.set_disabled(true)
     output_connections[current_output].texture = load(output_not_connected_textures[current_output])
     current_output = (current_output + 1) % num_output_connections
     output_connections[current_output].show()
-    output_collisions[current_output].set_disabled(false)    
+    for collisions in output_collisions[current_output]: 
+        collisions.set_disabled(false)    
