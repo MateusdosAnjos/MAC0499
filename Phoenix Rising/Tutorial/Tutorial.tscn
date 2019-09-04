@@ -49,7 +49,6 @@ color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 pause_mode = 2
 
 [node name="FullScreen" parent="." instance=ExtResource( 4 )]
-pause_mode = 2
 
 [node name="RunEnvironment" parent="." instance=ExtResource( 5 )]
 margin_right = 0.0
