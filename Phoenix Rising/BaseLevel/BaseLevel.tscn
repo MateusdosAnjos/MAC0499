@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://BaseLevel/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -6,9 +6,10 @@
 [ext_resource path="res://TitleScreen/FullScreen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://RunEnvironment/RunEnvironment.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GenericGameScenes/Inventory.tscn" type="PackedScene" id=6]
-[ext_resource path="res://UsersGuide/UsersGuide.gd" type="Script" id=7]
-[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=8]
-[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UsersGuide/UsersGuide.gd" type="Script" id=8]
+[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=10]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
@@ -25,11 +26,15 @@ corner_radius_bottom_left = 30
 [node name="BaseLevel" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -1840.0
+margin_bottom = -920.0
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 1840.0
+margin_bottom = 920.0
 mouse_filter = 2
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
@@ -43,13 +48,20 @@ pause_mode = 2
 [node name="RunEnvironment" parent="." instance=ExtResource( 5 )]
 
 [node name="Inventory" parent="." instance=ExtResource( 6 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="MovableActionSpace" parent="Inventory" instance=ExtResource( 7 )]
+position = Vector2( 1000, 100 )
 
 [node name="UsersGuide" type="Control" parent="."]
 pause_mode = 2
 editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="DialogBox" type="Panel" parent="UsersGuide"]
 margin_left = 520.0
@@ -87,15 +99,16 @@ margin_right = 774.0
 margin_bottom = 90.0
 text = "Fechar"
 
-[node name="NextLevel" parent="." instance=ExtResource( 8 )]
+[node name="NextLevel" parent="." instance=ExtResource( 9 )]
 
-[node name="ResetLevel" parent="." instance=ExtResource( 9 )]
+[node name="ResetLevel" parent="." instance=ExtResource( 10 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="start_input_entered" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_entered"]
 [connection signal="start_input_exited" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_exited"]
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
 [connection signal="frame_flashy" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_frame_flashy"]
 [connection signal="level_succeded" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_level_succeded"]
+[connection signal="entered_tree" from="Inventory/MovableActionSpace" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
 [connection signal="frame_flashy" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_frame_flashy"]
 [connection signal="hide_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_hide_all"]
 [connection signal="show_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_show_all"]
