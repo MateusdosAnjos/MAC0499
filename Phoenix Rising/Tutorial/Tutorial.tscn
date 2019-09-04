@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Tutorial/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=9]
 [ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
@@ -128,6 +129,8 @@ animation = "flashy"
 [node name="NextLevel" parent="." instance=ExtResource( 10 )]
 
 [node name="ResetLevel" parent="." instance=ExtResource( 11 )]
+
+[node name="VisualProcess" parent="." instance=ExtResource( 12 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="start_input_entered" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_entered"]
 [connection signal="start_input_exited" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_exited"]
