@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://BaseLevel/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://GenericGameScenes/Inventory.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UsersGuide/UsersGuide.gd" type="Script" id=7]
 [ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
@@ -88,6 +89,8 @@ margin_bottom = 90.0
 text = "Fechar"
 
 [node name="NextLevel" parent="." instance=ExtResource( 8 )]
+
+[node name="ResetLevel" parent="." instance=ExtResource( 9 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="start_input_entered" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_entered"]
 [connection signal="start_input_exited" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_exited"]
@@ -102,3 +105,4 @@ text = "Fechar"
 [connection signal="pressed" from="UsersGuide/DialogBox/Skip" to="UsersGuide" method="_on_Skip_pressed"]
 [connection signal="pressed" from="UsersGuide/DialogBox/Close" to="UsersGuide" method="_on_Close_pressed"]
 [connection signal="next_level" from="NextLevel" to="." method="_on_NextLevel_next_level"]
+[connection signal="reset_level" from="ResetLevel" to="." method="_on_ResetLevel_reset_level"]

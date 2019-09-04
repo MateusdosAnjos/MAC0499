@@ -27,3 +27,6 @@ func _on_FullScreen_pressed():
 
 func _on_NextLevel_next_level():
     get_tree().change_scene("res://Tutorial/Tutorial.tscn")
+
+func _on_ResetLevel_reset_level():
+    get_tree().change_scene("res://BaseLevel/BaseLevel.tscn")
