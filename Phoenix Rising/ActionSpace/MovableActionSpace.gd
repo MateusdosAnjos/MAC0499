@@ -22,36 +22,36 @@ onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConne
                                  $ConvergeArea/ConvergeConnection]
 #The output connection nodes
 onready var output_connections = [$OutputArea/DefaultConnection, $OutputArea/ZConnection, $OutputArea/LongConnection,
-                                  $IfArea/IfConnection,]
+                                  $IfArea/IfConnection]
 #The input collision nodes
-onready var input_collisions = [$InputArea/DefaultInputCollisionShape, $InputArea/ZInputCollisionShape,
-                                $InputArea/LongCollisionShape, $ConvergeArea/IfConvergeCollisionShape,]
+onready var input_collisions = [[$InputArea/DefaultInputCollisionShape], [$InputArea/ZInputCollisionShape],
+                                [$InputArea/LongCollisionShape], [$ConvergeArea/IfConvergeCollisionShape, $ConvergeArea/ElseConverge/ElseConvergeCollisionShape]]
 
 #The output collision nodes
-onready var output_collisions = [$OutputArea/DefaultOutputCollisionShape, $OutputArea/ZOutputCollisionShape, 
-                                 $OutputArea/LongCollisionShape, $IfArea/IfCollisionShape]
+onready var output_collisions = [[$OutputArea/DefaultOutputCollisionShape], [$OutputArea/ZOutputCollisionShape], 
+                                 [$OutputArea/LongCollisionShape], [$IfArea/IfCollisionShape, $IfArea/ElseArea/ElseCollisionShape]]
 
 #The connected textures paths
 onready var input_connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
                                         DEFAULT_PATH + "z_with_connection.png",
                                         DEFAULT_PATH + "long_with_connection.png",
-                                        DEFAULT_PATH + "converge_with_connection.png",]
+                                        DEFAULT_PATH + "converge_with_connection.png"]
                                 
 onready var output_connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
                                         DEFAULT_PATH + "z_with_connection.png",
                                         DEFAULT_PATH + "long_with_connection.png",
-                                        DEFAULT_PATH + "if_else_with_connection.png",]
+                                        DEFAULT_PATH + "if_else_with_connection.png"]
 
 #The not connected texture paths                               
 onready var input_not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
                                             DEFAULT_PATH + "z_no_connection.png",
                                             DEFAULT_PATH + "long_no_connection.png",
-                                            DEFAULT_PATH + "converge_no_connection.png",]
+                                            DEFAULT_PATH + "converge_no_connection.png"]
                                             
 onready var output_not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
                                              DEFAULT_PATH + "z_no_connection.png",
                                              DEFAULT_PATH + "long_no_connection.png",
-                                             DEFAULT_PATH + "if_else_no_connection.png",]
+                                             DEFAULT_PATH + "if_else_no_connection.png"]
 
 #Handles is both if and else paths are connected to the converge connection
 onready var if_connected = false
@@ -72,12 +72,14 @@ func _hide_connections():
 
 #Disables all but the default collision on the Movable Action Space  
 func _disable_collisions():
-    for collision in input_collisions:
-         collision.set_disabled(true)
-    for collision in output_collisions:
-         collision.set_disabled(true)
-    input_collisions[0].set_disabled(false)
-    output_collisions[0].set_disabled(false)
+    for collision_list in input_collisions:
+        for collision in collision_list:
+            collision.set_disabled(true)
+    for collision_list in output_collisions:
+        for collision in collision_list:
+             collision.set_disabled(true)
+    input_collisions[0][0].set_disabled(false)
+    output_collisions[0][0].set_disabled(false)
                  
 func _ready():
     emit_signal("entered_tree", get_name())
@@ -95,7 +97,8 @@ func click_and_drag():
     if not $ActionSpace.placed_item:
         HandSprite.stop()
         HandSprite.set_frame(1)
-        set_position(get_viewport().get_mouse_position())   
+        set_position(get_viewport().get_mouse_position())
+        self.z_index = 1
 
 func _on_Area2D_mouse_entered():
     HandSprite.play("open_close_hand")
@@ -105,6 +108,7 @@ func _on_Area2D_mouse_exited():
     HandSprite.stop()
     HandSprite.set_frame(0)
     mouse_in = false
+    self.z_index = 0
 
 func _enumerate_action(area):
     #StartInputArea is the action with number 0 and has no atribute "text" 
@@ -201,16 +205,20 @@ func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):
 ###################################################################################################   
 func _on_InputChangeButton_pressed():
     input_connections[current_input].hide()
-    input_collisions[current_input].set_disabled(true)
+    for collisions in input_collisions[current_input]: 
+        collisions.set_disabled(true)
     input_connections[current_input].texture = load(input_not_connected_textures[current_input])
     current_input = (current_input + 1) % num_input_connections
     input_connections[current_input].show()
-    input_collisions[current_input].set_disabled(false)
+    for collisions in input_collisions[current_input]: 
+        collisions.set_disabled(false)
 
 func _on_OutputChangeButton_pressed():
     output_connections[current_output].hide()
-    output_collisions[current_output].set_disabled(true)
+    for collisions in output_collisions[current_output]: 
+        collisions.set_disabled(true)
     output_connections[current_output].texture = load(output_not_connected_textures[current_output])
     current_output = (current_output + 1) % num_output_connections
     output_connections[current_output].show()
-    output_collisions[current_output].set_disabled(false)    
+    for collisions in output_collisions[current_output]: 
+        collisions.set_disabled(false)    
