@@ -27,11 +27,13 @@ func _process_input(input):
     var input_process_code = null
     var CurrentActionSpace = null
     var action_number = 0
+    var process_points = []
     
     var CurrentNode = _find_root()
     while CurrentNode != null and CurrentNode.name != "InputOutput":
         CurrentActionSpace = CurrentNode.get_node("ActionSpace")
         if CurrentActionSpace.placed_item:
+            process_points.append(CurrentNode.global_position)
             action_number = CurrentNode.get_node("ActionNumber").text
             node_item = CurrentActionSpace.placed_item.get_meta("id")
             input_process_code = load(ItemDB.get_item(node_item)["codePath"])
@@ -45,7 +47,8 @@ func _process_input(input):
             else:
                 CurrentNode = CurrentNode.left_child
         else:
-            CurrentNode = CurrentNode.right_child           
+            CurrentNode = CurrentNode.right_child
+    print(process_points)
     return player_answer               
 
 func _set_answer_on_screen(answer):
