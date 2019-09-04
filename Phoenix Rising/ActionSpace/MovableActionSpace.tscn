@@ -150,7 +150,6 @@ position = Vector2( 65, 64.5 )
 shape = SubResource( 8 )
 
 [node name="IfArea" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="IfConnection" type="Sprite" parent="IfArea"]
 visible = false
@@ -165,8 +164,6 @@ position = Vector2( 31, -18 )
 shape = SubResource( 9 )
 
 [node name="ElseArea" type="Area2D" parent="IfArea"]
-editor/display_folded = true
-visible = false
 
 [node name="ElseCollisionShape" type="CollisionShape2D" parent="IfArea/ElseArea"]
 visible = false
@@ -188,7 +185,6 @@ position = Vector2( -200, -18 )
 shape = SubResource( 11 )
 
 [node name="ElseConverge" type="Area2D" parent="ConvergeArea"]
-visible = false
 
 [node name="ElseConvergeCollisionShape" type="CollisionShape2D" parent="ConvergeArea/ElseConverge"]
 visible = false
