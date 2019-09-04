@@ -7,7 +7,7 @@ signal input_output_defined(input, output)
 
 #List of items to be picked up (write one name for each position
 #it will be picked up 1 item for each name position)
-var pickup_item_list = []
+var pickup_item_list = ["print"]
 
 #Input and Output of the level, replace it to customize you own level
 const INPUT = 'Base Level Input'

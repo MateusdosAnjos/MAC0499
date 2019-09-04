@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://BaseLevel/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -7,21 +7,9 @@
 [ext_resource path="res://RunEnvironment/RunEnvironment.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GenericGameScenes/Inventory.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UsersGuide/UsersGuide.gd" type="Script" id=8]
+[ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=8]
 [ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=9]
 [ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=10]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color( 0.14902, 0.427451, 0.866667, 1 )
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
 
 [node name="BaseLevel" type="Control"]
 anchor_right = 1.0
@@ -39,6 +27,13 @@ mouse_filter = 2
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="InputOutput" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+
+[node name="StartInputArea" parent="InputOutput" index="0"]
+position = Vector2( 725, 220 )
+
+[node name="FinishInputArea" parent="InputOutput" index="1"]
+position = Vector2( 1100, 220 )
 
 [node name="ColoredFrames" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
@@ -56,48 +51,7 @@ margin_bottom = 0.0
 [node name="MovableActionSpace" parent="Inventory" instance=ExtResource( 7 )]
 position = Vector2( 1000, 100 )
 
-[node name="UsersGuide" type="Control" parent="."]
-pause_mode = 2
-editor/display_folded = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 8 )
-
-[node name="DialogBox" type="Panel" parent="UsersGuide"]
-margin_left = 520.0
-margin_top = 600.0
-margin_right = 1320.0
-margin_bottom = 700.0
-custom_styles/panel = SubResource( 1 )
-
-[node name="TextBox" type="RichTextLabel" parent="UsersGuide/DialogBox"]
-margin_left = 20.0
-margin_top = 20.9025
-margin_right = 780.0
-margin_bottom = 80.9025
-rect_pivot_offset = Vector2( -470, -380.902 )
-bbcode_enabled = true
-visible_characters = 0
-
-[node name="Timer" type="Timer" parent="UsersGuide/DialogBox"]
-wait_time = 0.04
-autostart = true
-
-[node name="Skip" type="Button" parent="UsersGuide/DialogBox"]
-modulate = Color( 0.286275, 0.560784, 0.992157, 1 )
-margin_left = 660.0
-margin_top = 70.0
-margin_right = 704.0
-margin_bottom = 90.0
-text = "Pular"
-
-[node name="Close" type="Button" parent="UsersGuide/DialogBox"]
-modulate = Color( 0.286275, 0.560784, 0.992157, 1 )
-margin_left = 720.0
-margin_top = 70.0
-margin_right = 774.0
-margin_bottom = 90.0
-text = "Fechar"
+[node name="UsersGuide" parent="." instance=ExtResource( 8 )]
 
 [node name="NextLevel" parent="." instance=ExtResource( 9 )]
 
@@ -113,8 +67,7 @@ text = "Fechar"
 [connection signal="hide_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_hide_all"]
 [connection signal="show_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_show_all"]
 [connection signal="stop_flashy" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_stop_flashy"]
-[connection signal="timeout" from="UsersGuide/DialogBox/Timer" to="UsersGuide" method="_on_Timer_timeout"]
-[connection signal="pressed" from="UsersGuide/DialogBox/Skip" to="UsersGuide" method="_on_Skip_pressed"]
-[connection signal="pressed" from="UsersGuide/DialogBox/Close" to="UsersGuide" method="_on_Close_pressed"]
 [connection signal="next_level" from="NextLevel" to="." method="_on_NextLevel_next_level"]
 [connection signal="reset_level" from="ResetLevel" to="." method="_on_ResetLevel_reset_level"]
+
+[editable path="InputOutput"]
