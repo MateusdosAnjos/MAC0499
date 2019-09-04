@@ -148,4 +148,3 @@ animation = "flashy"
 [connection signal="timeout" from="UsersGuide/DialogBox/Timer" to="UsersGuide" method="_on_Timer_timeout"]
 [connection signal="pressed" from="UsersGuide/DialogBox/Skip" to="UsersGuide" method="_on_Skip_pressed"]
 [connection signal="pressed" from="UsersGuide/DialogBox/Close" to="UsersGuide" method="_on_Close_pressed"]
-[connection signal="pressed" from="NextLevel" to="." method="_on_NextLevel_pressed"]
