@@ -97,7 +97,8 @@ func click_and_drag():
     if not $ActionSpace.placed_item:
         HandSprite.stop()
         HandSprite.set_frame(1)
-        set_position(get_viewport().get_mouse_position())   
+        set_position(get_viewport().get_mouse_position())
+        self.z_index = 1
 
 func _on_Area2D_mouse_entered():
     HandSprite.play("open_close_hand")
@@ -107,6 +108,7 @@ func _on_Area2D_mouse_exited():
     HandSprite.stop()
     HandSprite.set_frame(0)
     mouse_in = false
+    self.z_index = 0
 
 func _enumerate_action(area):
     #StartInputArea is the action with number 0 and has no atribute "text" 
