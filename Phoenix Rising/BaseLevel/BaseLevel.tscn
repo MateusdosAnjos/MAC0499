@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://BaseLevel/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://GenericGameScenes/Inventory.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=7]
 [ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=9]
 
 [node name="BaseLevel" type="Control"]
 anchor_right = 1.0
@@ -34,6 +35,8 @@ pause_mode = 2
 [node name="UsersGuide" parent="." instance=ExtResource( 7 )]
 
 [node name="NextLevel" parent="." instance=ExtResource( 8 )]
+
+[node name="ResetLevel" parent="." instance=ExtResource( 9 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="start_input_entered" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_entered"]
 [connection signal="start_input_exited" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_exited"]
@@ -44,4 +47,3 @@ pause_mode = 2
 [connection signal="hide_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_hide_all"]
 [connection signal="show_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_show_all"]
 [connection signal="stop_flashy" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_stop_flashy"]
-[connection signal="pressed" from="NextLevel" to="." method="_on_NextLevel_pressed"]
