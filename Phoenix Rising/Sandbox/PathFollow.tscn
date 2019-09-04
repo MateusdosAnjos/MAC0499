@@ -1,24 +1,21 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Sandbox/Sprite.gd" type="Script" id=2]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1.02769, 1.36102, 0, 0, 0, 0, 96.1521, 13.129, 0, 0, 0, 0, 163.818, 54.3169, 0, 0, 0, 0, 196.18, 60.2008, 0, 0, 0, 0, 208.928, 58.2395, 0, 0, 0, 0, 224.619, 53.3362, 0, 0, 0, 0, 237.368, 46.4716, 0, 0, 0, 0, 246.194, 42.5489, 0, 0, 0, 0, 256.981, 41.5682, 0, 0, 0, 0, 263.846, 42.5489, 0, 0, 0, 0, 278.555, 42.5489, 0, 0, 0, 0, 304.053, 46.4716, 0, 0, 0, 0, 342.299, 50.3942, 0, 0, 0, 0, 411.926, 82.7561, 0, 0, 0, 0, 444.288, 102.369, 0, 0, 0, 0, 521.76, 108.253, 0, 0, 0, 0, 558.167, 100.408, 0, 0, 0, 0, 655.253, 66.0848, 0, 0, 0, 0, 760.184, 68.0461, 0, 0, 0, 0, 1063.99, 130.792, 0, 0, 0, 0, 1104.29, 251.7, 0, 0, 0, 0, 1067.35, 318.872, 0, 0, 0, 0, 1006.9, 382.684, 0, 0, 0, 0, 899.421, 422.987, 0, 0, 0, 0, 815.457, 466.648, 0, 0, 0, 0, 728.134, 493.517, 0, 0, 0, 0, 546.772, 590.915, 0, 0, 0, 0, 527.054, 703.68, 0, 0, 0, 0, 623.242, 769.493, 0, 0, 0, 0, 810.554, 799.868, 0, 0, 0, 0, 1180.12, 809.993, 0, 0, 0, 0, 1347.18, 794.805, 0, 0, 0, 0, 1509.18, 789.743, 0, 0, 0, 0, 1585.12, 708.743, 0, 0, 0, 0, 1671.18, 612.556, 0, 0, 0, 0, 1595.24, 501.181, 0, 0, 0, 0, 1514.24, 415.118, 0, 0, 0, 0, 1433.24, 354.368, 0, 0, 0, 0, 1372.49, 283.493, 0, 0, 0, 0, 1331.99, 187.306, 0, 0, 0, 0, 1433.24, 161.993, 0, 0, 0, 0, 1534.49, 161.993, 0, 0, 0, 0, 1605.37, 141.743, 0, 0, 0, 0, 1701.55, 121.493, 0, 0, 0, 0, 1767.37, 96.181 )
-}
+[ext_resource path="res://Sandbox/PathFollow.gd" type="Script" id=1]
+[ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sandbox/Sprite.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=2]
 size = 48
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
 
 [node name="Path2D" type="Path2D" parent="."]
 self_modulate = Color( 1, 1, 1, 0.701961 )
-curve = SubResource( 1 )
+curve = null
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 1.02769, 1.36102 )
@@ -32,7 +29,7 @@ custom_fonts/font = SubResource( 2 )
 text = "BELEZA"
 align = 1
 valign = 1
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
