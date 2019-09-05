@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://VisualProcess/VisualProcess.gd" type="Script" id=1]
 [ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
@@ -12,6 +12,9 @@ _data = {
 [sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 28.062, 10 )
 
 [node name="VisualProcess" type="Node2D"]
 script = ExtResource( 1 )
@@ -30,3 +33,10 @@ margin_bottom = 20.0
 custom_fonts/normal_font = SubResource( 2 )
 text = "Teste"
 script = ExtResource( 3 )
+
+[node name="VisualProcessArea" type="Area2D" parent="Path/PathFollow2D"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="VisualProcessCollision" type="CollisionShape2D" parent="Path/PathFollow2D/VisualProcessArea"]
+shape = SubResource( 3 )

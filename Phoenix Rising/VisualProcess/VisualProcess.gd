@@ -22,3 +22,6 @@ func _on_RunEnvironment_visual_process_path_points(path_points):
         
     $Path.set_curve(curve)
     $Path.show()
+
+func _on_MovableActionSpace_change_area_entered():
+    print("VAMO")

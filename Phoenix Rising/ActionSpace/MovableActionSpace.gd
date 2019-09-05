@@ -1,6 +1,7 @@
 extends Node2D
 
 signal entered_tree(node_name)
+signal change_area_entered()
 
 var mouse_in = false
 onready var HandSprite = get_node("ClickDragArea/OpenCloseHand")
@@ -222,3 +223,9 @@ func _on_OutputChangeButton_pressed():
     output_connections[current_output].show()
     for collisions in output_collisions[current_output]: 
         collisions.set_disabled(false)    
+
+###################################################################################################
+#                                SIGNAL FOR VISUAL CHANGES                                        #
+###################################################################################################  
+func _on_ChangeArea_area_entered(area):
+    emit_signal("change_area_entered")
