@@ -13,7 +13,7 @@ func _ready():
 func _on_InputOutput_start_input_position(pos):
     starting_pos = (Vector2(pos[0], pos[1]-50))
 
-func _on_RunEnvironment_visual_process_path_points(path_points, intermediate_inputs):
+func _on_RunEnvironment_visual_process_arguments(path_points, intermediate_inputs):
     visual_inputs = intermediate_inputs
     curve.clear_points()
     var curve_points = []
@@ -33,3 +33,4 @@ func _on_MovableActionSpace_change_area_entered():
 func _on_RunEnvironment_set_curve():
     $Path.show()
     $Path.set_curve(curve)
+    
