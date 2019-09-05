@@ -50,8 +50,6 @@ func _process_input(input):
         else:
             CurrentNode = CurrentNode.right_child
     emit_signal("visual_process_path_points", path_points)
-    #Verificar a espera#
-    #yield(get_parent().get_node("VisualProcess"), "path_compleated")
     return player_answer               
 
 func _set_answer_on_screen(answer):

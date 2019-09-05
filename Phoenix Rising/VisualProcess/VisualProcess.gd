@@ -1,7 +1,5 @@
 extends Node2D
 
-signal path_compleated()
-
 var starting_pos = null
 
 func _ready():
@@ -24,4 +22,3 @@ func _on_RunEnvironment_visual_process_path_points(path_points):
         
     $Path.set_curve(curve)
     $Path.show()
-    emit_signal("path_compleated")
