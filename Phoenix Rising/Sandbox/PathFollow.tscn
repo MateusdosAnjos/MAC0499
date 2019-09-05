@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sandbox/PathFollow.gd" type="Script" id=1]
 [ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,18 @@ size = 48
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 16.9002, 23.2496 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 18.5998, 19.4037 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 18.0576, 18.8123 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 19.4228, 19.8868 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -32,6 +44,12 @@ align = 1
 valign = 1
 script = ExtResource( 3 )
 
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D/Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Sprite/Area2D"]
+position = Vector2( 17, 28 )
+shape = SubResource( 5 )
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.01
 autostart = true
@@ -42,11 +60,23 @@ margin_top = 120.0
 margin_right = 140.0
 margin_bottom = 160.0
 
+[node name="Area2D" type="Area2D" parent="ColorRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D"]
+position = Vector2( 20, 20 )
+shape = SubResource( 2 )
+
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_left = 250.0
 margin_top = 200.0
 margin_right = 290.0
 margin_bottom = 240.0
+
+[node name="Area2D" type="Area2D" parent="ColorRect2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect2/Area2D"]
+position = Vector2( 20, 20 )
+shape = SubResource( 3 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 margin_left = 350.0
@@ -54,16 +84,39 @@ margin_top = 280.0
 margin_right = 390.0
 margin_bottom = 320.0
 
+[node name="Area2D" type="Area2D" parent="ColorRect3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect3/Area2D"]
+position = Vector2( 20, 20 )
+shape = SubResource( 4 )
+
 [node name="ColorRect4" type="ColorRect" parent="."]
 margin_left = 820.0
 margin_top = 610.0
 margin_right = 860.0
 margin_bottom = 650.0
 
+[node name="Area2D" type="Area2D" parent="ColorRect4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect4/Area2D"]
+position = Vector2( 20, 20 )
+shape = SubResource( 4 )
+
 [node name="ColorRect5" type="ColorRect" parent="."]
 margin_left = 1115.0
 margin_top = 430.0
 margin_right = 1155.0
 margin_bottom = 470.0
+
+[node name="Area2D" type="Area2D" parent="ColorRect5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect5/Area2D"]
+position = Vector2( 20, 20 )
+shape = SubResource( 4 )
 [connection signal="distances_set" from="." to="Path2D/PathFollow2D/Sprite" method="_on_Node2D_distances_set"]
 [connection signal="timeout" from="Timer" to="Path2D/PathFollow2D/Sprite" method="_on_Timer_timeout"]
+[connection signal="area_entered" from="ColorRect/Area2D" to="Path2D/PathFollow2D/Sprite" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="ColorRect2/Area2D" to="Path2D/PathFollow2D/Sprite" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="ColorRect3/Area2D" to="Path2D/PathFollow2D/Sprite" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="ColorRect4/Area2D" to="Path2D/PathFollow2D/Sprite" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="ColorRect5/Area2D" to="Path2D/PathFollow2D/Sprite" method="_on_Area2D_area_entered"]

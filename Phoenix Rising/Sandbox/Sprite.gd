@@ -21,3 +21,7 @@ func _on_Node2D_distances_set(distances):
     for dist in distances:
         times.append(float(dist/speed))
     print(times)
+
+
+func _on_Area2D_area_entered(area):
+    self.text = "oI"
