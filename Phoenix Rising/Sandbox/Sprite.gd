@@ -1,7 +1,7 @@
 extends Label
 
 var i = 0
-var speed = 120
+var speed = 180
 var times = []
 
 func _ready():
