@@ -15,4 +15,5 @@ func _ready():
 func _calculate_distance(points, distance):
     for j in range (len(points)-1):
         distance.append(int(sqrt(((points[j][0] - points[j+1][0]) * (points[j][0] - points[j+1][0])) + ((points[j][1] - points[j+1][1]) * (points[j][1] - points[j+1][1])))))
+    distance.append(1)
     print(distance)
