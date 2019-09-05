@@ -2,7 +2,7 @@ extends Control
 
 signal frame_flashy(node_name, seconds)
 signal level_succeded()
-signal visual_process_path_points(path_points)
+signal visual_process_path_points(path_points, intermediate_inputs)
 
 var input
 var output
@@ -51,8 +51,7 @@ func _process_input(input):
                 CurrentNode = CurrentNode.left_child
         else:
             CurrentNode = CurrentNode.right_child
-    emit_signal("visual_process_path_points", path_points)
-    print(intermediate_inputs)
+    emit_signal("visual_process_path_points", path_points, intermediate_inputs)
     return player_answer               
 
 func _set_answer_on_screen(answer):

@@ -1,6 +1,10 @@
 extends Node2D
 
 var starting_pos = null
+var visual_inputs = null
+var i = 0
+
+onready var ValueNode = get_node("Path/PathFollow2D/Value")
 
 func _ready():
     $Path.hide()
@@ -8,7 +12,8 @@ func _ready():
 func _on_InputOutput_start_input_position(pos):
     starting_pos = (Vector2(pos[0], pos[1]-50))
 
-func _on_RunEnvironment_visual_process_path_points(path_points):
+func _on_RunEnvironment_visual_process_path_points(path_points, intermediate_inputs):
+    visual_inputs = intermediate_inputs
     var curve_points = []
     curve_points.append(starting_pos)
     
@@ -24,4 +29,5 @@ func _on_RunEnvironment_visual_process_path_points(path_points):
     $Path.show()
 
 func _on_MovableActionSpace_change_area_entered():
-    print("VAMO")
+    ValueNode.text = str(visual_inputs[i])
+    i = i + 1
