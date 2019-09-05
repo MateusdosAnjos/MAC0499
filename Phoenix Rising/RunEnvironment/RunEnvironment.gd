@@ -29,6 +29,7 @@ func _process_input(input):
     var CurrentActionSpace = null
     var action_number = 0
     var path_points = []
+    var intermediate_inputs = []
     
     var CurrentNode = _find_root()
     while CurrentNode != null and CurrentNode.name != "InputOutput":
@@ -41,6 +42,7 @@ func _process_input(input):
             $RunScript.set_script(input_process_code)
             arguments = CurrentActionSpace.argument_list
             processed_values = $RunScript.execute(processed_values[0], arguments, player_answer, action_number)
+            intermediate_inputs.append(processed_values[0])
             if (processed_values == null):
                 return player_answer
             if (processed_values[1]):
@@ -50,6 +52,7 @@ func _process_input(input):
         else:
             CurrentNode = CurrentNode.right_child
     emit_signal("visual_process_path_points", path_points)
+    print(intermediate_inputs)
     return player_answer               
 
 func _set_answer_on_screen(answer):

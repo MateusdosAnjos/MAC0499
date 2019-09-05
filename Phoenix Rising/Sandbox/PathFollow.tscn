@@ -10,16 +10,16 @@ outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16.9002, 23.2496 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 18.5998, 19.4037 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 18.0576, 18.8123 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 19.4228, 19.8868 )
 
 [node name="Node2D" type="Node2D"]
@@ -48,7 +48,7 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Sprite/Area2D"]
 position = Vector2( 17, 28 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.01
@@ -64,7 +64,7 @@ margin_bottom = 160.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D"]
 position = Vector2( 20, 20 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_left = 250.0
@@ -76,7 +76,7 @@ margin_bottom = 240.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect2/Area2D"]
 position = Vector2( 20, 20 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 margin_left = 350.0
@@ -88,7 +88,7 @@ margin_bottom = 320.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect3/Area2D"]
 position = Vector2( 20, 20 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="ColorRect4" type="ColorRect" parent="."]
 margin_left = 820.0
@@ -100,7 +100,7 @@ margin_bottom = 650.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect4/Area2D"]
 position = Vector2( 20, 20 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="ColorRect5" type="ColorRect" parent="."]
 margin_left = 1115.0
@@ -112,7 +112,7 @@ margin_bottom = 470.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect5/Area2D"]
 position = Vector2( 20, 20 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 [connection signal="distances_set" from="." to="Path2D/PathFollow2D/Sprite" method="_on_Node2D_distances_set"]
 [connection signal="timeout" from="Timer" to="Path2D/PathFollow2D/Sprite" method="_on_Timer_timeout"]
 [connection signal="area_entered" from="ColorRect/Area2D" to="Path2D/PathFollow2D/Sprite" method="_on_Area2D_area_entered"]
