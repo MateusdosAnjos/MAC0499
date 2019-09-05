@@ -12,7 +12,6 @@ func _on_RunEnvironment_visual_process_path_points(path_points):
     curve_points.append(starting_pos)
     for point in path_points:
        curve_points.append(Vector2(point[0], point[1]))
-    print(curve_points)
     var curve = Curve2D.new()
     for point in curve_points:
         curve.add_point(point)
