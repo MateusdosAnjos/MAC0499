@@ -1,7 +1,7 @@
 extends Label
 
 var i = 0
-var speed = 80
+var speed = 120
 var times = []
 
 func _ready():
@@ -19,5 +19,5 @@ func _on_Timer_timeout():
 
 func _on_Node2D_distances_set(distances):
     for dist in distances:
-        times.append(int(dist/speed))
+        times.append(float(dist/speed))
     print(times)
