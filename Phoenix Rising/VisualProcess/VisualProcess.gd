@@ -1,16 +1,20 @@
 extends Node2D
 
-var curve_points = []
+signal path_compleated()
+
+var starting_pos = null
 
 func _on_InputOutput_start_input_position(pos):
-    curve_points.append(Vector2(pos[0], pos[1]))
+    starting_pos = (Vector2(pos[0], pos[1]))
 
-func _create_curve():
+func _on_RunEnvironment_visual_process_path_points(path_points):
+    var curve_points = []
+    curve_points.append(starting_pos)
+    for point in path_points:
+       curve_points.append(Vector2(point[0], point[1]))
+    print(curve_points)
     var curve = Curve2D.new()
     for point in curve_points:
         curve.add_point(point)
     $Path.set_curve(curve)
-
-func _on_RunEnvironment_process_points(points):
-    for point in points:
-       points.append(Vector2(point[0], point[1]))
+    emit_signal("path_compleated")
