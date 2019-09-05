@@ -3,6 +3,7 @@ extends Control
 signal frame_flashy(node_name, seconds)
 signal level_succeded()
 signal visual_process_path_points(path_points, intermediate_inputs)
+signal set_curve()
 
 var input
 var output
@@ -70,6 +71,7 @@ func _on_RunButton_pressed():
     #if InputOutputNode.input_connected and InputOutputNode.output_connected:
     if true:
         var answer_list = _process_input(input)
+        emit_signal("set_curve")
         var answer_string = PoolStringArray(answer_list).join(" ")
         _set_answer_on_screen(answer_string)
         if (answer_string == output):
