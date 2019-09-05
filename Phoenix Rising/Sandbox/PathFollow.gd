@@ -2,8 +2,14 @@ extends Node2D
 
 func _ready():
     var curve = Curve2D.new()
-    curve.add_point(Vector2(120, 70))
-    curve.add_point(Vector2(280, 140))
-    curve.add_point(Vector2(480, 20))
-    print(curve.get_point_count())
+    var distances = []
+    var points = [Vector2(100, 120), Vector2(250, 200), Vector2(350, 280)]
+    _calculate_distance(points, distances)
+    for point in points:
+        curve.add_point(point)
     $Path2D.set_curve(curve)
+
+func _calculate_distance(points, distance):
+    for j in range (len(points)-1):
+        distance.append( sqrt(((points[j][0] - points[j+1][0]) * (points[j][0] - points[j+1][0])) + ((points[j][1] - points[j+1][1]) * (points[j][1] - points[j+1][1]))))
+    print(distance)
