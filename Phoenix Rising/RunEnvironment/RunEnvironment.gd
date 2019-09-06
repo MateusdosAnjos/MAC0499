@@ -45,11 +45,11 @@ func _process_input(input):
             processed_values = $RunScript.execute(processed_values[0], arguments, player_answer, action_number)
             if (processed_values == null):
                 return player_answer
-            intermediate_inputs.append(processed_values[0])
             if (processed_values[1]):
                 CurrentNode = CurrentNode.right_child
             else:
                 CurrentNode = CurrentNode.left_child
+            intermediate_inputs.append(processed_values[0])
         else:
             CurrentNode = CurrentNode.right_child
     emit_signal("visual_process_arguments", path_points, intermediate_inputs)
