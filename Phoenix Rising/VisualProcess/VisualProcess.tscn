@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://VisualProcess/VisualProcess.gd" type="Script" id=1]
 [ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://VisualProcess/Value.gd" type="Script" id=3]
+[ext_resource path="res://VisualProcess/VisualSpeed.gd" type="Script" id=4]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -40,3 +41,12 @@ collision_mask = 4
 
 [node name="VisualProcessCollision" type="CollisionShape2D" parent="Path/PathFollow2D/VisualProcessArea"]
 shape = SubResource( 3 )
+
+[node name="VisualSpeed" type="MenuButton" parent="."]
+margin_left = 99.0435
+margin_top = 39.4627
+margin_right = 181.044
+margin_bottom = 69.4627
+text = "Velocidade da Animação: "
+flat = false
+script = ExtResource( 4 )
