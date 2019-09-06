@@ -12,5 +12,22 @@ func _ready():
 
 func _on_speed_selected(id):
     var speed_modifier = self.get_popup().get_item_text(id)
-    print(ValueNode.speed)
+    match speed_modifier:
+        '1x':
+            _1x_speed()
+        '2x':
+            _2x_speed()
+        '4x':
+            _4x_speed()
+        '8x':
+            _8x_speed()
+
+func _1x_speed():
+    ValueNode.speed = 80
+func _2x_speed():
+    ValueNode.speed = 160
+func _4x_speed():
+    ValueNode.speed = 320
+func _8x_speed():
+    ValueNode.speed = 640
     
