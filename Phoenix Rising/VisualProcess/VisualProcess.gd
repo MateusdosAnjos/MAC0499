@@ -36,3 +36,5 @@ func _on_RunEnvironment_set_curve():
     $Path.show()
     $Path.set_curve(curve)
     
+func _on_InputOutput_start_input_visual_entered():
+    ValueNode.text = str(visual_inputs[0])
