@@ -60,7 +60,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 10 )
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 34.8342, 48.3296 )
+extents = Vector2( 15.7412, 48.3296 )
 
 [node name="MovableActionSpace" type="Node2D"]
 script = ExtResource( 1 )
@@ -227,7 +227,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="ChangeAreaCollision" type="CollisionShape2D" parent="ChangeArea"]
-position = Vector2( -24, 64 )
+position = Vector2( -2, 64 )
 shape = SubResource( 14 )
 [connection signal="mouse_entered" from="ClickDragArea" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="ClickDragArea" to="." method="_on_Area2D_mouse_exited"]
