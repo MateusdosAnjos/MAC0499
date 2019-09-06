@@ -12,7 +12,7 @@ func _ready():
     
 func _on_InputOutput_start_input_position(pos):
     starting_pos = (Vector2(pos[0], pos[1]-50))
-    start_input = "Oi"
+    start_input = get_parent().INPUT
 
 func _on_RunEnvironment_visual_process_arguments(path_points, intermediate_inputs):
     visual_inputs = intermediate_inputs
