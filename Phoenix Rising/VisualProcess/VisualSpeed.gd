@@ -24,10 +24,14 @@ func _on_speed_selected(id):
 
 func _1x_speed():
     ValueNode.speed = 80
+    self.text = "Velocidade da Animação: 1x"
 func _2x_speed():
     ValueNode.speed = 160
+    self.text = "Velocidade da Animação: 2x"
 func _4x_speed():
     ValueNode.speed = 320
+    self.text = "Velocidade da Animação: 4x"
 func _8x_speed():
     ValueNode.speed = 640
+    self.text = "Velocidade da Animação: 8x"
     

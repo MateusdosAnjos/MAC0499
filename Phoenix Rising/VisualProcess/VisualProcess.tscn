@@ -42,10 +42,10 @@ collision_mask = 4
 shape = SubResource( 3 )
 
 [node name="VisualSpeed" type="MenuButton" parent="."]
-margin_left = 99.0435
-margin_top = 39.4627
-margin_right = 181.044
-margin_bottom = 69.4627
-text = "Velocidade da Animação: "
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 220.0
+margin_bottom = 80.0
+text = "Velocidade da Animação: 1x "
 flat = false
 script = ExtResource( 4 )
