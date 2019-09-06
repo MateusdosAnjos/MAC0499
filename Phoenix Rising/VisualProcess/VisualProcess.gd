@@ -3,7 +3,6 @@ extends Node2D
 var starting_pos = null
 var visual_inputs = []
 var curve = Curve2D.new()
-var i = 0
 
 onready var ValueNode = get_node("Path/PathFollow2D/Value")
 
@@ -15,6 +14,7 @@ func _on_InputOutput_start_input_position(pos):
     visual_inputs.append("Nada")
 
 func _on_RunEnvironment_visual_process_arguments(path_points, intermediate_inputs):
+    print(visual_inputs)
     for inputs in intermediate_inputs:
         visual_inputs.append(inputs)
     curve.clear_points()
@@ -31,7 +31,6 @@ func _on_RunEnvironment_visual_process_arguments(path_points, intermediate_input
 
 func _on_MovableActionSpace_change_area_entered(action_number):
     ValueNode.text = str(visual_inputs[action_number])
-    i = (i + 1) % (len(visual_inputs))
 
 func _on_RunEnvironment_set_curve():
     $Path.show()
