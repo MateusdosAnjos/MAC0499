@@ -43,9 +43,9 @@ func _process_input(input):
             $RunScript.set_script(input_process_code)
             arguments = CurrentActionSpace.argument_list
             processed_values = $RunScript.execute(processed_values[0], arguments, player_answer, action_number)
-            intermediate_inputs.append(processed_values[0])
             if (processed_values == null):
                 return player_answer
+            intermediate_inputs.append(processed_values[0])
             if (processed_values[1]):
                 CurrentNode = CurrentNode.right_child
             else:
