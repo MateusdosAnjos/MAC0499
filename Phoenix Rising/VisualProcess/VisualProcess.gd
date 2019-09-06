@@ -24,6 +24,10 @@ func _on_RunEnvironment_visual_process_arguments(path_points, intermediate_input
     for point in path_points:
        curve_points.append(Vector2(point[0], point[1]))
     
+    var last_point = curve_points[len(curve_points)-1]
+    last_point[0] += 120
+    curve_points.append(last_point)
+    
     for point in curve_points:
         point[1] += 50
         curve.add_point(point)
