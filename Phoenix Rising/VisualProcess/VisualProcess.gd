@@ -4,6 +4,8 @@ var starting_pos = null
 var visual_inputs = []
 var start_input = ''
 var curve = Curve2D.new()
+var next_value = 0
+var total_inputs = 0
 
 onready var ValueNode = get_node("Path/PathFollow2D/Value")
 
@@ -19,6 +21,7 @@ func _on_InputOutput_start_input_position(pos):
 #that visual process will follow (the offsets are used to make it better to view)
 func _on_RunEnvironment_visual_process_arguments(path_points, intermediate_inputs):
     visual_inputs = intermediate_inputs
+    total_inputs = len(visual_inputs)
     curve.clear_points()
     $Path.set_curve(curve)
     var curve_points = []
@@ -37,9 +40,10 @@ func _on_RunEnvironment_visual_process_arguments(path_points, intermediate_input
 
 #Changes the text on Value, based on the output of the given
 #Action space
-func _on_MovableActionSpace_change_area_entered(action_number):
-    ValueNode.text = str(visual_inputs[action_number - 1])
-
+func _on_MovableActionSpace_change_area_entered():
+    ValueNode.text = str(visual_inputs[next_value])
+    next_value = (next_value + 1) % total_inputs
+    
 #Sets the start value of the process
 func _on_InputOutput_start_input_visual_entered():
     ValueNode.text = str(start_input)

@@ -1,7 +1,7 @@
 extends Node2D
 
 signal entered_tree(node_name)
-signal change_area_entered(action_number)
+signal change_area_entered()
 
 var mouse_in = false
 onready var HandSprite = get_node("ClickDragArea/OpenCloseHand")
@@ -228,4 +228,5 @@ func _on_OutputChangeButton_pressed():
 #                                SIGNAL FOR VISUAL CHANGES                                        #
 ###################################################################################################  
 func _on_ChangeArea_area_entered(area):
-    emit_signal("change_area_entered", int($ActionNumber.text))
+    if ($ActionSpace.placed_item):
+        emit_signal("change_area_entered")
