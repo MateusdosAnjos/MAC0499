@@ -42,7 +42,7 @@ func _on_MovableActionSpace_change_area_entered(action_number):
 
 #Sets the start value of the process
 func _on_InputOutput_start_input_visual_entered():
-    ValueNode.text = start_input
+    ValueNode.text = str(start_input)
     
 #Sets the curve to follow and starts it
 func _on_RunEnvironment_set_curve():
