@@ -36,8 +36,9 @@ func _on_MovableActionSpace_change_area_entered(action_number):
     ValueNode.text = str(visual_inputs[action_number - 1])
 
 func _on_RunEnvironment_set_curve():
-    $Path.show()
     $Path.set_curve(curve)
+    $Path/PathFollow2D.unit_offset = 0
+    $Path.show()
     
 func _on_InputOutput_start_input_visual_entered():
     ValueNode.text = start_input
