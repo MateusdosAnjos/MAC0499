@@ -2,6 +2,8 @@ extends Control
 
 signal frame_flashy(node_name, seconds)
 signal level_succeded()
+signal visual_process_arguments(path_points, intermediate_inputs)
+signal set_curve()
 
 var input
 var output
@@ -27,11 +29,14 @@ func _process_input(input):
     var input_process_code = null
     var CurrentActionSpace = null
     var action_number = 0
+    var path_points = []
+    var intermediate_inputs = []
     
     var CurrentNode = _find_root()
     while CurrentNode != null and CurrentNode.name != "InputOutput":
         CurrentActionSpace = CurrentNode.get_node("ActionSpace")
         if CurrentActionSpace.placed_item:
+            path_points.append(CurrentNode.global_position)
             action_number = CurrentNode.get_node("ActionNumber").text
             node_item = CurrentActionSpace.placed_item.get_meta("id")
             input_process_code = load(ItemDB.get_item(node_item)["codePath"])
@@ -44,8 +49,10 @@ func _process_input(input):
                 CurrentNode = CurrentNode.right_child
             else:
                 CurrentNode = CurrentNode.left_child
+            intermediate_inputs.append(processed_values[0])
         else:
-            CurrentNode = CurrentNode.right_child           
+            CurrentNode = CurrentNode.right_child
+    emit_signal("visual_process_arguments", path_points, intermediate_inputs)
     return player_answer               
 
 func _set_answer_on_screen(answer):
@@ -64,6 +71,7 @@ func _on_RunButton_pressed():
     #if InputOutputNode.input_connected and InputOutputNode.output_connected:
     if true:
         var answer_list = _process_input(input)
+        emit_signal("set_curve")
         var answer_string = PoolStringArray(answer_list).join(" ")
         _set_answer_on_screen(answer_string)
         if (answer_string == output):
