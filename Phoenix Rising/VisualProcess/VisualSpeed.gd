@@ -2,6 +2,7 @@ extends MenuButton
 
 onready var ValueNode = get_parent().get_node("Path/PathFollow2D/Value")
 
+#Creates the items on popup
 func _ready():
     self.get_popup().add_item("1x")
     self.get_popup().add_item("2x")
@@ -10,6 +11,8 @@ func _ready():
     
     self.get_popup().connect("id_pressed", self, "_on_speed_selected")
 
+#Receives the id of given speed and calls the respective function
+#that handles it
 func _on_speed_selected(id):
     var speed_modifier = self.get_popup().get_item_text(id)
     match speed_modifier:
@@ -21,7 +24,10 @@ func _on_speed_selected(id):
             _4x_speed()
         '8x':
             _8x_speed()
-
+            
+################################################################################
+#       Changes the speed and the button text to the respective speed          #
+################################################################################
 func _1x_speed():
     ValueNode.speed = 80
     self.text = "Velocidade da Animação: 1x"
