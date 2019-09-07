@@ -9,7 +9,8 @@ var input
 var output
 
 onready var InventoryNode = (self.owner).get_node('Inventory')
-   
+onready var InputOutputNode = get_parent().get_node("InputOutput") 
+  
 func create_regex(regex_string):
     var regex = RegEx.new()
     regex.compile(str(regex_string))
