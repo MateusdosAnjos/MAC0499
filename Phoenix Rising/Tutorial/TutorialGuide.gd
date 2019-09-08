@@ -9,15 +9,21 @@ signal show_all()
 # Variables
 var dialog = [
     'Bem vindo ao Phoenix Rising!\nPara jogar você deve terminar o tutorial.\nClique em "Pular" para ver a próxima mensagem.',
-    'A partir do valor de [color=#00007f][b] ENTRADA [/b][/color] você deve obter o valor de [color=green][b] SAÍDA ESPERADA[/b][/color].\nVocê pode visualizar sua saída em [color=red][b] SAÍDA [/b][/color]',
+    'A ideia do jogo é obter o valor em [color=green][b] SAÍDA ESPERADA[/b][/color] a partir do valor de [color=#00007f][b] ENTRADA [/b][/color].\nVocê pode visualizar sua saída em [color=red][b] SUA SAÍDA [/b][/color] para acompanhar seu progresso.',
     '[color=#00007f][b] ENTRADA [/b][/color] está marcada com o retângulo [color=#00007f][b] AZUL[/b][/color].',
     '[color=green][b] SAÍDA ESPERADA [/b][/color] está marcada com o retângulo [color=green][b] VERDE[/b][/color].',    
-    '[color=red][b] SAÍDA [/b][/color] está marcada com o retângulo [color=red][b] VERMELHO[/b][/color].',
+    '[color=red][b] SUA SAÍDA [/b][/color] está marcada com o retângulo [color=red][b] VERMELHO[/b][/color].',
+    'Agora vamos explicar como jogar:',
+    'Para conseguir rodar seu programa você deve conectar o "input" com o "output".',
+    'Utilize os "espaços de ação" para conectar o input com o output.\nQuando a conexão for estabelecida a cor mudará de vermelho para verde.',
+    'Para mover o espaço de ação basta clicar e segurar com o botão esquerdo do mouse no ícone de movimento.\nApós isso mova o espaço de ação para o lugar que lhe parecer mais conveniente e solte o botão esquerdo do mouse.',
+    'As áreas de conexão permitem que você conecte os espaços de ação.\nQuando uma conexão for estabelecida sua cor mudará de vermelho para verde.',
+    'Você pode alterar as conexões de um "espaço de ação" clicando nos botões que alteram conexões.\nNote que algumas conexões são específicas para diferentes comandos, portanto fique atento.',
     'Para obter a resposta você deve utilizar os comandos disponibilizados na sua [color=black][b] ÁREA DE COMANDOS[/b][/color].\nLembre-se de que nem sempre você precisará utilizar todos eles!',
     ]    
         
 var page = 0
-var max_pages = 5
+var max_pages = len(dialog) - 1
 
 onready var SkipButton = get_node("DialogBox/Skip")
 onready var TextBox = get_node("DialogBox/TextBox")
