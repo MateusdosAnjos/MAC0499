@@ -13,6 +13,7 @@ func _ready():
     input_text.newline()
     input_text.add_text(String(INPUT))
     emit_signal("input_output_defined", INPUT, OUTPUT)
+    $NextLevel.hide()
     get_tree().paused = true
 
 func _on_FullScreen_pressed():
@@ -24,3 +25,6 @@ func _on_NextLevel_next_level():
 
 func _on_ResetLevel_reset_level():
     get_tree().change_scene("res://Tutorial/Tutorial.tscn")
+
+func _on_RunEnvironment_level_succeded():
+    $NextLevel.show()
