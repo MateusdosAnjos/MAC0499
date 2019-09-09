@@ -34,8 +34,8 @@ var max_pages = len(dialog) - 1
 onready var SkipButton = get_node("DialogBox/Skip")
 onready var TextBox = get_node("DialogBox/TextBox")
 
-var arrow_sprites = ['InventoryArrow', 'Output', 'Input', 'ActionRect', 'InputConnection', 'OutputConnection', 
-'ChangeInput', 'ChangeOutput', 'DragButton', 'RunButton', 'ArgumentsButton', 'AnimationSpeed']
+var arrow_sprites = ['Input', 'Output', 'ActionRect', 'DragButton', 'InputConnection', 'OutputConnection', 'ChangeInput', 
+                     'ChangeOutput', 'InventoryArrow', 'ArgumentsButton', 'RunButton', 'AnimationSpeed']
 
 # Functions        
 func _ready():
