@@ -28,7 +28,9 @@ func _on_StartInputArea_area_exited(area):
 
 func _on_FinishInputArea_area_entered(area):
     $FinishInputArea/Sprite.texture = output_connected_texture
-    if area.get_parent().get_node("ActionNumber").text != "0":
+    while (not ("MovableActionSpace" in area.name)):
+        area = area.get_parent()
+    if area.get_node("ActionNumber").text != "0":
         output_connected = true
     
 func _on_FinishInputArea_area_exited(area):

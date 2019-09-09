@@ -188,7 +188,6 @@ func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):
         right_child = area
     else:
         while (not ("MovableActionSpace" in area.name)):
-            print(area.name)
             area = area.get_parent()
         right_child = area
 
@@ -198,9 +197,12 @@ func _on_IfArea_area_shape_exited(area_id, area, area_shape, self_shape):
 
 func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
     area = area.get_parent()
-    while (not ("MovableActionSpace" in area.name)):
-        area = area.get_parent()
-    left_child = area
+    if (area.name == "InputOutput"):
+        left_child = area
+    else:
+        while (not ("MovableActionSpace" in area.name)):
+            area = area.get_parent()
+        left_child = area
     
 func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):   
     left_child = null   
