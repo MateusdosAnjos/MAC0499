@@ -64,6 +64,17 @@ func _on_Skip_pressed():
     else:
         TextBox.set_visible_characters(TextBox.get_total_character_count())
 
+func _animation_show_and_play(node_name, animation):
+    var AnimateNode = get_node(node_name)
+    AnimateNode.show()
+    AnimateNode.play(animation)
+
+func _animation_stop_and_hide(node_name):
+    var AnimateNode = get_node(node_name)
+    AnimateNode.set_frame(0)
+    AnimateNode.stop()
+    AnimateNode.hide()
+    
 func show_visuals():
     match page:
         1:
@@ -79,14 +90,12 @@ func show_visuals():
         5:
             emit_signal("stop_flashy", "PlayerOutputFrame")
         6:
-            get_node("Input").show()
-            get_node("Input").play("flashy")
-            $Output.show()
-            $Output.play("flashy")
+            _animation_show_and_play("Input", "flashy")
+            _animation_show_and_play("Output", "flashy")
         7:
-            get_node("Input").hide()
-            $Output.hide()
-            $Output.show()
+            _animation_stop_and_hide("Input")
+            _animation_stop_and_hide("Output")
+            _animation_show_and_play("ActionRect", "flashy")
 
 func _on_Close_pressed(): 
     if page == 0 or page == 1:
