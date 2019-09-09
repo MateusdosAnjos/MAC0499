@@ -165,6 +165,20 @@ scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 4 )
 animation = "flashy"
 
+[node name="ChangeInput" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 876, 240 )
+rotation = 4.71239
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
+
+[node name="ChangeOutput" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 952, 240 )
+rotation = 4.71239
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
+
 [node name="NextLevel" parent="." instance=ExtResource( 10 )]
 
 [node name="ResetLevel" parent="." instance=ExtResource( 11 )]
