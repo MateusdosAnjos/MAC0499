@@ -103,6 +103,11 @@ func show_visuals():
             _animation_stop_and_hide("DragButton")
             _animation_show_and_play("InputConnection", "flashy")
             _animation_show_and_play("OutputConnection", "flashy")
+        10:
+            _animation_stop_and_hide("InputConnection")
+            _animation_stop_and_hide("OutputConnection")
+            _animation_show_and_play("ChangeInput", "flashy")
+            _animation_show_and_play("ChangeOutput", "flashy")
 
 func _on_Close_pressed(): 
     if page == 0 or page == 1:
