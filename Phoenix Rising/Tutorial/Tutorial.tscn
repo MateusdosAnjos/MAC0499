@@ -179,6 +179,13 @@ scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 4 )
 animation = "flashy"
 
+[node name="DragButton" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1000, 240 )
+rotation = 4.71239
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
+
 [node name="NextLevel" parent="." instance=ExtResource( 10 )]
 
 [node name="ResetLevel" parent="." instance=ExtResource( 11 )]
