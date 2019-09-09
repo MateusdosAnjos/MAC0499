@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Tutorial/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -34,6 +34,14 @@ animations = [ {
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 9 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 9 ), null ],
 "loop": true,
@@ -141,6 +149,20 @@ position = Vector2( 700, 128 )
 rotation = 4.71239
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 3 )
+animation = "flashy"
+
+[node name="InputConnection" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 790, 306 )
+rotation = 4.71239
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
+
+[node name="OutputConnection" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1036, 306 )
+rotation = 4.71239
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
 animation = "flashy"
 
 [node name="NextLevel" parent="." instance=ExtResource( 10 )]
