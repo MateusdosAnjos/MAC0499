@@ -198,6 +198,12 @@ scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 4 )
 animation = "flashy"
 
+[node name="AnimationSpeed" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 248, 60 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
+
 [node name="NextLevel" parent="." instance=ExtResource( 10 )]
 
 [node name="ResetLevel" parent="." instance=ExtResource( 11 )]
