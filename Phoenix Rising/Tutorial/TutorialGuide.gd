@@ -34,14 +34,21 @@ var max_pages = len(dialog) - 1
 onready var SkipButton = get_node("DialogBox/Skip")
 onready var TextBox = get_node("DialogBox/TextBox")
 
+var arrow_sprites = ['InventoryArrow', 'Output', 'Input', 'InputConnection', 'OutputConnection', 'ChangeInput', 
+                     'ChangeOutput', 'DragButton', 'RunButton', 'ArgumentsButton', 'AnimationSpeed']
+
 # Functions        
 func _ready():
     set_process_input(true)
     TextBox.set_bbcode(dialog[page])
     TextBox.set_visible_characters(0)
     emit_signal("hide_all")
-    $InventoryArrow.hide()
-            
+    _hide_arrows()
+    
+func _hide_arrows():
+    for sprite in arrow_sprites:
+        get_node(sprite).hide()
+               
 func _on_Timer_timeout():
     TextBox.set_visible_characters(TextBox.get_visible_characters() + 1)
     if page == max_pages and TextBox.get_visible_characters() >= TextBox.get_total_character_count():
