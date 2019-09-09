@@ -46,6 +46,12 @@ color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="InputOutput" parent="." instance=ExtResource( 2 )]
 
+[node name="StartInputArea" parent="InputOutput" index="0"]
+position = Vector2( 700, 180 )
+
+[node name="FinishInputArea" parent="InputOutput" index="1"]
+position = Vector2( 1100, 240 )
+
 [node name="ColoredFrames" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
 
@@ -62,7 +68,7 @@ margin_right = 0.0
 margin_bottom = 0.0
 
 [node name="MovableActionSpace" parent="Inventory" instance=ExtResource( 7 )]
-position = Vector2( 1005.65, 130.36 )
+position = Vector2( 1000, 280 )
 
 [node name="UsersGuide" type="Control" parent="."]
 pause_mode = 2
@@ -140,3 +146,5 @@ animation = "flashy"
 [connection signal="pressed" from="UsersGuide/DialogBox/Close" to="UsersGuide" method="_on_Close_pressed"]
 [connection signal="next_level" from="NextLevel" to="." method="_on_NextLevel_next_level"]
 [connection signal="reset_level" from="ResetLevel" to="." method="_on_ResetLevel_reset_level"]
+
+[editable path="InputOutput"]
