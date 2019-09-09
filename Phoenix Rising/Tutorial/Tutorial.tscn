@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Tutorial/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -33,6 +33,14 @@ animations = [ {
 "speed": 4.0
 } ]
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 9 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 5.0
+} ]
+
 [node name="Tutorial" type="Control"]
 script = ExtResource( 1 )
 
@@ -45,6 +53,7 @@ mouse_filter = 2
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="InputOutput" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 
 [node name="StartInputArea" parent="InputOutput" index="0"]
 position = Vector2( 700, 180 )
@@ -118,6 +127,20 @@ position = Vector2( 110, 670 )
 rotation = 4.71239
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
+animation = "flashy"
+
+[node name="Output" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1110, 180 )
+rotation = 4.71239
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 3 )
+animation = "flashy"
+
+[node name="Input" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 700, 128 )
+rotation = 4.71239
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 3 )
 animation = "flashy"
 
 [node name="NextLevel" parent="." instance=ExtResource( 10 )]
