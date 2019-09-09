@@ -18,8 +18,12 @@ var dialog = [
     'Utilize os "espaços de ação" para conectar o input com o output.\nQuando a conexão for estabelecida a cor mudará de vermelho para verde.',
     'Para mover o espaço de ação basta clicar e segurar com o botão esquerdo do mouse no ícone de movimento.\nApós isso mova o espaço de ação para o lugar que lhe parecer mais conveniente e solte o botão esquerdo do mouse.',
     'As áreas de conexão permitem que você conecte os espaços de ação.\nQuando uma conexão for estabelecida sua cor mudará de vermelho para verde.',
-    'Você pode alterar as conexões de um "espaço de ação" clicando nos botões que alteram conexões.\nNote que algumas conexões são específicas para diferentes comandos, portanto fique atento.',
-    'Para obter a resposta você deve utilizar os comandos disponibilizados na sua [color=black][b] ÁREA DE COMANDOS[/b][/color].\nLembre-se de que nem sempre você precisará utilizar todos eles!',
+    'Você pode alterar as conexões de um espaço de ação clicando nos botões que alteram conexões.\nNote que algumas conexões são específicas para diferentes comandos, portanto fique atento.',
+    'Após conectar o input com o output você deve utilizar os comandos disponibilizados na sua [color=black][b] ÁREA DE COMANDOS[/b][/color] para obter a resposta desejada.\nLembre-se de que nem sempre você precisará utilizar todos eles!',
+    'Cada comando recebe "Argumentos" seguindo padrões diferentes. Para obter informações sobre tais parâmetros basta clicar sobre o comando com o botão direito do mouse que um menu de ajuda irá aparecer.\nVocê deve clicar em "Argumentos" para inserir os argumentos necessários e depois clicar em "Ok".',
+    'Após conectar o "input" com o "output" e posicionar os comandos desejados você poderá rodar seu programa clicando no botão "rodar".\nIsso fará com que sua sequência de instruções seja processada. Caso você obtenha sucesso [color=red][b] SUA SAÍDA [/b][/color] ficará [color=green][b] VERDE[/b][/color] e você poderá avançar para o próximo nível, caso contrário permanecerá [color=red][b] VERMELHA [/b][/color].',
+    'Você pode acompanhar o que está acontecendo com seu programa vendo a animação que é gerada após clicar em "rodar" e poderá alterar sua velocidade no botão "Velocidade da Animação".',
+    'Primeiro vamos começar com o comando chamado "Print" que é utilizado para escrever as informações na sua saída.\nArraste o comando "Print" para o espaço de ação e passe como argumento a palava "input" (sem aspas).',
     ]    
         
 var page = 0
