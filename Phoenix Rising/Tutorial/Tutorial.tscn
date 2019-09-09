@@ -62,19 +62,7 @@ margin_right = 0.0
 margin_bottom = 0.0
 
 [node name="MovableActionSpace" parent="Inventory" instance=ExtResource( 7 )]
-position = Vector2( 600, 200 )
-
-[node name="MovableActionSpace2" parent="Inventory" instance=ExtResource( 7 )]
-position = Vector2( 1079.78, 161.698 )
-
-[node name="MovableActionSpace3" parent="Inventory" instance=ExtResource( 7 )]
-position = Vector2( 1391.07, 50.4891 )
-
-[node name="MovableActionSpace4" parent="Inventory" instance=ExtResource( 7 )]
-position = Vector2( 821.754, 31.3381 )
-
-[node name="MovableActionSpace5" parent="Inventory" instance=ExtResource( 7 )]
-position = Vector2( 1371.91, 339.496 )
+position = Vector2( 1005.65, 130.36 )
 
 [node name="UsersGuide" type="Control" parent="."]
 pause_mode = 2
@@ -143,14 +131,6 @@ animation = "flashy"
 [connection signal="visual_process_arguments" from="RunEnvironment" to="VisualProcess" method="_on_RunEnvironment_visual_process_arguments"]
 [connection signal="change_area_entered" from="Inventory/MovableActionSpace" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
 [connection signal="entered_tree" from="Inventory/MovableActionSpace" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
-[connection signal="change_area_entered" from="Inventory/MovableActionSpace2" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
-[connection signal="entered_tree" from="Inventory/MovableActionSpace2" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
-[connection signal="change_area_entered" from="Inventory/MovableActionSpace3" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
-[connection signal="entered_tree" from="Inventory/MovableActionSpace3" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
-[connection signal="change_area_entered" from="Inventory/MovableActionSpace4" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
-[connection signal="entered_tree" from="Inventory/MovableActionSpace4" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
-[connection signal="change_area_entered" from="Inventory/MovableActionSpace5" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
-[connection signal="entered_tree" from="Inventory/MovableActionSpace5" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
 [connection signal="frame_flashy" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_frame_flashy"]
 [connection signal="hide_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_hide_all"]
 [connection signal="show_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_show_all"]
