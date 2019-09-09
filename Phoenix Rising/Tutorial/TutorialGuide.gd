@@ -134,6 +134,6 @@ func _on_Close_pressed():
     if page == 4 or page == 5:
         emit_signal("stop_flashy", "PlayerOutputFrame")
         $InventoryArrow.show()
-    $InventoryArrow.hide()    
+    _hide_arrows()    
     $DialogBox.hide()
     get_tree().paused = false  
