@@ -42,20 +42,20 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 9 ), null ],
-"loop": true,
-"name": "flashy",
-"speed": 4.0
-} ]
-
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 9 ), null ],
 "loop": true,
 "name": "flashy",
 "speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 9 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 4.0
 } ]
 
 [node name="Tutorial" type="Control"]
@@ -159,6 +159,13 @@ scale = Vector2( 1.2, 0.64 )
 frames = SubResource( 5 )
 animation = "flashy"
 
+[node name="DragButton" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1000, 240 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
+
 [node name="InventoryArrow" type="AnimatedSprite" parent="UsersGuide"]
 position = Vector2( 110, 670 )
 rotation = 4.71239
@@ -189,13 +196,6 @@ animation = "flashy"
 
 [node name="ChangeOutput" type="AnimatedSprite" parent="UsersGuide"]
 position = Vector2( 952, 240 )
-rotation = 4.71239
-scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 4 )
-animation = "flashy"
-
-[node name="DragButton" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 1000, 240 )
 rotation = 4.71239
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 4 )

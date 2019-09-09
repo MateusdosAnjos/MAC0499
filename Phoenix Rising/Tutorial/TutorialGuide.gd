@@ -96,6 +96,9 @@ func show_visuals():
             _animation_stop_and_hide("Input")
             _animation_stop_and_hide("Output")
             _animation_show_and_play("ActionRect", "flashy")
+        8:
+            _animation_stop_and_hide("ActionRect")
+            _animation_show_and_play("DragButton", "flashy")
 
 func _on_Close_pressed(): 
     if page == 0 or page == 1:
