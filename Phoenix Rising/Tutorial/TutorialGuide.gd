@@ -34,8 +34,8 @@ var max_pages = len(dialog) - 1
 onready var SkipButton = get_node("DialogBox/Skip")
 onready var TextBox = get_node("DialogBox/TextBox")
 
-var arrow_sprites = ['InventoryArrow', 'Output', 'Input', 'InputConnection', 'OutputConnection', 'ChangeInput', 
-                     'ChangeOutput', 'DragButton', 'RunButton', 'ArgumentsButton', 'AnimationSpeed']
+var arrow_sprites = ['InventoryArrow', 'Output', 'Input', 'ActionRect', 'InputConnection', 'OutputConnection', 
+'ChangeInput', 'ChangeOutput', 'DragButton', 'RunButton', 'ArgumentsButton', 'AnimationSpeed']
 
 # Functions        
 func _ready():
@@ -83,6 +83,10 @@ func show_visuals():
             get_node("Input").play("flashy")
             $Output.show()
             $Output.play("flashy")
+        7:
+            get_node("Input").hide()
+            $Output.hide()
+            $Output.show()
 
 func _on_Close_pressed(): 
     if page == 0 or page == 1:

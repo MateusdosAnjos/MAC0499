@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Tutorial/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -9,9 +9,10 @@
 [ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Tutorial/TutorialGuide.gd" type="Script" id=8]
 [ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=9]
-[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=10]
-[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=11]
-[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Accessories/art/green_frame.png" type="Texture" id=10]
+[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=13]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
@@ -28,6 +29,14 @@ corner_radius_bottom_left = 30
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 9 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 10 ), null ],
 "loop": true,
 "name": "flashy",
 "speed": 5.0
@@ -144,6 +153,12 @@ scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 3 )
 animation = "flashy"
 
+[node name="ActionRect" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 915, 344 )
+scale = Vector2( 1.2, 0.64 )
+frames = SubResource( 5 )
+animation = "flashy"
+
 [node name="InventoryArrow" type="AnimatedSprite" parent="UsersGuide"]
 position = Vector2( 110, 670 )
 rotation = 4.71239
@@ -204,11 +219,11 @@ scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 4 )
 animation = "flashy"
 
-[node name="NextLevel" parent="." instance=ExtResource( 10 )]
+[node name="NextLevel" parent="." instance=ExtResource( 11 )]
 
-[node name="ResetLevel" parent="." instance=ExtResource( 11 )]
+[node name="ResetLevel" parent="." instance=ExtResource( 12 )]
 
-[node name="VisualProcess" parent="." instance=ExtResource( 12 )]
+[node name="VisualProcess" parent="." instance=ExtResource( 13 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="start_input_entered" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_entered"]
 [connection signal="start_input_exited" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_exited"]
