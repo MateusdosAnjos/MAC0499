@@ -45,10 +45,10 @@ func _ready():
     emit_signal("hide_all")
     _hide_arrows()
     
-func _hide_arrows():
-    for sprite in arrow_sprites:
-        get_node(sprite).hide()
-               
+################################################################################
+#                         Text and pages Handlers                              #
+################################################################################
+          
 func _on_Timer_timeout():
     TextBox.set_visible_characters(TextBox.get_visible_characters() + 1)
     if page == max_pages and TextBox.get_visible_characters() >= TextBox.get_total_character_count():
@@ -63,12 +63,24 @@ func _on_Skip_pressed():
             show_visuals()
     else:
         TextBox.set_visible_characters(TextBox.get_total_character_count())
+        
+################################################################################
+#                           ANIMATION HANDLERS                                 #
+################################################################################
 
+#Hides all guidance arrows 
+func _hide_arrows():
+    for sprite in arrow_sprites:
+        get_node(sprite).hide()
+
+#Gets a node and the name of the animation,
+#shows the node and play its animation.
 func _animation_show_and_play(node_name, animation):
     var AnimateNode = get_node(node_name)
     AnimateNode.show()
     AnimateNode.play(animation)
 
+#Gets a node, stops the animation and hides the node
 func _animation_stop_and_hide(node_name):
     var AnimateNode = get_node(node_name)
     AnimateNode.set_frame(0)
