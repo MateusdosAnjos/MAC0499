@@ -25,20 +25,20 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 9 ), null ],
-"loop": true,
-"name": "flashy",
-"speed": 4.0
-} ]
-
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 9 ), null ],
 "loop": true,
 "name": "flashy",
 "speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 9 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 4.0
 } ]
 
 [sub_resource type="SpriteFrames" id=4]
@@ -130,25 +130,25 @@ margin_right = 774.0
 margin_bottom = 90.0
 text = "Fechar"
 
+[node name="Input" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 700, 128 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 3 )
+animation = "flashy"
+
+[node name="Output" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1110, 180 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 3 )
+animation = "flashy"
+
 [node name="InventoryArrow" type="AnimatedSprite" parent="UsersGuide"]
 position = Vector2( 110, 670 )
 rotation = 4.71239
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
-animation = "flashy"
-
-[node name="Output" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 1110, 180 )
-rotation = 4.71239
-scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 3 )
-animation = "flashy"
-
-[node name="Input" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 700, 128 )
-rotation = 4.71239
-scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 3 )
 animation = "flashy"
 
 [node name="InputConnection" type="AnimatedSprite" parent="UsersGuide"]

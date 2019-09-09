@@ -78,8 +78,11 @@ func show_visuals():
             emit_signal("frame_flashy", "PlayerOutputFrame", 0)
         5:
             emit_signal("stop_flashy", "PlayerOutputFrame")
-            $InventoryArrow.show()
-            $InventoryArrow.play("flashy")      
+        6:
+            get_node("Input").show()
+            get_node("Input").play("flashy")
+            $Output.show()
+            $Output.play("flashy")
 
 func _on_Close_pressed(): 
     if page == 0 or page == 1:
