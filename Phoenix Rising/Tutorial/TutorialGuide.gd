@@ -65,20 +65,21 @@ func _on_Skip_pressed():
         TextBox.set_visible_characters(TextBox.get_total_character_count())
 
 func show_visuals():
-    if page == 1:
-        emit_signal("show_all")        
-    if page == 2:
-        emit_signal("frame_flashy", "InputFrame", 0)
-    if page == 3:
-        emit_signal("stop_flashy", "InputFrame")
-        emit_signal("frame_flashy", "ExpectedOutputFrame", 0)
-    if page == 4:
-        emit_signal("stop_flashy", "ExpectedOutputFrame")
-        emit_signal("frame_flashy", "PlayerOutputFrame", 0)
-    if page == 5:
-        emit_signal("stop_flashy", "PlayerOutputFrame")
-        $InventoryArrow.show()
-        $InventoryArrow.play("flashy")          
+    match page:
+        1:
+            emit_signal("show_all")        
+        2:
+            emit_signal("frame_flashy", "InputFrame", 0)
+        3:
+            emit_signal("stop_flashy", "InputFrame")
+            emit_signal("frame_flashy", "ExpectedOutputFrame", 0)
+        4:
+            emit_signal("stop_flashy", "ExpectedOutputFrame")
+            emit_signal("frame_flashy", "PlayerOutputFrame", 0)
+        5:
+            emit_signal("stop_flashy", "PlayerOutputFrame")
+            $InventoryArrow.show()
+            $InventoryArrow.play("flashy")      
 
 func _on_Close_pressed(): 
     if page == 0 or page == 1:
