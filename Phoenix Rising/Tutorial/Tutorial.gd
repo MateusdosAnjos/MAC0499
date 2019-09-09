@@ -6,7 +6,7 @@ const INPUT = 'Mensagem de teste'
 const OUTPUT = 'Mensagem de teste'
 
 #List of items to be picked up
-var pickup_item_list = ["soma", "subtracao", "multi", "print", "print", "print", "if/else", "naoTem"]
+var pickup_item_list = ["print"]
 
 func _ready():
     var input_text = get_node("InputOutput/InputBase/Input")
@@ -16,15 +16,18 @@ func _ready():
     $NextLevel.hide()
     get_tree().paused = true
 
+#Makes the game enter FULLSCREEN
 func _on_FullScreen_pressed():
     OS.window_fullscreen = !OS.window_fullscreen
 
+#Shows the next level button when the level is succeded
+func _on_RunEnvironment_level_succeded():
+    $NextLevel.show()
+    
 #Changes to the next level
 func _on_NextLevel_next_level():
     get_tree().change_scene("res://BaseLevel/BaseLevel.tscn")
 
+#Resets the level
 func _on_ResetLevel_reset_level():
     get_tree().change_scene("res://Tutorial/Tutorial.tscn")
-
-func _on_RunEnvironment_level_succeded():
-    $NextLevel.show()
