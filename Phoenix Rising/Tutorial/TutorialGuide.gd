@@ -108,6 +108,13 @@ func show_visuals():
             _animation_stop_and_hide("OutputConnection")
             _animation_show_and_play("ChangeInput", "flashy")
             _animation_show_and_play("ChangeOutput", "flashy")
+        11:
+            _animation_stop_and_hide("ChangeInput")
+            _animation_stop_and_hide("ChangeOutput")
+            _animation_show_and_play("InventoryArrow", "flashy")
+        12:
+            _animation_stop_and_hide("InventoryArrow")
+            _animation_show_and_play("ArgumentsButton", "flashy")
 
 func _on_Close_pressed(): 
     if page == 0 or page == 1:
