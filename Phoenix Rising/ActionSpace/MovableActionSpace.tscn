@@ -155,7 +155,6 @@ position = Vector2( 65, 64.5 )
 shape = SubResource( 8 )
 
 [node name="IfArea" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="IfConnection" type="Sprite" parent="IfArea"]
 visible = false
@@ -223,6 +222,7 @@ texture_normal = ExtResource( 11 )
 expand = true
 
 [node name="ChangeArea" type="Area2D" parent="."]
+editor/display_folded = true
 collision_layer = 4
 collision_mask = 4
 

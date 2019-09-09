@@ -184,9 +184,13 @@ func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
 func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):
     output_connections[current_output].texture = load(output_connected_textures[current_output])
     area = area.get_parent()
-    while (not ("MovableActionSpace" in area.name)):
-        area = area.get_parent()
-    right_child = area
+    if (area.name == "InputOutput"):
+        right_child = area
+    else:
+        while (not ("MovableActionSpace" in area.name)):
+            print(area.name)
+            area = area.get_parent()
+        right_child = area
 
 func _on_IfArea_area_shape_exited(area_id, area, area_shape, self_shape):
     output_connections[current_output].texture = load(output_not_connected_textures[current_output])
