@@ -115,6 +115,9 @@ func show_visuals():
         12:
             _animation_stop_and_hide("InventoryArrow")
             _animation_show_and_play("ArgumentsButton", "flashy")
+        13:
+            _animation_stop_and_hide("ArgumentsButton")
+            _animation_show_and_play("RunButton", "flashy")
 
 func _on_Close_pressed(): 
     if page == 0 or page == 1:
