@@ -86,7 +86,8 @@ func _animation_stop_and_hide(node_name):
     AnimateNode.set_frame(0)
     AnimateNode.stop()
     AnimateNode.hide()
-    
+
+#Shows the animations based on the actual page of dialog box    
 func show_visuals():
     match page:
         1:
@@ -136,6 +137,8 @@ func show_visuals():
         15:
             _animation_stop_and_hide("AnimationSpeed")
 
+#Hides all guidance arrows and the Dialog Box.
+#Unpauses the game tree
 func _on_Close_pressed(): 
     if page == 0 or page == 1:
         emit_signal("show_all")    
@@ -145,7 +148,6 @@ func _on_Close_pressed():
         emit_signal("stop_flashy", "ExpectedOutputFrame")
     if page == 4 or page == 5:
         emit_signal("stop_flashy", "PlayerOutputFrame")
-        $InventoryArrow.show()
     _hide_arrows()    
     $DialogBox.hide()
     get_tree().paused = false  
