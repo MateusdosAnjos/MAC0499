@@ -118,6 +118,11 @@ func show_visuals():
         13:
             _animation_stop_and_hide("ArgumentsButton")
             _animation_show_and_play("RunButton", "flashy")
+        14:
+            _animation_stop_and_hide("RunButton")
+            _animation_show_and_play("AnimationSpeed", "flashy")
+        15:
+            _animation_stop_and_hide("AnimationSpeed")
 
 func _on_Close_pressed(): 
     if page == 0 or page == 1:
