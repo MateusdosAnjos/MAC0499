@@ -166,25 +166,25 @@ scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 4 )
 animation = "flashy"
 
-[node name="InventoryArrow" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 110, 670 )
-rotation = 4.71239
-scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 2 )
-animation = "flashy"
-
 [node name="InputConnection" type="AnimatedSprite" parent="UsersGuide"]
 position = Vector2( 790, 306 )
-rotation = 4.71239
+rotation = -1.5708
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 4 )
 animation = "flashy"
 
 [node name="OutputConnection" type="AnimatedSprite" parent="UsersGuide"]
 position = Vector2( 1036, 306 )
-rotation = 4.71239
+rotation = -1.5708
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 4 )
+animation = "flashy"
+
+[node name="InventoryArrow" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 110, 670 )
+rotation = 4.71239
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 2 )
 animation = "flashy"
 
 [node name="ChangeInput" type="AnimatedSprite" parent="UsersGuide"]
