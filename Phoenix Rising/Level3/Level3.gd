@@ -4,11 +4,11 @@ signal input_output_defined(input, output)
 
 #List of items to be picked up (write one name for each position
 #it will be picked up 1 item for each name position)
-var pickup_item_list = ["subtracao", "print"]
+var pickup_item_list = ["multi", "print"]
 
 #Input and Output of the level, replace it to customize you own level
 const INPUT = '10'
-const OUTPUT = '2'
+const OUTPUT = '80'
 
 func _ready():
     var input_text = get_node("InputOutput/InputBase/Input")
@@ -23,7 +23,7 @@ func _on_FullScreen_pressed():
     OS.window_fullscreen = !OS.window_fullscreen
 
 func _on_NextLevel_next_level():
-    get_tree().change_scene("res://Level3/Level3.tscn")
+    get_tree().change_scene("res://Level4/Level4.tscn")
 
 func _on_ResetLevel_reset_level():
-    get_tree().change_scene("res://Level2/Level2.tscn")
+    get_tree().change_scene("res://Level3/Level3.tscn")
