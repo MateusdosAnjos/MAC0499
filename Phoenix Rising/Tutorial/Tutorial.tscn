@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Tutorial/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -9,9 +9,10 @@
 [ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Tutorial/TutorialGuide.gd" type="Script" id=8]
 [ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=9]
-[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=10]
-[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=11]
-[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Accessories/art/green_frame.png" type="Texture" id=10]
+[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=13]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
@@ -24,6 +25,30 @@ corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 9 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 10 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 9 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 5.0
+} ]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -45,6 +70,13 @@ mouse_filter = 2
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="InputOutput" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+
+[node name="StartInputArea" parent="InputOutput" index="0"]
+position = Vector2( 700, 180 )
+
+[node name="FinishInputArea" parent="InputOutput" index="1"]
+position = Vector2( 1100, 240 )
 
 [node name="ColoredFrames" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
@@ -62,23 +94,10 @@ margin_right = 0.0
 margin_bottom = 0.0
 
 [node name="MovableActionSpace" parent="Inventory" instance=ExtResource( 7 )]
-position = Vector2( 600, 200 )
-
-[node name="MovableActionSpace2" parent="Inventory" instance=ExtResource( 7 )]
-position = Vector2( 1079.78, 161.698 )
-
-[node name="MovableActionSpace3" parent="Inventory" instance=ExtResource( 7 )]
-position = Vector2( 1391.07, 50.4891 )
-
-[node name="MovableActionSpace4" parent="Inventory" instance=ExtResource( 7 )]
-position = Vector2( 821.754, 31.3381 )
-
-[node name="MovableActionSpace5" parent="Inventory" instance=ExtResource( 7 )]
-position = Vector2( 1371.91, 339.496 )
+position = Vector2( 1000, 280 )
 
 [node name="UsersGuide" type="Control" parent="."]
 pause_mode = 2
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 8 )
@@ -120,17 +139,91 @@ margin_right = 774.0
 margin_bottom = 90.0
 text = "Fechar"
 
+[node name="Input" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 700, 128 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 3 )
+animation = "flashy"
+
+[node name="Output" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1110, 180 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 3 )
+animation = "flashy"
+
+[node name="ActionRect" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 915, 344 )
+scale = Vector2( 1.2, 0.64 )
+frames = SubResource( 5 )
+animation = "flashy"
+
+[node name="DragButton" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1000, 240 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
+
+[node name="InputConnection" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 790, 306 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
+
+[node name="OutputConnection" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1036, 306 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
+
+[node name="ChangeInput" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 876, 240 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
+
+[node name="ChangeOutput" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 952, 240 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
+
 [node name="InventoryArrow" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 150, 600 )
+position = Vector2( 110, 670 )
 rotation = 4.71239
+scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
 animation = "flashy"
 
-[node name="NextLevel" parent="." instance=ExtResource( 10 )]
+[node name="ArgumentsButton" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1042, 404 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
 
-[node name="ResetLevel" parent="." instance=ExtResource( 11 )]
+[node name="RunButton" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 970, 710 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
 
-[node name="VisualProcess" parent="." instance=ExtResource( 12 )]
+[node name="AnimationSpeed" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 248, 60 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 4 )
+animation = "flashy"
+
+[node name="NextLevel" parent="." instance=ExtResource( 11 )]
+
+[node name="ResetLevel" parent="." instance=ExtResource( 12 )]
+
+[node name="VisualProcess" parent="." instance=ExtResource( 13 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="start_input_entered" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_entered"]
 [connection signal="start_input_exited" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_exited"]
@@ -138,19 +231,12 @@ animation = "flashy"
 [connection signal="start_input_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_start_input_visual_entered"]
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
 [connection signal="frame_flashy" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_frame_flashy"]
+[connection signal="level_succeded" from="RunEnvironment" to="." method="_on_RunEnvironment_level_succeded"]
 [connection signal="level_succeded" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_level_succeded"]
 [connection signal="set_curve" from="RunEnvironment" to="VisualProcess" method="_on_RunEnvironment_set_curve"]
 [connection signal="visual_process_arguments" from="RunEnvironment" to="VisualProcess" method="_on_RunEnvironment_visual_process_arguments"]
 [connection signal="change_area_entered" from="Inventory/MovableActionSpace" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
 [connection signal="entered_tree" from="Inventory/MovableActionSpace" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
-[connection signal="change_area_entered" from="Inventory/MovableActionSpace2" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
-[connection signal="entered_tree" from="Inventory/MovableActionSpace2" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
-[connection signal="change_area_entered" from="Inventory/MovableActionSpace3" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
-[connection signal="entered_tree" from="Inventory/MovableActionSpace3" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
-[connection signal="change_area_entered" from="Inventory/MovableActionSpace4" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
-[connection signal="entered_tree" from="Inventory/MovableActionSpace4" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
-[connection signal="change_area_entered" from="Inventory/MovableActionSpace5" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
-[connection signal="entered_tree" from="Inventory/MovableActionSpace5" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
 [connection signal="frame_flashy" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_frame_flashy"]
 [connection signal="hide_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_hide_all"]
 [connection signal="show_all" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_show_all"]
@@ -160,3 +246,5 @@ animation = "flashy"
 [connection signal="pressed" from="UsersGuide/DialogBox/Close" to="UsersGuide" method="_on_Close_pressed"]
 [connection signal="next_level" from="NextLevel" to="." method="_on_NextLevel_next_level"]
 [connection signal="reset_level" from="ResetLevel" to="." method="_on_ResetLevel_reset_level"]
+
+[editable path="InputOutput"]
