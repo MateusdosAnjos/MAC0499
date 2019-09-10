@@ -34,7 +34,7 @@ color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 position = Vector2( 500, 200 )
 
 [node name="FinishInputArea" parent="InputOutput" index="1"]
-position = Vector2( 1100, 400 )
+position = Vector2( 1080, 400 )
 
 [node name="ColoredFrames" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
