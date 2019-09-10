@@ -29,13 +29,12 @@ mouse_filter = 2
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="InputOutput" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
 
 [node name="StartInputArea" parent="InputOutput" index="0"]
-position = Vector2( 725, 220 )
+position = Vector2( 500, 200 )
 
 [node name="FinishInputArea" parent="InputOutput" index="1"]
-position = Vector2( 1100, 220 )
+position = Vector2( 1100, 400 )
 
 [node name="ColoredFrames" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
@@ -52,6 +51,9 @@ margin_bottom = 0.0
 
 [node name="MovableActionSpace" parent="Inventory" instance=ExtResource( 7 )]
 position = Vector2( 1000, 100 )
+
+[node name="MovableActionSpace2" parent="Inventory" instance=ExtResource( 7 )]
+position = Vector2( 614.575, 304.676 )
 
 [node name="UsersGuide" parent="." instance=ExtResource( 8 )]
 script = ExtResource( 9 )
@@ -73,6 +75,8 @@ script = ExtResource( 9 )
 [connection signal="visual_process_arguments" from="RunEnvironment" to="VisualProcess" method="_on_RunEnvironment_visual_process_arguments"]
 [connection signal="change_area_entered" from="Inventory/MovableActionSpace" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
 [connection signal="entered_tree" from="Inventory/MovableActionSpace" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
+[connection signal="change_area_entered" from="Inventory/MovableActionSpace2" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
+[connection signal="entered_tree" from="Inventory/MovableActionSpace2" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
 [connection signal="next_level" from="NextLevel" to="." method="_on_NextLevel_next_level"]
 [connection signal="reset_level" from="ResetLevel" to="." method="_on_ResetLevel_reset_level"]
 
