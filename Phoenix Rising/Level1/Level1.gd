@@ -26,7 +26,7 @@ func _on_FullScreen_pressed():
     OS.window_fullscreen = !OS.window_fullscreen
 
 func _on_NextLevel_next_level():
-    get_tree().change_scene("res://Tutorial/Tutorial.tscn")
+    get_tree().change_scene("res://Level2/Level2.tscn")
 
 func _on_ResetLevel_reset_level():
-    get_tree().change_scene("res://BaseLevel/BaseLevel.tscn")
+    get_tree().change_scene("res://Level1/Level1.tscn")
