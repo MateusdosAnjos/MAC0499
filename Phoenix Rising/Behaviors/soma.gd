@@ -23,9 +23,9 @@ func execute(input, arguments, player_answer, action_number):
     var values = _split_arguments(arguments)
     if (values != null):        
         if (values[0] == 'input'):
-            values[0] = str(input)
+            values[0] = str("'", input, "'")
         if (values[1] == 'input'):
-            values[1] = str(input)   
+            values[1] = str("'", input, "'")   
         if (values[0].is_valid_integer() and values[1].is_valid_integer()):
             return [(int(values[0]) + int(values[1])), true]
         elif (values[0].is_valid_float() and values[1].is_valid_float()):
