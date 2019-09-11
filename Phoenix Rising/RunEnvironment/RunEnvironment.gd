@@ -11,11 +11,11 @@ var output
 onready var InventoryNode = (self.owner).get_node('Inventory')
 onready var InputOutputNode = get_parent().get_node("InputOutput")
 
-onready var variable_dict = { "A": 0, "B": 0 } 
+onready var variable_dict = { "A": "-", "B": "-" } 
 
 func _clean_dict():
     for item in variable_dict.keys():
-        variable_dict[item] = 0
+        variable_dict[item] = "-"
           
 func create_regex(regex_string):
     var regex = RegEx.new()

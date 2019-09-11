@@ -1,5 +1,7 @@
 extends Node
 
+var variable_dict = get_parent().variable_dict
+
 #Verify if there is the correct number of arguments
 func _split_arguments(arguments):
     if (not arguments.empty()):
@@ -18,14 +20,26 @@ func _string_check(word):
     if (word[0] != word[word.length()-1]):
         return false
     return true
-            
+
+#Prepares the values in case the arguments were 'input' or a variable name
+func _prepare_values(values, input):
+    for i in range (2):        
+        if (values[i] == 'input'):
+            if (input.is_valid_integer()):
+                values.set(i, int(input))
+            else:
+                values[i] = str("'", input, "'")
+        elif (values[i] in variable_dict):
+            if (variable_dict[values[i]].is_valid_integer()):
+                values.set(i, int(variable_dict[values[i]]))
+            else:
+                values[i] = str("'", variable_dict[values[i]], "'")
+    return values
+                
 func execute(input, arguments, player_answer, action_number):
     var values = _split_arguments(arguments)
-    if (values != null):        
-        if (values[0] == 'input'):
-            values[0] = str("'", input, "'")
-        if (values[1] == 'input'):
-            values[1] = str("'", input, "'")   
+    if (values != null):
+        values = _prepare_values(values, input)
         if (values[0].is_valid_integer() and values[1].is_valid_integer()):
             return [(int(values[0]) + int(values[1])), true]
         elif (values[0].is_valid_float() and values[1].is_valid_float()):
