@@ -12,7 +12,11 @@ onready var InventoryNode = (self.owner).get_node('Inventory')
 onready var InputOutputNode = get_parent().get_node("InputOutput")
 
 onready var variable_dict = { "A": 0, "B": 0 } 
-  
+
+func _clean_dict():
+    for item in variable_dict.keys():
+        variable_dict[item] = 0
+          
 func create_regex(regex_string):
     var regex = RegEx.new()
     regex.compile(str(regex_string))
@@ -71,6 +75,7 @@ func failure_routine():
     emit_signal("frame_flashy", "PlayerOutputFrame", 4)  
      
 func _on_RunButton_pressed():
+    _clean_dict()
     #if InputOutputNode.input_connected and InputOutputNode.output_connected:
     if true:
         var answer_list = _process_input(input)
