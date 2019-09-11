@@ -6,7 +6,7 @@ const INPUT = 'Conquiste o Tutorial'
 const OUTPUT = 'Conquiste o Tutorial'
 
 #List of items to be picked up
-var pickup_item_list = ["print"]
+var pickup_item_list = ["print", "A"]
 
 func _ready():
     var input_text = get_node("InputOutput/InputBase/Input")
