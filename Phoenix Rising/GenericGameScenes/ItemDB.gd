@@ -30,12 +30,12 @@ const ITEMS = {
     },
     "A": {
         "icon": ICON_PATH + "A.png",
-        "help": "Variável 'A'. Armazena o valor do input e pode ser utilizado como argumento nos outros comandos do jogo.",
+        "help": "Variável 'A'.\nArmazena valores e pode ser utilizado como argumento nos outros comandos do jogo.\nPara armazenar o valor do input passe como argumento a palavra 'input' (sem aspas).\nPara armazenar um inteiro passe como argumento o valor que deseja armazenar.\nPara armazenar palavra(s) o argumento deve vir entre aspas simples (') ou duplas (\").",
         "codePath": BEHAVIOR_PATH + "A.gd"
     },
     "B": {
         "icon": ICON_PATH + "B.png",
-        "help": "Variável 'B'. Armazena o valor do input e pode ser utilizado como argumento nos outros comandos do jogo.",
+        "help": "Variável 'B'.\nArmazena valores e pode ser utilizado como argumento nos outros comandos do jogo.\nPara armazenar o valor do input passe como argumento a palavra 'input' (sem aspas).\nPara armazenar um inteiro passe como argumento o valor que deseja armazenar.\nPara armazenar palavra(s) o argumento deve vir entre aspas simples (') ou duplas (\").",
         "codePath": BEHAVIOR_PATH + "B.gd"
     },
     "error": {
