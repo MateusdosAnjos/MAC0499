@@ -21,7 +21,7 @@ func _string_check(word):
         return false
     return true
 
-#Prepares the values in case the arguments were 'input' or a variable name
+#Prepares the values in case the arguments are 'input' or a variable name
 func _prepare_values(values, input):
     for i in range (2):        
         if (values[i] == 'input'):
