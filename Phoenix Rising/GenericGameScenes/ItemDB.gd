@@ -33,6 +33,11 @@ const ITEMS = {
         "help": "Variável 'A'. Armazena o valor do input e pode ser utilizado como argumento nos outros comandos do jogo.",
         "codePath": BEHAVIOR_PATH + "variable.gd"
     },
+    "B": {
+        "icon": ICON_PATH + "B.png",
+        "help": "Variável 'B'. Armazena o valor do input e pode ser utilizado como argumento nos outros comandos do jogo.",
+        "codePath": BEHAVIOR_PATH + "variable.gd"
+    },
     "error": {
         "icon": ICON_PATH + "error.png",
         "help": "Icone de Erro.\nMostrado quando não foi possível carregar algum item do inventário.\nNão utilize este comando, verifique os arquivos do jogo e tente recarregá-lo.",
