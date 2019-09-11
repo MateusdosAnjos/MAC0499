@@ -2,8 +2,8 @@ extends Node
 
 signal input_output_defined(input, output)
 
-const INPUT = 'Mensagem de teste'
-const OUTPUT = 'Mensagem de teste'
+const INPUT = 'Conquiste o Tutorial'
+const OUTPUT = 'Conquiste o Tutorial'
 
 #List of items to be picked up
 var pickup_item_list = ["print"]
