@@ -13,7 +13,7 @@
 [ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=11]
 [ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=12]
 
-[node name="BaseLevel" type="Control"]
+[node name="Level2" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1840.0
