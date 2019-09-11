@@ -31,12 +31,12 @@ const ITEMS = {
     "A": {
         "icon": ICON_PATH + "A.png",
         "help": "Variável 'A'. Armazena o valor do input e pode ser utilizado como argumento nos outros comandos do jogo.",
-        "codePath": BEHAVIOR_PATH + "variable.gd"
+        "codePath": BEHAVIOR_PATH + "A.gd"
     },
     "B": {
         "icon": ICON_PATH + "B.png",
         "help": "Variável 'B'. Armazena o valor do input e pode ser utilizado como argumento nos outros comandos do jogo.",
-        "codePath": BEHAVIOR_PATH + "variable.gd"
+        "codePath": BEHAVIOR_PATH + "B.gd"
     },
     "error": {
         "icon": ICON_PATH + "error.png",
