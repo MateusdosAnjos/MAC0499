@@ -9,7 +9,9 @@ var input
 var output
 
 onready var InventoryNode = (self.owner).get_node('Inventory')
-onready var InputOutputNode = get_parent().get_node("InputOutput") 
+onready var InputOutputNode = get_parent().get_node("InputOutput")
+
+onready var variable_dict = { "A": 0, "B": 0 } 
   
 func create_regex(regex_string):
     var regex = RegEx.new()
