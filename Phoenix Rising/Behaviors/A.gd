@@ -12,6 +12,8 @@ func execute(input, arguments, player_answer, action_number):
             get_parent().variable_dict["A"] = input
         elif (_argument_check(arguments, len(arguments))):
             get_parent().variable_dict["A"] = arguments.substr(1, arguments.length()-2)
+        elif (arguments.is_valid_integer()):
+            get_parent().variable_dict["A"] = arguments
         else:
             return $ErrorMessages.show_error_message("A", action_number)  
     else:
