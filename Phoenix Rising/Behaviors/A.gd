@@ -18,5 +18,4 @@ func execute(input, arguments, player_answer, action_number):
             return $ErrorMessages.show_error_message("A", action_number)  
     else:
         return $ErrorMessages.show_error_message("A", action_number)
-    print(get_parent().variable_dict)
     return [input, true]
