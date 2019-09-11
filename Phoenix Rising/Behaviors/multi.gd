@@ -1,5 +1,7 @@
 extends Node
 
+var variable_dict = get_parent().variable_dict
+
 #Verify if there is the correct number of arguments
 func _split_arguments(arguments):
     if (not arguments.empty()):
@@ -10,14 +12,22 @@ func _split_arguments(arguments):
             return values
     else:
         return null
-
+        
+#Prepares the values in case the arguments were 'input' or a variable name
+func _prepare_values(values, input):
+    for i in range (2):        
+        if (values[i] == 'input'):
+            if (input.is_valid_integer()):
+                values.set(i, int(input))
+        elif (values[i] in variable_dict):
+            if (variable_dict[values[i]].is_valid_integer()):
+                values.set(i, int(variable_dict[values[i]]))
+    return values
+               
 func execute(input, arguments, player_answer, action_number):
     var values = _split_arguments(arguments)
     if (values != null):
-        if (values[0] == 'input'):
-            values[0] = str(input)
-        if (values[1] == 'input'):
-            values[1] = str(input)
+        values = _prepare_values(values, input)
         #Checking types to perform the right "*" operation            
         if (values[0].is_valid_integer() and values[1].is_valid_integer()):
             return [(int(values[0]) * int(values[1])), true]
