@@ -1,6 +1,7 @@
 extends Node2D
 
 var starting_pos = null
+var finish_pos = null
 var visual_inputs = []
 var start_input = ''
 var curve = Curve2D.new()
@@ -20,6 +21,10 @@ func _on_InputOutput_start_input_position(pos):
     start_input = get_parent().INPUT
     total_inputs = len(start_input)
     
+#Sets the last point of the path  
+func _on_InputOutput_output_position(pos):
+    finish_pos = (Vector2(pos[0]+50, pos[1]))
+
 #Creates the curve, using the positions of the action spaces,
 #that visual process will follow (the offsets are used to make it better to view)
 func _on_RunEnvironment_visual_process_arguments(path_points, intermediate_inputs):
@@ -32,15 +37,15 @@ func _on_RunEnvironment_visual_process_arguments(path_points, intermediate_input
     
     for point in path_points:
        curve_points.append(Vector2(point[0], point[1]))
-    
-    var last_point = curve_points[len(curve_points)-1]
-    last_point[0] += 120
-    curve_points.append(last_point)
-    
+        
     for point in curve_points:
         point[1] += 50
         curve.add_point(point)
-        
+    curve.add_point(finish_pos)
+    $Path.set_curve(curve)
+    $Path/PathFollow2D.set_unit_offset(0)
+    $Path.show()
+      
 #Changes the text on Value, based on the output of the given
 #Action space
 func _on_MovableActionSpace_change_area_entered():
@@ -51,10 +56,8 @@ func _on_MovableActionSpace_change_area_entered():
 func _on_InputOutput_start_input_visual_entered():
     ValueNode.text = str(start_input[current_start_input])
     current_start_input = (current_start_input + 1) % total_inputs
-    
-#Sets the curve to follow and starts it
-func _on_RunEnvironment_set_curve():
-    $Path.set_curve(curve)
+
+func _on_InputOutput_output_visual_entered():
+    print("Chegou no fim")
     $Path/PathFollow2D.set_unit_offset(0)
-    $Path.show()
-     
+    
