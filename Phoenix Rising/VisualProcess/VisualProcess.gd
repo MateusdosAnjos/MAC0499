@@ -1,5 +1,7 @@
 extends Node2D
 
+signal end_path()
+
 var starting_pos = null
 var finish_pos = null
 var visual_inputs = []
@@ -58,6 +60,6 @@ func _on_InputOutput_start_input_visual_entered():
     current_start_input = (current_start_input + 1) % total_inputs
 
 func _on_InputOutput_output_visual_entered():
-    print("Chegou no fim")
     $Path/PathFollow2D.set_unit_offset(0)
+    emit_signal("end_path")
     
