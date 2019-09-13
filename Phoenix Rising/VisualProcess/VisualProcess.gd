@@ -40,7 +40,7 @@ func _on_RunEnvironment_visual_process_arguments(path_points, intermediate_input
     for point in curve_points:
         point[1] += 50
         curve.add_point(point)
-
+        
 #Changes the text on Value, based on the output of the given
 #Action space
 func _on_MovableActionSpace_change_area_entered():
@@ -55,5 +55,6 @@ func _on_InputOutput_start_input_visual_entered():
 #Sets the curve to follow and starts it
 func _on_RunEnvironment_set_curve():
     $Path.set_curve(curve)
-    $Path/PathFollow2D.unit_offset = 0
+    $Path/PathFollow2D.set_unit_offset(0)
     $Path.show()
+     
