@@ -2,13 +2,14 @@ extends Node
 
 signal input_output_defined(input, output)
 
+#INPUT is a list of inputs to be given, one at time, to be processed
+const INPUT = ['10']
+#OUTPUT is the expected string
+const OUTPUT = '80'
+
 #List of items to be picked up (write one name for each position
 #it will be picked up 1 item for each name position)
 var pickup_item_list = ["multi", "print"]
-
-#Input and Output of the level, replace it to customize you own level
-const INPUT = '10'
-const OUTPUT = '80'
 
 func _ready():
     var input_text = get_node("InputOutput/InputBase/Input")
