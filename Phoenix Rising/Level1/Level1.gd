@@ -12,9 +12,9 @@ const OUTPUT = '8'
 var pickup_item_list = ["soma", "print"]
 
 func _ready():
-    var input_text = get_node("InputOutput/InputBase/Input")
-    input_text.newline()
-    input_text.add_text(String(INPUT))
+    var InputText = get_node("InputOutput/InputBase/Input")
+    InputText.newline()
+    InputText.add_text(String(INPUT))
     emit_signal("input_output_defined", INPUT, OUTPUT)
     $NextLevel.hide()
     get_tree().paused = true

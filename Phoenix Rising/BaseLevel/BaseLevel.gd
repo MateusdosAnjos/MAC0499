@@ -16,9 +16,9 @@ const OUTPUT = 'Base Level'
 var pickup_item_list = ["print"]
 
 func _ready():
-    var input_text = get_node("InputOutput/InputBase/Input")
-    input_text.newline()
-    input_text.add_text(String(INPUT))
+    var InputText = get_node("InputOutput/InputBase/Input")
+    InputText.newline()
+    InputText.add_text(String(INPUT))
     emit_signal("input_output_defined", INPUT, OUTPUT)
     $NextLevel.hide()
     #Uncomment line 23 if you want to freeze the game until messages of Users Guide terminates
