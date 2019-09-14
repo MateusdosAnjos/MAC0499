@@ -51,6 +51,7 @@ func _process_input(input_list):
                 arguments = CurrentActionSpace.argument_list
                 processed_values = $RunScript.execute(processed_values[0], arguments, player_answer, action_number)
                 if (processed_values == null):
+                    yield(get_tree(), "idle_frame")
                     return player_answer
                 if (processed_values[1]):
                     CurrentNode = CurrentNode.right_child
