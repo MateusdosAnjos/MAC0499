@@ -79,8 +79,7 @@ func _on_RunButton_pressed():
     _clean_dict()
     #if InputOutputNode.input_connected and InputOutputNode.output_connected:
     if true:
-        var answer_list = _process_input(input_list)
-        yield(answer_list, "completed")
+        var answer_list = yield(_process_input(input_list), "completed")
         var answer_string = PoolStringArray(answer_list).join(" ")
         _set_answer_on_screen(answer_string)
         if (answer_string == output):
