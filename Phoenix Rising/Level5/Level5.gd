@@ -27,7 +27,7 @@ func _on_RunEnvironment_level_succeded():
     $NextLevel.show()
     
 func _on_NextLevel_next_level():
-    get_tree().change_scene("res://Level5/Level5.tscn")
+    get_tree().change_scene("res://Level6/Level6.tscn")
 
 func _on_ResetLevel_reset_level():
-    get_tree().change_scene("res://Level4/Level4.tscn")
+    get_tree().change_scene("res://Level5/Level5.tscn")
