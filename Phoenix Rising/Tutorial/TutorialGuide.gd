@@ -10,9 +10,9 @@ signal show_all()
 var dialog = [
     'Bem vindo ao Phoenix Rising!\nPara jogar você deve terminar o tutorial.\nClique em "Pular" para ver a próxima mensagem.',
     'A ideia do jogo é obter o valor em [color=green][b] SAÍDA ESPERADA[/b][/color] a partir do valor de [color=#00007f][b] ENTRADA [/b][/color].\nVocê pode visualizar sua saída em [color=red][b] SUA SAÍDA [/b][/color] para acompanhar seu progresso.',
-    '[color=#00007f][b] ENTRADA [/b][/color] está marcada com o retângulo [color=#00007f][b] AZUL[/b][/color].',
-    '[color=green][b] SAÍDA ESPERADA [/b][/color] está marcada com o retângulo [color=green][b] VERDE[/b][/color].',    
-    '[color=red][b] SUA SAÍDA [/b][/color] está marcada com o retângulo [color=red][b] VERMELHO[/b][/color].',
+    '[color=#00007f][b] ENTRADA [/b][/color] está marcada com o retângulo [color=#00007f][b] AZUL[/b][/color].\nOs valores a serem fornecidos como entrada estão separados por vírgula, portanto "[X]" significa que, neste nível, apenas o valor X será fornecido. Caso a entrada seja [X, Y] será fornecido o valor X inicialmente e seu programa será executado, após isso o valor Y passará pela mesma sequência de comandos.',
+    '[color=green][b] SAÍDA ESPERADA [/b][/color] está marcada com o retângulo [color=green][b] VERDE[/b][/color].\nTe mostra qual o seu objetivo neste nível.',    
+    '[color=red][b] SUA SAÍDA [/b][/color] está marcada com o retângulo [color=red][b] VERMELHO[/b][/color].\nAqui vão as informações que seu programa executou, você passará de nível quando SUA SAÍDA for igual a SAÍDA ESPERADA.',
     'Agora vamos explicar como jogar:',
     'Para conseguir rodar seu programa você deve conectar o "Input" com o "Output"',
     'Utilize os "espaços de ação" para conectar o input com o output.',

@@ -89,3 +89,4 @@ custom_fonts/normal_font = SubResource( 4 )
 [connection signal="start_input_visual_entered" from="StartInputArea" to="." method="_on_StartInputArea_start_input_visual_entered"]
 [connection signal="area_entered" from="FinishInputArea" to="." method="_on_FinishInputArea_area_entered"]
 [connection signal="area_exited" from="FinishInputArea" to="." method="_on_FinishInputArea_area_exited"]
+[connection signal="output_visual_entered" from="FinishInputArea" to="." method="_on_FinishInputArea_output_visual_entered"]

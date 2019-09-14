@@ -5,18 +5,20 @@ extends Node
 
 signal input_output_defined(input, output)
 
+#Input and Output of the level, replace it to customize you own level
+#INPUT is a list of inputs to be given, one at time, to be processed
+const INPUT = ['Base Level']
+#OUTPUT is the expected string
+const OUTPUT = 'Base Level'
+
 #List of items to be picked up (write one name for each position
 #it will be picked up 1 item for each name position)
 var pickup_item_list = ["print"]
 
-#Input and Output of the level, replace it to customize you own level
-const INPUT = 'Base Level'
-const OUTPUT = 'Base Level'
-
 func _ready():
-    var input_text = get_node("InputOutput/InputBase/Input")
-    input_text.newline()
-    input_text.add_text(String(INPUT))
+    var InputText = get_node("InputOutput/InputBase/Input")
+    InputText.newline()
+    InputText.add_text(String(INPUT))
     emit_signal("input_output_defined", INPUT, OUTPUT)
     $NextLevel.hide()
     #Uncomment line 23 if you want to freeze the game until messages of Users Guide terminates
