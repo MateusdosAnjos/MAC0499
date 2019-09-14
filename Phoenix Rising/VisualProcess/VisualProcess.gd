@@ -1,5 +1,6 @@
 extends Node2D
 
+#Signal to control yield call on _process_input (RunEnvironment.gd)
 signal end_path()
 
 var starting_pos = null
@@ -59,6 +60,7 @@ func _on_InputOutput_start_input_visual_entered():
     ValueNode.text = str(start_input[current_start_input])
     current_start_input = (current_start_input + 1) % total_inputs
 
+#Called when the visual reaches the end of the path (Output arrow)
 func _on_InputOutput_output_visual_entered():
     $Path.hide()
     $Path/PathFollow2D.set_unit_offset(0)
