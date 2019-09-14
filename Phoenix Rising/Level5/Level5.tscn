@@ -29,13 +29,12 @@ mouse_filter = 2
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="InputOutput" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
 
 [node name="StartInputArea" parent="InputOutput" index="0"]
 position = Vector2( 500, 200 )
 
 [node name="FinishInputArea" parent="InputOutput" index="1"]
-position = Vector2( 1280, 262 )
+position = Vector2( 1120, 120 )
 
 [node name="ColoredFrames" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
