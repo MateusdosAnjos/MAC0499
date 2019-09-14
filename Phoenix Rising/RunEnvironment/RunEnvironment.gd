@@ -39,7 +39,6 @@ func _process_input(input_list):
         var path_points = []
         var intermediate_inputs = []
     
-    
         var CurrentNode = _find_root()
         while CurrentNode != null and CurrentNode.name != "InputOutput":
             CurrentActionSpace = CurrentNode.get_node("ActionSpace")
