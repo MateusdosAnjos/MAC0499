@@ -2,7 +2,8 @@ extends Control
 
 # Variables
 var dialog = [
-    'Bora de Nivel 4'
+    'Neste nível você recebeu o comando "A".\n"A" é uma variável e serve para armazenar informações.',
+    'Como não foi fornecido nenhuma entrada para te ajudar você terá que resolver o problema com as próprias mãos!'
     ]    
         
 var page = 0
