@@ -155,6 +155,7 @@ position = Vector2( 65, 64.5 )
 shape = SubResource( 8 )
 
 [node name="IfArea" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="IfConnection" type="Sprite" parent="IfArea"]
 visible = false
@@ -201,6 +202,7 @@ margin_left = -185.0
 margin_top = -18.0
 margin_right = -145.0
 margin_bottom = 22.0
+hint_tooltip = "Número da ação"
 custom_fonts/normal_font = SubResource( 13 )
 text = "0"
 
@@ -218,6 +220,7 @@ margin_left = -135.0
 margin_top = -10.0
 margin_right = -111.0
 margin_bottom = 14.0
+hint_tooltip = "Alterar formato do output"
 texture_normal = ExtResource( 11 )
 expand = true
 
