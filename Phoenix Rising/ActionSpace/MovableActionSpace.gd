@@ -205,7 +205,7 @@ func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
         left_child = area
     
 func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):   
-    left_child = null   
+    left_child = null 
 
 ###################################################################################################
 #                                        CHANGING CONNECTIONS                                     #

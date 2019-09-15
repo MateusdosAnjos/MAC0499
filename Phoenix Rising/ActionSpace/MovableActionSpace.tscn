@@ -238,6 +238,7 @@ shape = SubResource( 14 )
 [connection signal="area_shape_entered" from="IfArea" to="." method="_on_IfArea_area_shape_entered"]
 [connection signal="area_shape_exited" from="IfArea" to="." method="_on_IfArea_area_shape_exited"]
 [connection signal="area_shape_entered" from="IfArea/ElseArea" to="." method="_on_ElseArea_area_shape_entered"]
+[connection signal="area_shape_exited" from="IfArea/ElseArea" to="." method="_on_ElseArea_area_shape_exited"]
 [connection signal="area_shape_entered" from="ConvergeArea" to="." method="_on_ConvergeArea_area_shape_entered"]
 [connection signal="area_shape_exited" from="ConvergeArea" to="." method="_on_ConvergeArea_area_shape_exited"]
 [connection signal="area_shape_entered" from="ConvergeArea/ElseConverge" to="." method="_on_ElseConverge_area_shape_entered"]
