@@ -54,9 +54,13 @@ onready var output_not_connected_textures = [DEFAULT_PATH + "default_no_connecti
                                              DEFAULT_PATH + "long_no_connection.png",
                                              DEFAULT_PATH + "if_else_no_connection.png"]
 
-#Handles is both if and else paths are connected to the converge connection
+#Handles if both if and else paths are connected to the converge connection
 onready var converge_if_connected = false
 onready var converge_else_connected = false
+
+#Handles if both if and else path have a connection
+onready var if_connected = false
+onready var else_connected = false
 
 #Used to create the Movable Action Space execution tree (see RunEnvironment.gd)
 onready var right_child = null
@@ -182,7 +186,9 @@ func _on_OutputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     right_child = null
 
 func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    output_connections[current_output].texture = load(output_connected_textures[current_output])
+    if_connected = true
+    if else_connected:
+        output_connections[current_output].texture = load(output_connected_textures[current_output])
     area = area.get_parent()
     if (area.name == "InputOutput"):
         right_child = area
@@ -192,10 +198,14 @@ func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):
         right_child = area
 
 func _on_IfArea_area_shape_exited(area_id, area, area_shape, self_shape):
+    if_connected = false
     output_connections[current_output].texture = load(output_not_connected_textures[current_output])
     right_child = null
 
 func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
+    else_connected = true
+    if if_connected:
+        output_connections[current_output].texture = load(output_connected_textures[current_output])
     area = area.get_parent()
     if (area.name == "InputOutput"):
         left_child = area
@@ -204,7 +214,9 @@ func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
             area = area.get_parent()
         left_child = area
     
-func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape):   
+func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape): 
+    else_connected = false  
+    output_connections[current_output].texture = load(output_not_connected_textures[current_output])
     left_child = null 
 
 ###################################################################################################
