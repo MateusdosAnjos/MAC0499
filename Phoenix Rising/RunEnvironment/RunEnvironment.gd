@@ -89,7 +89,6 @@ func is_system_connected(CurrentNode):
     
 func _on_RunButton_pressed():
     _clean_dict()
-    #if InputOutputNode.input_connected and InputOutputNode.output_connected:
     #if true:
     if (is_system_connected(_find_root())):
         var answer_list = yield(_process_input(input_list), "completed")
