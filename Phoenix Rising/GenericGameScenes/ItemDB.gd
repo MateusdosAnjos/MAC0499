@@ -38,6 +38,11 @@ const ITEMS = {
         "help": "Variável 'B'.\nArmazena valores e pode ser utilizado como argumento nos outros comandos do jogo.\nPara armazenar o valor do input passe como argumento a palavra 'input' (sem aspas).\nPara armazenar um inteiro passe como argumento o valor que deseja armazenar.\nPara armazenar palavra(s) o argumento deve vir entre aspas simples (') ou duplas (\").",
         "codePath": BEHAVIOR_PATH + "B.gd"
     },
+    "pass": {
+        "icon": ICON_PATH + "pass.png",
+        "help": "Icone de passagem.\nServe para adicionar uma conexão sem efetuar nenhuma operação. Usado principalmente quando se deseja ignorar a sequencia de ações de um if ou um else.",
+        "codePath": BEHAVIOR_PATH + "pass.gd"
+    },
     "error": {
         "icon": ICON_PATH + "error.png",
         "help": "Icone de Erro.\nMostrado quando não foi possível carregar algum item do inventário.\nNão utilize este comando, verifique os arquivos do jogo e tente recarregá-lo.",
