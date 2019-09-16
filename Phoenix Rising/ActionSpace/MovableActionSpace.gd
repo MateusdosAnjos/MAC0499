@@ -55,8 +55,8 @@ onready var output_not_connected_textures = [DEFAULT_PATH + "default_no_connecti
                                              DEFAULT_PATH + "if_else_no_connection.png"]
 
 #Handles is both if and else paths are connected to the converge connection
-onready var if_connected = false
-onready var else_connected = false
+onready var converge_if_connected = false
+onready var converge_else_connected = false
 
 #Used to create the Movable Action Space execution tree (see RunEnvironment.gd)
 onready var right_child = null
@@ -146,22 +146,22 @@ func _on_InputArea_area_shape_exited(area_id, area, area_shape, self_shape):
     $ActionNumber.text = "0"
 
 func _on_ConvergeArea_area_shape_entered(area_id, area, area_shape, self_shape):
-    if_connected = true
-    if if_connected or else_connected:
+    converge_if_connected = true
+    if converge_if_connected or converge_else_connected:
         input_connections[current_input].texture = load(input_connected_textures[current_input])
     _enumerate_action(area)
     
 func _on_ConvergeArea_area_shape_exited(area_id, area, area_shape, self_shape):
-    if_connected = false
+    converge_if_connected = false
     input_connections[current_input].texture = load(input_not_connected_textures[current_input])
 
 func _on_ElseConverge_area_shape_entered(area_id, area, area_shape, self_shape):
-    else_connected = true
-    if if_connected or else_connected:
+    converge_else_connected = true
+    if converge_if_connected or converge_else_connected:
         input_connections[current_input].texture = load(input_connected_textures[current_input])
 
 func _on_ElseConverge_area_shape_exited(area_id, area, area_shape, self_shape):
-    else_connected = false
+    converge_else_connected = false
     input_connections[current_input].texture = load(input_not_connected_textures[current_input])
 
 ###################################################################################################
