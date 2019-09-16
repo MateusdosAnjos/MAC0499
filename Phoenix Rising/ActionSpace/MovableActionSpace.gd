@@ -66,6 +66,9 @@ onready var else_connected = false
 onready var right_child = null
 onready var left_child = null
 
+#Used to create the need of two paths when using if/else command
+onready var DummyNode = Node2D.new()
+
 #Hides all but the default connection on the Movable Action Space
 func _hide_connections():
     for connection in input_connections:
@@ -90,6 +93,7 @@ func _ready():
     emit_signal("entered_tree", get_name())
     _hide_connections()
     _disable_collisions()
+    DummyNode.name = "DummyNode"
     
 func _process(delta):
     #Created new input, same as 'inv_grab' for easier understanding
@@ -196,7 +200,9 @@ func _on_IfArea_area_shape_entered(area_id, area, area_shape, self_shape):
         while (not ("MovableActionSpace" in area.name)):
             area = area.get_parent()
         right_child = area
-
+    if (left_child == null):
+        left_child = DummyNode
+    
 func _on_IfArea_area_shape_exited(area_id, area, area_shape, self_shape):
     if_connected = false
     output_connections[current_output].texture = load(output_not_connected_textures[current_output])
@@ -213,6 +219,8 @@ func _on_ElseArea_area_shape_entered(area_id, area, area_shape, self_shape):
         while (not ("MovableActionSpace" in area.name)):
             area = area.get_parent()
         left_child = area
+    if (right_child == null):
+        right_child = DummyNode
     
 func _on_ElseArea_area_shape_exited(area_id, area, area_shape, self_shape): 
     else_connected = false  
@@ -240,7 +248,9 @@ func _on_OutputChangeButton_pressed():
     current_output = (current_output + 1) % num_output_connections
     output_connections[current_output].show()
     for collisions in output_collisions[current_output]: 
-        collisions.set_disabled(false)    
+        collisions.set_disabled(false)
+    right_child = null
+    left_child = null
 
 ###################################################################################################
 #                                SIGNAL FOR VISUAL CHANGES                                        #
