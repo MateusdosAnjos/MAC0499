@@ -75,11 +75,23 @@ func success_routine():
 
 func failure_routine():
     emit_signal("frame_flashy", "PlayerOutputFrame", 4)  
-     
+
+func is_system_connected(CurrentNode):
+    if (CurrentNode != null):
+        if (CurrentNode.name == "InputOutput"):
+            return true
+        elif (is_system_connected(CurrentNode.right_child) or is_system_connected(CurrentNode.left_child)):
+            return true
+        else:
+            return false
+    else:
+        return false
+    
 func _on_RunButton_pressed():
     _clean_dict()
     #if InputOutputNode.input_connected and InputOutputNode.output_connected:
-    if true:
+    #if true:
+    if (is_system_connected(_find_root())):
         var answer_list = yield(_process_input(input_list), "completed")
         var answer_string = PoolStringArray(answer_list).join(" ")
         _set_answer_on_screen(answer_string)
