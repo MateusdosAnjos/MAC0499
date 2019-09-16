@@ -9,7 +9,7 @@ const OUTPUT = '1 9 9 5'
 
 #List of items to be picked up (write one name for each position
 #it will be picked up 1 item for each name position)
-var pickup_item_list = ["if/else", "print"]
+var pickup_item_list = ["if/else", "pass", "print"]
 
 func _ready():
     var InputText = get_node("InputOutput/InputBase/Input")
