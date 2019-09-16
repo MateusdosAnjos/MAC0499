@@ -15,44 +15,48 @@ var current_input = 0
 var current_output = 0
 
 #Total number of diferent connections for each side
-var num_input_connections = 4
-var num_output_connections = 4
+var num_input_connections = 5
+var num_output_connections = 5
 
 #The input connection nodes
 onready var input_connections = [$InputArea/DefaultConnection, $InputArea/ZConnection, $InputArea/LongConnection,
-                                 $ConvergeArea/ConvergeConnection]
+                                 $ConvergeArea/ConvergeConnection, $InputArea/SConnection]
 #The output connection nodes
 onready var output_connections = [$OutputArea/DefaultConnection, $OutputArea/ZConnection, $OutputArea/LongConnection,
-                                  $IfArea/IfConnection]
+                                  $IfArea/IfConnection, $OutputArea/SConnection]
 #The input collision nodes
 onready var input_collisions = [[$InputArea/DefaultInputCollisionShape], [$InputArea/ZInputCollisionShape],
-                                [$InputArea/LongCollisionShape], [$ConvergeArea/IfConvergeCollisionShape, $ConvergeArea/ElseConverge/ElseConvergeCollisionShape]]
+                                [$InputArea/LongCollisionShape], [$ConvergeArea/IfConvergeCollisionShape, $ConvergeArea/ElseConverge/ElseConvergeCollisionShape], [$InputArea/SCollisionShape]]
 
 #The output collision nodes
 onready var output_collisions = [[$OutputArea/DefaultOutputCollisionShape], [$OutputArea/ZOutputCollisionShape], 
-                                 [$OutputArea/LongCollisionShape], [$IfArea/IfCollisionShape, $IfArea/ElseArea/ElseCollisionShape]]
+                                 [$OutputArea/LongCollisionShape], [$IfArea/IfCollisionShape, $IfArea/ElseArea/ElseCollisionShape], [$OutputArea/SCollisionShape]]
 
 #The connected textures paths
 onready var input_connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
                                         DEFAULT_PATH + "z_with_connection.png",
                                         DEFAULT_PATH + "long_with_connection.png",
-                                        DEFAULT_PATH + "converge_with_connection.png"]
+                                        DEFAULT_PATH + "converge_with_connection.png",
+                                        DEFAULT_PATH + "z_with_connection.png"]
                                 
 onready var output_connected_textures = [DEFAULT_PATH + "default_with_connection.png", 
                                         DEFAULT_PATH + "z_with_connection.png",
                                         DEFAULT_PATH + "long_with_connection.png",
-                                        DEFAULT_PATH + "if_else_with_connection.png"]
+                                        DEFAULT_PATH + "if_else_with_connection.png",
+                                        DEFAULT_PATH + "z_with_connection.png"]
 
 #The not connected texture paths                               
 onready var input_not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
                                             DEFAULT_PATH + "z_no_connection.png",
                                             DEFAULT_PATH + "long_no_connection.png",
-                                            DEFAULT_PATH + "converge_no_connection.png"]
+                                            DEFAULT_PATH + "converge_no_connection.png",
+                                            DEFAULT_PATH + "z_no_connection.png"]
                                             
 onready var output_not_connected_textures = [DEFAULT_PATH + "default_no_connection.png", 
                                              DEFAULT_PATH + "z_no_connection.png",
                                              DEFAULT_PATH + "long_no_connection.png",
-                                             DEFAULT_PATH + "if_else_no_connection.png"]
+                                             DEFAULT_PATH + "if_else_no_connection.png",
+                                             DEFAULT_PATH + "z_no_connection.png"]
 
 #Handles if both if and else paths are connected to the converge connection
 onready var converge_if_connected = false

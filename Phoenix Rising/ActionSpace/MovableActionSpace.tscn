@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://ActionSpace/MovableActionSpace.gd" type="Script" id=1]
 [ext_resource path="res://ActionSpace/ActionSpace.tscn" type="PackedScene" id=2]
@@ -27,10 +27,13 @@ extents = Vector2( 9.50925, 11.8146 )
 extents = Vector2( 23.066, 1.97204 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 7.66721, 4.53635 )
+extents = Vector2( 8.05377, 6.35071 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 47.7396, 2.45097 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 7.38382, 6.27632 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 23.1737, 1.76979 )
@@ -40,6 +43,9 @@ extents = Vector2( 8.1463, 4.22729 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 48.0884, 2.45097 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 8.51013, 6.34093 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 7.84308, 4.54547 )
@@ -99,13 +105,13 @@ shape = SubResource( 3 )
 
 [node name="ZConnection" type="Sprite" parent="InputArea"]
 visible = false
-position = Vector2( -196, 32 )
-scale = Vector2( 0.4, 0.6 )
+position = Vector2( -196, 24 )
+scale = Vector2( 0.4, 0.7 )
 texture = ExtResource( 6 )
 
 [node name="ZInputCollisionShape" type="CollisionShape2D" parent="InputArea"]
 visible = false
-position = Vector2( -200, -0.5 )
+position = Vector2( -200, -14 )
 shape = SubResource( 4 )
 
 [node name="LongConnection" type="Sprite" parent="InputArea"]
@@ -118,6 +124,18 @@ texture = ExtResource( 7 )
 visible = false
 position = Vector2( -235, 64.5 )
 shape = SubResource( 5 )
+
+[node name="SConnection" type="Sprite" parent="InputArea"]
+visible = false
+position = Vector2( -196, 100 )
+scale = Vector2( 0.4, 0.7 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="SCollisionShape" type="CollisionShape2D" parent="InputArea"]
+visible = false
+position = Vector2( -200, 138 )
+shape = SubResource( 16 )
 
 [node name="OutputArea" type="Area2D" parent="."]
 editor/display_folded = true
@@ -134,13 +152,13 @@ shape = SubResource( 6 )
 
 [node name="ZConnection" type="Sprite" parent="OutputArea"]
 visible = false
-position = Vector2( 26, 97 )
-scale = Vector2( 0.4, 0.6 )
+position = Vector2( 26, 100 )
+scale = Vector2( 0.4, 0.7 )
 texture = ExtResource( 6 )
 
 [node name="ZOutputCollisionShape" type="CollisionShape2D" parent="OutputArea"]
 visible = false
-position = Vector2( 30, 129.5 )
+position = Vector2( 30, 138 )
 shape = SubResource( 7 )
 
 [node name="LongConnection" type="Sprite" parent="OutputArea"]
@@ -153,6 +171,18 @@ texture = ExtResource( 7 )
 visible = false
 position = Vector2( 65, 64.5 )
 shape = SubResource( 8 )
+
+[node name="SConnection" type="Sprite" parent="OutputArea"]
+visible = false
+position = Vector2( 26, 24 )
+scale = Vector2( 0.4, 0.7 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="SCollisionShape" type="CollisionShape2D" parent="OutputArea"]
+visible = false
+position = Vector2( 30, -14 )
+shape = SubResource( 15 )
 
 [node name="IfArea" type="Area2D" parent="."]
 editor/display_folded = true
@@ -198,6 +228,7 @@ position = Vector2( -200, 147 )
 shape = SubResource( 12 )
 
 [node name="ActionNumber" type="RichTextLabel" parent="."]
+visible = false
 margin_left = -185.0
 margin_top = -18.0
 margin_right = -145.0
