@@ -1,10 +1,22 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://RunEnvironment/RunEnvironment.gd" type="Script" id=1]
 [ext_resource path="res://RunEnvironment/ErrorMessages.gd" type="Script" id=2]
 [ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://RunEnvironment/VariablesMap.gd" type="Script" id=4]
+[ext_resource path="res://Accessories/art/text_box.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
 font_data = ExtResource( 3 )
 
 [node name="RunEnvironment" type="Control"]
@@ -53,5 +65,37 @@ margin_top = 96.0
 margin_right = 990.0
 margin_bottom = 116.0
 text = "Entendido!"
+
+[node name="VariablesMap" type="Control" parent="."]
+mouse_filter = 2
+script = ExtResource( 4 )
+
+[node name="VariableMapTitle" type="RichTextLabel" parent="VariablesMap"]
+margin_left = 1100.0
+margin_top = 10.0
+margin_right = 1460.0
+margin_bottom = 50.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 2 )
+text = "VALORES DAS VARIÁVEIS"
+
+[node name="VariableMapBox" type="TextureRect" parent="VariablesMap"]
+modulate = Color( 0, 0.0470588, 0.572549, 1 )
+margin_left = 1080.0
+margin_top = 40.0
+margin_right = 2040.0
+margin_bottom = 335.0
+rect_scale = Vector2( 0.4, 0.4 )
+mouse_filter = 2
+texture = ExtResource( 5 )
+
+[node name="VariablesText" type="RichTextLabel" parent="VariablesMap/VariableMapBox"]
+margin_left = 100.0
+margin_top = 60.0
+margin_right = 880.0
+margin_bottom = 220.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 [connection signal="pressed" from="RunButton" to="." method="_on_RunButton_pressed"]
 [connection signal="pressed" from="RunScript/ErrorMessages/Understood" to="RunScript/ErrorMessages" method="_on_Understood_pressed"]
