@@ -32,40 +32,40 @@ extents = Vector2( 8.05377, 6.35071 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 47.7396, 2.45097 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 7.38382, 6.27632 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 23.1737, 1.76979 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8.1463, 4.22729 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 48.0884, 2.45097 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 8.51013, 6.34093 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 7.84308, 4.54547 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 7.35434, 4.78407 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 7.17244, 4.47795 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 7.59949, 4.04787 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=15]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 10 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 15.7412, 48.3296 )
 
 [node name="MovableActionSpace" type="Node2D"]
@@ -79,8 +79,8 @@ margin_bottom = 114.0
 
 [node name="ClickDragArea" type="Area2D" parent="."]
 editor/display_folded = true
-collision_layer = 2
-collision_mask = 2
+collision_layer = 16
+collision_mask = 16
 
 [node name="OpenCloseHand" type="AnimatedSprite" parent="ClickDragArea"]
 scale = Vector2( 0.025, 0.028 )
@@ -93,6 +93,8 @@ shape = SubResource( 2 )
 
 [node name="InputArea" type="Area2D" parent="."]
 editor/display_folded = true
+collision_layer = 2
+collision_mask = 4
 
 [node name="DefaultConnection" type="Sprite" parent="InputArea"]
 position = Vector2( -208, 64.5 )
@@ -135,10 +137,12 @@ flip_h = true
 [node name="SCollisionShape" type="CollisionShape2D" parent="InputArea"]
 visible = false
 position = Vector2( -200, 138 )
-shape = SubResource( 16 )
+shape = SubResource( 6 )
 
 [node name="OutputArea" type="Area2D" parent="."]
 editor/display_folded = true
+collision_layer = 4
+collision_mask = 2
 
 [node name="DefaultConnection" type="Sprite" parent="OutputArea"]
 position = Vector2( 38, 64.595 )
@@ -148,7 +152,7 @@ flip_h = true
 
 [node name="DefaultOutputCollisionShape" type="CollisionShape2D" parent="OutputArea"]
 position = Vector2( 38, 64.5 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="ZConnection" type="Sprite" parent="OutputArea"]
 visible = false
@@ -159,7 +163,7 @@ texture = ExtResource( 6 )
 [node name="ZOutputCollisionShape" type="CollisionShape2D" parent="OutputArea"]
 visible = false
 position = Vector2( 30, 138 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="LongConnection" type="Sprite" parent="OutputArea"]
 visible = false
@@ -170,7 +174,7 @@ texture = ExtResource( 7 )
 [node name="LongCollisionShape" type="CollisionShape2D" parent="OutputArea"]
 visible = false
 position = Vector2( 65, 64.5 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="SConnection" type="Sprite" parent="OutputArea"]
 visible = false
@@ -182,10 +186,12 @@ flip_h = true
 [node name="SCollisionShape" type="CollisionShape2D" parent="OutputArea"]
 visible = false
 position = Vector2( 30, -14 )
-shape = SubResource( 15 )
+shape = SubResource( 10 )
 
 [node name="IfArea" type="Area2D" parent="."]
 editor/display_folded = true
+collision_layer = 4
+collision_mask = 2
 
 [node name="IfConnection" type="Sprite" parent="IfArea"]
 visible = false
@@ -197,17 +203,21 @@ flip_h = true
 [node name="IfCollisionShape" type="CollisionShape2D" parent="IfArea"]
 visible = false
 position = Vector2( 31, -18 )
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 
 [node name="ElseArea" type="Area2D" parent="IfArea"]
+collision_layer = 4
+collision_mask = 2
 
 [node name="ElseCollisionShape" type="CollisionShape2D" parent="IfArea/ElseArea"]
 visible = false
 position = Vector2( 31, 145 )
-shape = SubResource( 10 )
+shape = SubResource( 12 )
 
 [node name="ConvergeArea" type="Area2D" parent="."]
 editor/display_folded = true
+collision_layer = 2
+collision_mask = 4
 
 [node name="ConvergeConnection" type="Sprite" parent="ConvergeArea"]
 visible = false
@@ -218,14 +228,16 @@ texture = ExtResource( 9 )
 [node name="IfConvergeCollisionShape" type="CollisionShape2D" parent="ConvergeArea"]
 visible = false
 position = Vector2( -200, -18 )
-shape = SubResource( 11 )
+shape = SubResource( 13 )
 
 [node name="ElseConverge" type="Area2D" parent="ConvergeArea"]
+collision_layer = 2
+collision_mask = 4
 
 [node name="ElseConvergeCollisionShape" type="CollisionShape2D" parent="ConvergeArea/ElseConverge"]
 visible = false
 position = Vector2( -200, 147 )
-shape = SubResource( 12 )
+shape = SubResource( 14 )
 
 [node name="ActionNumber" type="RichTextLabel" parent="."]
 visible = false
@@ -234,7 +246,7 @@ margin_top = -18.0
 margin_right = -145.0
 margin_bottom = 22.0
 hint_tooltip = "Número da ação"
-custom_fonts/normal_font = SubResource( 13 )
+custom_fonts/normal_font = SubResource( 15 )
 text = "0"
 
 [node name="OutputChangeButton" type="TextureButton" parent="."]
@@ -257,12 +269,12 @@ expand = true
 
 [node name="ChangeArea" type="Area2D" parent="."]
 editor/display_folded = true
-collision_layer = 4
-collision_mask = 4
+collision_layer = 8
+collision_mask = 8
 
 [node name="ChangeAreaCollision" type="CollisionShape2D" parent="ChangeArea"]
 position = Vector2( -2, 64 )
-shape = SubResource( 14 )
+shape = SubResource( 16 )
 [connection signal="mouse_entered" from="ClickDragArea" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="ClickDragArea" to="." method="_on_Area2D_mouse_exited"]
 [connection signal="area_shape_entered" from="InputArea" to="." method="_on_InputArea_area_shape_entered"]

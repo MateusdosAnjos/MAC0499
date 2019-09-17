@@ -11,6 +11,8 @@ extents = Vector2( 12.7509, 25.0964 )
 
 [node name="FinishInputArea" type="Area2D"]
 input_pickable = false
+collision_layer = 2
+collision_mask = 4
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -23,8 +25,8 @@ rotation = 4.71239
 shape = SubResource( 1 )
 
 [node name="VisualArea" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 32
+collision_mask = 32
 
 [node name="VisualCollision" type="CollisionShape2D" parent="VisualArea"]
 position = Vector2( 26, 10 )
