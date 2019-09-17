@@ -240,7 +240,6 @@ position = Vector2( -200, 147 )
 shape = SubResource( 14 )
 
 [node name="ActionNumber" type="RichTextLabel" parent="."]
-visible = false
 margin_left = -185.0
 margin_top = -18.0
 margin_right = -145.0

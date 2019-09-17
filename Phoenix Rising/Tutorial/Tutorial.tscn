@@ -70,13 +70,12 @@ mouse_filter = 2
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="InputOutput" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
 
 [node name="StartInputArea" parent="InputOutput" index="0"]
 position = Vector2( 700, 180 )
 
 [node name="FinishInputArea" parent="InputOutput" index="1"]
-position = Vector2( 1100, 240 )
+position = Vector2( 1080, 260 )
 
 [node name="ColoredFrames" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
@@ -98,7 +97,6 @@ position = Vector2( 1000, 280 )
 
 [node name="UsersGuide" type="Control" parent="."]
 pause_mode = 2
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 8 )
@@ -148,7 +146,7 @@ frames = SubResource( 2 )
 animation = "flashy"
 
 [node name="Output" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 1110, 180 )
+position = Vector2( 1100, 200 )
 rotation = -1.5708
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
