@@ -70,6 +70,7 @@ mouse_filter = 2
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="InputOutput" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 
 [node name="StartInputArea" parent="InputOutput" index="0"]
 position = Vector2( 700, 180 )
@@ -87,6 +88,7 @@ margin_right = 0.0
 margin_bottom = 0.0
 
 [node name="Inventory" parent="." instance=ExtResource( 6 )]
+editor/display_folded = true
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 0.0
@@ -97,23 +99,23 @@ position = Vector2( 1000, 280 )
 
 [node name="UsersGuide" type="Control" parent="."]
 pause_mode = 2
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 8 )
 
 [node name="DialogBox" type="Panel" parent="UsersGuide"]
-editor/display_folded = true
 margin_left = 520.0
-margin_top = 600.0
+margin_top = 570.0
 margin_right = 1320.0
-margin_bottom = 700.0
+margin_bottom = 698.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="TextBox" type="RichTextLabel" parent="UsersGuide/DialogBox"]
 margin_left = 20.0
 margin_top = 20.9025
 margin_right = 780.0
-margin_bottom = 80.9025
+margin_bottom = 94.9025
 rect_pivot_offset = Vector2( -470, -380.902 )
 bbcode_enabled = true
 visible_characters = 0
@@ -125,17 +127,17 @@ autostart = true
 [node name="Skip" type="Button" parent="UsersGuide/DialogBox"]
 modulate = Color( 0.286275, 0.560784, 0.992157, 1 )
 margin_left = 660.0
-margin_top = 70.0
+margin_top = 100.0
 margin_right = 704.0
-margin_bottom = 90.0
+margin_bottom = 120.0
 text = "Pular"
 
 [node name="Close" type="Button" parent="UsersGuide/DialogBox"]
 modulate = Color( 0.286275, 0.560784, 0.992157, 1 )
 margin_left = 720.0
-margin_top = 70.0
+margin_top = 100.0
 margin_right = 774.0
-margin_bottom = 90.0
+margin_bottom = 120.0
 text = "Fechar"
 
 [node name="Input" type="AnimatedSprite" parent="UsersGuide"]
