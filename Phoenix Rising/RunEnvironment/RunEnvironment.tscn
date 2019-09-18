@@ -1,10 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://RunEnvironment/RunEnvironment.gd" type="Script" id=1]
 [ext_resource path="res://RunEnvironment/ErrorMessages.gd" type="Script" id=2]
 [ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://RunEnvironment/VariablesMap.gd" type="Script" id=4]
+[ext_resource path="res://Accessories/art/text_box.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [node name="RunEnvironment" type="Control"]
@@ -53,5 +67,46 @@ margin_top = 96.0
 margin_right = 990.0
 margin_bottom = 116.0
 text = "Entendido!"
+
+[node name="VariablesMap" type="Control" parent="."]
+mouse_filter = 2
+script = ExtResource( 4 )
+
+[node name="VariableMapTitle" type="RichTextLabel" parent="VariablesMap"]
+margin_left = 1490.0
+margin_top = 2.0
+margin_right = 1848.0
+margin_bottom = 42.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 2 )
+text = "VALORES DAS VARIÁVEIS"
+
+[node name="VariableMapBox" type="TextureRect" parent="VariablesMap"]
+modulate = Color( 0, 0.0470588, 0.572549, 1 )
+margin_left = 1506.0
+margin_top = 32.0
+margin_right = 2466.0
+margin_bottom = 327.0
+rect_scale = Vector2( 0.34, 0.48 )
+mouse_filter = 2
+texture = ExtResource( 5 )
+
+[node name="VariablesTextA" type="RichTextLabel" parent="VariablesMap"]
+margin_left = 1530.0
+margin_top = 42.0
+margin_right = 1818.0
+margin_bottom = 95.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 3 )
+text = "Variável A = <sem valor>"
+
+[node name="VariablesTextB" type="RichTextLabel" parent="VariablesMap"]
+margin_left = 1530.0
+margin_top = 110.0
+margin_right = 1818.0
+margin_bottom = 163.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 3 )
+text = "Variável B = <sem valor>"
 [connection signal="pressed" from="RunButton" to="." method="_on_RunButton_pressed"]
 [connection signal="pressed" from="RunScript/ErrorMessages/Understood" to="RunScript/ErrorMessages" method="_on_Understood_pressed"]
