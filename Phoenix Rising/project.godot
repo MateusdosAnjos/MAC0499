@@ -53,9 +53,8 @@ mouse_click={
 2d_render/layer_1="default"
 2d_render/layer_2="input_connection"
 2d_render/layer_3="output_connection"
-2d_render/layer_4="change_connection"
+2d_render/layer_4="change_visuals"
 2d_render/layer_5="click_and_drag"
-2d_render/layer_6="visual_area"
 
 [rendering]
 
