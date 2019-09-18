@@ -16,7 +16,9 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 32
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [node name="RunEnvironment" type="Control"]
@@ -89,24 +91,22 @@ rect_scale = Vector2( 0.4, 0.4 )
 mouse_filter = 2
 texture = ExtResource( 5 )
 
-[node name="VariablesTextA" type="RichTextLabel" parent="VariablesMap/VariableMapBox"]
-margin_left = 100.0
-margin_top = 60.0
-margin_right = 880.0
-margin_bottom = 135.0
+[node name="VariablesTextA" type="RichTextLabel" parent="VariablesMap"]
+margin_left = 1220.0
+margin_top = 64.0
+margin_right = 1540.0
+margin_bottom = 96.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Variável A = <sem valor>"
 
-[node name="VariablesTextB" type="RichTextLabel" parent="VariablesMap/VariableMapBox"]
-margin_left = 100.0
-margin_top = 160.0
-margin_right = 880.0
-margin_bottom = 235.0
+[node name="VariablesTextB" type="RichTextLabel" parent="VariablesMap"]
+margin_left = 1220.0
+margin_top = 104.0
+margin_right = 1540.0
+margin_bottom = 136.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Variável B = <sem valor>"
 [connection signal="pressed" from="RunButton" to="." method="_on_RunButton_pressed"]
 [connection signal="pressed" from="RunScript/ErrorMessages/Understood" to="RunScript/ErrorMessages" method="_on_Understood_pressed"]

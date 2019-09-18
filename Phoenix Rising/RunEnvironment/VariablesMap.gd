@@ -1,7 +1,7 @@
 extends Control
 
-onready var VariablesTextA = get_node("VariableMapBox/VariablesTextA")
-onready var VariablesTextB = get_node("VariableMapBox/VariablesTextB")
+onready var VariablesTextA = get_node("VariablesTextA")
+onready var VariablesTextB = get_node("VariablesTextB")
 
 func _on_variable_changed(variable, value):
     match variable:
