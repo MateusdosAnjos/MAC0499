@@ -71,9 +71,9 @@ mouse_filter = 2
 script = ExtResource( 4 )
 
 [node name="VariableMapTitle" type="RichTextLabel" parent="VariablesMap"]
-margin_left = 1100.0
+margin_left = 1200.0
 margin_top = 10.0
-margin_right = 1460.0
+margin_right = 1560.0
 margin_bottom = 50.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
@@ -81,9 +81,9 @@ text = "VALORES DAS VARIÁVEIS"
 
 [node name="VariableMapBox" type="TextureRect" parent="VariablesMap"]
 modulate = Color( 0, 0.0470588, 0.572549, 1 )
-margin_left = 1080.0
+margin_left = 1180.0
 margin_top = 40.0
-margin_right = 2040.0
+margin_right = 2140.0
 margin_bottom = 335.0
 rect_scale = Vector2( 0.4, 0.4 )
 mouse_filter = 2

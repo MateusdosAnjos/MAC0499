@@ -1,6 +1,6 @@
 extends Node
 
-signal variable_changed(variable)
+signal variable_changed(variable, value)
 
 #Checks if the argument starts and end with " " or ' '
 func _argument_check(arguments, word_length):
@@ -21,5 +21,5 @@ func execute(input, arguments, player_answer, action_number):
             return $ErrorMessages.show_error_message("A", action_number)  
     else:
         return $ErrorMessages.show_error_message("A", action_number)
-    emit_signal("variable_changed", "A")
+    emit_signal("variable_changed", "A", get_parent().variable_dict["A"])
     return [input, true]
