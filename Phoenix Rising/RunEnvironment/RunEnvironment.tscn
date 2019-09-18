@@ -73,38 +73,38 @@ mouse_filter = 2
 script = ExtResource( 4 )
 
 [node name="VariableMapTitle" type="RichTextLabel" parent="VariablesMap"]
-margin_left = 1460.0
-margin_top = 10.0
-margin_right = 1820.0
-margin_bottom = 50.0
+margin_left = 1490.0
+margin_top = 2.0
+margin_right = 1848.0
+margin_bottom = 42.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "VALORES DAS VARIÁVEIS"
 
 [node name="VariableMapBox" type="TextureRect" parent="VariablesMap"]
 modulate = Color( 0, 0.0470588, 0.572549, 1 )
-margin_left = 1440.0
-margin_top = 42.0
-margin_right = 2400.0
-margin_bottom = 337.0
-rect_scale = Vector2( 0.4, 0.42 )
+margin_left = 1506.0
+margin_top = 32.0
+margin_right = 2466.0
+margin_bottom = 327.0
+rect_scale = Vector2( 0.34, 0.48 )
 mouse_filter = 2
 texture = ExtResource( 5 )
 
 [node name="VariablesTextA" type="RichTextLabel" parent="VariablesMap"]
-margin_left = 1470.0
-margin_top = 64.0
-margin_right = 1790.0
-margin_bottom = 96.0
+margin_left = 1530.0
+margin_top = 42.0
+margin_right = 1818.0
+margin_bottom = 95.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 3 )
 text = "Variável A = <sem valor>"
 
 [node name="VariablesTextB" type="RichTextLabel" parent="VariablesMap"]
-margin_left = 1470.0
+margin_left = 1530.0
 margin_top = 110.0
-margin_right = 1790.0
-margin_bottom = 142.0
+margin_right = 1818.0
+margin_bottom = 163.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 3 )
 text = "Variável B = <sem valor>"
