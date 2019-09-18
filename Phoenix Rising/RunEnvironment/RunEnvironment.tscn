@@ -89,13 +89,24 @@ rect_scale = Vector2( 0.4, 0.4 )
 mouse_filter = 2
 texture = ExtResource( 5 )
 
-[node name="VariablesText" type="RichTextLabel" parent="VariablesMap/VariableMapBox"]
+[node name="VariablesTextA" type="RichTextLabel" parent="VariablesMap/VariableMapBox"]
 margin_left = 100.0
 margin_top = 60.0
 margin_right = 880.0
-margin_bottom = 220.0
+margin_bottom = 135.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Variável A = <sem valor>"
+
+[node name="VariablesTextB" type="RichTextLabel" parent="VariablesMap/VariableMapBox"]
+margin_left = 100.0
+margin_top = 160.0
+margin_right = 880.0
+margin_bottom = 235.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Variável B = <sem valor>"
 [connection signal="pressed" from="RunButton" to="." method="_on_RunButton_pressed"]
 [connection signal="pressed" from="RunScript/ErrorMessages/Understood" to="RunScript/ErrorMessages" method="_on_Understood_pressed"]
