@@ -1,5 +1,7 @@
 extends Node
 
+signal variable_changed(variable, value)
+
 #Checks if the argument starts and end with " " or ' '
 func _argument_check(arguments, word_length):
     if ((arguments[0] == '"' and arguments[word_length-1] == '"') or (arguments[0] == "'" and arguments[word_length-1] == "'")):
@@ -7,6 +9,7 @@ func _argument_check(arguments, word_length):
     return false
     
 func execute(input, arguments, player_answer, action_number):
+    connect("variable_changed", get_parent().get_node("VariablesMap"), "_on_variable_changed")
     if (not arguments.empty()):
         if (arguments == 'input'):
             get_parent().variable_dict["B"] = input
@@ -18,4 +21,5 @@ func execute(input, arguments, player_answer, action_number):
             return $ErrorMessages.show_error_message("B", action_number)  
     else:
         return $ErrorMessages.show_error_message("B", action_number)
+    emit_signal("variable_changed", "B", get_parent().variable_dict["B"])
     return [input, true]
