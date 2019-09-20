@@ -62,6 +62,7 @@ pause_mode = 2
 [node name="RunEnvironment" parent="." instance=ExtResource( 5 )]
 
 [node name="Inventory" parent="." instance=ExtResource( 6 )]
+editor/display_folded = true
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 0.0
@@ -74,6 +75,7 @@ position = Vector2( 1000, 100 )
 position = Vector2( 614.575, 304.676 )
 
 [node name="UsersGuide" parent="." instance=ExtResource( 8 )]
+editor/display_folded = true
 script = ExtResource( 9 )
 
 [node name="VariableA" type="AnimatedSprite" parent="UsersGuide"]
