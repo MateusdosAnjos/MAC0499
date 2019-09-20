@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Level4/Level4.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -9,9 +9,26 @@
 [ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Level4/Level4Guide.gd" type="Script" id=9]
-[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=10]
-[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=11]
-[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=10]
+[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 10 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 5.0
+} ]
 
 [node name="Level4" type="Control"]
 anchor_right = 1.0
@@ -29,6 +46,7 @@ mouse_filter = 2
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="InputOutput" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 
 [node name="StartInputArea" parent="InputOutput" index="0"]
 position = Vector2( 500, 200 )
@@ -58,11 +76,25 @@ position = Vector2( 614.575, 304.676 )
 [node name="UsersGuide" parent="." instance=ExtResource( 8 )]
 script = ExtResource( 9 )
 
-[node name="NextLevel" parent="." instance=ExtResource( 10 )]
+[node name="VariableA" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 30, 670 )
+rotation = 4.71239
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 1 )
+animation = "flashy"
 
-[node name="ResetLevel" parent="." instance=ExtResource( 11 )]
+[node name="VariableValues" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1420, 108 )
+rotation = 3.14159
+scale = Vector2( 0.6, 0.6 )
+frames = SubResource( 2 )
+animation = "flashy"
 
-[node name="VisualProcess" parent="." instance=ExtResource( 12 )]
+[node name="NextLevel" parent="." instance=ExtResource( 11 )]
+
+[node name="ResetLevel" parent="." instance=ExtResource( 12 )]
+
+[node name="VisualProcess" parent="." instance=ExtResource( 13 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="output_position" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_position"]
 [connection signal="output_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_visual_entered"]
@@ -72,8 +104,8 @@ script = ExtResource( 9 )
 [connection signal="start_input_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_start_input_visual_entered"]
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
 [connection signal="frame_flashy" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_frame_flashy"]
-[connection signal="level_succeded" from="RunEnvironment" to="." method="_on_RunEnvironment_level_succeded"]
 [connection signal="level_succeded" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_level_succeded"]
+[connection signal="level_succeded" from="RunEnvironment" to="." method="_on_RunEnvironment_level_succeded"]
 [connection signal="visual_process_arguments" from="RunEnvironment" to="VisualProcess" method="_on_RunEnvironment_visual_process_arguments"]
 [connection signal="change_area_entered" from="Inventory/MovableActionSpace" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
 [connection signal="entered_tree" from="Inventory/MovableActionSpace" to="Inventory" method="_on_MovableActionSpace_entered_tree"]

@@ -30,12 +30,12 @@ const ITEMS = {
     },
     "A": {
         "icon": ICON_PATH + "A.png",
-        "help": "Variável 'A'.\nArmazena valores e pode ser utilizado como argumento nos outros comandos do jogo.\nPara armazenar o valor do input passe como argumento a palavra 'input' (sem aspas).\nPara armazenar um inteiro passe como argumento o valor que deseja armazenar.\nPara armazenar palavra(s) o argumento deve vir entre aspas simples (') ou duplas (\").",
+        "help": "Variável 'A'.\nArmazena valores e pode ser utilizado como argumento nos outros comandos do jogo.\nPara armazenar o valor corrente do input passe como argumento a palavra 'input' (sem aspas), por exemplo:\ninput\nPara armazenar um inteiro passe como argumento apenas o valor que deseja armazenar, por exemplo:\n48\nPara armazenar palavra(s) o argumento deve vir entre aspas simples (') ou duplas (\"), por exemplo:\n'Esta é minha frase'",
         "codePath": BEHAVIOR_PATH + "A.gd"
     },
     "B": {
         "icon": ICON_PATH + "B.png",
-        "help": "Variável 'B'.\nArmazena valores e pode ser utilizado como argumento nos outros comandos do jogo.\nPara armazenar o valor do input passe como argumento a palavra 'input' (sem aspas).\nPara armazenar um inteiro passe como argumento o valor que deseja armazenar.\nPara armazenar palavra(s) o argumento deve vir entre aspas simples (') ou duplas (\").",
+        "help": "Variável 'B'.\nArmazena valores e pode ser utilizado como argumento nos outros comandos do jogo.\nPara armazenar o valor corrente do input passe como argumento a palavra 'input' (sem aspas), por exemplo:\ninput\nPara armazenar um inteiro passe como argumento apenas o valor que deseja armazenar, por exemplo:\n48\nPara armazenar palavra(s) o argumento deve vir entre aspas simples (') ou duplas (\"), por exemplo:\n'Esta é minha frase'",
         "codePath": BEHAVIOR_PATH + "B.gd"
     },
     "pass": {
