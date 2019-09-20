@@ -2,9 +2,9 @@ extends Control
 
 # Variables
 var dialog = [
-    'Agora tente produzir o resultado esperado a partir de nenhum input, simbolizado com "-".',
-    'Para isso você deve utilizar o comando de soma "+" disponibilizado.\nPressione o botão direito em cima do comando de soma para obter ajuda sobre como utilizá-lo.',
-    'Não se esqueca de colocar o comando "Print" para imprimir o input na sua saída.'
+    'Agora tente produzir o resultado esperado a partir de nenhuma entrada (input), simbolizada com "-".\n\nIsso significa que você não recebe nenhum ingrediente.',
+    'Para obter seu "bolo" (a resposta esperada) você deve utilizar o comando de soma "+" disponibilizado e criar a resposta.\n\nPressione o botão direito em cima do comando de soma para obter ajuda sobre como utilizá-lo.',
+    'Não se esqueca de colocar o comando "Print" para imprimir o input (sua resposta) na sua saída.'
     ]    
         
 var page = 0
