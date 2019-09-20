@@ -15,7 +15,7 @@ const ITEMS = {
     },
     "multi": {
         "icon": ICON_PATH + "multi.png",
-        "help": "Comando de Multiplicação.\nRecebe como argumentos dois números separados por uma vírgula e um espaço (obrigatórios) e devolve o resultado de sua multiplicação, podendo ser um número inteiro ou um número real.\nPodemos operar com o valor do input escrevendo 'input' como argumento (sem aspas) ou com o valor de variável escrevendo o nome da variável.\nObserve os exemplos de argumentos abaixo:\n3, 4\ninput, 8\n4.2, 2\n1.2, 6.4\ninput, input\nDentre os exemplos vemos multiplicação de dois inteiros, valor de entrada e um inteiro, valor real e inteiro, dois valores reais e, por último, a multiplicação do input por ele mesmo.",
+        "help": "Comando de Multiplicação\nUtilizado para multiplicar dois valores. Você pode passar como argumento dois números X, Y e o comando executa X * Y, veja o exemplo:\n8, 8\nO resultado sairá no Input (que pode ser visualizado na animação), portanto 8, 8 resultará em 64.\n\nVocê também pode operar com o valor atual do Input passando com argumento a palavra 'input' da seguinte forma:\ninput, 4\nO resultado dependerá do valor que estiver na animação.\n\nNão se esqueça de que devemos separar os argumentos por 1 vírgula e 1 espaço.",
         "codePath": BEHAVIOR_PATH + "multi.gd"
     },        
     "print": {
