@@ -29,6 +29,7 @@ mouse_filter = 2
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="InputOutput" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 
 [node name="StartInputArea" parent="InputOutput" index="0"]
 position = Vector2( 500, 200 )
@@ -44,6 +45,7 @@ pause_mode = 2
 [node name="RunEnvironment" parent="." instance=ExtResource( 5 )]
 
 [node name="Inventory" parent="." instance=ExtResource( 6 )]
+editor/display_folded = true
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 0.0

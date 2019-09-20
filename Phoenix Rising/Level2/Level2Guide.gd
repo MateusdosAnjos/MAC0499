@@ -2,8 +2,8 @@ extends Control
 
 # Variables
 var dialog = [
-    'Agora tente produzir o resultado esperado a partir do input fornecido para ajudar.',
-    'Para isso você deve utilizar o comando de subtração "-" disponibilizado.\nPressione o botão direito em cima do comando de subtração para obter ajuda sobre como utilizá-lo.',
+    'Agora produza o novo resultado (bolo) esperado, porém desta vez você recebeu um valor de entrada (ingrediente) para ajudar.\n\nLembre-se: como em programação temos algumas liberdades, para este nível é possível ignorar a entrada e ainda assim conseguir terminá-lo.',
+    'Utilize o comando de subtração "-" disponibilizado.\nPressione o botão direito em cima do comando de subtração para obter ajuda sobre como utilizá-lo.',
     'Não se esqueca de colocar o comando "Print" para imprimir o input na sua saída.'
     ]    
         
