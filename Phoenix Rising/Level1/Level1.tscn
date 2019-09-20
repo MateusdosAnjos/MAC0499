@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Level1/Level1.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -9,9 +9,26 @@
 [ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Level1/Level1Guide.gd" type="Script" id=9]
-[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=10]
-[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=11]
-[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=10]
+[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=13]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 10 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 5.0
+} ]
 
 [node name="Level1" type="Control"]
 anchor_right = 1.0
@@ -59,11 +76,24 @@ position = Vector2( 614.575, 304.676 )
 [node name="UsersGuide" parent="." instance=ExtResource( 8 )]
 script = ExtResource( 9 )
 
-[node name="NextLevel" parent="." instance=ExtResource( 10 )]
+[node name="NoInput" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 130, 250 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 2 )
+animation = "flashy"
 
-[node name="ResetLevel" parent="." instance=ExtResource( 11 )]
+[node name="SumCommand" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 30, 670 )
+rotation = 4.71239
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 1 )
+animation = "flashy"
 
-[node name="VisualProcess" parent="." instance=ExtResource( 12 )]
+[node name="NextLevel" parent="." instance=ExtResource( 11 )]
+
+[node name="ResetLevel" parent="." instance=ExtResource( 12 )]
+
+[node name="VisualProcess" parent="." instance=ExtResource( 13 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="output_position" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_position"]
 [connection signal="output_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_visual_entered"]

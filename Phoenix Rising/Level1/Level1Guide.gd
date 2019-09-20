@@ -14,7 +14,7 @@ onready var SkipButton = get_node("DialogBox/Skip")
 onready var TextBox = get_node("DialogBox/TextBox")
 
 #Inser the node name of poiting arrows sprites
-var arrow_sprites = []
+var arrow_sprites = ["NoInput", "SumCommand"]
 
 # Functions        
 func _ready():
@@ -22,6 +22,7 @@ func _ready():
     TextBox.set_bbcode(dialog[page])
     TextBox.set_visible_characters(0)
     _hide_arrows()
+    _animation_show_and_play("NoInput", "flashy")
     
 ################################################################################
 #                         Text and pages Handlers                              #
@@ -68,10 +69,11 @@ func _animation_stop_and_hide(node_name):
 #Shows the animations based on the actual page of dialog box    
 func show_visuals():
     match page:
-        0:
-            pass
         1:
-            pass
+            _animation_stop_and_hide("NoInput")
+            _animation_show_and_play("SumCommand", "flashy")
+        2:
+            _animation_stop_and_hide("SumCommand")
 
 #Hides all guidance arrows and the Dialog Box.
 #Unpauses the game tree
