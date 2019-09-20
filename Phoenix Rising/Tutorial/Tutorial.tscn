@@ -197,7 +197,7 @@ frames = SubResource( 4 )
 animation = "flashy"
 
 [node name="InventoryArrow" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 110, 670 )
+position = Vector2( 60, 670 )
 rotation = 4.71239
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 5 )
