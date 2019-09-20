@@ -11,7 +11,7 @@ var max_pages = len(dialog) - 1
 onready var SkipButton = get_node("DialogBox/Skip")
 onready var TextBox = get_node("DialogBox/TextBox")
 
-#Inser the node name of poiting arrows sprites
+#Insert the node name of poiting arrows sprites
 var arrow_sprites = ["NoInput", "SumCommand"]
 
 # Functions        

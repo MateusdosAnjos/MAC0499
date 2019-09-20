@@ -34,6 +34,7 @@ var max_pages = len(dialog) - 1
 onready var SkipButton = get_node("DialogBox/Skip")
 onready var TextBox = get_node("DialogBox/TextBox")
 
+#Insert the node name of poiting arrows sprites
 var arrow_sprites = ['Input', 'Output', 'ActionRect', 'DragButton', 'InputConnection', 'OutputConnection', 'ChangeInput', 
                      'ChangeOutput', 'InventoryArrow', 'ArgumentsButton', 'RunButton', 'AnimationSpeed']
 
