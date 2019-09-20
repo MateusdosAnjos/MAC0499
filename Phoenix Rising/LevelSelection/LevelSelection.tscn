@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://LevelSelection/BaseLevelSelector.tscn" type="PackedScene" id=1]
 
 [node name="LevelSelection" type="Control"]
 anchor_right = 1.0
@@ -13,3 +15,9 @@ margin_right = 1840.0
 margin_bottom = 913.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
+
+[node name="BaseLevelSelector" parent="." instance=ExtResource( 1 )]
+margin_left = 163.654
+margin_top = 156.69
+margin_right = 163.654
+margin_bottom = 156.69
