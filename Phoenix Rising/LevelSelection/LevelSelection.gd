@@ -8,6 +8,6 @@ onready var level_dict = {
     "Nível 4": "res://Level4/Level4.tscn",
     }
 
-func _on_BaseLevelSelector_level_selected(level_name):
+func _on_level_selected(level_name):
     var level_path = level_dict[level_name]
     get_tree().change_scene(level_path)

@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://LevelSelection/LevelSelection.gd" type="Script" id=1]
-[ext_resource path="res://LevelSelection/BaseLevelSelector.tscn" type="PackedScene" id=2]
+[ext_resource path="res://LevelSelection/BaseLevelSelector.gd" type="Script" id=2]
+[ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://LevelSelection/Select.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
 
 [node name="LevelSelection" type="Control"]
 anchor_right = 1.0
@@ -18,9 +26,82 @@ margin_bottom = 913.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="Tutorial" parent="." instance=ExtResource( 2 )]
-margin_left = 163.654
-margin_top = 156.69
-margin_right = 163.654
-margin_bottom = 156.69
-[connection signal="level_selected" from="Tutorial" to="." method="_on_BaseLevelSelector_level_selected"]
+[node name="Tutorial" type="Control" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 180.0
+margin_top = 200.0
+margin_right = 180.0
+margin_bottom = 200.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial"]
+margin_right = 200.0
+margin_bottom = 80.0
+mouse_filter = 2
+color = Color( 0, 0.0156863, 0.258824, 1 )
+
+[node name="LevelName" type="RichTextLabel" parent="Tutorial"]
+margin_right = 200.0
+margin_bottom = 26.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Tutorial"
+
+[node name="Select" type="Button" parent="Tutorial"]
+margin_left = 52.0
+margin_top = 30.0
+margin_right = 158.0
+margin_bottom = 50.0
+text = "Ir para o Nível!"
+script = ExtResource( 4 )
+
+[node name="Description" type="Button" parent="Tutorial"]
+margin_left = 42.0
+margin_top = 56.0
+margin_right = 168.0
+margin_bottom = 76.0
+text = "Mais Informações"
+
+[node name="Level1" type="Control" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 400.0
+margin_top = 200.0
+margin_right = 400.0
+margin_bottom = 200.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="Level1"]
+margin_right = 200.0
+margin_bottom = 80.0
+mouse_filter = 2
+color = Color( 0, 0.0156863, 0.258824, 1 )
+
+[node name="LevelName" type="RichTextLabel" parent="Level1"]
+margin_right = 200.0
+margin_bottom = 26.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Nível 1"
+
+[node name="Select" type="Button" parent="Level1"]
+margin_left = 52.0
+margin_top = 30.0
+margin_right = 158.0
+margin_bottom = 50.0
+text = "Ir para o Nível!"
+script = ExtResource( 4 )
+
+[node name="Description" type="Button" parent="Level1"]
+margin_left = 42.0
+margin_top = 56.0
+margin_right = 168.0
+margin_bottom = 76.0
+text = "Mais Informações"
+[connection signal="level_selected" from="Tutorial" to="." method="_on_level_selected"]
+[connection signal="level_selected" from="Tutorial/Select" to="Tutorial" method="_on_Select_level_selected"]
+[connection signal="pressed" from="Tutorial/Select" to="Tutorial/Select" method="_on_Select_pressed"]
+[connection signal="level_selected" from="Level1" to="." method="_on_level_selected"]
+[connection signal="level_selected" from="Level1/Select" to="Level1" method="_on_Select_level_selected"]
+[connection signal="pressed" from="Level1/Select" to="Level1/Select" method="_on_Select_pressed"]

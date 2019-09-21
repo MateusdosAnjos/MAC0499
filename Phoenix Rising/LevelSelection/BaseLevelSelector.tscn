@@ -11,6 +11,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [node name="BaseLevelSelector" type="Control"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1840.0
