@@ -113,6 +113,19 @@ margin_left = -200.0
 margin_right = 200.0
 margin_bottom = 100.0
 custom_colors/default_color = Color( 1, 1, 1, 1 )
+
+[node name="ErrorPopup" type="Popup" parent="."]
+visible = true
+margin_left = 840.0
+margin_top = 400.0
+margin_right = 840.0
+margin_bottom = 400.0
+
+[node name="ErrorMessage" type="RichTextLabel" parent="ErrorPopup"]
+margin_left = -200.0
+margin_right = 200.0
+margin_bottom = 100.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
 [connection signal="pressed" from="ReturnToTitle" to="." method="_on_ReturnToTitle_pressed"]
 [connection signal="level_description" from="Tutorial" to="." method="_on_level_description"]
 [connection signal="level_selected" from="Tutorial" to="." method="_on_level_selected"]

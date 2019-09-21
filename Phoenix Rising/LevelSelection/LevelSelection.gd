@@ -9,9 +9,13 @@ onready var level_dict = {
     }
 
 func _on_level_selected(level_name):
-    var level_path = (level_dict[level_name])[0]
-    get_tree().change_scene(level_path)
-    
+    if level_name in level_dict:
+        var level_path = (level_dict[level_name])[0]
+        get_tree().change_scene(level_path)
+    else:
+        get_node("ErrorPopup/ErrorMessage").text = "Nível não implementado"
+        get_node("ErrorPopup").popup()
+        
 func _on_level_description(level_name):
     var description_text = (level_dict[level_name])[1]
     var Description = get_node("DescriptionPopup/LevelDesciption")
