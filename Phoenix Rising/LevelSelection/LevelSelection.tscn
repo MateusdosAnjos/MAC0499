@@ -67,6 +67,7 @@ margin_left = 52.0
 margin_top = 30.0
 margin_right = 158.0
 margin_bottom = 50.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Ir para o Nível!"
 script = ExtResource( 4 )
 
@@ -75,6 +76,7 @@ margin_left = 42.0
 margin_top = 56.0
 margin_right = 168.0
 margin_bottom = 76.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Mais Informações"
 
 [node name="Level1" type="Control" parent="."]
@@ -104,6 +106,7 @@ margin_left = 52.0
 margin_top = 30.0
 margin_right = 158.0
 margin_bottom = 50.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Ir para o Nível!"
 script = ExtResource( 4 )
 
@@ -112,6 +115,7 @@ margin_left = 42.0
 margin_top = 56.0
 margin_right = 168.0
 margin_bottom = 76.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Mais Informações"
 
 [node name="Level2" type="Control" parent="."]
@@ -141,6 +145,7 @@ margin_left = 52.0
 margin_top = 30.0
 margin_right = 158.0
 margin_bottom = 50.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Ir para o Nível!"
 script = ExtResource( 4 )
 
@@ -149,6 +154,7 @@ margin_left = 42.0
 margin_top = 56.0
 margin_right = 168.0
 margin_bottom = 76.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Mais Informações"
 
 [node name="Level3" type="Control" parent="."]
@@ -178,6 +184,7 @@ margin_left = 52.0
 margin_top = 30.0
 margin_right = 158.0
 margin_bottom = 50.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Ir para o Nível!"
 script = ExtResource( 4 )
 
@@ -186,6 +193,7 @@ margin_left = 42.0
 margin_top = 56.0
 margin_right = 168.0
 margin_bottom = 76.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Mais Informações"
 
 [node name="Level4" type="Control" parent="."]
@@ -215,6 +223,7 @@ margin_left = 52.0
 margin_top = 30.0
 margin_right = 158.0
 margin_bottom = 50.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Ir para o Nível!"
 script = ExtResource( 4 )
 
@@ -223,6 +232,7 @@ margin_left = 42.0
 margin_top = 56.0
 margin_right = 168.0
 margin_bottom = 76.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Mais Informações"
 
 [node name="Level5" type="Control" parent="."]
@@ -252,6 +262,7 @@ margin_left = 52.0
 margin_top = 30.0
 margin_right = 158.0
 margin_bottom = 50.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Ir para o Nível!"
 script = ExtResource( 4 )
 
@@ -260,6 +271,7 @@ margin_left = 42.0
 margin_top = 56.0
 margin_right = 168.0
 margin_bottom = 76.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Mais Informações"
 
 [node name="Level6" type="Control" parent="."]
@@ -289,6 +301,7 @@ margin_left = 52.0
 margin_top = 30.0
 margin_right = 158.0
 margin_bottom = 50.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Ir para o Nível!"
 script = ExtResource( 4 )
 
@@ -297,6 +310,7 @@ margin_left = 42.0
 margin_top = 56.0
 margin_right = 168.0
 margin_bottom = 76.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Mais Informações"
 
 [node name="Level7" type="Control" parent="."]
@@ -326,6 +340,7 @@ margin_left = 52.0
 margin_top = 30.0
 margin_right = 158.0
 margin_bottom = 50.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Ir para o Nível!"
 script = ExtResource( 4 )
 
@@ -334,6 +349,7 @@ margin_left = 42.0
 margin_top = 56.0
 margin_right = 168.0
 margin_bottom = 76.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Mais Informações"
 
 [node name="ReturnToTitle" type="Button" parent="."]
@@ -341,6 +357,7 @@ margin_left = 1620.0
 margin_top = 800.0
 margin_right = 1740.0
 margin_bottom = 840.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Voltar ao Início"
 [connection signal="level_selected" from="Tutorial" to="." method="_on_level_selected"]
 [connection signal="level_selected" from="Tutorial/Select" to="Tutorial" method="_on_Select_level_selected"]
