@@ -101,18 +101,18 @@ margin_bottom = 200.0
 [node name="LevelName" parent="Level5" index="1"]
 text = "Nível 5"
 
-[node name="Popup" type="Popup" parent="."]
+[node name="DescriptionPopup" type="Popup" parent="."]
 visible = true
-margin_left = 829.006
-margin_top = 501.395
-margin_right = 1008.01
-margin_bottom = 625.395
+margin_left = 840.0
+margin_top = 400.0
+margin_right = 840.0
+margin_bottom = 400.0
 
-[node name="ColorRect" type="ColorRect" parent="Popup"]
-margin_left = -51.855
-margin_top = -20.8553
-margin_right = 260.145
-margin_bottom = 137.145
+[node name="LevelDesciption" type="RichTextLabel" parent="DescriptionPopup"]
+margin_left = -200.0
+margin_right = 200.0
+margin_bottom = 100.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
 [connection signal="pressed" from="ReturnToTitle" to="." method="_on_ReturnToTitle_pressed"]
 [connection signal="level_description" from="Tutorial" to="." method="_on_level_description"]
 [connection signal="level_selected" from="Tutorial" to="." method="_on_level_selected"]
