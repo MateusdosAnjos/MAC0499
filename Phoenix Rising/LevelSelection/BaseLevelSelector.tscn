@@ -11,7 +11,6 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [node name="BaseLevelSelector" type="Control"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1840.0
@@ -35,14 +34,17 @@ margin_left = 52.0
 margin_top = 30.0
 margin_right = 158.0
 margin_bottom = 50.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Ir para o Nível!"
 script = ExtResource( 3 )
 
 [node name="Description" type="Button" parent="."]
+modulate = Color( 0.945098, 0.945098, 0.945098, 1 )
 margin_left = 42.0
 margin_top = 56.0
 margin_right = 168.0
 margin_bottom = 76.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Mais Informações"
 [connection signal="level_selected" from="Select" to="." method="_on_Select_level_selected"]
 [connection signal="pressed" from="Select" to="Select" method="_on_Select_pressed"]
