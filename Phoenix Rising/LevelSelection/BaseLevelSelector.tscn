@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://LevelSelection/BaseLevelSelector.gd" type="Script" id=1]
 [ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://LevelSelection/Select.gd" type="Script" id=3]
+[ext_resource path="res://LevelSelection/Description.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
@@ -46,5 +47,8 @@ margin_right = 168.0
 margin_bottom = 76.0
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Mais Informações"
+script = ExtResource( 4 )
 [connection signal="level_selected" from="Select" to="." method="_on_Select_level_selected"]
 [connection signal="pressed" from="Select" to="Select" method="_on_Select_pressed"]
+[connection signal="level_description" from="Description" to="." method="_on_Description_level_description"]
+[connection signal="pressed" from="Description" to="Description" method="_on_Description_pressed"]

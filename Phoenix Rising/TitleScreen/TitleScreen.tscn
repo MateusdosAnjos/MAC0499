@@ -17,13 +17,13 @@ outline_size = 2
 outline_color = Color( 0.180392, 0.486275, 0.909804, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 32
 outline_size = 2
 outline_color = Color( 0.180392, 0.486275, 0.909804, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 32
 outline_size = 2
 outline_color = Color( 0.180392, 0.486275, 0.909804, 1 )
@@ -80,7 +80,6 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Criado por Mateus Agostinho dos Anjos"
 
 [node name="FullScreen" parent="." instance=ExtResource( 4 )]
-modulate = Color( 0.541176, 0.733333, 1, 1 )
 
 [node name="NewGame" type="Button" parent="."]
 anchor_left = 0.5
@@ -91,7 +90,7 @@ margin_left = -100.0
 margin_top = 250.0
 margin_right = 100.0
 margin_bottom = 310.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color_hover = Color( 0.0156863, 0.145098, 0.329412, 1 )
 text = "Novo Jogo"
 flat = true
@@ -105,7 +104,7 @@ margin_left = -145.0
 margin_top = 320.0
 margin_right = 135.0
 margin_bottom = 380.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_hover = Color( 0.0156863, 0.145098, 0.329412, 1 )
 text = "Selecionar Nível"
 flat = true
