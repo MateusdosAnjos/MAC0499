@@ -18,9 +18,9 @@ margin_bottom = 913.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="BaseLevelSelector" parent="." instance=ExtResource( 2 )]
+[node name="Tutorial" parent="." instance=ExtResource( 2 )]
 margin_left = 163.654
 margin_top = 156.69
 margin_right = 163.654
 margin_bottom = 156.69
-[connection signal="level_selected" from="BaseLevelSelector" to="." method="_on_BaseLevelSelector_level_selected"]
+[connection signal="level_selected" from="Tutorial" to="." method="_on_BaseLevelSelector_level_selected"]

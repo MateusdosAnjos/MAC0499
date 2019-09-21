@@ -1,4 +1,13 @@
 extends Control
 
-func _on_BaseLevelSelector_level_selected(path_to_level):
-    get_tree().change_scene(path_to_level)
+onready var level_dict = {
+    "Tutorial": "res://Tutorial/Tutorial.tscn",
+    "Nível 1": "res://Level1/Level1.tscn",
+    "Nível 2": "res://Level2/Level2.tscn",
+    "Nível 3": "res://Level3/Level3.tscn",
+    "Nível 4": "res://Level4/Level4.tscn",
+    }
+
+func _on_BaseLevelSelector_level_selected(level_name):
+    var level_path = level_dict[level_name]
+    get_tree().change_scene(level_path)

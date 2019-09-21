@@ -1,6 +1,6 @@
 extends Control
 
-signal level_selected(path_to_level)
+signal level_selected(level_name)
 
-func _on_Select_level_selected(path_to_level):
-    emit_signal("level_selected", path_to_level)
+func _on_Select_level_selected(level_name):
+    emit_signal("level_selected", level_name)
