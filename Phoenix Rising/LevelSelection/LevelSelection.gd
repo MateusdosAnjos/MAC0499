@@ -12,9 +12,9 @@ func _on_level_selected(level_name):
     var level_path = (level_dict[level_name])[0]
     get_tree().change_scene(level_path)
     
-func _on_level_desciption(level_name):
+func _on_level_description(level_name):
     var description_text = (level_dict[level_name])[1]
+    get_node("Popup").popup()
 
 func _on_ReturnToTitle_pressed():
     get_tree().change_scene("res://TitleScreen/TitleScreen.tscn")
-
