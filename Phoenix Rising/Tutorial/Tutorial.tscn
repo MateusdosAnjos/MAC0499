@@ -102,7 +102,6 @@ position = Vector2( 1000, 280 )
 
 [node name="UsersGuide" type="Control" parent="."]
 pause_mode = 2
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 9 )
@@ -219,7 +218,7 @@ frames = SubResource( 4 )
 animation = "flashy"
 
 [node name="AnimationSpeed" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 248, 60 )
+position = Vector2( 300, 60 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 4 )
 animation = "flashy"
