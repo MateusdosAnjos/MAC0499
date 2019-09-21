@@ -1,15 +1,21 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://LevelSelection/LevelSelection.gd" type="Script" id=1]
-[ext_resource path="res://LevelSelection/BaseLevelSelector.gd" type="Script" id=2]
-[ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://LevelSelection/BaseLevelSelector.gd" type="Script" id=3]
 [ext_resource path="res://LevelSelection/Select.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 72
+outline_size = 4
+outline_color = Color( 0.0509804, 0.0392157, 0.423529, 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
+font_data = ExtResource( 2 )
 
 [node name="LevelSelection" type="Control"]
 anchor_right = 1.0
@@ -26,6 +32,14 @@ margin_bottom = 913.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
+[node name="Title" type="RichTextLabel" parent="."]
+margin_left = 120.0
+margin_top = 40.0
+margin_right = 1760.0
+margin_bottom = 160.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "SELECIONE O NÍVEL QUE DESEJA JOGAR"
+
 [node name="Tutorial" type="Control" parent="."]
 editor/display_folded = true
 anchor_right = 1.0
@@ -34,7 +48,7 @@ margin_left = 180.0
 margin_top = 200.0
 margin_right = 180.0
 margin_bottom = 200.0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="Tutorial"]
 margin_right = 200.0
@@ -71,7 +85,7 @@ margin_left = 420.0
 margin_top = 200.0
 margin_right = 420.0
 margin_bottom = 200.0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="Level1"]
 margin_right = 200.0
@@ -108,7 +122,7 @@ margin_left = 660.0
 margin_top = 200.0
 margin_right = 660.0
 margin_bottom = 200.0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="Level2"]
 margin_right = 200.0
@@ -145,7 +159,7 @@ margin_left = 900.0
 margin_top = 200.0
 margin_right = 900.0
 margin_bottom = 200.0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="Level3"]
 margin_right = 200.0
@@ -182,7 +196,7 @@ margin_left = 1140.0
 margin_top = 200.0
 margin_right = 1140.0
 margin_bottom = 200.0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="Level4"]
 margin_right = 200.0
