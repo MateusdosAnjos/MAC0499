@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://TitleScreen/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://Accessories/art/BluePhoenixLogo.png" type="Texture" id=2]
@@ -17,8 +17,16 @@ outline_size = 2
 outline_color = Color( 0.180392, 0.486275, 0.909804, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 32
+outline_size = 2
+outline_color = Color( 0.180392, 0.486275, 0.909804, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+outline_size = 2
+outline_color = Color( 0.180392, 0.486275, 0.909804, 1 )
 font_data = ExtResource( 3 )
 
 [node name="TitleScreen" type="Control"]
@@ -72,50 +80,35 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Criado por Mateus Agostinho dos Anjos"
 
 [node name="FullScreen" parent="." instance=ExtResource( 4 )]
+modulate = Color( 0.541176, 0.733333, 1, 1 )
 
 [node name="NewGame" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -80.0
-margin_top = 260.0
-margin_right = 120.0
-margin_bottom = 320.0
-flat = true
-
-[node name="Label" type="Label" parent="NewGame"]
-margin_right = 200.0
-margin_bottom = 60.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color_shadow = Color( 0.00784314, 0.192157, 0.447059, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 2
+margin_left = -100.0
+margin_top = 250.0
+margin_right = 100.0
+margin_bottom = 310.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_hover = Color( 0.0156863, 0.145098, 0.329412, 1 )
 text = "Novo Jogo"
-align = 1
-valign = 1
+flat = true
 
 [node name="LevelSelect" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -120.0
-margin_top = 340.0
-margin_right = 160.0
-margin_bottom = 400.0
-flat = true
-
-[node name="Label" type="Label" parent="LevelSelect"]
-margin_right = 200.0
-margin_bottom = 60.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color_shadow = Color( 0.00784314, 0.192157, 0.447059, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 2
+margin_left = -145.0
+margin_top = 320.0
+margin_right = 135.0
+margin_bottom = 380.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_hover = Color( 0.0156863, 0.145098, 0.329412, 1 )
 text = "Selecionar Nível"
-align = 1
-valign = 1
+flat = true
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
 [connection signal="pressed" from="NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="LevelSelect" to="." method="_on_LevelSelect_pressed"]
