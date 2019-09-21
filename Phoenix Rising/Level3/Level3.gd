@@ -3,7 +3,7 @@ extends Node
 signal input_output_defined(input, output)
 
 #INPUT is a list of inputs to be given, one at time, to be processed
-const INPUT = ['10']
+const INPUT = ['7']
 #OUTPUT is the expected string
 const OUTPUT = '80'
 
