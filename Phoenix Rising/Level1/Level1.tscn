@@ -1,22 +1,23 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Level1/Level1.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GenericGameScenes/ColoredFrames.tscn" type="PackedScene" id=3]
 [ext_resource path="res://TitleScreen/FullScreen.tscn" type="PackedScene" id=4]
-[ext_resource path="res://RunEnvironment/RunEnvironment.tscn" type="PackedScene" id=5]
-[ext_resource path="res://GenericGameScenes/Inventory.tscn" type="PackedScene" id=6]
-[ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Level1/Level1Guide.gd" type="Script" id=9]
-[ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=10]
-[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=11]
-[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=12]
-[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=13]
+[ext_resource path="res://GenericGameScenes/ReturnToTitle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://RunEnvironment/RunEnvironment.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GenericGameScenes/Inventory.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Level1/Level1Guide.gd" type="Script" id=10]
+[ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=11]
+[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 10 ), null ],
+"frames": [ ExtResource( 11 ), null ],
 "loop": true,
 "name": "flashy",
 "speed": 5.0
@@ -24,7 +25,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 10 ), null ],
+"frames": [ ExtResource( 11 ), null ],
 "loop": true,
 "name": "flashy",
 "speed": 5.0
@@ -59,22 +60,24 @@ pause_mode = 2
 
 [node name="FullScreen" parent="." instance=ExtResource( 4 )]
 
-[node name="RunEnvironment" parent="." instance=ExtResource( 5 )]
+[node name="ReturnToTitle" parent="." instance=ExtResource( 5 )]
 
-[node name="Inventory" parent="." instance=ExtResource( 6 )]
+[node name="RunEnvironment" parent="." instance=ExtResource( 6 )]
+
+[node name="Inventory" parent="." instance=ExtResource( 7 )]
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 0.0
 margin_bottom = 0.0
 
-[node name="MovableActionSpace" parent="Inventory" instance=ExtResource( 7 )]
+[node name="MovableActionSpace" parent="Inventory" instance=ExtResource( 8 )]
 position = Vector2( 1000, 100 )
 
-[node name="MovableActionSpace2" parent="Inventory" instance=ExtResource( 7 )]
+[node name="MovableActionSpace2" parent="Inventory" instance=ExtResource( 8 )]
 position = Vector2( 614.575, 304.676 )
 
-[node name="UsersGuide" parent="." instance=ExtResource( 8 )]
-script = ExtResource( 9 )
+[node name="UsersGuide" parent="." instance=ExtResource( 9 )]
+script = ExtResource( 10 )
 
 [node name="NoInput" type="AnimatedSprite" parent="UsersGuide"]
 position = Vector2( 130, 250 )
@@ -89,11 +92,11 @@ scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
 animation = "flashy"
 
-[node name="NextLevel" parent="." instance=ExtResource( 11 )]
+[node name="NextLevel" parent="." instance=ExtResource( 12 )]
 
-[node name="ResetLevel" parent="." instance=ExtResource( 12 )]
+[node name="ResetLevel" parent="." instance=ExtResource( 13 )]
 
-[node name="VisualProcess" parent="." instance=ExtResource( 13 )]
+[node name="VisualProcess" parent="." instance=ExtResource( 14 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="output_position" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_position"]
 [connection signal="output_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_visual_entered"]
@@ -102,6 +105,7 @@ animation = "flashy"
 [connection signal="start_input_position" from="InputOutput" to="VisualProcess" method="_on_InputOutput_start_input_position"]
 [connection signal="start_input_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_start_input_visual_entered"]
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
+[connection signal="pressed" from="ReturnToTitle" to="." method="_on_ReturnToTitle_pressed"]
 [connection signal="frame_flashy" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_frame_flashy"]
 [connection signal="level_succeded" from="RunEnvironment" to="." method="_on_RunEnvironment_level_succeded"]
 [connection signal="level_succeded" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_level_succeded"]

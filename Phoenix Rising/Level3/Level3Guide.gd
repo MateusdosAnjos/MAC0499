@@ -2,7 +2,7 @@ extends Control
 
 # Variables
 var dialog = [
-    'Produza o resultado esperado a partir do input (entrada ou ingrediente) fornecido para ajudar.',
+    'Produza o resultado esperado.\nNote que o input (entrada ou ingrediente) fornecido nem sempre irá te ajudar e você deve resolver o problema com as técnicas apresentadas nos níveis anteriores.',
     'Utilize o comando de multiplicação "*" disponibilizado.\nPressione o botão direito em cima do comando de multiplicação para obter ajuda sobre como utilizá-lo.',
     'Não se esqueca de colocar o comando "Print" para imprimir o input na sua saída.'
     ]    
