@@ -1,11 +1,16 @@
 extends Control
 
 onready var level_dict = {
-    "Tutorial": ["res://Tutorial/Tutorial.tscn", "Tutorial"],
-    "Nível 1":  ["res://Level1/Level1.tscn", "Nível 1" ],
-    "Nível 2":  ["res://Level2/Level2.tscn", "Nível 2"],
-    "Nível 3":  ["res://Level3/Level3.tscn", "Nível 3"],
-    "Nível 4":  ["res://Level4/Level4.tscn", "Nível 4"],
+    "Tutorial": 
+        ["res://Tutorial/Tutorial.tscn", "Este nível introduz os conceitos básicos do jogo, explica sobre os itens na tela e como utilizá-los. Perfeito para quem é iniciante."],
+    "Nível 1":  
+        ["res://Level1/Level1.tscn", "Este nível introduz o operador de soma sem nenhuma entrada que auxilia o jogador."],
+    "Nível 2":  
+        ["res://Level2/Level2.tscn", "Este nível introduz o operador de subtração fornecendo uma entrada que auxilia o jogador."],
+    "Nível 3":  
+        ["res://Level3/Level3.tscn", "Este nível introduz o operador de multiplicação fornecendo uma entrada que não auxilia o jogador."],
+    "Nível 4":  
+        ["res://Level4/Level4.tscn", "Este nível introduz o operador de variáveis sem fornecer uma entrada para auxiliar."],
     }
 
 func _on_level_selected(level_name):
