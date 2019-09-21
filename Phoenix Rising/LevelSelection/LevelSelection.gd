@@ -11,3 +11,6 @@ onready var level_dict = {
 func _on_level_selected(level_name):
     var level_path = level_dict[level_name]
     get_tree().change_scene(level_path)
+
+func _on_ReturnToTitle_pressed():
+    get_tree().change_scene("res://TitleScreen/TitleScreen.tscn")

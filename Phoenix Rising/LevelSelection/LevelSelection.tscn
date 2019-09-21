@@ -366,3 +366,4 @@ text = "Voltar ao Início"
 [connection signal="level_selected" from="Level7" to="." method="_on_level_selected"]
 [connection signal="level_selected" from="Level7/Select" to="Level7" method="_on_Select_level_selected"]
 [connection signal="pressed" from="Level7/Select" to="Level7/Select" method="_on_Select_pressed"]
+[connection signal="pressed" from="ReturnToTitle" to="." method="_on_ReturnToTitle_pressed"]
