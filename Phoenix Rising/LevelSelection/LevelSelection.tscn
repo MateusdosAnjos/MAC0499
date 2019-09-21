@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://LevelSelection/LevelSelection.gd" type="Script" id=1]
 [ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
@@ -8,6 +8,10 @@
 size = 72
 outline_size = 4
 outline_color = Color( 0.0509804, 0.0392157, 0.423529, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
 font_data = ExtResource( 2 )
 
 [node name="LevelSelection" type="Control"]
@@ -109,9 +113,10 @@ margin_right = 840.0
 margin_bottom = 400.0
 
 [node name="LevelDesciption" type="RichTextLabel" parent="DescriptionPopup"]
-margin_left = -200.0
-margin_right = 200.0
-margin_bottom = 100.0
+margin_left = -300.0
+margin_right = 500.0
+margin_bottom = 200.0
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 
 [node name="ErrorPopup" type="Popup" parent="."]
