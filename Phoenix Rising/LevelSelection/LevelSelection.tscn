@@ -45,25 +45,24 @@ margin_bottom = 840.0
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Voltar ao Início"
 
-[node name="Tutorial" parent="." instance=ExtResource( 3 )]
+[node name="Tutorial1" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
 margin_left = 220.0
 margin_top = 200.0
 margin_right = 220.0
 margin_bottom = 200.0
 
-[node name="LevelName" parent="Tutorial" index="1"]
-text = "Tutorial"
+[node name="LevelName" parent="Tutorial1" index="1"]
+text = "Tutorial 1"
 
-[node name="Level1" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
+[node name="Tutorial2" parent="." instance=ExtResource( 3 )]
 margin_left = 460.0
 margin_top = 200.0
 margin_right = 460.0
 margin_bottom = 200.0
 
-[node name="LevelName" parent="Level1" index="1"]
-text = "Nível 1"
+[node name="LevelName" parent="Tutorial2" index="1"]
+text = "Tutorial 2"
 
 [node name="Level2" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
@@ -141,10 +140,10 @@ margin_right = 200.0
 margin_bottom = 100.0
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 [connection signal="pressed" from="ReturnToTitle" to="." method="_on_ReturnToTitle_pressed"]
-[connection signal="level_description" from="Tutorial" to="." method="_on_level_description"]
-[connection signal="level_selected" from="Tutorial" to="." method="_on_level_selected"]
-[connection signal="level_description" from="Level1" to="." method="_on_level_description"]
-[connection signal="level_selected" from="Level1" to="." method="_on_level_selected"]
+[connection signal="level_description" from="Tutorial1" to="." method="_on_level_description"]
+[connection signal="level_selected" from="Tutorial1" to="." method="_on_level_selected"]
+[connection signal="level_description" from="Tutorial2" to="." method="_on_level_description"]
+[connection signal="level_selected" from="Tutorial2" to="." method="_on_level_selected"]
 [connection signal="level_description" from="Level2" to="." method="_on_level_description"]
 [connection signal="level_selected" from="Level2" to="." method="_on_level_selected"]
 [connection signal="level_description" from="Level3" to="." method="_on_level_description"]
@@ -154,9 +153,9 @@ custom_colors/default_color = Color( 1, 1, 1, 1 )
 [connection signal="level_description" from="Level5" to="." method="_on_level_description"]
 [connection signal="level_selected" from="Level5" to="." method="_on_level_selected"]
 
-[editable path="Tutorial"]
+[editable path="Tutorial1"]
 
-[editable path="Level1"]
+[editable path="Tutorial2"]
 
 [editable path="Level2"]
 

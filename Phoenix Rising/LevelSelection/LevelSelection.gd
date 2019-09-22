@@ -1,6 +1,10 @@
 extends Control
 
 onready var level_dict = {
+    "Tutorial 1":
+        ["res://Tutorial1/Tutorial1.tscn", "Este nível introduz os conceitos básicos do jogo, explica sobre como conectar os itens na tela. Perfeito para quem é iniciante."],
+    "Tutorial 2":
+        ["res://Tutorial2/Tutorial2.tscn", "Este nível introduz os conceitos básicos do jogo, explica sobre como modificar as conexões dos espaços de ação. Perfeito para quem é iniciante."],
     "Tutorial": 
         ["res://Tutorial/Tutorial.tscn", "Este nível introduz os conceitos básicos do jogo, explica sobre os itens na tela e como utilizá-los. Perfeito para quem é iniciante."],
     "Nível 1":  
