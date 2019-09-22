@@ -9,7 +9,7 @@ const OUTPUT = ''
 
 #List of items to be picked up (write one name for each position
 #it will be picked up 1 item for each name position)
-var pickup_item_list = ["print"]
+var pickup_item_list = []
 
 func _ready():
     var InputText = get_node("InputOutput/InputBase/Input")
@@ -33,9 +33,9 @@ func _on_RunEnvironment_level_succeded():
     
 #Changes to the next level
 func _on_NextLevel_next_level():
-    get_tree().change_scene("res://Level1/Level1.tscn")
+    get_tree().change_scene("res://Tutorial2/Tutorial2.tscn")
 
 #Resets the level
 func _on_ResetLevel_reset_level():
-    get_tree().change_scene("res://Tutorial/Tutorial.tscn")
+    get_tree().change_scene("res://Tutorial1/Tutorial1.tscn")
 

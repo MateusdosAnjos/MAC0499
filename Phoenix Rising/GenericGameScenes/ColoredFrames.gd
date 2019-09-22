@@ -26,15 +26,6 @@ func _stop_flashy(node_name):
     get_node(node_name).set_frame(0)
     get_node(node_name).stop()
 
-#Hides all frames   
-func _hide_all():
-    for node in self.get_children():
-        node.hide()
-
-#Shows all frames
-func _show_all():
-    for node in self.get_children():
-        node.show()
 ###############################################################
 #                  Signals from UsersGuide                    #
 ###############################################################
@@ -43,12 +34,6 @@ func _on_UsersGuide_frame_flashy(node_name, seconds):
 
 func _on_UsersGuide_stop_flashy(node_name):
     _stop_flashy(node_name)
-
-func _on_UsersGuide_hide_all():
-    _hide_all()
-    
-func _on_UsersGuide_show_all():
-    _show_all()
 
 ###############################################################
 #              Signals from Run (RunEnvironment.gd)           #

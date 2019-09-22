@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://InputOutput/FinishInputArea.gd" type="Script" id=1]
 [ext_resource path="res://Accessories/art/output_no_connection.png" type="Texture" id=2]
+[ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, -50, -14, 0, 14, 0 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 12.7509, 25.0964 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
 
 [node name="FinishInputArea" type="Area2D"]
 input_pickable = false
@@ -32,4 +38,12 @@ collision_mask = 8
 position = Vector2( 26, 10 )
 rotation = 4.71239
 shape = SubResource( 2 )
+
+[node name="Title" type="RichTextLabel" parent="."]
+margin_left = 4.0
+margin_top = -24.0
+margin_right = 79.0
+margin_bottom = -2.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Saída"
 [connection signal="area_entered" from="VisualArea" to="." method="_on_VisualArea_area_entered"]

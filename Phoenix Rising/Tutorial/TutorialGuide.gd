@@ -3,8 +3,6 @@ extends Control
 
 signal frame_flashy(node_name, seconds)
 signal stop_flashy(node_name)
-signal hide_all()
-signal show_all()
 
 # Variables
 var dialog = [
@@ -43,7 +41,6 @@ func _ready():
     set_process_input(true)
     TextBox.set_bbcode(dialog[page])
     TextBox.set_visible_characters(0)
-    emit_signal("hide_all")
     _hide_arrows()
     
 ################################################################################
@@ -140,9 +137,7 @@ func show_visuals():
 
 #Hides all guidance arrows and the Dialog Box.
 #Unpauses the game tree
-func _on_Close_pressed(): 
-    if page == 0 or page == 1:
-        emit_signal("show_all")    
+func _on_Close_pressed():  
     if page == 2 or page == 3:
         emit_signal("stop_flashy", "InputFrame")
     if page == 3 or page == 4:
