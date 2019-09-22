@@ -116,10 +116,10 @@ func get_grid_size(item):
     results.y = clamp(int(s.y / cell_size), 1, 500)
     return results
                      
-#Shows the "HowToUse" message (Arraste o item aqui)
+#Shows the name message ("Espaço de Ação")
 #based on the boolean value 'state'
 func show_message(state):
-    var message = get_node("HowToUse")
+    var message = get_node("Name")
     if state:
         message.show()
     else:
