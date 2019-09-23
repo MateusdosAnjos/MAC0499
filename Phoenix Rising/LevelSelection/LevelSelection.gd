@@ -5,6 +5,8 @@ onready var level_dict = {
         ["res://Tutorial1/Tutorial1.tscn", "Este nível introduz os conceitos básicos do jogo, explica sobre como conectar os itens na tela. Perfeito para quem é iniciante."],
     "Tutorial 2":
         ["res://Tutorial2/Tutorial2.tscn", "Este nível introduz os conceitos básicos do jogo, explica sobre como modificar as conexões dos espaços de ação. Perfeito para quem é iniciante."],
+    "Tutorial 3":
+        ["res://Tutorial3/Tutorial3.tscn", "Este nível introduz o primeiro comando do jogo, explica como utilizá-lo e o que ele faz. Indicado somente para quem já fez e entendeu os tutoriais 1 e 2."],
     "Tutorial": 
         ["res://Tutorial/Tutorial.tscn", "Este nível introduz os conceitos básicos do jogo, explica sobre os itens na tela e como utilizá-los. Perfeito para quem é iniciante."],
     "Nível 1":  
