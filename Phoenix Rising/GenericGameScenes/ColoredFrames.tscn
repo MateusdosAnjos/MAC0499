@@ -23,14 +23,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 4 ), null ],
-"loop": true,
-"name": "flashy",
-"speed": 4.0
-}, {
 "frames": [ ExtResource( 3 ), null ],
 "loop": true,
 "name": "success_flashy",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 4 ), null ],
+"loop": true,
+"name": "flashy",
 "speed": 4.0
 } ]
 
