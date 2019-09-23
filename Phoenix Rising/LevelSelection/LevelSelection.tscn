@@ -76,6 +76,7 @@ margin_bottom = 200.0
 text = "Tutorial 3"
 
 [node name="Tutorial4" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 margin_left = 940.0
 margin_top = 200.0
 margin_right = 940.0
@@ -84,15 +85,15 @@ margin_bottom = 200.0
 [node name="LevelName" parent="Tutorial4" index="1"]
 text = "Tutorial 4"
 
-[node name="Level4" parent="." instance=ExtResource( 3 )]
+[node name="Tutorial5" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
 margin_left = 1180.0
 margin_top = 200.0
 margin_right = 1180.0
 margin_bottom = 200.0
 
-[node name="LevelName" parent="Level4" index="1"]
-text = "Nível 4"
+[node name="LevelName" parent="Tutorial5" index="1"]
+text = "Tutorial 5"
 
 [node name="Level5" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
@@ -148,8 +149,8 @@ custom_colors/default_color = Color( 1, 1, 1, 1 )
 [connection signal="level_selected" from="Tutorial3" to="." method="_on_level_selected"]
 [connection signal="level_description" from="Tutorial4" to="." method="_on_level_description"]
 [connection signal="level_selected" from="Tutorial4" to="." method="_on_level_selected"]
-[connection signal="level_description" from="Level4" to="." method="_on_level_description"]
-[connection signal="level_selected" from="Level4" to="." method="_on_level_selected"]
+[connection signal="level_description" from="Tutorial5" to="." method="_on_level_description"]
+[connection signal="level_selected" from="Tutorial5" to="." method="_on_level_selected"]
 [connection signal="level_description" from="Level5" to="." method="_on_level_description"]
 [connection signal="level_selected" from="Level5" to="." method="_on_level_selected"]
 
@@ -161,6 +162,6 @@ custom_colors/default_color = Color( 1, 1, 1, 1 )
 
 [editable path="Tutorial4"]
 
-[editable path="Level4"]
+[editable path="Tutorial5"]
 
 [editable path="Level5"]
