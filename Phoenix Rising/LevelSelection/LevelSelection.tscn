@@ -76,7 +76,6 @@ margin_bottom = 200.0
 text = "Tutorial 3"
 
 [node name="Tutorial4" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
 margin_left = 940.0
 margin_top = 200.0
 margin_right = 940.0

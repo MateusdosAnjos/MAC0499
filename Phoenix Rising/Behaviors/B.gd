@@ -8,7 +8,7 @@ func _argument_check(arguments, word_length):
         return true
     return false
     
-func execute(input, arguments, player_answer, action_number):
+func execute(input, arguments, action_number):
     connect("variable_changed", get_parent().get_node("VariablesMap"), "_on_variable_changed")
     if (not arguments.empty()):
         if (arguments == 'input'):
