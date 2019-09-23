@@ -36,7 +36,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 10 ), null ],
 "loop": true,
@@ -44,7 +44,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 12 )
@@ -150,20 +150,20 @@ animation = "flashy"
 position = Vector2( 967.51, 140.499 )
 rotation = -1.5708
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "flashy"
 
 [node name="RunButton" type="AnimatedSprite" parent="UsersGuide"]
 position = Vector2( 970, 710 )
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "flashy"
 
 [node name="NextLevel" type="AnimatedSprite" parent="UsersGuide"]
 position = Vector2( 1750, 670 )
 rotation = -1.5708
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "flashy"
 
 [node name="Example" type="Control" parent="UsersGuide"]
@@ -181,7 +181,7 @@ texture = ExtResource( 11 )
 [node name="Title" type="RichTextLabel" parent="UsersGuide/Example"]
 margin_right = 100.0
 margin_bottom = 40.0
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 4 )
 text = "Exemplo:"
 
 [node name="NextLevel" parent="." instance=ExtResource( 13 )]

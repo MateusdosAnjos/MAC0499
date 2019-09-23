@@ -60,13 +60,13 @@ color = Color( 0.109804, 0.129412, 0.196078, 1 )
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 290.0
-margin_bottom = 50.0
+margin_bottom = 90.0
 custom_fonts/normal_font = SubResource( 2 )
-text = "Saída Esperada:"
+text = "Resposta Esperada:"
 
 [node name="ExpectedOutput" type="RichTextLabel" parent="OutputBase"]
 margin_left = 10.0
-margin_top = 50.0
+margin_top = 90.0
 margin_right = 290.0
 margin_bottom = 250.0
 custom_fonts/normal_font = SubResource( 1 )
@@ -77,7 +77,7 @@ margin_top = 270.0
 margin_right = 290.0
 margin_bottom = 310.0
 custom_fonts/normal_font = SubResource( 3 )
-text = "Sua Saída:"
+text = "Sua Resposta:"
 
 [node name="PlayerOutput" type="RichTextLabel" parent="OutputBase"]
 margin_left = 10.0
