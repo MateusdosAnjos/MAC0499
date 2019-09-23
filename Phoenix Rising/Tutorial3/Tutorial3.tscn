@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Tutorial1/Tutorial1.gd" type="Script" id=1]
+[ext_resource path="res://Tutorial3/Tutorial3.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GenericGameScenes/ColoredFrames.tscn" type="PackedScene" id=3]
 [ext_resource path="res://TitleScreen/FullScreen.tscn" type="PackedScene" id=4]
@@ -8,13 +8,14 @@
 [ext_resource path="res://RunEnvironment/RunEnvironment.tscn" type="PackedScene" id=6]
 [ext_resource path="res://GenericGameScenes/Inventory.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Tutorial1/Tutorial1Guide.gd" type="Script" id=9]
+[ext_resource path="res://Tutorial3/Tutorial3Guide.gd" type="Script" id=9]
 [ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=10]
-[ext_resource path="res://Accessories/art/tutorial1_example.png" type="Texture" id=11]
+[ext_resource path="res://Accessories/art/tutorial3_example1.png" type="Texture" id=11]
 [ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=13]
-[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=14]
-[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Accessories/art/tutorial3_example2.png" type="Texture" id=13]
+[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=16]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
@@ -49,7 +50,7 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 12 )
 
-[node name="Tutorial1" type="Control"]
+[node name="Tutorial3" type="Control"]
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -61,6 +62,7 @@ mouse_filter = 2
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="InputOutput" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 
 [node name="StartInputArea" parent="InputOutput" index="0"]
 position = Vector2( 700, 180 )
@@ -90,12 +92,12 @@ position = Vector2( 970, 180 )
 
 [node name="UsersGuide" type="Control" parent="."]
 pause_mode = 2
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 9 )
 
 [node name="DialogBox" type="Panel" parent="UsersGuide"]
+editor/display_folded = true
 margin_left = 520.0
 margin_top = 570.0
 margin_right = 1320.0
@@ -131,25 +133,17 @@ margin_right = 774.0
 margin_bottom = 120.0
 text = "Fechar"
 
-[node name="Input" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 700, 128 )
+[node name="Command" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 50, 670 )
 rotation = -1.5708
-scale = Vector2( 0.2, 0.2 )
+scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
 animation = "flashy"
 
-[node name="Output" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 1081.72, 130.959 )
-rotation = -1.5708
+[node name="Argument" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1015, 302 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
-animation = "flashy"
-
-[node name="DragButton" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 967.51, 140.499 )
-rotation = -1.5708
-scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 3 )
 animation = "flashy"
 
 [node name="RunButton" type="AnimatedSprite" parent="UsersGuide"]
@@ -158,36 +152,45 @@ scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 3 )
 animation = "flashy"
 
-[node name="NextLevel" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 1750, 670 )
-rotation = -1.5708
-scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 3 )
-animation = "flashy"
-
-[node name="Example" type="Control" parent="UsersGuide"]
-editor/display_folded = true
+[node name="Example1" type="Control" parent="UsersGuide"]
 margin_left = 640.0
-margin_top = 340.0
+margin_top = 320.0
 margin_right = 640.0
-margin_bottom = 340.0
+margin_bottom = 320.0
 
-[node name="Example" type="TextureRect" parent="UsersGuide/Example"]
-margin_right = 503.0
-margin_bottom = 197.0
+[node name="Example" type="TextureRect" parent="UsersGuide/Example1"]
+margin_right = 522.0
+margin_bottom = 247.0
 texture = ExtResource( 11 )
 
-[node name="Title" type="RichTextLabel" parent="UsersGuide/Example"]
+[node name="Title" type="RichTextLabel" parent="UsersGuide/Example1"]
 margin_right = 100.0
 margin_bottom = 40.0
 custom_fonts/normal_font = SubResource( 4 )
-text = "Exemplo:"
+text = "Exemplo 1:"
 
-[node name="NextLevel" parent="." instance=ExtResource( 13 )]
+[node name="Example2" type="Control" parent="UsersGuide"]
+margin_left = 640.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 320.0
 
-[node name="ResetLevel" parent="." instance=ExtResource( 14 )]
+[node name="Example" type="TextureRect" parent="UsersGuide/Example2"]
+margin_right = 522.0
+margin_bottom = 247.0
+texture = ExtResource( 13 )
 
-[node name="VisualProcess" parent="." instance=ExtResource( 15 )]
+[node name="Title" type="RichTextLabel" parent="UsersGuide/Example2"]
+margin_right = 100.0
+margin_bottom = 40.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "Exemplo 2:"
+
+[node name="NextLevel" parent="." instance=ExtResource( 14 )]
+
+[node name="ResetLevel" parent="." instance=ExtResource( 15 )]
+
+[node name="VisualProcess" parent="." instance=ExtResource( 16 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="output_position" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_position"]
 [connection signal="output_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_visual_entered"]
@@ -197,8 +200,8 @@ text = "Exemplo:"
 [connection signal="start_input_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_start_input_visual_entered"]
 [connection signal="pressed" from="ReturnToTitle" to="." method="_on_ReturnToTitle_pressed"]
 [connection signal="frame_flashy" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_frame_flashy"]
-[connection signal="level_succeded" from="RunEnvironment" to="." method="_on_RunEnvironment_level_succeded"]
 [connection signal="level_succeded" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_level_succeded"]
+[connection signal="level_succeded" from="RunEnvironment" to="." method="_on_RunEnvironment_level_succeded"]
 [connection signal="visual_process_arguments" from="RunEnvironment" to="VisualProcess" method="_on_RunEnvironment_visual_process_arguments"]
 [connection signal="change_area_entered" from="Inventory/MovableActionSpace" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
 [connection signal="entered_tree" from="Inventory/MovableActionSpace" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
