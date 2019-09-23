@@ -90,10 +90,12 @@ func _is_system_connected(CurrentNode):
             return false
 
 func _on_RunButton_pressed():
+    var PlayerOutput = get_parent().get_node("InputOutput/OutputBase/PlayerOutput")
+    PlayerOutput.clear()
     _clean_dict()
     if (_is_system_connected(_find_root())):
         var answer_list = yield(_process_input(input_list), "completed")
-        var answer_string = get_parent().get_node("InputOutput/OutputBase/PlayerOutput").text
+        var answer_string = PlayerOutput.text
         if (answer_string == output):
             _success_routine()
         else:
