@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Level2/Level2.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -10,26 +10,9 @@
 [ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UsersGuide/UsersGuide.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Level2/Level2Guide.gd" type="Script" id=10]
-[ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=11]
-[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=12]
-[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=13]
-[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=14]
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 11 ), null ],
-"loop": true,
-"name": "flashy",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 11 ), null ],
-"loop": true,
-"name": "flashy",
-"speed": 5.0
-} ]
+[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=13]
 
 [node name="Level2" type="Control"]
 anchor_right = 1.0
@@ -47,13 +30,12 @@ mouse_filter = 2
 color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 
 [node name="InputOutput" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
 
 [node name="StartInputArea" parent="InputOutput" index="0"]
 position = Vector2( 500, 200 )
 
 [node name="FinishInputArea" parent="InputOutput" index="1"]
-position = Vector2( 1340, 200 )
+position = Vector2( 1370, 200 )
 
 [node name="ColoredFrames" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
@@ -80,24 +62,11 @@ position = Vector2( 614.575, 304.676 )
 [node name="UsersGuide" parent="." instance=ExtResource( 9 )]
 script = ExtResource( 10 )
 
-[node name="WithInput" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 160, 250 )
-scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 1 )
-animation = "flashy"
+[node name="NextLevel" parent="." instance=ExtResource( 11 )]
 
-[node name="SubtractionCommand" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 30, 670 )
-rotation = 4.71239
-scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 2 )
-animation = "flashy"
+[node name="ResetLevel" parent="." instance=ExtResource( 12 )]
 
-[node name="NextLevel" parent="." instance=ExtResource( 12 )]
-
-[node name="ResetLevel" parent="." instance=ExtResource( 13 )]
-
-[node name="VisualProcess" parent="." instance=ExtResource( 14 )]
+[node name="VisualProcess" parent="." instance=ExtResource( 13 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="output_position" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_position"]
 [connection signal="output_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_visual_entered"]
