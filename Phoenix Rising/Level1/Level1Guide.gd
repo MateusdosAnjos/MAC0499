@@ -2,9 +2,8 @@ extends Control
 
 # Variables
 var dialog = [
-    'Agora produza o resultado esperado a partir de nenhuma entrada (input), simbolizada com "-".\n\nIsso significa que você não recebe nenhum ingrediente.',
-    'Para obter seu "bolo" (a resposta esperada) utilize o comando de soma "+" disponibilizado e crie a resposta.\n\nPressione o botão direito em cima do comando de soma para obter ajuda sobre como utilizá-lo.',
-    'Não se esqueca de colocar o comando "Print" para imprimir o input (sua resposta) na sua saída.'
+    'Este é o nível 1!\nAgora você terá seu primeiro desafio sem nenhuma explicação extra!',
+    'Complete este nível utilizando o comando de subtração que tem o funcionamento análogo ao comando de soma.\nBOA SORTE!',
     ]    
         
 var page = 0
@@ -14,15 +13,13 @@ onready var SkipButton = get_node("DialogBox/Skip")
 onready var TextBox = get_node("DialogBox/TextBox")
 
 #Insert the node name of poiting arrows sprites
-var arrow_sprites = ["NoInput", "SumCommand"]
+var arrow_sprites = []
 
 # Functions        
 func _ready():
     set_process_input(true)
     TextBox.set_bbcode(dialog[page])
     TextBox.set_visible_characters(0)
-    _hide_arrows()
-    _animation_show_and_play("NoInput", "flashy")
     
 ################################################################################
 #                         Text and pages Handlers                              #
@@ -68,16 +65,10 @@ func _animation_stop_and_hide(node_name):
 
 #Shows the animations based on the actual page of dialog box    
 func show_visuals():
-    match page:
-        1:
-            _animation_stop_and_hide("NoInput")
-            _animation_show_and_play("SumCommand", "flashy")
-        2:
-            _animation_stop_and_hide("SumCommand")
+    pass
 
 #Hides all guidance arrows and the Dialog Box.
 #Unpauses the game tree
 func _on_Close_pressed():
-    _hide_arrows()
     $DialogBox.hide()
     get_tree().paused = false  

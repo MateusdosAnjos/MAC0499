@@ -33,7 +33,7 @@ func _on_RunEnvironment_level_succeded():
     
 #Changes to the next level
 func _on_NextLevel_next_level():
-    get_tree().change_scene("res://Tutorial6/Tutorial6.tscn")
+    get_tree().change_scene("res://Level1/Level1.tscn")
 
 #Resets the level
 func _on_ResetLevel_reset_level():
