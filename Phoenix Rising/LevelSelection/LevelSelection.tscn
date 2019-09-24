@@ -95,15 +95,15 @@ margin_bottom = 200.0
 [node name="LevelName" parent="Tutorial5" index="1"]
 text = "Tutorial 5"
 
-[node name="Level5" parent="." instance=ExtResource( 3 )]
+[node name="Level1" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
 margin_left = 1420.0
 margin_top = 200.0
 margin_right = 1420.0
 margin_bottom = 200.0
 
-[node name="LevelName" parent="Level5" index="1"]
-text = "Nível 5"
+[node name="LevelName" parent="Level1" index="1"]
+text = "Nível 1"
 
 [node name="DescriptionPopup" type="Popup" parent="."]
 editor/display_folded = true
@@ -151,8 +151,8 @@ custom_colors/default_color = Color( 1, 1, 1, 1 )
 [connection signal="level_selected" from="Tutorial4" to="." method="_on_level_selected"]
 [connection signal="level_description" from="Tutorial5" to="." method="_on_level_description"]
 [connection signal="level_selected" from="Tutorial5" to="." method="_on_level_selected"]
-[connection signal="level_description" from="Level5" to="." method="_on_level_description"]
-[connection signal="level_selected" from="Level5" to="." method="_on_level_selected"]
+[connection signal="level_description" from="Level1" to="." method="_on_level_description"]
+[connection signal="level_selected" from="Level1" to="." method="_on_level_selected"]
 
 [editable path="Tutorial1"]
 
@@ -164,4 +164,4 @@ custom_colors/default_color = Color( 1, 1, 1, 1 )
 
 [editable path="Tutorial5"]
 
-[editable path="Level5"]
+[editable path="Level1"]
