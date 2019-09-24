@@ -16,7 +16,7 @@ onready var level_dict = {
     "Nível 1":  
         ["res://Level1/Level1.tscn", "Este é o primeiro nível que o jogador faz completamente sozinho. Só deve ser tentato por alguém que terminou os 5 primeiros tutoriais."],
     "Nível 2":  
-        ["res://Level2/Level2.tscn", "Este nível introduz o operador de subtração fornecendo uma entrada que auxilia o jogador."],
+        ["res://Level2/Level2.tscn", "Este nível introduz o operador de multiplicação deixando o jogador encontrar a resposta sozinho."],
     "Nível 3":  
         ["res://Level3/Level3.tscn", "Este nível introduz o operador de multiplicação fornecendo uma entrada que não auxilia o jogador."],
     "Nível 4":  

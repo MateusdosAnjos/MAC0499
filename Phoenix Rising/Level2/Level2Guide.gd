@@ -2,7 +2,7 @@ extends Control
 
 # Variables
 var dialog = [
-    'Você está indo muito bem!\nAgora resolva este novo nível utilizando o comando de multiplicação',
+    'Você está indo muito bem!\nAgora resolva este novo nível utilizando o comando de multiplicação.',
     ]    
         
 var page = 0
