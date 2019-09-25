@@ -19,6 +19,8 @@ onready var level_dict = {
         ["res://Level2/Level2.tscn", "Este nível introduz o operador de multiplicação deixando o jogador encontrar a resposta sozinho."],
     "Nível 3":  
         ["res://Level3/Level3.tscn", "Este nível continua com o operador de multiplicação. Qual o motivo?"],
+    "Tutorial 6": 
+        ["res://Tutorial6/Tutorial6.tscn", "Este nível introduz o conceito de variável explicando seu uso e importância. Indispensável para os iniciantes."],
     "Nível 4":  
         ["res://Level4/Level4.tscn", "Este nível introduz o operador de variáveis sem fornecer uma entrada para auxiliar."],
     }
