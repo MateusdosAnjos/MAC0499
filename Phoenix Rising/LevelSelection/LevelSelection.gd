@@ -18,7 +18,7 @@ onready var level_dict = {
     "Nível 2":  
         ["res://Level2/Level2.tscn", "Este nível introduz o operador de multiplicação deixando o jogador encontrar a resposta sozinho."],
     "Nível 3":  
-        ["res://Level3/Level3.tscn", "Este nível introduz o operador de multiplicação fornecendo uma entrada que não auxilia o jogador."],
+        ["res://Level3/Level3.tscn", "Este nível continua com o operador de multiplicação. Qual o motivo?"],
     "Nível 4":  
         ["res://Level4/Level4.tscn", "Este nível introduz o operador de variáveis sem fornecer uma entrada para auxiliar."],
     }
