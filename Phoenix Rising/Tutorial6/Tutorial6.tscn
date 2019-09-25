@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Tutorial5/Tutorial5.gd" type="Script" id=1]
+[ext_resource path="res://Tutorial6/Tutorial6.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GenericGameScenes/ColoredFrames.tscn" type="PackedScene" id=3]
 [ext_resource path="res://TitleScreen/FullScreen.tscn" type="PackedScene" id=4]
@@ -8,13 +8,14 @@
 [ext_resource path="res://RunEnvironment/RunEnvironment.tscn" type="PackedScene" id=6]
 [ext_resource path="res://GenericGameScenes/Inventory.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Tutorial5/Tutorial5Guide.gd" type="Script" id=9]
+[ext_resource path="res://Tutorial6/Tutorial6Guide.gd" type="Script" id=9]
 [ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=10]
-[ext_resource path="res://Accessories/art/tutorial5_example.png" type="Texture" id=11]
+[ext_resource path="res://Accessories/art/tutorial6_example1.png" type="Texture" id=11]
 [ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=13]
-[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=14]
-[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Accessories/art/tutorial6_example2.png" type="Texture" id=13]
+[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=16]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
@@ -36,12 +37,20 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 10 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 5.0
+} ]
+
 [sub_resource type="DynamicFont" id=3]
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 12 )
 
-[node name="Tutorial5" type="Control"]
+[node name="Tutorial6" type="Control"]
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -56,10 +65,10 @@ color = Color( 0.0117647, 0.0745098, 0.2, 1 )
 editor/display_folded = true
 
 [node name="StartInputArea" parent="InputOutput" index="0"]
-position = Vector2( 580, 120 )
+position = Vector2( 580, 480 )
 
 [node name="FinishInputArea" parent="InputOutput" index="1"]
-position = Vector2( 1160, 348 )
+position = Vector2( 1240, 332 )
 
 [node name="ColoredFrames" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
@@ -86,6 +95,7 @@ position = Vector2( 640, 160 )
 
 [node name="UsersGuide" type="Control" parent="."]
 pause_mode = 2
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 9 )
@@ -127,36 +137,61 @@ margin_right = 774.0
 margin_bottom = 120.0
 text = "Fechar"
 
-[node name="SumCommand" type="AnimatedSprite" parent="UsersGuide"]
-position = Vector2( 30, 670 )
+[node name="VariableA" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 32, 670 )
 rotation = 4.71239
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
 animation = "flashy"
 
-[node name="Example" type="Control" parent="UsersGuide"]
+[node name="VariablesValues" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1400, 90 )
+scale = Vector2( 0.8, 0.8 )
+frames = SubResource( 4 )
+animation = "flashy"
+flip_h = true
+
+[node name="Example1" type="Control" parent="UsersGuide"]
 editor/display_folded = true
-margin_left = 815.0
+margin_left = 760.0
 margin_top = 340.0
-margin_right = 815.0
+margin_right = 760.0
 margin_bottom = 340.0
 
-[node name="TextureRect" type="TextureRect" parent="UsersGuide/Example"]
-margin_right = 213.0
-margin_bottom = 211.0
+[node name="TextureRect" type="TextureRect" parent="UsersGuide/Example1"]
+margin_right = 235.0
+margin_bottom = 231.0
 texture = ExtResource( 11 )
 
-[node name="Title" type="RichTextLabel" parent="UsersGuide/Example"]
+[node name="Title" type="RichTextLabel" parent="UsersGuide/Example1"]
 margin_right = 100.0
 margin_bottom = 40.0
 custom_fonts/normal_font = SubResource( 3 )
-text = "Exemplo:"
+text = "Exemplo 1:"
 
-[node name="NextLevel" parent="." instance=ExtResource( 13 )]
+[node name="Example2" type="Control" parent="UsersGuide"]
+editor/display_folded = true
+margin_left = 760.0
+margin_top = 340.0
+margin_right = 760.0
+margin_bottom = 340.0
 
-[node name="ResetLevel" parent="." instance=ExtResource( 14 )]
+[node name="TextureRect" type="TextureRect" parent="UsersGuide/Example2"]
+margin_right = 213.0
+margin_bottom = 211.0
+texture = ExtResource( 13 )
 
-[node name="VisualProcess" parent="." instance=ExtResource( 15 )]
+[node name="Title" type="RichTextLabel" parent="UsersGuide/Example2"]
+margin_right = 100.0
+margin_bottom = 40.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Exemplo 2:"
+
+[node name="NextLevel" parent="." instance=ExtResource( 14 )]
+
+[node name="ResetLevel" parent="." instance=ExtResource( 15 )]
+
+[node name="VisualProcess" parent="." instance=ExtResource( 16 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="output_position" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_position"]
 [connection signal="output_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_visual_entered"]
