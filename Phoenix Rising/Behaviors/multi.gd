@@ -32,7 +32,7 @@ func execute(input, arguments, action_number):
         if (values[0].is_valid_integer() and values[1].is_valid_integer()):
             return [(int(values[0]) * int(values[1])), true]
         elif (values[0].is_valid_float() and values[1].is_valid_float()):
-            return [(float(values[0]) * float(values[1])), true]      
+            return [round((float(values[0])) * float(values[1])), true]      
         else:
             return $ErrorMessages.show_error_message("multi", action_number)
     else:

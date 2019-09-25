@@ -2,9 +2,8 @@ extends Control
 
 # Variables
 var dialog = [
-    'Produza o resultado esperado.\nNote que o input (entrada ou ingrediente) fornecido nem sempre irá te ajudar e você deve resolver o problema com as técnicas apresentadas nos níveis anteriores.',
-    'Utilize o comando de multiplicação "*" disponibilizado.\nPressione o botão direito em cima do comando de multiplicação para obter ajuda sobre como utilizá-lo.',
-    'Não se esqueca de colocar o comando "Print" para imprimir o input na sua saída.'
+    'Ops, este nível te fornece a multiplicação novamente....\nAinda assim é um nível DIFERENTE!',
+    '1/2 = 0.5 e 0.5 * 4 = 2\n\nQue tipo de ajuda é essa?!',
     ]    
 
 var page = 0
@@ -14,15 +13,13 @@ onready var SkipButton = get_node("DialogBox/Skip")
 onready var TextBox = get_node("DialogBox/TextBox")
 
 #Insert the node name of poiting arrows sprites
-var arrow_sprites = ["WithInput", "MultiplicationCommand"]
+var arrow_sprites = []
 
 # Functions        
 func _ready():
     set_process_input(true)
     TextBox.set_bbcode(dialog[page])
     TextBox.set_visible_characters(0)
-    _hide_arrows()
-    _animation_show_and_play("WithInput", "flashy")
     
 ################################################################################
 #                         Text and pages Handlers                              #
@@ -68,12 +65,7 @@ func _animation_stop_and_hide(node_name):
 
 #Shows the animations based on the actual page of dialog box    
 func show_visuals():
-    match page:
-        1:
-            _animation_stop_and_hide("WithInput")
-            _animation_show_and_play("MultiplicationCommand", "flashy")
-        2:
-            _animation_stop_and_hide("MultiplicationCommand")
+    pass
 
 #Hides all guidance arrows and the Dialog Box.
 #Unpauses the game tree
