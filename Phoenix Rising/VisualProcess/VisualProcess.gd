@@ -74,6 +74,7 @@ func _on_InputOutput_start_input_visual_entered():
 
 #Called when the visual reaches the end of the path (Output arrow)
 func _on_InputOutput_output_visual_entered():
+    curve = Curve2D.new()
+    $Path.set_curve(curve)
     $Path.hide()
-    $Path/PathFollow2D.set_unit_offset(0)
     emit_signal("end_path")
