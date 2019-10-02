@@ -2,7 +2,7 @@ extends Control
 
 signal frame_flashy(node_name, seconds)
 signal level_succeded()
-signal visual_process_arguments(path_points, intermediate_inputs)
+signal visual_process_arguments(path_points, intermediate_inputs, input, functions, arguments_list, numbers)
 
 var input_list
 var output
@@ -28,8 +28,10 @@ func _find_root():
             return node
                     
 func _process_input(input_list):
-    var functions = []
     for input in input_list:
+        var functions = []
+        var arguments_list = []
+        var numbers = []
         var processed_values = [input, true]
         var arguments = null
         var node_item = null
@@ -50,6 +52,8 @@ func _process_input(input_list):
                 arguments = CurrentActionSpace.argument_list
                 processed_values = $RunScript.execute(processed_values[0], arguments, action_number)
                 functions.append(funcref($RunScript, "execute"))
+                arguments_list.append(arguments)
+                numbers.append(action_number)
                 if (processed_values == null):
                     yield(get_tree(), "idle_frame")
                     return
@@ -60,11 +64,8 @@ func _process_input(input_list):
                 intermediate_inputs.append(processed_values[0])
             else:
                 CurrentNode = CurrentNode.right_child
-        emit_signal("visual_process_arguments", path_points, intermediate_inputs)
+        emit_signal("visual_process_arguments", path_points, intermediate_inputs, input, functions, arguments_list, numbers)
         yield(get_parent().get_node("VisualProcess"), "end_path")
-    print(functions)
-    for f in functions:
-        f.call_func(0, "input", 1)
     return             
 
 func set_answer_on_screen(answer):
