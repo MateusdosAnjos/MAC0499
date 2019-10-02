@@ -28,6 +28,7 @@ func _find_root():
             return node
                     
 func _process_input(input_list):
+    var functions = []
     for input in input_list:
         var processed_values = [input, true]
         var arguments = null
@@ -37,7 +38,6 @@ func _process_input(input_list):
         var action_number = 0
         var path_points = []
         var intermediate_inputs = []
-    
         var CurrentNode = _find_root()
         while CurrentNode != null and CurrentNode.name != "InputOutput":
             CurrentActionSpace = CurrentNode.get_node("ActionSpace")
@@ -49,6 +49,7 @@ func _process_input(input_list):
                 $RunScript.set_script(input_process_code)
                 arguments = CurrentActionSpace.argument_list
                 processed_values = $RunScript.execute(processed_values[0], arguments, action_number)
+                functions.append(funcref($RunScript, "execute"))
                 if (processed_values == null):
                     yield(get_tree(), "idle_frame")
                     return
@@ -61,6 +62,9 @@ func _process_input(input_list):
                 CurrentNode = CurrentNode.right_child
         emit_signal("visual_process_arguments", path_points, intermediate_inputs)
         yield(get_parent().get_node("VisualProcess"), "end_path")
+    print(functions)
+    for f in functions:
+        f.call_func(0, "input", 1)
     return             
 
 func set_answer_on_screen(answer):
