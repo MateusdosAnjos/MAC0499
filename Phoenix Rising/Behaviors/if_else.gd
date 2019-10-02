@@ -98,7 +98,7 @@ func _argument_check(input, arguments):
             return null    
     return values
             
-func execute(input, arguments, player_answer, action_number):
+func execute(input, arguments, action_number):
     if (input.is_valid_integer()):
         input = int(input)
     var values = _argument_check(input, arguments)

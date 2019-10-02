@@ -1,0 +1,215 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Tutorial1/Tutorial1.gd" type="Script" id=1]
+[ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GenericGameScenes/ColoredFrames.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TitleScreen/FullScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GenericGameScenes/ReturnToTitle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://RunEnvironment/RunEnvironment.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GenericGameScenes/Inventory.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ActionSpace/MovableActionSpace.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Tutorial1/Tutorial1Guide.gd" type="Script" id=9]
+[ext_resource path="res://Accessories/art/arrow.png" type="Texture" id=10]
+[ext_resource path="res://Accessories/art/tutorial1_example.png" type="Texture" id=11]
+[ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=15]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.14902, 0.427451, 0.866667, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 10 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 10 ), null ],
+"loop": true,
+"name": "flashy",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=4]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 12 )
+
+[node name="Tutorial1" type="Control"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1840.0
+margin_bottom = 920.0
+mouse_filter = 2
+color = Color( 0.0117647, 0.0745098, 0.2, 1 )
+
+[node name="InputOutput" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+
+[node name="StartInputArea" parent="InputOutput" index="0"]
+position = Vector2( 700, 180 )
+
+[node name="FinishInputArea" parent="InputOutput" index="1"]
+position = Vector2( 1060, 180 )
+
+[node name="ColoredFrames" parent="." instance=ExtResource( 3 )]
+pause_mode = 2
+
+[node name="FullScreen" parent="." instance=ExtResource( 4 )]
+
+[node name="ReturnToTitle" parent="." instance=ExtResource( 5 )]
+
+[node name="RunEnvironment" parent="." instance=ExtResource( 6 )]
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="Inventory" parent="." instance=ExtResource( 7 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="MovableActionSpace" parent="Inventory" instance=ExtResource( 8 )]
+position = Vector2( 970, 180 )
+
+[node name="UsersGuide" type="Control" parent="."]
+pause_mode = 2
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+
+[node name="DialogBox" type="Panel" parent="UsersGuide"]
+margin_left = 520.0
+margin_top = 570.0
+margin_right = 1320.0
+margin_bottom = 698.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="TextBox" type="RichTextLabel" parent="UsersGuide/DialogBox"]
+margin_left = 20.0
+margin_top = 20.9025
+margin_right = 780.0
+margin_bottom = 94.9025
+rect_pivot_offset = Vector2( -470, -380.902 )
+bbcode_enabled = true
+visible_characters = 0
+
+[node name="Timer" type="Timer" parent="UsersGuide/DialogBox"]
+wait_time = 0.04
+autostart = true
+
+[node name="Skip" type="Button" parent="UsersGuide/DialogBox"]
+modulate = Color( 0.286275, 0.560784, 0.992157, 1 )
+margin_left = 660.0
+margin_top = 100.0
+margin_right = 704.0
+margin_bottom = 120.0
+text = "Pular"
+
+[node name="Close" type="Button" parent="UsersGuide/DialogBox"]
+modulate = Color( 0.286275, 0.560784, 0.992157, 1 )
+margin_left = 720.0
+margin_top = 100.0
+margin_right = 774.0
+margin_bottom = 120.0
+text = "Fechar"
+
+[node name="Input" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 700, 128 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 2 )
+animation = "flashy"
+
+[node name="Output" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1081.72, 130.959 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 2 )
+animation = "flashy"
+
+[node name="DragButton" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 967.51, 140.499 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 3 )
+animation = "flashy"
+
+[node name="RunButton" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 970, 710 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 3 )
+animation = "flashy"
+
+[node name="NextLevel" type="AnimatedSprite" parent="UsersGuide"]
+position = Vector2( 1750, 670 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 3 )
+animation = "flashy"
+
+[node name="Example" type="Control" parent="UsersGuide"]
+editor/display_folded = true
+margin_left = 640.0
+margin_top = 340.0
+margin_right = 640.0
+margin_bottom = 340.0
+
+[node name="Example" type="TextureRect" parent="UsersGuide/Example"]
+margin_right = 503.0
+margin_bottom = 197.0
+texture = ExtResource( 11 )
+
+[node name="Title" type="RichTextLabel" parent="UsersGuide/Example"]
+margin_right = 100.0
+margin_bottom = 40.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "Exemplo:"
+
+[node name="NextLevel" parent="." instance=ExtResource( 13 )]
+
+[node name="ResetLevel" parent="." instance=ExtResource( 14 )]
+
+[node name="VisualProcess" parent="." instance=ExtResource( 15 )]
+[connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
+[connection signal="output_position" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_position"]
+[connection signal="output_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_visual_entered"]
+[connection signal="start_input_entered" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_entered"]
+[connection signal="start_input_exited" from="InputOutput" to="Inventory" method="_on_InputOutput_start_input_exited"]
+[connection signal="start_input_position" from="InputOutput" to="VisualProcess" method="_on_InputOutput_start_input_position"]
+[connection signal="start_input_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_start_input_visual_entered"]
+[connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
+[connection signal="pressed" from="ReturnToTitle" to="." method="_on_ReturnToTitle_pressed"]
+[connection signal="frame_flashy" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_frame_flashy"]
+[connection signal="level_succeded" from="RunEnvironment" to="." method="_on_RunEnvironment_level_succeded"]
+[connection signal="level_succeded" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_level_succeded"]
+[connection signal="visual_process_arguments" from="RunEnvironment" to="VisualProcess" method="_on_RunEnvironment_visual_process_arguments"]
+[connection signal="change_area_entered" from="Inventory/MovableActionSpace" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
+[connection signal="entered_tree" from="Inventory/MovableActionSpace" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
+[connection signal="frame_flashy" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_frame_flashy"]
+[connection signal="stop_flashy" from="UsersGuide" to="ColoredFrames" method="_on_UsersGuide_stop_flashy"]
+[connection signal="timeout" from="UsersGuide/DialogBox/Timer" to="UsersGuide" method="_on_Timer_timeout"]
+[connection signal="pressed" from="UsersGuide/DialogBox/Skip" to="UsersGuide" method="_on_Skip_pressed"]
+[connection signal="pressed" from="UsersGuide/DialogBox/Close" to="UsersGuide" method="_on_Close_pressed"]
+[connection signal="next_level" from="NextLevel" to="." method="_on_NextLevel_next_level"]
+[connection signal="reset_level" from="ResetLevel" to="." method="_on_ResetLevel_reset_level"]
+
+[editable path="InputOutput"]

@@ -36,7 +36,7 @@ func _prepare_values(values, input):
                 values[i] = str("'", variable_dict[values[i]], "'")
     return values
                 
-func execute(input, arguments, player_answer, action_number):
+func execute(input, arguments, action_number):
     var values = _split_arguments(arguments)
     if (values != null):
         values = _prepare_values(values, input)

@@ -24,7 +24,7 @@ func _prepare_values(values, input):
                 values.set(i, int(variable_dict[values[i]]))
     return values
                
-func execute(input, arguments, player_answer, action_number):
+func execute(input, arguments, action_number):
     var values = _split_arguments(arguments)
     if (values != null):
         values = _prepare_values(values, input)
@@ -32,7 +32,7 @@ func execute(input, arguments, player_answer, action_number):
         if (values[0].is_valid_integer() and values[1].is_valid_integer()):
             return [(int(values[0]) * int(values[1])), true]
         elif (values[0].is_valid_float() and values[1].is_valid_float()):
-            return [(float(values[0]) * float(values[1])), true]      
+            return [round((float(values[0])) * float(values[1])), true]      
         else:
             return $ErrorMessages.show_error_message("multi", action_number)
     else:
