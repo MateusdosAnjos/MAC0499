@@ -1,0 +1,31 @@
+Monografia:
+
+- Introdução (geral sobre o trabalho): 
+	- descrever o que quer fazer, 
+	- motivo de fazer, 
+	- objetivos (facilitar aprendizado)
+	- metodologia (feito com godot, mantendo no git)
+
+- Conceitos básicos:
+	- conhecimento necessário para entender (godot)
+	- metodologias de ensino (se utilizou)
+
+- (estado da arte(mestrado/doutorado)) -> final
+	- citar algumas metodologias parecidas (como MIT)
+
+- Projeto (explicação detalhada):
+	- o que quer fazer
+	- descrever o processo incluindo as dificuldades (talvez nos resultados)
+	- explicar sobre as cenas mais importantes
+	- detalhes sobre adições na estrutura interna
+
+	- resultados:
+		- feedback dos usuários
+
+- Conclusões:
+	- descrever o que consegui fazer
+	- o que faltou fazer ou não foi feito de propósito
+	- trabalhos futuros
+
+
+Estudar um pouco sobre SoloLearn e implementar a parte do "Jogo"
