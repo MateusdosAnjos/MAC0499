@@ -74,7 +74,7 @@ func execute_print(input, arguments, action_number, CurrentNode):
             return $ErrorMessages.show_error_message("print", action_number)   
     else:
         return $ErrorMessages.show_error_message("print", action_number)
-    insert_node(CurrentNode, true) 
+    #insert_node(CurrentNode, true) 
     return [input, true]
 
 ###############################################################################
@@ -85,13 +85,13 @@ func execute_soma(input, arguments, action_number, CurrentNode):
     if (values != null):
         values = _prepare_values(values, input)
         if (_is_valid_integer(values[0]) and _is_valid_integer(values[1])):
-            insert_node(CurrentNode, true)
+            #insert_node(CurrentNode, true)
             return [(int(values[0]) + int(values[1])), true]
         elif (values[0].is_valid_float() and values[1].is_valid_float()):
-            insert_node(CurrentNode, true) 
+            #insert_node(CurrentNode, true) 
             return [(float(values[0]) + float(values[1])), true]      
         else:
             if (_string_check(values[0]) and _string_check(values[1])):
-                insert_node(CurrentNode, true) 
+                #insert_node(CurrentNode, true) 
                 return [(values[0].substr(1, values[0].length()-2) + values[1].substr(1, values[1].length()-2)), true]
     return $ErrorMessages.show_error_message("soma", action_number)

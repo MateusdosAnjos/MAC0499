@@ -44,7 +44,7 @@ func _on_RunEnvironment_visual_process_arguments(path_points, input, functions, 
     node_list = nodes
     visual_inputs = [processed_input]
     
-    total_visuals = len(visual_inputs)
+    total_visuals = len(visual_functions)
     curve.clear_points()
     $Path.set_curve(curve)
     var curve_points = []
