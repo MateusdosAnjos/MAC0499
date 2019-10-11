@@ -2,7 +2,7 @@ extends Control
 
 signal frame_flashy(node_name, seconds)
 signal level_succeded()
-signal visual_process_arguments(path_points, intermediate_inputs, input, functions, arguments_list, numbers)
+signal visual_process_arguments(path_points, input, functions, arguments_list, numbers, nodes)
 
 var input_list
 var output
@@ -27,19 +27,18 @@ func _find_root():
         if regex.search(node.get_name()) and node.get_node("ActionNumber").text == "1":
             return node
                     
-func _process_input(input_list):
+func _process_input(input_list):    
     for input in input_list:
         var functions = []
         var arguments_list = []
         var numbers = []
-        var processed_values = [input, true]
         var arguments = null
         var node_item = null
         var input_process_code = null
         var CurrentActionSpace = null
         var action_number = 0
         var path_points = []
-        var intermediate_inputs = []
+        var node_list = []
         var CurrentNode = _find_root()
         while CurrentNode != null and CurrentNode.name != "InputOutput":
             CurrentActionSpace = CurrentNode.get_node("ActionSpace")
@@ -47,24 +46,16 @@ func _process_input(input_list):
                 path_points.append(CurrentNode.global_position)
                 action_number = CurrentNode.get_node("ActionNumber").text
                 node_item = CurrentActionSpace.placed_item.get_meta("id")
-                input_process_code = load(ItemDB.get_item(node_item)["codePath"])
-                $RunScript.set_script(input_process_code)
+                input_process_code = ItemDB.get_item(node_item)["codePath"]
                 arguments = CurrentActionSpace.argument_list
-                processed_values = $RunScript.execute(processed_values[0], arguments, action_number)
-                functions.append(funcref($RunScript, "execute"))
+                
+                functions.append(funcref($RunScript, input_process_code))
                 arguments_list.append(arguments)
                 numbers.append(action_number)
-                if (processed_values == null):
-                    yield(get_tree(), "idle_frame")
-                    return
-                if (processed_values[1]):
-                    CurrentNode = CurrentNode.right_child
-                else:
-                    CurrentNode = CurrentNode.left_child
-                intermediate_inputs.append(processed_values[0])
-            else:
-                CurrentNode = CurrentNode.right_child
-        emit_signal("visual_process_arguments", path_points, intermediate_inputs, input, functions, arguments_list, numbers)
+                node_list.append(CurrentNode)
+                
+            CurrentNode = CurrentNode.right_child
+        emit_signal("visual_process_arguments", path_points, input, functions, arguments_list, numbers, node_list)
         yield(get_parent().get_node("VisualProcess"), "end_path")
     return             
 

@@ -1,25 +1,26 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://RunEnvironment/RunEnvironment.gd" type="Script" id=1]
-[ext_resource path="res://RunEnvironment/ErrorMessages.gd" type="Script" id=2]
-[ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://RunEnvironment/VariablesMap.gd" type="Script" id=4]
-[ext_resource path="res://Accessories/art/text_box.png" type="Texture" id=5]
+[ext_resource path="res://RunEnvironment/RunScript.gd" type="Script" id=2]
+[ext_resource path="res://RunEnvironment/ErrorMessages.gd" type="Script" id=3]
+[ext_resource path="res://Accessories/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://RunEnvironment/VariablesMap.gd" type="Script" id=5]
+[ext_resource path="res://Accessories/art/text_box.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 20
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [node name="RunEnvironment" type="Control"]
 anchor_right = 1.0
@@ -38,6 +39,7 @@ margin_bottom = -200.0
 text = "Rodar!"
 
 [node name="RunScript" type="Control" parent="."]
+script = ExtResource( 2 )
 
 [node name="ErrorMessages" type="Panel" parent="RunScript"]
 pause_mode = 2
@@ -46,7 +48,7 @@ margin_left = 440.0
 margin_top = 560.0
 margin_right = 1440.0
 margin_bottom = 680.0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="RunScript/ErrorMessages"]
 margin_right = 1000.0
@@ -70,7 +72,7 @@ text = "Entendido!"
 
 [node name="VariablesMap" type="Control" parent="."]
 mouse_filter = 2
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="VariableMapTitle" type="RichTextLabel" parent="VariablesMap"]
 margin_left = 1490.0
@@ -89,7 +91,7 @@ margin_right = 2466.0
 margin_bottom = 327.0
 rect_scale = Vector2( 0.34, 0.48 )
 mouse_filter = 2
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="VariablesTextA" type="RichTextLabel" parent="VariablesMap"]
 margin_left = 1530.0
