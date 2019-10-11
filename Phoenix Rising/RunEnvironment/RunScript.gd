@@ -7,15 +7,6 @@ func _on_RunEnvironment_dict_defined(dict):
     variable_dict = dict
 
 ################################################################################
-#                         NODE INSERTION FUNCTION                              #
-################################################################################     
-func insert_node(CurrentNode, is_right_child):
-    if (is_right_child):
-        CurrentNode = CurrentNode.right_child
-    else:
-        CurrentNode = CurrentNode.left_child
-
-################################################################################
 #                  INPUT CHECKING AND INPUT FORMATTING FUNCTIONS               #
 ################################################################################
 #Verify if there is the correct number of arguments
@@ -74,8 +65,7 @@ func execute_print(input, arguments, action_number, CurrentNode):
             return $ErrorMessages.show_error_message("print", action_number)   
     else:
         return $ErrorMessages.show_error_message("print", action_number)
-    #insert_node(CurrentNode, true) 
-    return [input, true]
+    return input
 
 ###############################################################################
 #                         SOMA  EXECUTE FUNCTION                              #
@@ -86,12 +76,12 @@ func execute_soma(input, arguments, action_number, CurrentNode):
         values = _prepare_values(values, input)
         if (_is_valid_integer(values[0]) and _is_valid_integer(values[1])):
             #insert_node(CurrentNode, true)
-            return [(int(values[0]) + int(values[1])), true]
+            return (int(values[0]) + int(values[1]))
         elif (values[0].is_valid_float() and values[1].is_valid_float()):
             #insert_node(CurrentNode, true) 
-            return [(float(values[0]) + float(values[1])), true]      
+            return (float(values[0]) + float(values[1]))    
         else:
             if (_string_check(values[0]) and _string_check(values[1])):
                 #insert_node(CurrentNode, true) 
-                return [(values[0].substr(1, values[0].length()-2) + values[1].substr(1, values[1].length()-2)), true]
+                return (values[0].substr(1, values[0].length()-2) + values[1].substr(1, values[1].length()-2))
     return $ErrorMessages.show_error_message("soma", action_number)

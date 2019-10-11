@@ -44,6 +44,7 @@ func _on_RunEnvironment_visual_process_arguments(path_points, input, functions, 
     node_list = nodes
     visual_inputs = [processed_input]
     
+    ValueNode.text = str(input)
     total_visuals = len(visual_functions)
     curve.clear_points()
     $Path.set_curve(curve)
@@ -65,10 +66,8 @@ func _on_RunEnvironment_visual_process_arguments(path_points, input, functions, 
 #Changes the text on Value, based on the output of the given
 #Action space
 func _on_MovableActionSpace_change_area_entered():
-    ValueNode.text = str(visual_inputs[next_value])
-    processed_input = visual_functions[next_value].call_func(processed_input, visual_arguments_list[next_value], visual_numbers[next_value], node_list[next_value])[0]
+    processed_input = visual_functions[next_value].call_func(processed_input, visual_arguments_list[next_value], visual_numbers[next_value], node_list[next_value])
     next_value = (next_value + 1) % total_visuals
-    visual_inputs.append(processed_input)
     ValueNode.text = str(processed_input)
     
 #Sets the start value of the process
