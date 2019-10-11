@@ -3,6 +3,7 @@ extends Control
 signal frame_flashy(node_name, seconds)
 signal level_succeded()
 signal visual_process_arguments(path_points, input, functions, arguments_list, numbers, nodes)
+signal dict_defined(dict)
 
 var input_list
 var output
@@ -10,8 +11,12 @@ var output
 onready var InventoryNode = (self.owner).get_node('Inventory')
 onready var InputOutputNode = get_parent().get_node("InputOutput")
 
-onready var variable_dict = { "A": "-", "B": "-" } 
+onready var variable_dict = null
 
+func _ready():
+    variable_dict = { "A": "-", "B": "-" }
+    emit_signal("dict_defined", variable_dict)
+        
 func _clean_dict():
     for item in variable_dict.keys():
         variable_dict[item] = "-"

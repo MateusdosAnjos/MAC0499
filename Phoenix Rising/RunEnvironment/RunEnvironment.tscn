@@ -110,5 +110,6 @@ margin_bottom = 163.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 3 )
 text = "Variável B = <sem valor>"
+[connection signal="dict_defined" from="." to="RunScript" method="_on_RunEnvironment_dict_defined"]
 [connection signal="pressed" from="RunButton" to="." method="_on_RunButton_pressed"]
 [connection signal="pressed" from="RunScript/ErrorMessages/Understood" to="RunScript/ErrorMessages" method="_on_Understood_pressed"]

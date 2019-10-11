@@ -6,7 +6,7 @@ const ITEMS = {
     "soma": {
         "icon": ICON_PATH + "soma.png",
         "help": "Comando de Soma\nUtilizado para somar dois valores. Você pode passar como argumento dois números X, Y e o comando executa X + Y, veja o exemplo:\n4, 4\nO resultado sairá no Input (que pode ser visualizado na animação), portanto 4, 4 resultará em 8.\n\nVocê também pode operar com o valor atual do Input passando com argumento a palavra 'input' da seguinte forma:\ninput, 4\nO resultado dependerá do valor que estiver na animação.\nO comando de soma também junta (concatena) palavras da seguinte forma:\n'bolo', ' de chocolate'\nSe utilizar estes argumentos terá como resultado 'bolo de chocolate'.\n\nNão se esqueça de que devemos separar os argumentos por 1 vírgula e 1 espaço. Além disso as palavras devem ser colocadas entre aspas simples(') ou duplas(\").",
-        "codePath": BEHAVIOR_PATH + "soma.gd"
+        "codePath": "execute_soma"
     },
     "subtracao": {
         "icon": ICON_PATH + "subtracao.png",
