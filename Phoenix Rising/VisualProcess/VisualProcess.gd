@@ -67,6 +67,8 @@ func _on_RunEnvironment_visual_process_arguments(path_points, input, functions, 
 #Action space
 func _on_MovableActionSpace_change_area_entered():
     processed_input = visual_functions[next_value].call_func(processed_input, visual_arguments_list[next_value], visual_numbers[next_value], node_list[next_value])
+    if (processed_input == null):
+        emit_signal("end_path")
     next_value = (next_value + 1) % total_visuals
     ValueNode.text = str(processed_input)
     

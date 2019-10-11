@@ -62,7 +62,7 @@ func _process_input(input_list):
             CurrentNode = CurrentNode.right_child
         emit_signal("visual_process_arguments", path_points, input, functions, arguments_list, numbers, node_list)
         yield(get_parent().get_node("VisualProcess"), "end_path")
-    return             
+    return true 
 
 func set_answer_on_screen(answer):
     var PlayerOutput = get_parent().get_node("InputOutput/OutputBase/PlayerOutput")
