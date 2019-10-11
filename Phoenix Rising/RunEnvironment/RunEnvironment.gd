@@ -62,7 +62,9 @@ func _process_input(input_list):
             CurrentNode = CurrentNode.right_child
         emit_signal("visual_process_arguments", path_points, input, functions, arguments_list, numbers, node_list)
         yield(get_parent().get_node("VisualProcess"), "end_path")
-    return true 
+        if (not get_parent().get_node("VisualProcess").is_exit_sucess):
+            return false
+    return true
 
 func set_answer_on_screen(answer):
     var PlayerOutput = get_parent().get_node("InputOutput/OutputBase/PlayerOutput")
@@ -95,10 +97,13 @@ func _on_RunButton_pressed():
     PlayerOutput.clear()
     _clean_dict()
     if (_is_system_connected(_find_root())):
-        var answer_list = yield(_process_input(input_list), "completed")
-        var answer_string = PlayerOutput.text
-        if (answer_string == output):
-            _success_routine()
+        var was_sucessfull = yield(_process_input(input_list), "completed")
+        if (was_sucessfull):           
+            var answer_string = PlayerOutput.text
+            if (answer_string == output):
+                _success_routine()
+            else:
+                _failure_routine()
         else:
             _failure_routine()
     

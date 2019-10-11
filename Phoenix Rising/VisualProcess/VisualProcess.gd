@@ -19,6 +19,8 @@ var visual_arguments_list
 var visual_numbers
 var node_list
 
+var is_exit_sucess = false
+
 onready var ValueNode = get_node("Path/PathFollow2D/Value")
 
 func _ready():
@@ -68,6 +70,8 @@ func _on_RunEnvironment_visual_process_arguments(path_points, input, functions, 
 func _on_MovableActionSpace_change_area_entered():
     processed_input = visual_functions[next_value].call_func(processed_input, visual_arguments_list[next_value], visual_numbers[next_value], node_list[next_value])
     if (processed_input == null):
+        is_exit_sucess = false
+        _clear_all_process()
         emit_signal("end_path")
     next_value = (next_value + 1) % total_visuals
     ValueNode.text = str(processed_input)
@@ -82,4 +86,11 @@ func _on_InputOutput_output_visual_entered():
     curve = Curve2D.new()
     $Path.set_curve(curve)
     $Path.hide()
+    is_exit_sucess = true
     emit_signal("end_path")
+
+func _clear_all_process():
+    curve = Curve2D.new()
+    $Path.set_curve(curve)
+    $Path.hide()
+    ValueNode.text = str(" ")
