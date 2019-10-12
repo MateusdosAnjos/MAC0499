@@ -46,7 +46,7 @@ const ITEMS = {
     "error": {
         "icon": ICON_PATH + "error.png",
         "help": "Icone de Erro.\nMostrado quando não foi possível carregar algum item do inventário.\nNão utilize este comando, verifique os arquivos do jogo e tente recarregá-lo.",
-        "codePath": BEHAVIOR_PATH + "error.gd"
+        "codePath": "execute_error"
     }
 }
 

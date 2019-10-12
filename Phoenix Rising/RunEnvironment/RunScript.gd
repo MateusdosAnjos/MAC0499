@@ -98,7 +98,7 @@ func execute_subtracao(input, arguments, action_number, CurrentNode):
 
 ################################################################################
 #                      MULTIPLICACAO  EXECUTE FUNCTION                         #
-################################################################################    
+################################################################################
 func execute_multi(input, arguments, action_number, CurrentNode):
     var values = _split_arguments(arguments)
     if (values != null):
@@ -112,3 +112,9 @@ func execute_multi(input, arguments, action_number, CurrentNode):
             return $ErrorMessages.show_error_message("multi", action_number)
     else:
         return $ErrorMessages.show_error_message("multi", action_number)
+
+################################################################################
+#                      ERROR SPRITE  EXECUTE FUNCTION                          #
+################################################################################        
+func execute_error(input, arguments, action_number, CurrentNode):
+    return $ErrorMessages.show_error_message("error", action_number)  
