@@ -9,7 +9,7 @@ const OUTPUT = 'Muito fácil '
 
 #List of items to be picked up (write one name for each position
 #it will be picked up 1 item for each name position)
-var pickup_item_list = ["A", "B", "print"]
+var pickup_item_list = ["A", "print"]
 
 func _ready():
     var InputText = get_node("InputOutput/InputBase/Input")
