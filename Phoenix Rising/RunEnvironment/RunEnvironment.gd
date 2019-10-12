@@ -4,6 +4,7 @@ signal frame_flashy(node_name, seconds)
 signal level_succeded()
 signal visual_process_arguments(path_points, input, functions, arguments_list, numbers, nodes)
 signal dict_defined(dict)
+signal clear_variables_map()
 
 var input_list
 var output
@@ -20,6 +21,7 @@ func _ready():
 func _clean_dict():
     for item in variable_dict.keys():
         variable_dict[item] = "-"
+    emit_signal("clear_variables_map")
           
 func create_regex(regex_string):
     var regex = RegEx.new()

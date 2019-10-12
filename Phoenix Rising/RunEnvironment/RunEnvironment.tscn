@@ -100,7 +100,7 @@ margin_right = 1818.0
 margin_bottom = 95.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 3 )
-text = "Variável A = <sem valor>"
+text = "Variável A = <Sem Valor>"
 
 [node name="VariablesTextB" type="RichTextLabel" parent="VariablesMap"]
 margin_left = 1530.0
@@ -109,7 +109,9 @@ margin_right = 1818.0
 margin_bottom = 163.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 3 )
-text = "Variável B = <sem valor>"
+text = "Variável B = <Sem Valor>"
+[connection signal="clear_variables_map" from="." to="VariablesMap" method="_on_RunEnvironment_clear_variables_map"]
 [connection signal="dict_defined" from="." to="RunScript" method="_on_RunEnvironment_dict_defined"]
 [connection signal="pressed" from="RunButton" to="." method="_on_RunButton_pressed"]
+[connection signal="variable_changed" from="RunScript" to="VariablesMap" method="_on_RunScript_variable_changed"]
 [connection signal="pressed" from="RunScript/ErrorMessages/Understood" to="RunScript/ErrorMessages" method="_on_Understood_pressed"]
