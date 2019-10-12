@@ -73,8 +73,9 @@ func _on_MovableActionSpace_change_area_entered():
         is_exit_sucess = false
         _clear_all_process()
         emit_signal("end_path")
-    next_value = (next_value + 1) % total_visuals
-    ValueNode.text = str(processed_input)
+    else:
+        next_value = (next_value + 1) % total_visuals
+        ValueNode.text = str(processed_input)
     
 #Sets the start value of the process
 func _on_InputOutput_start_input_visual_entered():
@@ -93,4 +94,6 @@ func _clear_all_process():
     curve = Curve2D.new()
     $Path.set_curve(curve)
     $Path.hide()
+    next_value = 0
+    current_start_input = 0
     ValueNode.text = str(" ")
