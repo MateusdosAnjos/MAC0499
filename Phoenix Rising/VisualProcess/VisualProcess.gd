@@ -66,7 +66,7 @@ func _on_RunEnvironment_visual_process_arguments(path_points, input, functions, 
 #Changes the text on Value, based on the output of the given
 #Action space
 func _on_MovableActionSpace_change_area_entered():
-    processed_input = visual_functions[next_value].call_func(processed_input, visual_arguments_list[next_value], visual_numbers[next_value])
+    processed_input = visual_functions[next_value].call_func(processed_input, visual_arguments_list[next_value], visual_numbers[next_value])[0]
     if (processed_input == null):
         is_exit_sucess = false
         _clear_all_process()

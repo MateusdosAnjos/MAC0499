@@ -69,10 +69,10 @@ func execute_print(input, arguments, action_number):
         elif (arguments in variable_dict):
             get_parent().set_answer_on_screen(str(variable_dict[arguments]) + " ")
         else:
-            return $ErrorMessages.show_error_message("print", action_number)   
+            return [$ErrorMessages.show_error_message("print", action_number), true]
     else:
-        return $ErrorMessages.show_error_message("print", action_number)
-    return input
+        return [$ErrorMessages.show_error_message("print", action_number), true]
+    return [input, true]
 
 ################################################################################
 #                         SOMA  EXECUTE FUNCTION                               #
@@ -82,13 +82,13 @@ func execute_soma(input, arguments, action_number):
     if (values != null):
         values = _prepare_values(values, input)
         if (_is_valid_integer(values[0]) and _is_valid_integer(values[1])):
-            return (int(values[0]) + int(values[1]))
+            return [(int(values[0]) + int(values[1])), true]
         elif (values[0].is_valid_float() and values[1].is_valid_float()):
-            return (float(values[0]) + float(values[1]))    
+            return [(float(values[0]) + float(values[1])), true]    
         else:
             if (_string_check(values[0]) and _string_check(values[1])):
-                return (values[0].substr(1, values[0].length()-2) + values[1].substr(1, values[1].length()-2))
-    return $ErrorMessages.show_error_message("soma", action_number)
+                return [(values[0].substr(1, values[0].length()-2) + values[1].substr(1, values[1].length()-2)), true]
+    return [$ErrorMessages.show_error_message("soma", action_number), true]
     
 ################################################################################
 #                         SUBTRACAO  EXECUTE FUNCTION                          #
@@ -98,10 +98,10 @@ func execute_subtracao(input, arguments, action_number):
     if (values != null):        
         values = _prepare_values(values, input)
         if (values[0].is_valid_integer() and values[1].is_valid_integer()):
-            return (int(values[0]) - int(values[1]))
+            return [(int(values[0]) - int(values[1])), true]
         elif (values[0].is_valid_float() and values[1].is_valid_float()):
-            return (float(values[0]) - float(values[1]))
-    return $ErrorMessages.show_error_message("subtracao", action_number)
+            return [(float(values[0]) - float(values[1])), true]
+    return [$ErrorMessages.show_error_message("subtracao", action_number), true]
 
 ################################################################################
 #                      MULTIPLICACAO  EXECUTE FUNCTION                         #
@@ -112,13 +112,13 @@ func execute_multi(input, arguments, action_number):
         values = _prepare_values(values, input)
         #Checking types to perform the right "*" operation            
         if (values[0].is_valid_integer() and values[1].is_valid_integer()):
-            return (int(values[0]) * int(values[1]))
+            return [(int(values[0]) * int(values[1])), true]
         elif (values[0].is_valid_float() and values[1].is_valid_float()):
-            return round((float(values[0])) * float(values[1]))    
+            return [round((float(values[0])) * float(values[1])), true]  
         else:
-            return $ErrorMessages.show_error_message("multi", action_number)
+            return [$ErrorMessages.show_error_message("multi", action_number), true]
     else:
-        return $ErrorMessages.show_error_message("multi", action_number)
+        return [$ErrorMessages.show_error_message("multi", action_number), true]
 
 ################################################################################
 #                      VARIABLES EXECUTE FUNCTIONS                             #
@@ -132,11 +132,11 @@ func execute_variable_A(input, arguments, action_number):
         elif (arguments.is_valid_integer()):
             get_parent().variable_dict["A"] = arguments
         else:
-            return $ErrorMessages.show_error_message("A", action_number)  
+            return [$ErrorMessages.show_error_message("A", action_number), true]
     else:
-        return $ErrorMessages.show_error_message("A", action_number)
+        return [$ErrorMessages.show_error_message("A", action_number), true]
     emit_signal("variable_changed", "A", get_parent().variable_dict["A"])
-    return input
+    return [input, true]
 
 func execute_variable_B(input, arguments, action_number):
     if (not arguments.empty()):
@@ -147,22 +147,22 @@ func execute_variable_B(input, arguments, action_number):
         elif (arguments.is_valid_integer()):
             get_parent().variable_dict["B"] = arguments
         else:
-            return $ErrorMessages.show_error_message("B", action_number)  
+            return [$ErrorMessages.show_error_message("B", action_number), true]
     else:
-        return $ErrorMessages.show_error_message("B", action_number)
+        return [$ErrorMessages.show_error_message("B", action_number), true]
     emit_signal("variable_changed", "B", get_parent().variable_dict["B"])
-    return input
+    return [input, true]
 
 ################################################################################
 #                           PASS EXECUTE FUNCTION                              #
 ################################################################################
 func execute_pass(input, arguments, action_number):
     if (not arguments.empty()):
-        return $ErrorMessages.show_error_message("pass", action_number)  
-    return input
+        return [$ErrorMessages.show_error_message("pass", action_number), true]
+    return [input, true]
     
 ################################################################################
 #                      ERROR SPRITE  EXECUTE FUNCTION                          #
 ################################################################################
 func execute_error(input, arguments, action_number):
-    return $ErrorMessages.show_error_message("error", action_number)  
+    return [$ErrorMessages.show_error_message("error", action_number), true]  
