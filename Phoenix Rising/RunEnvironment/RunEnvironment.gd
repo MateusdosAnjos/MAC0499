@@ -2,7 +2,7 @@ extends Control
 
 signal frame_flashy(node_name, seconds)
 signal level_succeded()
-signal visual_process_arguments(path_points, input, functions, arguments_list, numbers, nodes)
+signal visual_process_arguments(path_points, input, functions, arguments_list, numbers)
 signal dict_defined(dict)
 signal clear_variables_map()
 
@@ -45,7 +45,6 @@ func _process_input(input_list):
         var CurrentActionSpace = null
         var action_number = 0
         var path_points = []
-        var node_list = []
         var CurrentNode = _find_root()
         while CurrentNode != null and CurrentNode.name != "InputOutput":
             CurrentActionSpace = CurrentNode.get_node("ActionSpace")
@@ -59,10 +58,9 @@ func _process_input(input_list):
                 functions.append(funcref($RunScript, input_process_code))
                 arguments_list.append(arguments)
                 numbers.append(action_number)
-                node_list.append(CurrentNode)
                 
             CurrentNode = CurrentNode.right_child
-        emit_signal("visual_process_arguments", path_points, input, functions, arguments_list, numbers, node_list)
+        emit_signal("visual_process_arguments", path_points, input, functions, arguments_list, numbers)
         yield(get_parent().get_node("VisualProcess"), "end_path")
         if (not get_parent().get_node("VisualProcess").is_exit_sucess):
             return false

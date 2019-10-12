@@ -62,7 +62,7 @@ func _argument_check(arguments, word_length):
 ################################################################################
 #                         PRINT EXECUTE FUNCTION                               #
 ################################################################################        
-func execute_print(input, arguments, action_number, CurrentNode):
+func execute_print(input, arguments, action_number):
     if (not arguments.empty()):
         if (arguments == 'input'):
             get_parent().set_answer_on_screen(str(input) + " ")
@@ -77,7 +77,7 @@ func execute_print(input, arguments, action_number, CurrentNode):
 ################################################################################
 #                         SOMA  EXECUTE FUNCTION                               #
 ################################################################################
-func execute_soma(input, arguments, action_number, CurrentNode):
+func execute_soma(input, arguments, action_number):
     var values = _split_arguments(arguments)
     if (values != null):
         values = _prepare_values(values, input)
@@ -93,7 +93,7 @@ func execute_soma(input, arguments, action_number, CurrentNode):
 ################################################################################
 #                         SUBTRACAO  EXECUTE FUNCTION                          #
 ################################################################################
-func execute_subtracao(input, arguments, action_number, CurrentNode):
+func execute_subtracao(input, arguments, action_number):
     var values = _split_arguments(arguments)
     if (values != null):        
         values = _prepare_values(values, input)
@@ -106,7 +106,7 @@ func execute_subtracao(input, arguments, action_number, CurrentNode):
 ################################################################################
 #                      MULTIPLICACAO  EXECUTE FUNCTION                         #
 ################################################################################
-func execute_multi(input, arguments, action_number, CurrentNode):
+func execute_multi(input, arguments, action_number):
     var values = _split_arguments(arguments)
     if (values != null):
         values = _prepare_values(values, input)
@@ -123,7 +123,7 @@ func execute_multi(input, arguments, action_number, CurrentNode):
 ################################################################################
 #                      VARIABLES EXECUTE FUNCTIONS                             #
 ################################################################################    
-func execute_variable_A(input, arguments, action_number, CurrentNode):
+func execute_variable_A(input, arguments, action_number):
     if (not arguments.empty()):
         if (arguments == 'input'):
             get_parent().variable_dict["A"] = input
@@ -138,7 +138,7 @@ func execute_variable_A(input, arguments, action_number, CurrentNode):
     emit_signal("variable_changed", "A", get_parent().variable_dict["A"])
     return input
 
-func execute_variable_B(input, arguments, action_number, CurrentNode):
+func execute_variable_B(input, arguments, action_number):
     if (not arguments.empty()):
         if (arguments == 'input'):
             get_parent().variable_dict["B"] = input
@@ -155,5 +155,5 @@ func execute_variable_B(input, arguments, action_number, CurrentNode):
 ################################################################################
 #                      ERROR SPRITE  EXECUTE FUNCTION                          #
 ################################################################################        
-func execute_error(input, arguments, action_number, CurrentNode):
+func execute_error(input, arguments, action_number):
     return $ErrorMessages.show_error_message("error", action_number)  
