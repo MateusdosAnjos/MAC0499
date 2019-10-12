@@ -11,7 +11,7 @@ const ITEMS = {
     "subtracao": {
         "icon": ICON_PATH + "subtracao.png",
         "help": "Comando de Subtração\nUtilizado para subtrair dois valores. Você pode passar como argumento dois números X, Y e o comando executa X - Y, veja o exemplo:\n10, 8\nO resultado sairá no Input (que pode ser visualizado na animação), portanto 10, 8 resultará em 2.\n\nVocê também pode operar com o valor atual do Input passando com argumento a palavra 'input' da seguinte forma:\ninput, 4\nO resultado dependerá do valor que estiver na animação.\n\nNão se esqueça de que devemos separar os argumentos por 1 vírgula e 1 espaço.",
-        "codePath": BEHAVIOR_PATH + "subtracao.gd"
+        "codePath": "execute_subtracao"
     },
     "multi": {
         "icon": ICON_PATH + "multi.png",

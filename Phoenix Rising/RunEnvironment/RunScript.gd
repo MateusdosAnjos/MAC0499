@@ -67,21 +67,31 @@ func execute_print(input, arguments, action_number, CurrentNode):
         return $ErrorMessages.show_error_message("print", action_number)
     return input
 
-###############################################################################
-#                         SOMA  EXECUTE FUNCTION                              #
-###############################################################################                     
+################################################################################
+#                         SOMA  EXECUTE FUNCTION                               #
+################################################################################
 func execute_soma(input, arguments, action_number, CurrentNode):
     var values = _split_arguments(arguments)
     if (values != null):
         values = _prepare_values(values, input)
         if (_is_valid_integer(values[0]) and _is_valid_integer(values[1])):
-            #insert_node(CurrentNode, true)
             return (int(values[0]) + int(values[1]))
         elif (values[0].is_valid_float() and values[1].is_valid_float()):
-            #insert_node(CurrentNode, true) 
             return (float(values[0]) + float(values[1]))    
         else:
             if (_string_check(values[0]) and _string_check(values[1])):
-                #insert_node(CurrentNode, true) 
                 return (values[0].substr(1, values[0].length()-2) + values[1].substr(1, values[1].length()-2))
     return $ErrorMessages.show_error_message("soma", action_number)
+    
+################################################################################
+#                         SUBTRACAO  EXECUTE FUNCTION                          #
+################################################################################
+func execute_subtracao(input, arguments, action_number, CurrentNode):
+    var values = _split_arguments(arguments)
+    if (values != null):        
+        values = _prepare_values(values, input)
+        if (values[0].is_valid_integer() and values[1].is_valid_integer()):
+            return (int(values[0]) - int(values[1]))
+        elif (values[0].is_valid_float() and values[1].is_valid_float()):
+            return (float(values[0]) - float(values[1]))
+    return $ErrorMessages.show_error_message("subtracao", action_number)
