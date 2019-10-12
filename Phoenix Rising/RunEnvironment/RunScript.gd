@@ -95,3 +95,20 @@ func execute_subtracao(input, arguments, action_number, CurrentNode):
         elif (values[0].is_valid_float() and values[1].is_valid_float()):
             return (float(values[0]) - float(values[1]))
     return $ErrorMessages.show_error_message("subtracao", action_number)
+
+################################################################################
+#                      MULTIPLICACAO  EXECUTE FUNCTION                         #
+################################################################################    
+func execute_multi(input, arguments, action_number, CurrentNode):
+    var values = _split_arguments(arguments)
+    if (values != null):
+        values = _prepare_values(values, input)
+        #Checking types to perform the right "*" operation            
+        if (values[0].is_valid_integer() and values[1].is_valid_integer()):
+            return (int(values[0]) * int(values[1]))
+        elif (values[0].is_valid_float() and values[1].is_valid_float()):
+            return round((float(values[0])) * float(values[1]))    
+        else:
+            return $ErrorMessages.show_error_message("multi", action_number)
+    else:
+        return $ErrorMessages.show_error_message("multi", action_number)
