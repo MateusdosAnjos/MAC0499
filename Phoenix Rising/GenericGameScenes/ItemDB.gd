@@ -41,7 +41,7 @@ const ITEMS = {
     "pass": {
         "icon": ICON_PATH + "pass.png",
         "help": "Icone de passagem.\nServe para adicionar uma conexão sem efetuar nenhuma operação. Usado principalmente quando se deseja ignorar a sequencia de ações de um if ou um else.",
-        "codePath": BEHAVIOR_PATH + "pass.gd"
+        "codePath": "execute_pass"
     },
     "error": {
         "icon": ICON_PATH + "error.png",

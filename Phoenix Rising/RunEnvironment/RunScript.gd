@@ -152,8 +152,17 @@ func execute_variable_B(input, arguments, action_number):
         return $ErrorMessages.show_error_message("B", action_number)
     emit_signal("variable_changed", "B", get_parent().variable_dict["B"])
     return input
+
+################################################################################
+#                           PASS EXECUTE FUNCTION                              #
+################################################################################
+func execute_pass(input, arguments, action_number):
+    if (not arguments.empty()):
+        return $ErrorMessages.show_error_message("pass", action_number)  
+    return input
+    
 ################################################################################
 #                      ERROR SPRITE  EXECUTE FUNCTION                          #
-################################################################################        
+################################################################################
 func execute_error(input, arguments, action_number):
     return $ErrorMessages.show_error_message("error", action_number)  
