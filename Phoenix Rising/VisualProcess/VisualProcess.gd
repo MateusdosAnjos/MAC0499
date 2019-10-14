@@ -62,7 +62,6 @@ func _set_curve_to_path(curve, PathNode):
 #visual shown on screen.
 func _on_MovableActionSpace_change_area_entered():
     processed_input = (CurrentActionNode.function).call_func(processed_input[0], CurrentActionNode.arguments, CurrentActionNode.action_number)
-    print(processed_input)
     if (processed_input[0] == null):
         is_exit_sucess = false
         _clear_all_process()
