@@ -10,7 +10,7 @@ class ActionNode:
     
 signal frame_flashy(node_name, seconds)
 signal level_succeded()
-signal visual_process_arguments(path_points, input, functions, arguments_list, numbers)
+signal visual_process_arguments(path_points, input, function_tree)
 signal dict_defined(dict)
 signal clear_variables_map()
 
@@ -68,52 +68,13 @@ func _build_function_tree(CurrentNode):
             NewNode.right_child = _build_function_tree(CurrentNode.right_child)
             NewNode.left_child = _build_function_tree(CurrentNode.left_child)
     return NewNode
-
-func _percorre(CurrentNode):
-    if (CurrentNode != null):
-        print("Nome do node = ", (CurrentNode.node).name)
-        print("Filho direito de: ", (CurrentNode.node).name)
-        _percorre(CurrentNode.right_child)
-        print("Filho esquerdo de: ", (CurrentNode.node).name)
-        _percorre(CurrentNode.left_child)
-    else:
-        print("Null")
                                 
-func _process_input(input_list):    
+func _process_input(input_list):
+    path_points = []
+    var CurrentNode = _find_root()
+    var function_tree = _build_function_tree(CurrentNode)
     for input in input_list:
-        var functions = []
-        var arguments_list = []
-        var numbers = []
-        var arguments = null
-        var node_item = null
-        var input_process_code = null
-        var CurrentActionSpace = null
-        var action_number = 0
-        var path_points = []
-        var CurrentNode = _find_root()
-        var function_tree = _build_function_tree(CurrentNode)
-        _percorre(function_tree)
-        while CurrentNode != null and CurrentNode.name != "InputOutput":
-            CurrentActionSpace = CurrentNode.get_node("ActionSpace")
-            if CurrentActionSpace.placed_item:
-                path_points.append(CurrentNode.global_position)
-                action_number = CurrentNode.get_node("ActionNumber").text
-                node_item = CurrentActionSpace.placed_item.get_meta("id")
-                input_process_code = ItemDB.get_item(node_item)["codePath"]
-                arguments = CurrentActionSpace.argument_list
-                
-                var aux_node = ActionNode.new()
-                aux_node.node = CurrentNode
-                aux_node.function = funcref($RunScript, input_process_code)
-                aux_node.arguments = arguments
-                aux_node.action_number = action_number
-                
-                functions.append(funcref($RunScript, input_process_code))
-                arguments_list.append(arguments)
-                numbers.append(action_number)
-            
-            CurrentNode = CurrentNode.right_child
-        emit_signal("visual_process_arguments", path_points, input, functions, arguments_list, numbers)
+        emit_signal("visual_process_arguments", path_points, input, function_tree)
         yield(get_parent().get_node("VisualProcess"), "end_path")
         if (not get_parent().get_node("VisualProcess").is_exit_sucess):
             return false

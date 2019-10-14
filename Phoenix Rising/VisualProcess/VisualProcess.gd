@@ -5,18 +5,12 @@ signal end_path()
 
 var starting_pos = null
 var finish_pos = null
-var visual_inputs = []
 var start_input = ''
 var curve = Curve2D.new()
-var next_value = 0
 var total_inputs = 0
 var current_start_input = 0
-var total_visuals = 0
-
-var processed_input
-var visual_functions
-var visual_arguments_list
-var visual_numbers
+var processed_input = null
+var CurrentActionNode = null
 
 var is_exit_sucess = false
 
@@ -37,15 +31,10 @@ func _on_InputOutput_output_position(pos):
 
 #Creates the curve, using the positions of the action spaces,
 #that visual process will follow (the offsets are used to make it better to view)
-func _on_RunEnvironment_visual_process_arguments(path_points, input, functions, arguments_list, numbers):
-    visual_functions = functions
-    visual_arguments_list = arguments_list
-    visual_numbers = numbers
-    processed_input = input
-    visual_inputs = [processed_input]
-    
+func _on_RunEnvironment_visual_process_arguments(path_points, input, function_tree):
+    processed_input = [input, true]
+    CurrentActionNode = function_tree
     ValueNode.text = str(input)
-    total_visuals = len(visual_functions)
     curve.clear_points()
     $Path.set_curve(curve)
     var curve_points = []
@@ -63,17 +52,20 @@ func _on_RunEnvironment_visual_process_arguments(path_points, input, functions, 
     $Path/PathFollow2D.set_unit_offset(0)
     $Path.show()
   
-#Changes the text on Value, based on the output of the given
-#Action space
+#Executes the function of the current Action Node and sets the returned value to the
+#visual shown on screen.
 func _on_MovableActionSpace_change_area_entered():
-    processed_input = visual_functions[next_value].call_func(processed_input, visual_arguments_list[next_value], visual_numbers[next_value])[0]
+    processed_input = (CurrentActionNode.function).call_func(processed_input[0], CurrentActionNode.arguments, CurrentActionNode.action_number)
     if (processed_input == null):
         is_exit_sucess = false
         _clear_all_process()
         emit_signal("end_path")
     else:
-        next_value = (next_value + 1) % total_visuals
-        ValueNode.text = str(processed_input)
+        if (processed_input[1] == true):
+            CurrentActionNode = CurrentActionNode.right_child
+        else:
+            CurrentActionNode = CurrentActionNode.left_child
+    ValueNode.text = str(processed_input[0])
     
 #Sets the start value of the process
 func _on_InputOutput_start_input_visual_entered():
@@ -92,6 +84,5 @@ func _clear_all_process():
     curve = Curve2D.new()
     $Path.set_curve(curve)
     $Path.hide()
-    next_value = 0
     current_start_input = 0
     ValueNode.text = str(" ")
