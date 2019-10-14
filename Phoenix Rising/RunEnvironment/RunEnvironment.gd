@@ -17,6 +17,8 @@ signal clear_variables_map()
 var input_list
 var output
 
+var path_points = []
+
 onready var InventoryNode = (self.owner).get_node('Inventory')
 onready var InputOutputNode = get_parent().get_node("InputOutput")
 
@@ -41,7 +43,42 @@ func _find_root():
     for node in InventoryNode.get_children():
         if regex.search(node.get_name()) and node.get_node("ActionNumber").text == "1":
             return node
-                    
+
+func _create_Action_Node(CurrentNode, function, arguments, action_number):
+    var new_node = ActionNode.new()
+    new_node.node = CurrentNode
+    new_node.function = function
+    new_node.arguments = arguments
+    new_node.action_number = action_number
+    return new_node
+
+func _build_function_tree(CurrentNode):
+    var NewNode = null
+    if (CurrentNode == null or CurrentNode.name == "DummyNode" or CurrentNode.name == "InputOutput"):
+        return null
+    else:
+        var CurrentActionSpace = CurrentNode.get_node("ActionSpace")
+        if CurrentActionSpace.placed_item:
+            path_points.append(CurrentNode.global_position)
+            var action_number = CurrentNode.get_node("ActionNumber").text
+            var node_item = CurrentActionSpace.placed_item.get_meta("id")
+            var input_process_code = ItemDB.get_item(node_item)["codePath"]
+            var arguments = CurrentActionSpace.argument_list
+            NewNode = _create_Action_Node(CurrentNode, funcref($RunScript, input_process_code), arguments, action_number)
+            NewNode.right_child = _build_function_tree(CurrentNode.right_child)
+            NewNode.left_child = _build_function_tree(CurrentNode.left_child)
+    return NewNode
+
+func _percorre(CurrentNode):
+    if (CurrentNode != null):
+        print("Nome do node = ", (CurrentNode.node).name)
+        print("Filho direito de: ", (CurrentNode.node).name)
+        _percorre(CurrentNode.right_child)
+        print("Filho esquerdo de: ", (CurrentNode.node).name)
+        _percorre(CurrentNode.left_child)
+    else:
+        print("Null")
+                                
 func _process_input(input_list):    
     for input in input_list:
         var functions = []
@@ -54,6 +91,8 @@ func _process_input(input_list):
         var action_number = 0
         var path_points = []
         var CurrentNode = _find_root()
+        var function_tree = _build_function_tree(CurrentNode)
+        _percorre(function_tree)
         while CurrentNode != null and CurrentNode.name != "InputOutput":
             CurrentActionSpace = CurrentNode.get_node("ActionSpace")
             if CurrentActionSpace.placed_item:
@@ -72,6 +111,7 @@ func _process_input(input_list):
                 functions.append(funcref($RunScript, input_process_code))
                 arguments_list.append(arguments)
                 numbers.append(action_number)
+            
             CurrentNode = CurrentNode.right_child
         emit_signal("visual_process_arguments", path_points, input, functions, arguments_list, numbers)
         yield(get_parent().get_node("VisualProcess"), "end_path")
