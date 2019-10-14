@@ -26,7 +26,7 @@ const ITEMS = {
     "if/else": {
         "icon": ICON_PATH + "if_else.png",
         "help": "Comando if/else.\nEfetua comparações entre objetos do mesmo tipo, isto é, se receber um número inteiro deve fazer a comparação com um número inteiro.\nPode-se utilizar as comparações: >, <, >=, <= ou == .\nSeguem exemplos de possíveis argumentos:\n< 10\n>= 'entendido'\n<= \"duas palavras\"\n== 10.4\nOs exemplos são para comparações de inteiros, palavra, palavras e números reais respectivamente. Lembre-se que o espaço após o comparador (ex: <) é obrigatório.\nPode-se ser utilizada uma variável como argumento.\nPara obter o output quando a comparação é FALSA, deve-se utilizar o output bifurcado (a comparação falsa seguirá pelo ramo de baixo), caso contrário só será aproveitado o output quando o resultado da comparação for VERDADEIRO.",
-        "codePath": BEHAVIOR_PATH + "if_else.gd"
+        "codePath": "execute_if_else"
     },
     "A": {
         "icon": ICON_PATH + "A.png",
