@@ -1,5 +1,13 @@
 extends Control
 
+class ActionNode:
+    var node = null
+    var right_child = null
+    var left_child = null
+    var function = null
+    var arguments = null
+    var action_number = null
+    
 signal frame_flashy(node_name, seconds)
 signal level_succeded()
 signal visual_process_arguments(path_points, input, functions, arguments_list, numbers)
@@ -55,10 +63,15 @@ func _process_input(input_list):
                 input_process_code = ItemDB.get_item(node_item)["codePath"]
                 arguments = CurrentActionSpace.argument_list
                 
+                var aux_node = ActionNode.new()
+                aux_node.node = CurrentNode
+                aux_node.function = funcref($RunScript, input_process_code)
+                aux_node.arguments = arguments
+                aux_node.action_number = action_number
+                
                 functions.append(funcref($RunScript, input_process_code))
                 arguments_list.append(arguments)
                 numbers.append(action_number)
-                
             CurrentNode = CurrentNode.right_child
         emit_signal("visual_process_arguments", path_points, input, functions, arguments_list, numbers)
         yield(get_parent().get_node("VisualProcess"), "end_path")
