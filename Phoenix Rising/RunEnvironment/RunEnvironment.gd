@@ -1,8 +1,18 @@
 extends Control
 
+class ActionNode:
+    var node = null
+    var right_child = null
+    var left_child = null
+    var function = null
+    var arguments = null
+    var action_number = null
+    
 signal frame_flashy(node_name, seconds)
 signal level_succeded()
-signal visual_process_arguments(path_points, intermediate_inputs)
+signal visual_process_arguments(path_points, input, function_tree)
+signal dict_defined(dict)
+signal clear_variables_map()
 
 var input_list
 var output
@@ -10,11 +20,16 @@ var output
 onready var InventoryNode = (self.owner).get_node('Inventory')
 onready var InputOutputNode = get_parent().get_node("InputOutput")
 
-onready var variable_dict = { "A": "-", "B": "-" } 
+onready var variable_dict = null
 
+func _ready():
+    variable_dict = { "A": "-", "B": "-" }
+    emit_signal("dict_defined", variable_dict)
+        
 func _clean_dict():
     for item in variable_dict.keys():
         variable_dict[item] = "-"
+    emit_signal("clear_variables_map")
           
 func create_regex(regex_string):
     var regex = RegEx.new()
@@ -26,42 +41,40 @@ func _find_root():
     for node in InventoryNode.get_children():
         if regex.search(node.get_name()) and node.get_node("ActionNumber").text == "1":
             return node
-                    
+
+func _create_Action_Node(CurrentNode, function, arguments, action_number):
+    var new_node = ActionNode.new()
+    new_node.node = CurrentNode
+    new_node.function = function
+    new_node.arguments = arguments
+    new_node.action_number = action_number
+    return new_node
+
+func _build_function_tree(CurrentNode):
+    var NewNode = null
+    if (CurrentNode == null or CurrentNode.name == "DummyNode" or CurrentNode.name == "InputOutput"):
+        return null
+    else:
+        var CurrentActionSpace = CurrentNode.get_node("ActionSpace")
+        if CurrentActionSpace.placed_item:
+            var action_number = CurrentNode.get_node("ActionNumber").text
+            var node_item = CurrentActionSpace.placed_item.get_meta("id")
+            var input_process_code = ItemDB.get_item(node_item)["codePath"]
+            var arguments = CurrentActionSpace.argument_list
+            NewNode = _create_Action_Node(CurrentNode, funcref($RunScript, input_process_code), arguments, action_number)
+            NewNode.right_child = _build_function_tree(CurrentNode.right_child)
+            NewNode.left_child = _build_function_tree(CurrentNode.left_child)
+    return NewNode
+                                
 func _process_input(input_list):
+    var CurrentNode = _find_root()
+    var function_tree = _build_function_tree(CurrentNode)
     for input in input_list:
-        var processed_values = [input, true]
-        var arguments = null
-        var node_item = null
-        var input_process_code = null
-        var CurrentActionSpace = null
-        var action_number = 0
-        var path_points = []
-        var intermediate_inputs = []
-    
-        var CurrentNode = _find_root()
-        while CurrentNode != null and CurrentNode.name != "InputOutput":
-            CurrentActionSpace = CurrentNode.get_node("ActionSpace")
-            if CurrentActionSpace.placed_item:
-                path_points.append(CurrentNode.global_position)
-                action_number = CurrentNode.get_node("ActionNumber").text
-                node_item = CurrentActionSpace.placed_item.get_meta("id")
-                input_process_code = load(ItemDB.get_item(node_item)["codePath"])
-                $RunScript.set_script(input_process_code)
-                arguments = CurrentActionSpace.argument_list
-                processed_values = $RunScript.execute(processed_values[0], arguments, action_number)
-                if (processed_values == null):
-                    yield(get_tree(), "idle_frame")
-                    return
-                if (processed_values[1]):
-                    CurrentNode = CurrentNode.right_child
-                else:
-                    CurrentNode = CurrentNode.left_child
-                intermediate_inputs.append(processed_values[0])
-            else:
-                CurrentNode = CurrentNode.right_child
-        emit_signal("visual_process_arguments", path_points, intermediate_inputs)
+        emit_signal("visual_process_arguments", input, function_tree)
         yield(get_parent().get_node("VisualProcess"), "end_path")
-    return             
+        if (not get_parent().get_node("VisualProcess").is_exit_sucess):
+            return false
+    return true
 
 func set_answer_on_screen(answer):
     var PlayerOutput = get_parent().get_node("InputOutput/OutputBase/PlayerOutput")
@@ -94,10 +107,13 @@ func _on_RunButton_pressed():
     PlayerOutput.clear()
     _clean_dict()
     if (_is_system_connected(_find_root())):
-        var answer_list = yield(_process_input(input_list), "completed")
-        var answer_string = PlayerOutput.text
-        if (answer_string == output):
-            _success_routine()
+        var was_sucessfull = yield(_process_input(input_list), "completed")
+        if (was_sucessfull):           
+            var answer_string = PlayerOutput.text
+            if (answer_string == output):
+                _success_routine()
+            else:
+                _failure_routine()
         else:
             _failure_routine()
     
