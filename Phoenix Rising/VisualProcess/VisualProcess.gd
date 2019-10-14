@@ -27,12 +27,12 @@ func _on_InputOutput_start_input_position(pos):
     
 #Sets the last point of the path  
 func _on_InputOutput_output_position(pos):
-    finish_pos = (Vector2(pos[0]+50, pos[1]))
+    finish_pos = (Vector2(pos[0]+100, pos[1]-50))
 
 #Creates the curve that visual process will follow, using the positions of the
 #input and the first node of the function tree (the offsets are used to make it
 #better to view)
-func _on_RunEnvironment_visual_process_arguments(path_points, input, function_tree):
+func _on_RunEnvironment_visual_process_arguments(input, function_tree):
     processed_input = [input, true]
     CurrentActionNode = function_tree
     ValueNode.text = str(input)
@@ -41,7 +41,9 @@ func _on_RunEnvironment_visual_process_arguments(path_points, input, function_tr
     var curve_points = []
     curve_points.append(starting_pos)
     if (function_tree != null):
-        curve_points.append((function_tree.node).global_position)  
+        curve_points.append((function_tree.node).global_position)
+    else:
+        curve_points.append(finish_pos)
     for point in curve_points:
         _add_next_point(point)
     _set_curve_to_path(curve, get_node("Path"))
@@ -70,7 +72,7 @@ func _on_MovableActionSpace_change_area_entered():
         else:
             CurrentActionNode = CurrentActionNode.left_child
         if (CurrentActionNode == null):
-            curve.add_point(finish_pos)
+            _add_next_point(finish_pos)
         else:
             _add_next_point((CurrentActionNode.node).global_position)
     ValueNode.text = str(processed_input[0])

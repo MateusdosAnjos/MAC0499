@@ -17,8 +17,6 @@ signal clear_variables_map()
 var input_list
 var output
 
-var path_points = []
-
 onready var InventoryNode = (self.owner).get_node('Inventory')
 onready var InputOutputNode = get_parent().get_node("InputOutput")
 
@@ -59,7 +57,6 @@ func _build_function_tree(CurrentNode):
     else:
         var CurrentActionSpace = CurrentNode.get_node("ActionSpace")
         if CurrentActionSpace.placed_item:
-            path_points.append(CurrentNode.global_position)
             var action_number = CurrentNode.get_node("ActionNumber").text
             var node_item = CurrentActionSpace.placed_item.get_meta("id")
             var input_process_code = ItemDB.get_item(node_item)["codePath"]
@@ -70,11 +67,10 @@ func _build_function_tree(CurrentNode):
     return NewNode
                                 
 func _process_input(input_list):
-    path_points = []
     var CurrentNode = _find_root()
     var function_tree = _build_function_tree(CurrentNode)
     for input in input_list:
-        emit_signal("visual_process_arguments", path_points, input, function_tree)
+        emit_signal("visual_process_arguments", input, function_tree)
         yield(get_parent().get_node("VisualProcess"), "end_path")
         if (not get_parent().get_node("VisualProcess").is_exit_sucess):
             return false
