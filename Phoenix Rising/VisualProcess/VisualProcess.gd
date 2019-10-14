@@ -29,8 +29,9 @@ func _on_InputOutput_start_input_position(pos):
 func _on_InputOutput_output_position(pos):
     finish_pos = (Vector2(pos[0]+50, pos[1]))
 
-#Creates the curve, using the positions of the action spaces,
-#that visual process will follow (the offsets are used to make it better to view)
+#Creates the curve that visual process will follow, using the positions of the
+#input and the first node of the function tree (the offsets are used to make it
+#better to view)
 func _on_RunEnvironment_visual_process_arguments(path_points, input, function_tree):
     processed_input = [input, true]
     CurrentActionNode = function_tree
@@ -39,19 +40,22 @@ func _on_RunEnvironment_visual_process_arguments(path_points, input, function_tr
     $Path.set_curve(curve)
     var curve_points = []
     curve_points.append(starting_pos)
-    
-    for point in path_points:
-       curve_points.append(Vector2(point[0], point[1]))
-        
+    if (function_tree != null):
+        curve_points.append((function_tree.node).global_position)  
     for point in curve_points:
-        point[0] -= 50
-        point[1] += 50
-        curve.add_point(point)
-    curve.add_point(finish_pos)
-    $Path.set_curve(curve)
-    $Path/PathFollow2D.set_unit_offset(0)
-    $Path.show()
-  
+        _add_next_point(point)
+    _set_curve_to_path(curve, get_node("Path"))
+    (get_node("Path")).show()
+
+func _add_next_point(point):
+    point[0] -= 20
+    point[1] += 50
+    curve.add_point(point)
+
+func _set_curve_to_path(curve, PathNode):
+    PathNode.set_curve(curve)
+    (PathNode.get_node("PathFollow2D")).set_unit_offset(0)
+    
 #Executes the function of the current Action Node and sets the returned value to the
 #visual shown on screen.
 func _on_MovableActionSpace_change_area_entered():
@@ -65,6 +69,10 @@ func _on_MovableActionSpace_change_area_entered():
             CurrentActionNode = CurrentActionNode.right_child
         else:
             CurrentActionNode = CurrentActionNode.left_child
+        if (CurrentActionNode == null):
+            curve.add_point(finish_pos)
+        else:
+            _add_next_point((CurrentActionNode.node).global_position)
     ValueNode.text = str(processed_input[0])
     
 #Sets the start value of the process

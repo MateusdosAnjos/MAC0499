@@ -280,5 +280,7 @@ func execute_pass(input, arguments, action_number):
 ################################################################################
 #                      ERROR SPRITE  EXECUTE FUNCTION                          #
 ################################################################################
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func execute_error(input, arguments, action_number):
     return [$ErrorMessages.show_error_message("error", action_number), true]  
