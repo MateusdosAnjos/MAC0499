@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://BaseLevel/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=11]
 [ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Gamification/Gamification.tscn" type="PackedScene" id=13]
 
 [node name="BaseLevel" type="Control"]
 anchor_right = 1.0
@@ -62,6 +63,8 @@ position = Vector2( 1000, 100 )
 [node name="ResetLevel" parent="." instance=ExtResource( 11 )]
 
 [node name="VisualProcess" parent="." instance=ExtResource( 12 )]
+
+[node name="Gamification" parent="." instance=ExtResource( 13 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="output_position" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_position"]
 [connection signal="output_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_visual_entered"]
