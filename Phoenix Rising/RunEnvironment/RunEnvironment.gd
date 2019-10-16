@@ -13,6 +13,8 @@ signal level_succeded()
 signal visual_process_arguments(path_points, input, function_tree)
 signal dict_defined(dict)
 signal clear_variables_map()
+signal attempt_to_run()
+signal points_garanted()
 
 var input_list
 var output
@@ -84,6 +86,7 @@ func set_answer_on_screen(answer):
 func _success_routine():
     emit_signal("level_succeded")
     emit_signal("frame_flashy", "PlayerOutputFrame", 4)
+    emit_signal("points_garanted")
 
 func _failure_routine():
     emit_signal("frame_flashy", "PlayerOutputFrame", 4)  
@@ -103,6 +106,7 @@ func _is_system_connected(CurrentNode):
             return false
 
 func _on_RunButton_pressed():
+    emit_signal("attempt_to_run")
     var PlayerOutput = get_parent().get_node("InputOutput/OutputBase/PlayerOutput")
     PlayerOutput.clear()
     _clean_dict()
