@@ -17,6 +17,7 @@ func _ready():
     InputText.add_text(String(INPUT))
     emit_signal("input_output_defined", INPUT, OUTPUT)
     $NextLevel.hide()
+    GlobalVariables.current_level = 2
     get_tree().paused = true
 
 #Makes the game enter FULLSCREEN
