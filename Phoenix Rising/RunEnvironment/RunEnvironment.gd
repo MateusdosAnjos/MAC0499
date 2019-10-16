@@ -59,9 +59,9 @@ func _build_function_tree(CurrentNode):
         if CurrentActionSpace.placed_item:
             var action_number = CurrentNode.get_node("ActionNumber").text
             var node_item = CurrentActionSpace.placed_item.get_meta("id")
-            var input_process_code = ItemDB.get_item(node_item)["codePath"]
+            var item_func = ItemDB.get_item(node_item)["funcName"]
             var arguments = CurrentActionSpace.argument_list
-            NewNode = _create_Action_Node(CurrentNode, funcref($RunScript, input_process_code), arguments, action_number)
+            NewNode = _create_Action_Node(CurrentNode, funcref($RunScript, item_func), arguments, action_number)
             NewNode.right_child = _build_function_tree(CurrentNode.right_child)
             NewNode.left_child = _build_function_tree(CurrentNode.left_child)
     return NewNode
