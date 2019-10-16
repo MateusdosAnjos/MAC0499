@@ -9,7 +9,7 @@ signal input_output_defined(input, output)
 #INPUT is a list of inputs to be given, one at time, to be processed
 const INPUT = ['Base Level']
 #OUTPUT is the expected string
-const OUTPUT = 'Base Level'
+const OUTPUT = 'Base Level '
 
 #List of items to be picked up (write one name for each position
 #it will be picked up 1 item for each name position)
