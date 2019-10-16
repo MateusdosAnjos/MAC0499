@@ -32,10 +32,10 @@ script = ExtResource( 1 )
 [node name="RunButton" type="Button" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 890.0
+margin_left = 907.0
 margin_top = 700.0
-margin_right = -890.0
-margin_bottom = -200.0
+margin_right = 959.0
+margin_bottom = 720.0
 text = "Rodar!"
 
 [node name="RunScript" type="Control" parent="."]
