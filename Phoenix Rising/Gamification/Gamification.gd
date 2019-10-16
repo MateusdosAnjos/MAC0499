@@ -16,5 +16,7 @@ func _on_RunEnvironment_attempt_to_run():
     seconds_left_on_attempt = seconds_left
 
 func _on_RunEnvironment_points_garanted():
-    GlobalVariables.total_points += seconds_left_on_attempt
-    $TotalPoints.set_text(str(GlobalVariables.total_points))
+    if !GlobalVariables.level_done[GlobalVariables.current_level]:
+        GlobalVariables.total_points += seconds_left_on_attempt
+        $TotalPoints.set_text(str(GlobalVariables.total_points))
+        GlobalVariables.level_done[GlobalVariables.current_level] = true
