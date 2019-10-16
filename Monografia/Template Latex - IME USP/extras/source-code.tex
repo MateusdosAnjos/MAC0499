@@ -1,0 +1,137 @@
+% Para formatar código-fonte (ex. em Java). listings funciona bem mas
+% tem algumas limitações (https://tex.stackexchange.com/a/153915 ).
+% Se isso for um problema, a package minted pode oferecer resultados
+% melhores; a desvantagem é que ela depende de um programa externo,
+% o pygments (escrito em python).
+%
+% listings também não tem suporte específico a pseudo-código, mas
+% incluímos uma configuração para isso que deve ser suficiente.
+% Caso contrário, há diversas packages específicas para a criação
+% de pseudocódigo:
+%
+%  * a mais comum é algorithmicx ("\usepackage{algpseudocode}");
+%  * algorithm2e é bastante flexível, mas um tanto complexa;
+%  * clrscode3e foi usada no livro "Introduction to Algorithms"
+%    de Cormen, Leiserson, Rivert e Stein.
+%  * pseudocode foi usada no livro "Combinatorial Algorithms"
+%    de Kreher e Stinson.
+
+\usepackage{listings}
+\usepackage{lstautogobble}
+% Carrega a "linguagem" pseudocode para listings
+\appto{\lstaspectfiles}{,lstpseudocode.sty}
+\appto{\lstlanguagefiles}{,lstpseudocode.sty}
+\dowithsubdir{extras/}{\lstloadaspects{simulatex,invisibledelims,pseudocode}}
+\dowithsubdir{extras/}{\lstloadlanguages{[base]pseudocode,[english]pseudocode,[brazil]pseudocode}}
+
+% O pacote listings não lida bem com acentos! No caso dos caracteres acentuados
+% usados em português é possível contornar o problema com a tabela abaixo.
+% From https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings#Encoding_issue
+\lstset{literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {Ã}{{\~A}}1 {ã}{{\~a}}1 {Õ}{{\~O}}1 {õ}{{\~o}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+  {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+}
+
+% Opções default para o pacote listings
+% Ref: http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
+\lstset{
+  columns=[l]fullflexible,            % do not try to align text with proportional fonts
+  basicstyle=\footnotesize\ttfamily,  % the font that is used for the code
+  numbers=left,                       % where to put the line-numbers
+  numberstyle=\footnotesize\ttfamily, % the font that is used for the line-numbers
+  stepnumber=1,                       % the step between two line-numbers. If it's 1 each line will be numbered
+  numbersep=20pt,                     % how far the line-numbers are from the code
+  autogobble,                         % ignore irrelevant indentation
+  commentstyle=\color{Brown}\upshape,
+  stringstyle=\color{black},
+  identifierstyle=\color{DarkBlue},
+  keywordstyle=\color{cyan},
+  showspaces=false,                   % show spaces adding particular underscores
+  showstringspaces=false,             % underline spaces within strings
+  showtabs=false,                     % show tabs within strings adding particular underscores
+  %frame=single,                       % adds a frame around the code
+  framerule=0.6pt,
+  tabsize=2,                          % sets default tabsize to 2 spaces
+  captionpos=b,                       % sets the caption-position to bottom
+  breaklines=true,                    % sets automatic line breaking
+  breakatwhitespace=false,            % sets if automatic breaks should only happen at whitespace
+  escapeinside={\%*}{*)},             % if you want to add a comment within your code
+  backgroundcolor=\color[rgb]{1.0,1.0,1.0}, % choose the background color.
+  rulecolor=\color{darkgray},
+  extendedchars=true,
+  inputencoding=utf8,
+  xleftmargin=30pt,
+  xrightmargin=10pt,
+  framexleftmargin=25pt,
+  framexrightmargin=5pt,
+  framesep=5pt,
+}
+
+% Um exemplo de estilo personalizado para listings (tabulações maiores)
+\lstdefinestyle{wider} {
+  tabsize = 4,
+  numbersep=15pt,
+  xleftmargin=25pt,
+  framexleftmargin=20pt,
+}
+
+% Outro exemplo de estilo personalizado para listings (sem cores)
+\lstdefinestyle{nocolor} {
+  commentstyle=\color{darkgray}\upshape,
+  stringstyle=\color{black},
+  identifierstyle=\color{black},
+  keywordstyle=\color{black}\bfseries,
+}
+
+% Um exemplo de definição de linguagem para listings (XML)
+\lstdefinelanguage{XML}{
+  morecomment=[s]{<!--}{-->},
+  morecomment=[s]{<!-- }{ -->},
+  morecomment=[n]{<!--}{-->},
+  morecomment=[n]{<!-- }{ -->},
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  morekeywords={xmlns,version,type}% list your attributes here
+}
+
+% Estilo padrão para a "linguagem" pseudocode
+\lstdefinestyle{pseudocode}{
+  basicstyle=\rmfamily\small,
+  commentstyle=\itshape,
+  keywordstyle=\bfseries,
+  identifierstyle=\itshape,
+  % as palavras "function" e "procedure"
+  procnamekeystyle=\bfseries\scshape,
+  % funções precedidas por function/procedure ou com \func{}
+  procnamestyle=\ttfamily,
+  specialidentifierstyle=\ttfamily\bfseries,
+}
+\lstset{defaultdialect=[english]{pseudocode}}
+
+% No arquivo "floats.tex" definimos o tipo de float "program".
+
+% A package listings tem seu próprio mecanismo para a criação de
+% captions, lista de programas etc. Neste modelo não usamos esses
+% recursos mas, se necessário, lembre-se de traduzir o caption e
+% o título da lista de programas usados por ele:
+%\addto\extrasbrazil{%
+%  \gdef\lstlistlistingname{Lista de Programas}%
+%  \gdef\lstlistingname{Programa}%
+%}
+%\addto\extrasenglish{%
+%  \gdef\lstlistlistingname{List of Programs}%
+%  \gdef\lstlistingname{Program}%
+%}
