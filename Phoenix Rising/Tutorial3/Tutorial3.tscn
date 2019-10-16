@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Tutorial3/Tutorial3.gd" type="Script" id=1]
 [ext_resource path="res://InputOutput/InputOutput.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://GenericGameScenes/NextLevel.tscn" type="PackedScene" id=14]
 [ext_resource path="res://GenericGameScenes/ResetLevel.tscn" type="PackedScene" id=15]
 [ext_resource path="res://VisualProcess/VisualProcess.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Gamification/Gamification.tscn" type="PackedScene" id=17]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.00784314, 0.227451, 0.423529, 1 )
@@ -191,6 +192,8 @@ text = "Exemplo 2:"
 [node name="ResetLevel" parent="." instance=ExtResource( 15 )]
 
 [node name="VisualProcess" parent="." instance=ExtResource( 16 )]
+
+[node name="Gamification" parent="." instance=ExtResource( 17 )]
 [connection signal="input_output_defined" from="." to="RunEnvironment" method="_on_input_output_defined"]
 [connection signal="output_position" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_position"]
 [connection signal="output_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_output_visual_entered"]
@@ -200,9 +203,11 @@ text = "Exemplo 2:"
 [connection signal="start_input_visual_entered" from="InputOutput" to="VisualProcess" method="_on_InputOutput_start_input_visual_entered"]
 [connection signal="pressed" from="FullScreen" to="." method="_on_FullScreen_pressed"]
 [connection signal="pressed" from="ReturnToTitle" to="." method="_on_ReturnToTitle_pressed"]
+[connection signal="attempt_to_run" from="RunEnvironment" to="Gamification" method="_on_RunEnvironment_attempt_to_run"]
 [connection signal="frame_flashy" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_frame_flashy"]
-[connection signal="level_succeded" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_level_succeded"]
 [connection signal="level_succeded" from="RunEnvironment" to="." method="_on_RunEnvironment_level_succeded"]
+[connection signal="level_succeded" from="RunEnvironment" to="ColoredFrames" method="_on_RunEnvironment_level_succeded"]
+[connection signal="points_garanted" from="RunEnvironment" to="Gamification" method="_on_RunEnvironment_points_garanted"]
 [connection signal="visual_process_arguments" from="RunEnvironment" to="VisualProcess" method="_on_RunEnvironment_visual_process_arguments"]
 [connection signal="change_area_entered" from="Inventory/MovableActionSpace" to="VisualProcess" method="_on_MovableActionSpace_change_area_entered"]
 [connection signal="entered_tree" from="Inventory/MovableActionSpace" to="Inventory" method="_on_MovableActionSpace_entered_tree"]
