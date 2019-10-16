@@ -1,7 +1,19 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Gamification/Gamification.gd" type="Script" id=1]
 
 [node name="Gamification" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1840.0
 margin_bottom = -920.0
+script = ExtResource( 1 )
+
+[node name="OneSecond" type="Timer" parent="."]
+
+[node name="Stopwatch" type="RichTextLabel" parent="."]
+margin_left = 813.144
+margin_top = 34.4678
+margin_right = 980.144
+margin_bottom = 74.4678
+[connection signal="timeout" from="OneSecond" to="." method="_on_OneSecond_timeout"]
