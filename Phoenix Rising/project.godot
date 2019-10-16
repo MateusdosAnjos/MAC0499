@@ -22,6 +22,7 @@ config/icon="res://acessorios/art/BluePhoenixLogo.png"
 [autoload]
 
 ItemDB="*res://GenericGameScenes/ItemDB.tscn"
+GlobalVariables="*res://Gamification/GlobalVariables.gd"
 
 [display]
 
