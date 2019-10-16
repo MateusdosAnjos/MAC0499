@@ -5,7 +5,7 @@ signal input_output_defined(input, output)
 #INPUT is a list of inputs to be given, one at time, to be processed
 const INPUT = ['Bolo de chocolate']
 #OUTPUT is the expected string
-const OUTPUT = 'Bolo de chocolate'
+const OUTPUT = 'Bolo de chocolate '
 
 #List of items to be picked up (write one name for each position
 #it will be picked up 1 item for each name position)
