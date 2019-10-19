@@ -38,53 +38,21 @@ aprofundar o conhecimento.
 
 
 %% ------------------------------------------------------------------------- %%
-\section{Considerações de Estilo}
+\section{Organização do Projeto}
 \label{sec:consideracoes_preliminares}
 
-Normalmente, as citações não devem fazer parte da estrutura sintática da
-frase\footnote{E não se deve abusar das notas de rodapé.\index{Notas de rodapé}}.
-No entanto, usando referências em algum estilo autor-data (como o estilo
-plainnat do \LaTeX{}), é comum que o nome do autor faça parte da frase. Nesses
-casos, pode valer a pena mudar o formato da citação para não repetir o nome do
-autor; no \LaTeX{}, isso pode ser feito usando os comandos
-\textsf{\textbackslash{}citet}, \textsf{\textbackslash{}citep},
-\textsf{\textbackslash{}citeyear} etc. documentados no pacote
-natbib \citep{natbib}\index{natbib} (esses comandos são compatíveis com biblatex
-usando a opção \textsf{natbib=true}, ativada por padrão neste modelo). Em geral,
-portanto, as citações devem seguir estes exemplos:
+O projeto foi desenvolvido utilizando Godot na versão 3.1.1 stable, 
+uma \textit{game engine} que facilita a produção de jogos e possui uma linguagem
+própria chamada GDScript.
+Todo o código do jogo está mantido no GitHub, portanto o projeto é open source,
+o que facilita a contribuição pela comunidade.
 
-\small
-\begin{verbatim}
-Modos de citação:
-indesejável: [AF83] introduziu o algoritmo ótimo.
-indesejável: (Andrew e Foster, 1983) introduziram o algoritmo ótimo.
-certo: Andrew e Foster introduziram o algoritmo ótimo [AF83].
-certo: Andrew e Foster introduziram o algoritmo ótimo (Andrew e Foster, 1983).
-certo (\citet ou \citeyear): Andrew e Foster (1983) introduziram o algoritmo ótimo.
-\end{verbatim}
-\normalsize
-
-O uso desnecessário de termos em língua estrangeira deve ser evitado. No entanto,
-quando isso for necessário, os termos devem aparecer \textit{em itálico}.
-\index{Língua estrangeira}
-% index permite acrescentar um item no indice remissivo
-
-Uma prática recomendável na escrita de textos é descrever as
-legendas\index{Legendas} das figuras e tabelas em forma auto-contida: as
-legendas devem ser razoavelmente completas, de modo que o leitor possa entender
-a figura sem ler o texto onde a figura ou tabela é citada.\index{Floats}
-
-Sugerimos que você faça referências bibliográficas de forma similar aos
-estilos ``alpha'' (referências alfanuméricas) ou ``plainnat'' (referências
-por autor-data) de \LaTeX{}.  Se estiver usando natbib+bibtex\index{natbib}\index{bibtex},
-use os arquivos .bst ``alpha-ime.bst'' ou ``plainnat-ime.bst'', que são
-versões desses dois formatos traduzidas para o português. Se estiver usando
-biblatex\index{biblatex} (recomendado), escolha o estilo ``alphabetic''
-(que é um dos estilos padrão do biblatex) ou ``plainnat-ime''. O arquivo de
-exemplo inclui todas essas opções; basta des-comentar as linhas
-correspondentes e, se necessário, modificar o arquivo Makefile para chamar
-o bibtex\index{bibtex} ao invés do biber\index{biber} (este último é usado
-em conjunto com o biblatex).
+Como um dos objetivos do projeto é disponibilizar o código fonte para
+melhorias serem implementadas, o código e comentários estão em inglês, seguindo
+as boas práticas de programação. Vale salientar também que a eficiência não foi
+principal ponto do projeto mas sim a legibilidade e a flexibilidade do 
+código, portanto em algumas partes preferiu-se utilizar um pouco mais de memória
+e/ou processamento, embora tais escolhas não tenham grande impacto na jogabilidade.
 
 \section{Ferramentas Bibliográficas}
 
