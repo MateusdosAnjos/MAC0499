@@ -111,17 +111,40 @@ possível entender o básico de como funciona a \textit{Godot Engine}.
 A seguir temos as explicações dos conceitos básicos.
 
 \subsection{Nós}
+
+Nós são blocos de construção fundamentais para a criação de um jogo. Um nó pode
+executar uma variedade de funções especializadas.
+No entanto, qualquer nó fornecido sempre possui os seguintes atributos:
+\begin{itemize}
+    \item[$\bullet$]
+        Possui um nome.
+    \item[$\bullet$]
+        Possui propriedades editáveis.
+    \item[$\bullet$]
+        Ele pode receber um retorno de chamada (\textit{callback}) para 
+        processar todos os quadros (\textit{frames}).
+    \item[$\bullet$]
+        Pode ser estendido (para ter mais funções).
+    \item[$\bullet$]
+        Pode ser adicionado a outro nó como filho.
+\end{itemize}
+
+Perceba que o último atributo é muito importante, pois quando nós tem outros nós
+como filhos o conjunto se torna uma árvore, como foi explicado anteriormente.
+Em Godot, a capacidade de organizar nós dessa maneira cria uma ferramenta 
+poderosa para organizar projetos. Como nós diferentes têm funções diferentes, 
+combiná-los permite a criação de funções mais complexas, a partir disso
+\textit{Phoenix Rising} foi criado.
+
 \subsection{Cenas}
 \subsection{Árvore de Cena}
 \subsection{Sinais}
 \subsection{Singleton}
 \subsection{GDScripts}
 
-
-
-
 \section{Bibliografia}
 
 \textsc{Referências Bibliográficas} 
 
 https://www.cse.unr.edu/~sushil/class/gas/papers/GameAIp27-lewis.pdf
+%https://docs.godotengine.org/en/3.1/getting_started/step_by_step/scenes_and_nodes.html
