@@ -137,6 +137,27 @@ combiná-los permite a criação de funções mais complexas, a partir disso
 \textit{Phoenix Rising} foi criado.
 
 \subsection{Cenas}
+
+Uma cena é composta por um grupo de nós organizados hierarquicamente 
+(em forma de árvore). Além disso, uma cena:
+
+\begin{itemize}
+    \item[$\bullet$]
+        Sempre tem um nó raiz.
+    \item[$\bullet$]
+        Pode ser salvo no disco e carregado de volta.
+    \item[$\bullet$]
+        Pode ser instanciado (Explicado adiante).
+\end{itemize}
+
+Executar um jogo significa executar uma cena. Um projeto pode conter várias 
+cenas, mas para o jogo começar, uma delas deve ser selecionada como a cena 
+principal.
+
+Basicamente, o editor Godot é um editor de cenas. Possui muitas ferramentas para
+editar cenas 2D e 3D, bem como interfaces com o usuário, mas o editor é baseado 
+no conceito de edição de uma cena e nos nós que a compõem.
+
 \subsection{Árvore de Cena}
 \subsection{Sinais}
 \subsection{Singleton}
