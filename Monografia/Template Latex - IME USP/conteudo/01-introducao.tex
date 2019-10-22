@@ -158,6 +158,25 @@ Basicamente, o editor Godot é um editor de cenas. Possui muitas ferramentas par
 editar cenas 2D e 3D, bem como interfaces com o usuário, mas o editor é baseado 
 no conceito de edição de uma cena e nos nós que a compõem.
 
+\subsection{Instâncias}
+
+Criar uma única cena e adicionar nós a ela pode funcionar para pequenos 
+projetos, mas à medida que o projeto aumenta em tamanho e complexidade, o número
+de nós pode se tornar rapidamente incontrolável. Para resolver isso, Godot 
+permite que um projeto seja separado em qualquer número de cenas. Isso fornece 
+uma ferramenta poderosa que ajuda a organizar os diferentes componentes do seu
+jogo.
+
+Em Cenas e nós, você aprendeu que uma cena é uma coleção de nós organizados em 
+uma estrutura de árvore, com um único nó como raiz da árvore.
+Você pode criar quantas cenas quiser e salvá-las em disco. As cenas salvas dessa
+maneira são chamadas de "Cenas compactadas" (\textit{packed scenes}) e têm uma 
+extensão de nome de arquivo ".tscn".
+
+A instanciação é muito utilizada em \textit{Phoenix Rising}, portanto esta
+parte deve ficar mais clara conforme adentramos nos detalhes da estrutura e
+de implementação mais adiante.
+
 \subsection{Árvore de Cena}
 \subsection{Sinais}
 \subsection{Singleton}
@@ -169,3 +188,4 @@ no conceito de edição de uma cena e nos nós que a compõem.
 
 https://www.cse.unr.edu/~sushil/class/gas/papers/GameAIp27-lewis.pdf
 %https://docs.godotengine.org/en/3.1/getting_started/step_by_step/scenes_and_nodes.html
+%https://docs.godotengine.org/en/3.1/getting_started/step_by_step/instancing.html
