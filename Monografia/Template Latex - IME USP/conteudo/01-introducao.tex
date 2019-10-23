@@ -178,6 +178,23 @@ parte deve ficar mais clara conforme adentramos nos detalhes da estrutura e
 de implementação mais adiante.
 
 \subsection{Árvore de Cena}
+
+Para entender melhor o que é uma Árvore de Cena deve-se entender um pouco sobre
+o modo como Godot trabalha internamente. A única instância que é executada no 
+início pertence à classe \textit{OS}. Depois, todos os drivers, servidores,
+linguagens de script, sistema de cenas e outros recursos são carregados.
+
+Quando a inicialização estiver concluída, o sistema operacional precisará 
+receber um \textit{MainLoop} para executar. Até o momento, tudo isso funciona 
+internamente (você pode verifiar o arquivo "main.cpp" no código-fonte se 
+estiver interessado em ver como isso funciona internamente).
+
+O programa do usuário, ou jogo, inicia no \textit{MainLoop}. Essa classe possui
+alguns métodos, para inicialização, ocioso (retorno de chamada sincronizado por 
+quadro), fixo (retorno de chamada sincronizado com física) e entrada. Novamente,
+esse é um nível baixo e, ao fazer jogos em Godot, escrever seu próprio MainLoop
+raramente faz sentido.
+
 \subsection{Sinais}
 \subsection{Singleton}
 \subsection{\textit{GDScripts}}
@@ -202,3 +219,4 @@ herda as funções fornecidas por esse nó.
 %https://docs.godotengine.org/en/3.1/getting_started/step_by_step/scenes_and_nodes.html
 %https://docs.godotengine.org/en/3.1/getting_started/step_by_step/instancing.html
 %https://docs.godotengine.org/en/3.1/getting_started/scripting/gdscript/gdscript_basics.html#doc-gdscript
+%https://docs.godotengine.org/en/latest/getting_started/step_by_step/scene_tree.html
