@@ -227,7 +227,28 @@ comportamentos indesejados.
 
 A importância de se entender tudo isso, para este projeto, se dá pois a maioria
 das operações de nó em \textit{Godot}, como desenhar 2D, processar ou obter 
-notificações, são feitas seguindo a ordem que os nós estão na árvore. 
+notificações, são feitas seguindo a ordem que os nós estão na árvore.
+
+O processo de tornar um nó ativo ao entrar na \textit{SceneTree} se dá seguindo
+os passos:
+\begin{itemize}
+    \item[1.]
+        Uma cena é carregada do disco ou criada por script.
+    \item[2.]
+        A raiz dessa cena é adicionada como filha de \textit{Viewport}, ou como 
+        filha de qualquer filha de \textit{Viewport}
+    \item[3.]
+        Cada nó da cena recém-adicionada receberá a notificação 
+        \textit{"enter\_tree"} na ordem de cima para baixo, ou seja, o pai é
+        notificado e depois cada um de seus filhos.
+    \item[4.]
+        Uma notificação extra, \textit{"ready"} é fornecida por conveniência, 
+        quando um nó e todos os seus filhos estão dentro da cena ativa.
+    \item[5.]
+        Quando uma cena (ou parte dela) é removida, eles recebem a notificação
+        \textit{"exit\_tree"} na ordem de baixo para cima, ou seja, os filhos são
+        notificados e depois o pai.
+\end{itemize}
 
 \subsection{Sinais}
 \subsection{Singleton}
