@@ -177,23 +177,57 @@ A instanciação é muito utilizada em \textit{Phoenix Rising}, portanto esta
 parte deve ficar mais clara conforme adentramos nos detalhes da estrutura e
 de implementação mais adiante.
 
-\subsection{Árvore de Cena}
+\subsection{\textit{SceneTree}}
 
-Para entender melhor o que é uma Árvore de Cena deve-se entender um pouco sobre
-o modo como Godot trabalha internamente. A única instância que é executada no 
+Para entender melhor o que é uma \textit{SceneTree} deve-se entender um pouco 
+sobre o modo como \textit{Godot} trabalha internamente.
+
+Primeiro, a única instância que é executada no 
 início pertence à classe \textit{OS}. Depois, todos os drivers, servidores,
 linguagens de script, sistema de cenas e outros recursos são carregados.
 
 Quando a inicialização estiver concluída, o sistema operacional precisará 
 receber um \textit{MainLoop} para executar. Até o momento, tudo isso funciona 
-internamente (você pode verifiar o arquivo "main.cpp" no código-fonte se 
+internamente (você pode verificar o arquivo "main.cpp" no código-fonte se 
 estiver interessado em ver como isso funciona internamente).
 
-O programa do usuário, ou jogo, inicia no \textit{MainLoop}. Essa classe possui
-alguns métodos, para inicialização, ocioso (retorno de chamada sincronizado por 
-quadro), fixo (retorno de chamada sincronizado com física) e entrada. Novamente,
-esse é um nível baixo e, ao fazer jogos em Godot, escrever seu próprio MainLoop
-raramente faz sentido.
+Este \textit{MainLoop} da inicio ao programa do usuário, ou jogo. Essa classe
+possui alguns métodos, para inicialização, \textit{callbacks} e \textit{input}. 
+Novamente, esse é um nível baixo e, ao fazer jogos em Godot, escrever seu 
+próprio \textit{MainLoop} raramente faz sentido.
+
+A partir disso o sistema de cena fornece seu próprio loop principal para o 
+\textit{OS}, chamado de \textit{SceneTree}. 
+Isso é instanciado automaticamente e definido ao executar uma cena, sem a 
+necessidade de fazer nenhum trabalho extra.
+
+Agora que a \textit{SceneTree} foi introduzida é importante saber que ela existe
+e possui algumas características, como:
+
+\begin{itemize}
+    \item[$\bullet$]
+        Contém o \textit{Viewport} raiz, ao qual uma cena é adicionada 
+        como filha quando é aberta pela primeira vez para se tornar parte da
+        \textit{SceneTree}.
+    \item[$\bullet$]
+        Contém informações sobre os grupos e possui os meios para chamar 
+        todos os nós em um grupo ou obter uma lista deles.
+    \item[$\bullet$]
+        Contém algumas funcionalidades do estado atual do
+        jogo, como definir o modo de pausa ou término de processos.
+\end{itemize}
+
+Desta forma, quando um nó é conectado, direta ou indiretamente, à 
+\textit{viewport} raiz, ele se torna parte da \textit{SceneTree}. Quando os nós 
+entram na Árvore da cena, eles se tornam ativos. Eles têm acesso a tudo o que 
+precisam para processar, obter informações, exibir imagens em 2D e 3D, receber 
+e enviar notificações, reproduzir sons, entre outros processamentos. Quando são
+removidos da árvore da cena, perdem essas habilidades, evitado alguns 
+comportamentos indesejados.
+
+A importância de se entender tudo isso, para este projeto, se dá pois a maioria
+das operações de nó em \textit{Godot}, como desenhar 2D, processar ou obter 
+notificações, são feitas seguindo a ordem que os nós estão na árvore. 
 
 \subsection{Sinais}
 \subsection{Singleton}
