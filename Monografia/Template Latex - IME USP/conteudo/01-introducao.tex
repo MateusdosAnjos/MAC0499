@@ -252,6 +252,36 @@ os passos:
 
 \subsection{Sinais}
 \subsection{Singleton}
+
+O sistema de cenas utilizado em \textit{Godot}, embora poderoso e flexível, tem 
+uma desvantagem: não há método para armazenar informações, por exemplo, 
+pontuação do jogador (inclusive utilizado neste projeto), que é necessário para 
+mais de uma cena.
+
+Existem alternativas de implementação ao se deparar com estes problemas, porém
+na maioria dos casos o padrão \textit{Singleton} irá consumir menos tempo e
+memória. Isso deve-se ao fato de \textit{Singleton} ser uma ferramenta útil para
+resolver o caso de uso comum em que você precisa armazenar informações 
+persistentes entre as cenas. No nosso caso, é possível reutilizar a mesma cena 
+ou classe para vários \textit{Singletons}, desde que eles tenham 
+nomes diferentes.
+
+Resumindo, usando esse conceito, você pode criar objetos que:
+
+\begin{itemize}
+    \item[$\bullet$]
+        Sempre estejam carregados e prontos para uso, independentemente da cena 
+        em execução no momento.
+    \item[$\bullet$]
+        Pode armazenar variáveis globais, como informações do jogador.
+    \item[$\bullet$]
+        Pode lidar com alternância de cenas e transições entre cenas.
+\end{itemize}
+
+Vale lembrar também que o carregamento automático de nós e scripts pode nos dar 
+essas características ao custo de processamento.
+
+
 \subsection{\textit{GDScripts}}
 
 \textit{GDScript} é uma linguagem de programação de alto nível e tipagem 
