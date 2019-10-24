@@ -250,7 +250,6 @@ os passos:
         notificados e depois o pai.
 \end{itemize}
 
-\subsection{Sinais}
 \subsection{Singleton}
 
 O sistema de cenas utilizado em \textit{Godot}, embora poderoso e flexível, tem 
@@ -281,6 +280,18 @@ Resumindo, usando esse conceito, você pode criar objetos que:
 Vale lembrar também que o carregamento automático de nós e scripts pode nos dar 
 essas características ao custo de processamento.
 
+\subsection{Sinais}
+
+Sinais permitem que um nó envie uma mensagem que outros nós possam ouvir e 
+responder. Por exemplo, em vez de verificar continuamente um botão para ver se 
+ele está sendo pressionado, o botão pode emitir um sinal quando é pressionado e
+assim quem receber o sinal poderá executar o que é necessário.
+
+Servem, portanto, para dissociar os objetos do jogo, o que leva a um código 
+melhor organizado, mais legível e limpo. Também faz com que os objetos do jogo
+não precisem estar sempre em conexão com outros, pois um nó pode emitir um sinal
+e apenas os nós interessados em tratar tal evento, aqueles que o emissor se
+conectou, recebam este sinal.
 
 \subsection{\textit{GDScripts}}
 
@@ -305,3 +316,4 @@ herda as funções fornecidas por esse nó.
 %https://docs.godotengine.org/en/3.1/getting_started/step_by_step/instancing.html
 %https://docs.godotengine.org/en/3.1/getting_started/scripting/gdscript/gdscript_basics.html#doc-gdscript
 %https://docs.godotengine.org/en/latest/getting_started/step_by_step/scene_tree.html
+%https://docs.godotengine.org/en/3.1/getting_started/step_by_step/signals.html
