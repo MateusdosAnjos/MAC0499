@@ -302,24 +302,34 @@ visto na figura abaixo:
 \end{figure}
 
 Note que o sinal \textit{pressed()} relativo ao nó chamado \textit{FullScreen} 
-já está conectado.
+já está conectado (note o ícone em verde, que simboliza a conexão).
 
 Entretando nem sempre estes sinais cobrem a necessidade do projeto. Sendo assim
 é preciso criar o próprio sinal, utilizando código. Veja o exemplo abaixo:
 
-%\begin{figure}[h]
-%    \includegraphics[width=\linewidth]{../figuras/arvore.png}
-%    \caption{Sinal criado por código}
-%\end{figure}
+\begin{figure}[H]
+    \includegraphics[scale=0.6]{../figuras/criando_sinal_via_codigo.png}
+    \caption{Sinal criado por código}
+\end{figure}
+
+Veja que foi criado o sinal chamado \textit{input\_output\_defined} que
+carrega dois parâmetros: \textit{input} e \textit{output}. 
 
 Depois pode-se conectar o sinal utilizando a interface de programação
-que o \textit{Godot} oferece ou conectá-lo via código como visto na imagem
+que o \textit{Godot} oferece ou conectá-lo via código como visto nas imagens
 a seguir:
 
-%\begin{figure}[h]
-%    \includegraphics[width=\linewidth]{../figuras/arvore.png}
-%    \caption{Sinal conectado por código}
-%\end{figure}
+\begin{figure}[H]
+    \includegraphics[scale=0.8]{../figuras/sinal_conectado_interface.png}
+    \caption{Sinal conectado via interface}
+\end{figure}
+
+\begin{figure}[H]
+      \includegraphics[width=\textwidth]{../figuras/sinal_conectado_codigo.png}
+      \caption{Sinal conectado via código (linha 18.)}
+\end{figure}
+
+
 
 
 \subsection{\textit{GDScripts}}
