@@ -55,7 +55,7 @@ código, portanto em algumas partes preferiu-se utilizar um pouco mais de memór
 e/ou processamento, embora tais escolhas não tenham grande impacto na 
 jogabilidade.
 
-\section{Objetivos dentro do Jogo}
+\section{Objetivo Dentro do Jogo}
 \label{sec:consideracoes_preliminares}
 
 Para que seja mais fácil entender o projeto como um todo, esta seção explicará
@@ -99,10 +99,42 @@ que ele obteve aparecerá abaixo de "Sua Resposta" \ que está no retângulo ver
     \caption{Objetivos}
 \end{figure}
 
+O jogador deve cumprir o objetivo dentro do tempo limite para acumular pontos.
+Este tempo é mostrado constantemente na tela e sempre iniciará com 120 segundos
+restantes.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{../figuras/tempo_restante.png}
+    \caption{Tempo restante no início do nível}
+\end{figure}
+
+Ao concluir o nível o jogador ganhará pontos iguais ao valor de tempo que 
+restava ao apertar o botão "rodar!", obviamente os pontos só serão obtidos caso
+o objetivo seja alcançado. Este fato está relacionado com a duração do processo 
+visual que o jogo possui e será explicado mais adiante, por hora deve-se 
+entender que existe um sistema de pontuação.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{../figuras/pontuacao.png}
+    \caption{Pontuação obtida}
+\end{figure}
+
+Note que, se o jogador tinha zero pontos quando concluiu este nível, o programa
+criado que alcançou o objetivo foi executado quando ainda havia 101 segundos
+restantes, porém a animação continuou executando, consequentemente o tempo
+continuou correndo, para que o usuário
+pudesse visualizar o que está acontecendo durante a execução do programa criado
+e aprender como funciona cada comando.
+
+Portanto o objetivo final de \textit{Phoenix Rising} é completar o maior número
+de níveis no menor tempo possível para maximizar o somatório de pontos. Para 
+isso o jogador deve aprender a mecânica de jogo, o que  e como cada comando
+executa sua instrução e como montar o quebra cabeça dos diferentes níveis.
+
 \section{Elementos do Jogo}
 \label{sec:consideracoes_preliminares}
 
-\section{Noção básica sobre como jogar}
+\section{Forma de Jogar}
 \label{sec:consideracoes_preliminares}
 
 Para conseguir completar o objetivo o jogo \textit{Phoenix Rising} funciona
