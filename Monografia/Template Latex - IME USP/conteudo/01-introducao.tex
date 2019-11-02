@@ -250,6 +250,40 @@ nomeada condição, e durante a execução o comando \textit{If/Else} avalia se
 tal condição é verdadeira ou falsa, executando o ramo de ação referente ao 
 resultado da avaliação.
 
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{../figuras/avaliacao_if.png}
+        \caption{Avaliação da condição}
+    \end{subfigure}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{../figuras/caminho_if.png}
+        \caption{Caminho referente a avaliação}
+    \end{subfigure}  
+    \caption{Processo visual para If}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{../figuras/avaliacao_else.png}
+        \caption{Avaliação da condição}
+    \end{subfigure}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{../figuras/caminho_else.png}
+        \caption{Caminho referente a avaliação}
+    \end{subfigure}  
+    \caption{Processo visual para Else}
+\end{figure}
+
+Nos exemplos acima o input segue o caminho de cima caso ele seja maior que zero,
+caso contrário seguirá o caminho de baixo. Para o sistema ter esse comportamento
+basta passar como argumento para o comando \textit{If/Else} '' > 0 ''.
+
 \section{Forma de Jogar}
 \label{sec:consideracoes_preliminares}
 
