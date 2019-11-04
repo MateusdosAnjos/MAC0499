@@ -175,58 +175,55 @@ jogo.
     \caption{Um espaço de ação}
 \end{figure}
 \newpage
-O jogador pode movimentar o espaço de ação ao clicar no ícone de arrastar, 
-modificar as conexões de entrada e saída ao clicar nos ícones de troca de 
-conexões, verificar qual a posição do espaço de ação na sequência de 
-operações e preencher os \textit{argumentos}\footnote{É um valor, proveniente 
-de uma variável ou de uma expressão mais complexa, que pode ser passado para 
-um comando (sub-rotina). Um comando utiliza os valores atribuídos aos 
-parâmetros para alterar o seu comportamento em tempo de execução.}
-necessários para os diferentes comandos, além de posicionar o comando a ser 
-utilizado no respectivo espaço de ação.
-
-\begin{figure}[H]
-    \centering
-    \begin{minipage}{.4\textwidth}
-      \centering
-      \includegraphics[scale=0.1]{../figuras/open_hand_icon.png}
-      \subcaption{Ícone de arrastar não pressionado}
-    \end{minipage}%
-    \begin{minipage}{.4\textwidth}
-      \centering
-      \includegraphics[scale=0.1]{../figuras/closed_hand_icon.png}
-      \subcaption{Ícone de arrastar pressionado}
-    \end{minipage}
-    \caption{Ícones de arrastar}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}{0.4\textwidth}
-        \centering
-        \includegraphics[width=.7\textwidth]{../figuras/change_button.png}
-        \caption{Ícone de trocas de conexões}
-    \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
-        \centering
-        \includegraphics[width=.7\textwidth]{../figuras/numero_posicao.png}
-        \caption{Posição na ordem de ações (1)}
-    \end{subfigure}  
-    \caption{Troca de Conexão e Posição da Ação}
-\end{figure}
-
-\begin{figure}[H]
-    \includegraphics[scale=0.6]{../figuras/argumentos.png}
-    \caption{Espaço para Argumentos}
-\end{figure}
-
-Além de utilizar estes comandos que estão dentro do espaço de ação o jogador 
-deve posicionar o comando desejado dentro do espaço preto, da seguinte forma:
-
-\begin{figure}[H]
-    \includegraphics[scale=0.6]{../figuras/espaco_com_comando.png}
-    \caption{Espaço de Ação com Comando}
-\end{figure}
+O jogador pode:
+\begin{itemize}
+    \item[$\bullet$]
+        Movimentar o espaço de ação ao clicar no ícone de arrastar.
+        \begin{figure}[H]
+            \centering
+            \begin{minipage}{.4\textwidth}
+              \centering
+              \includegraphics[scale=0.1]{../figuras/open_hand_icon.png}
+              \subcaption{Ícone de arrastar não pressionado}
+            \end{minipage}%
+            \begin{minipage}{.4\textwidth}
+              \centering
+              \includegraphics[scale=0.1]{../figuras/closed_hand_icon.png}
+              \subcaption{Ícone de arrastar pressionado}
+            \end{minipage}
+            \caption{Ícones de arrastar}
+        \end{figure}
+    \item[$\bullet$]
+        Modificar as conexões de entrada e saída ao clicar nos ícones de troca de 
+        conexões.
+        \begin{figure}[H]
+            \includegraphics[scale=0.4]{../figuras/change_button.png}
+            \caption{Ícone de trocas de conexões}
+        \end{figure}
+    \item[$\bullet$]
+        Verificar qual a posição do espaço de ação na sequência de 
+        operações.
+        \begin{figure}[H]
+            \includegraphics[scale=0.5]{../figuras/numero_posicao.png}
+            \caption{Posição na ordem de ações (1)}
+        \end{figure}
+    \item[$\bullet$]
+        Preencher os \textit{argumentos}\footnote{É um valor, proveniente 
+        de uma variável ou de uma expressão mais complexa, que pode ser passado para 
+        um comando (sub-rotina). Um comando utiliza os valores atribuídos aos 
+        parâmetros para alterar o seu comportamento em tempo de execução.}
+        necessários para os diferentes comandos
+        \begin{figure}[H]
+            \includegraphics[scale=0.6]{../figuras/argumentos.png}
+            \caption{Espaço para Argumentos}
+        \end{figure}
+    \item[$\bullet$]
+        Posicionar o comando a ser utilizado no respectivo espaço de ação.
+        \begin{figure}[H]
+            \includegraphics[scale=0.6]{../figuras/espaco_com_comando.png}
+            \caption{Espaço de Ação com Comando \textit{Print}}
+        \end{figure}
+\end{itemize}
 
 Note que, dentro do jogo, um espaço de ação não pode ser movimentado caso um 
 comando esteja posicionado, isso faz com que o jogador tenha que completar o
