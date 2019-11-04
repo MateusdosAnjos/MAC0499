@@ -321,6 +321,36 @@ ser valores fixos atribuidos pelo jogador, como o exemplo acima mostra, ou podem
 ser dinâmicos, ou seja, o jogador pode armazenar em uma variável o valor 
 corrente do \textit{Input}.
 
+O nono comando, chamado \textit{Error}, não deve ser utilizado, pois só aparece
+caso a importação de algum dos comandos anteriores dê errado. Por conta disso
+o comando de erro não possui comportamento algum e, se tudo der certo durante
+o jogo, este comando não aparecerá em nenhum momento.
+
+\subsection{Setas de Entrada e Saída}
+
+Estas setas são as conexões iniciais que o jogador deve se preocupar. O programa
+do jogador irá receber os valores disponibilizados a serem processados a partir
+da \textit{Seta de Entrada}, portanto a primeira conexão que deve
+ser feita é entre um espaço de ação e esta seta. Já a \textit{Seta de Saída}
+será a última conexão que o jogador terá que fazer, pois o programa só estará 
+apto a ser executado quando existir uma conexão entre a duas setas.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{../figuras/seta_entrada.png}
+        \caption{Seta de Entrada}
+    \end{subfigure}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{../figuras/seta_saida.png}
+        \caption{Seta de Saída}
+    \end{subfigure}  
+    \caption{Setas de Entrada e Saída}
+\end{figure}
+
+
 \section{Forma de Jogar}
 \label{sec:consideracoes_preliminares}
 
@@ -328,7 +358,7 @@ Para conseguir completar o objetivo o jogo \textit{Phoenix Rising} funciona
 da seguinte forma:
 
 O jogador deve resolver o quebra cabeças conectando os blocos da forma correta
-até que a Entrada esteja conectada com a Saída.
+até que a Seta de Entrada esteja conectada com a Seta de Saída.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{../figuras/jogo_nao_conectado.png}
