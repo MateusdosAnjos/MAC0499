@@ -91,6 +91,33 @@ poderosa para organizar projetos. Como nós diferentes têm funções diferentes
 combiná-los permite a criação de funções mais complexas, a partir disso
 \textit{Phoenix Rising} foi criado.
 
+\begin{minipage}[c]{0.5\textwidth}
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{../figuras/exemplo_noh.png}
+        \caption{Exemplo de nós}
+    \end{figure}
+\end{minipage}%
+\begin{minipage}{0.05\textwidth}
+    \hfill
+\end{minipage}%
+\begin{minipage}[c]{0.4\textwidth}
+    Note que na imagem ao lado existem vários nós diferentes, porém todos são
+    verdes, isso se deve ao fato de todos herdarem da classe Control, nós
+    que compõem a interface de usuário.
+    \hfill\newline\hfill
+    Os ícones do lado esquerdo de cada
+    nome dos nós indicam a qual classe filha pertence o nó escolhido. De uma
+    maneira informal pode-se entender isso como a especialização deste nó 
+    dentro da classe Control.
+    \hfill\newline\hfill
+    O nó chamado \textit{Menu} é filho da raíz da cena, chamada 
+    \textit{TitleScreen}, e também tem um filho chamado \textit{Texture Rect},
+    exemplificando o último atributo citado acima.
+\end{minipage}
+
+A partir do exemplo acima é possível entender como a organização dos nós
+contrói a árvore de cena, conceito explicado na próxima seção.
+
 \subsection{Cenas}
 
 Uma cena é composta por um grupo de nós organizados hierarquicamente 
@@ -100,11 +127,15 @@ Uma cena é composta por um grupo de nós organizados hierarquicamente
     \item[$\bullet$]
         Sempre tem um nó raiz.
     \item[$\bullet$]
-        Pode ser salvo no disco e carregado de volta.
+        Pode ser salva no disco e carregada de volta.
     \item[$\bullet$]
-        Pode ser instanciado (Explicado adiante).
+        Pode ser instanciada.\\
+        Neste caso o nó ficará marcado com o símbolo:
+        \begin{figure}[H]
+            \includegraphics[scale=2]{../figuras/simbolo_instanciada.png}
+            \caption{Símbolo que indica Cena Instanciada}
+        \end{figure}
 \end{itemize}
-
 Executar um jogo significa executar uma cena. Um projeto pode conter várias 
 cenas, mas para o jogo começar, uma delas deve ser selecionada como a cena 
 principal.
@@ -127,6 +158,37 @@ uma estrutura de árvore, com um único nó como raiz da árvore.
 Você pode criar quantas cenas quiser e salvá-las em disco. As cenas salvas dessa
 maneira são chamadas de "Cenas compactadas" \ (\textit{packed scenes}) e têm uma 
 extensão de nome de arquivo ".tscn".
+
+Veja no exemplo abaixo que a cena \textit{Tutorial} é composta por vários
+outros nós, dentre eles o nó \textit{InputOutput} também é uma cena e foi
+instanciada.
+
+\begin{minipage}[t]{0.4\textwidth}
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{../figuras/cena_tutorial.png}
+        \caption{Cena Tutorial}
+    \end{figure}
+\end{minipage}%
+\begin{minipage}{0.05\textwidth}
+    \hfill
+\end{minipage}%
+\begin{minipage}{0.05\textwidth}
+    \hfill
+\end{minipage}%
+\begin{minipage}[t]{0.4\textwidth}
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{../figuras/cena_input_output.png}
+        \caption{Cena InputOutput}
+    \end{figure}
+\end{minipage}
+
+Instanciar uma cena utilizando \textit{Godot} é bem fácil, basta clicar no botão
+de instanciar cena e selecionar qual cena salva que se deseja instanciar.
+ 
+\begin{figure}[H]
+    \includegraphics[scale=0.8]{../figuras/exemplo_instanciando.png}
+    \caption{Exemplo de instanciação}
+\end{figure}
 
 A instanciação é muito utilizada em \textit{Phoenix Rising}, portanto esta
 parte deve ficar mais clara conforme adentramos nos detalhes da estrutura e
