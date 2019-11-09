@@ -1,12 +1,12 @@
 Monografia:
 
-- Introdução (geral sobre o trabalho): 
-	- descrever o que quer fazer------------------------------------------------
+- Introdução (geral sobre o trabalho): OK
+	- descrever o que quer fazer----------------------------------------------OK
 	- motivo de fazer---------------------------------------------------------OK
 	- objetivos (facilitar aprendizado)---------------------------------------OK
 	- metodologia (feito com godot, mantendo no git)--------------------------OK
 
-- Conceitos básicos:
+- Conceitos básicos: OK
 	- conhecimento necessário para entender (godot)---------------------------OK
 	- metodologias de ensino (se utilizou)--------------------------------------
 
