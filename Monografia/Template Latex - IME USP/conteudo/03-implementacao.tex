@@ -215,6 +215,47 @@ e \textit{left\_child} que fazem referência a qual outro espaço de ação est�
 conectado a sua conexão de saída, criando a árvore de execução, utilizada
 pelo \textit{RunEnvironment} e \textit{VisualProcess}.
 
+A árvore de execução permite obter a sequência de ações que o jogador projetou
+no nível, além disso esta estrutura facilita o comando condicional 
+(\textit{if/else}), o comando de loop e outros comandos que podem ser 
+implementados como subrotinas.
+
+Já a cena \textit{ActionSpace}, parte fixa do espaço de ação mostrada na figura
+3.9, é composta pelos seguintes nós:
+
+\begin{itemize}
+    \item[$\bullet$]
+        \textbf{\textit{ActionShape}} - Delimita, com um retângulo preto, o
+        espaço ocupado pelo espaço de ação.  
+    \item[$\bullet$]
+        \textbf{\textit{Name}} - Coloca o nome "Espaço de Ação" dentro do 
+        retângulo preto, pois tutorial faz referências a este item. 
+    \item[$\bullet$]
+        \textbf{\textit{ArgumentButton}} - Botão que permite ao jogador 
+        abrir a área de preenchimento dos argumentos que serão passados para um 
+        comando.
+    \item[$\bullet$]
+        \textbf{\textit{Argument}} - Área de preenchimento dos argumentos, 
+        o que for escrito nesta área será passado como argumento para o comando
+        posicionado.  
+    \item[$\bullet$]
+        \textbf{\textit{ArgumentOk}} - Quando pressionado fecha a área de 
+        preenchimento dos argumentos.
+\end{itemize}
+
+Novamente, vale lembrar que os detalhes de implementação não são relevantes, 
+basta saber que esta cena é considerada um recipiente (\textit{container}) para 
+o inventário e caso um comando esteja posicionado nesta região não será possível
+movimentar o \textit{MovableActionSpace} pela tela.
+
+Uma consideração a ser feita a respeito dos argumentos serem preenchidos 
+utilizando o teclado é que um menu de seleção com o mouse limitaria as opções
+do jogador, sendo assim ele poderia testar todas as opções disponíveis até que 
+uma delas funcionasse, indo contra o objetivo do jogo que é ensinar e não apenas 
+terminá-lo. Forçar o usuário a escrever o argumento com o formato pedido faz com
+que ele se acostume a ler o menu de ajuda ou as mensagens de erro e seguir os 
+padrões que a computação exige, forçando-o a estar ciente do que está fazendo e
+concluindo o objetivo principal que é facilitar o aprendizado.
 
 \section{Processo Visual}
 
