@@ -106,7 +106,115 @@ com "verdadeiro" para sinalizar que aquela região está preenchida.
 \section{Espaço de Ação}
 
 Dentro dos arquivos do jogo (diretório \textit{Phoenix Rising}) é encontrado na 
-pasta \textit{ActionSpace}
+pasta \textit{ActionSpace}. O espaço de ação serve para conectar o sistema
+fazendo com que seja possível executá-lo e posicionar os comandos que serão
+utilizados no programa criado pelo jogador.
+
+Basicamente o espaço de ação é divido em duas partes, uma móvel e outra fixa.
+A cena \textit{MovableActionSpace} é a parte que permite a mobilidade e a cena
+\textit{ActionSpace} cuida de receber o item posicionado e os argumentos.
+
+\begin{minipage}[c]{0.5\textwidth}
+    \begin{figure}[H]
+        \includegraphics[scale=0.8]{../figuras/cena_movable_action_space.png}
+        \caption{Cena MovableActionSpace}
+    \end{figure}
+\end{minipage}%
+\begin{minipage}[c]{0.6\textwidth}
+    \begin{figure}[H]
+        \includegraphics[scale=0.8]{../figuras/cena_action_space.png}
+        \caption{Cena ActionSpace}
+    \end{figure}
+\end{minipage}
+
+Note que, como \textit{MovableActionSpace} é móvel, foi utilizado um nó do tipo
+Node2D e como \textit{ActionSpace} é fixo, foi utilizado um nó do tipo Control.
+
+A cena \textit{MovableActionSpace} é formada pelos seguintes nós:
+
+\begin{itemize}
+    \item[$\bullet$]
+        \textbf{\textit{ActionSpace}} - Cena que trata dos comandos e argumentos
+        que são posicionados para a execução.   
+    \item[$\bullet$]
+        \textbf{\textit{ClickDragArea}} - Área com o ícone da mãozinha, 
+        destinada a mover o espaço de ação pela tela. 
+    \item[$\bullet$]
+        \textbf{\textit{InputArea}} - Conexões simples de \textit{input}.
+    \item[$\bullet$]
+        \textbf{\textit{OutputArea}} - Conexões simples de \textit{output}.  
+    \item[$\bullet$]
+        \textbf{\textit{IfArea}} - Conexão complexa para administrar o comando 
+        \textit{if/else}.
+    \item[$\bullet$]
+        \textbf{\textit{ConvergeArea}} Conexão complexa para unir os dois 
+        caminhos gerados a partir de um \textit{if/else}.
+    \item[$\bullet$]
+        \textbf{\textit{ActionNumber}} - Indica em qual posição na ordem de 
+        processamento que está aquela ação.
+    \item[$\bullet$]
+        \textbf{\textit{OutputChangeButton}} - Área que permite a troca da 
+        conexão de saída (\textit{output})
+    \item[$\bullet$]
+        \textbf{\textit{InputChangeButton}} - Área que permite a troca da 
+        conexão de entrada (\textit{input})
+    \item[$\bullet$] 
+        \textbf{\textit{ChangeArea}} - Área que marca em qual momento será feita
+        a troca do valor \textit{input} definido no processo visual.
+\end{itemize}
+
+O \textit{script} atrelado ao nó \textit{MovableActionSpace} torna possível
+os comportamentos descritos acima, os detalhes de como isso é feito não são
+relevantes neste momento, por isso não haverá explicação detalhada sobre o 
+código, entretanto os curiosos que quiserem adicionar uma nova conexão simples
+de \textit{input} devem seguir os passos:
+
+\begin{itemize}
+    \item[$\bullet$]
+        Seguindo o padrão de nomenclatura, criar um nó \textit{sprite} chamado
+        \textit{NewConnection} e um nó 
+        de forma de colisão (\textit{CollisionShape2D}) chamado 
+        \textit{NewCollisionShape}, filhos de \textit{InputArea}.
+    \item[$\bullet$]
+        Definir a forma de colisão do nó \textit{NewCollisionShape}.
+    \item[$\bullet$]
+        Abrir o \textit{script MovableActionSpace.gd} e adicionar na lista
+        \textit{input\_connections} o nome do nó \textit{sprite} que foi criado,
+        seguindo o exemplo:
+        $$\$InputArea/NewConnection$$
+    \item[$\bullet$]
+        Ainda no \textit{script MovableActionSpace.gd}, adicionar na lista
+        \textit{input\_collisions} uma lista contendo o nome do nó 
+        \textit{CollisionShape2D} que foi criado, seguindo o exemplo: 
+        $$[\$InputArea/NewCollisionShape]$$
+    \item[$\bullet$]
+        Adicionar na lista \textit{input\_connected\_textures} o caminho que
+        está a imagem referente a nova conexão quando conectada.
+        O DEFAULT\_PATH está definido como "res://Accessories/art/", se a imagem
+        estiver neste diretório basta adicionar:
+        $$DEFAULT\_PATH + \ ''minha\_nova\_conexao.png''$$
+    \item[$\bullet$]
+        Adicionar na lista \textit{input\_not\_connected\_textures} o caminho
+        que está a imagem referente a nova conexão quando não conectada.
+        O DEFAULT\_PATH está definido como "res://Accessories/art/", se a imagem
+        estiver neste diretório basta adicionar:
+        $$DEFAULT\_PATH + \ ''minha\_nova\_conexao\_nao\_conectada.png''$$
+    \item[$\bullet$]
+        Por último basta incrementar o número total de conexões da variável
+        \textit{num\_input\_connections} e pronto.
+\end{itemize}
+
+Esta sequência de ações pode ser utilizada para criar conexões de saída,
+basta preencher as respectivas listas que controlam as conexões de 
+\textit{output}.
+
+O motivo das conexões serem tão importantes para este elemento do jogo vai além
+de só conectar o sistema e permitir sua execução, pois cada espaço de ação 
+possui também duas variáveis chamadas \textit{right\_child} 
+e \textit{left\_child} que fazem referência a qual outro espaço de ação está 
+conectado a sua conexão de saída, criando a árvore de execução, utilizada
+pelo \textit{RunEnvironment} e \textit{VisualProcess}.
+
 
 \section{Processo Visual}
 
