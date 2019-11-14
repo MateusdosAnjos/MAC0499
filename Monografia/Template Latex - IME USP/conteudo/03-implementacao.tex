@@ -294,7 +294,24 @@ a execução.
     \item[$\bullet$]
         \textbf{\textit{VisualSpeed}} - Menu que controla a velocidade que a 
         animação do processo visual será mostrada. 
-    \end{itemize}
+\end{itemize}
+
+Para entender melhor o processo visual deve-se compreender o básico sobre o
+funcionamento dos nós \textit{Path}
+\footnote{https://docs.godotengine.org/en/3.1/classes/class\_path.html} e 
+\textit{PathFollow2D}\footnote{https://docs.godotengine.org/en/3.1/classes/
+class\_pathfollow.html\#class-pathfollow} na \textit{Godot}.
+O nó \textit{Path} espera receber uma curva de pontos, já \textit{PathFollow2D}
+pega seu \textit{Path}  pai e devolve as coordenadas de um ponto dentro dele, 
+dada a distância do primeiro vértice, sendo útil para fazer outros nós seguirem 
+um caminho, sem codificar o padrão de movimento. Para isso, os nós devem ser 
+descendentes desse nó. Em seguida, ao  definir um deslocamento neste nó, os nós 
+descendentes se moverão de acordo.
+
+Seguindo o funcionamento de \textit{Path} e \textit{PathFollow2D} ao instanciar
+\textit{Title}, \textit{Value} e \textit{VisualProcessArea} como filhos de
+\textit{PathFollow2D} todos eles irão seguir o caminho da curva definida, o que
+permite movimentar o valor do \textit{Input} pela tela de jogo.
 
 \section{Nível Base}
 
