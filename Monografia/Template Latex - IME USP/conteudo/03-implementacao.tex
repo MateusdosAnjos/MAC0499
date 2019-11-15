@@ -311,10 +311,52 @@ descendentes se moverão de acordo.
 Seguindo o funcionamento de \textit{Path} e \textit{PathFollow2D} ao instanciar
 \textit{Title}, \textit{Value} e \textit{VisualProcessArea} como filhos de
 \textit{PathFollow2D} todos eles irão seguir o caminho da curva definida, o que
-permite movimentar o valor do \textit{Input} pela tela de jogo.
+permite movimentar o valor do \textit{Input} pela tela de jogo. Veja abaixo
+algumas variáveis que são utilizadas no controle deste processo:
 
+\begin{figure}[H]
+    \includegraphics[scale=0.8]{../figuras/variaveis_visual_process.png}
+    \caption{Variáveis Visual Process}
+\end{figure}
 
+\begin{itemize}
+    \item[$\bullet$]
+        \textit{starting\_pos} e \textit{finish\_pos} - demarcam onde o 
+        processo visual inicia e onde ele termina, respectivamente.
+    \item[$\bullet$]
+        \textit{start\_input} - recebe o valor inicial da entrada.
+    \item[$\bullet$]
+        \textit{curve} - guarda a curva 
+        de pontos, que será preenchida conforme a execução do programa.
+    \item[$\bullet$] 
+        \textit{total\_inputs} - guarda a quantidade de valores que foi 
+        fornecido na entrada do programa
+    \item[$\bullet$]
+        \textit{current\_start\_input} - guarda qual valor da entrada que será
+        processado.
+    \item[$\bullet$]
+        \textit{processed\_input} - armazena os 
+        valores que se alteram durante a execução e que são exibidos na 
+        animação.
+    \item[$\bullet$] 
+        \textit{CurrentActionNode} - guarda qual espaço de ação que será
+        executado
+    \item[$\bullet$] 
+        \textit{is\_exit\_sucess} - sinaliza se houve algum erro 
+        durante a execução.
+\end{itemize}
 
+A função que possibilita o processo visual executar as modificações no 
+\textit{input} e seguir um caminho na tela é a
+\textit{\_on\_MovableActionSpace\_change\_area\_entered} definida no script do
+nó \textit{VisualProcess}. Esta função é chamada sempre que há colisão entre 
+\textit{VisualProcessCollision} e \textit{ChangeArea}, que está definido no 
+espaço de ação. Veja abaixo o código:
+
+\begin{figure}[H]
+    \includegraphics[scale=0.7]{../figuras/codigo_MovableActionSpace_area_entered.png}
+    \caption{Variáveis Visual Process}
+\end{figure}
 
 
 \section{Nível Base}
