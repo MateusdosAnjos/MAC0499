@@ -351,13 +351,45 @@ A função que possibilita o processo visual executar as modificações no
 \textit{\_on\_MovableActionSpace\_change\_area\_entered} definida no script do
 nó \textit{VisualProcess}. Esta função é chamada sempre que há colisão entre 
 \textit{VisualProcessCollision} e \textit{ChangeArea}, que está definido no 
-espaço de ação. Veja abaixo o código:
+espaço de ação.
+
+Veja abaixo o código:
 
 \begin{figure}[H]
     \includegraphics[scale=0.7]{../figuras/codigo_MovableActionSpace_area_entered.png}
     \caption{Variáveis Visual Process}
 \end{figure}
 
+Note que a função \textit{\_on\_MovableActionSpace\_change\_area\_entered} é 
+chamada sempre que é detectada uma colisão entre um espaço de ação e o 
+\textit{input}, portanto a variável \textit{CurrentActionNode} está armazenando
+uma referência para o espaço de ação que colidiu.
+
+Iniciando a função, na linha 64,
+é executado o código do comando que está posicionado dentro do espaço de ação
+e o novo \textit{input} que foi processado bem como qual o caminho a seguir,
+serão armazenados na lista \textit{processed\_input}.
+
+A lista \textit{processed\_input} guarda, na primeira posição (0), o valor 
+resultante da operação do comando posicionado e terá \textit{null} caso algo
+tenha dado errado, por exemplo um erro na passagem do argumento. O \textit{if},
+na linha 66, verifica se algo deu errado na execução do comando. Caso nada
+de errado tenha acontecido é executado o \textit{else}, na linha 70, que
+identificará qual será o caminho que o processo visual deverá tomar.
+
+A lista \textit{processed\_input} guarda, na segunda posição (1), qual o
+caminho que deverá ser seguido, caso a posição esteja marcada com \textit{true},
+então será seguido o caminho do filho da direita, se o valor for \textit{false},
+então será seguido o caminho do filho da esquerda.
+
+Depois há a verificação se o processo visual chegou ao fim, na linha 75, ou 
+se há mais algum ponto a seguir, na linha 77-78. Por fim, na linha 79,
+atualiza-se o texto que aparece na tela para o jogador visualizar.
+
+Note que a execução dos comandos acontece enquanto o processo visual é mostrado
+na tela, assim o jogador pode acompanhar o andamento do seu programa até que
+algo de arrado aconteça, facilitando o entendimento de cada comando 
+individualmente e a correçao dos erros que aparecerem.
 
 \section{Nível Base}
 
