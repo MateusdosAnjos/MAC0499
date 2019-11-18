@@ -220,20 +220,36 @@ no nível, além disso esta estrutura facilita o comando condicional
 (\textit{if/else}), o comando de loop e outros comandos que podem ser 
 implementados como subrotinas.
 
-Depois que o sistema está totalmente conectado, podemos ter o seguinte exemplo
-de uma árvore de execução:
+Depois que o sistema está totalmente conectado, podemos criar um esquema da
+árvore de execução a partir de um sistema gerador da seguinte forma:
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/sistema_conectado_arvore_execucao.png}
+    \caption{Sistema gerador da Árvore de Execução}
+\end{figure}
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{../figuras/arvore_execucao_redim.png}
-    \caption{Exemplo de Árvore de Execução}
+    \caption{Esquema de Árvore de Execução}
 \end{figure}
 
-Lembre-se que os filhos da esquerda, conhecidos como \textit{left\_child}, que 
-não foram representados na figura, para melhorar a apresentação edeixá-la mais 
-fácil de entender, existem e possuem o valor \textit{null}.
+Vale ressaltar dois pontos importantes:
 
-Já a cena \textit{ActionSpace}, parte fixa do espaço de ação mostrada na figura
-3.9, é composta pelos seguintes nós:
+\begin{itemize}
+    \item[$\bullet$]
+        Os filhos da esquerda, conhecidos como \textit{left\_child}, que 
+        não foram representados no esquema, para melhorar a apresentação e 
+        deixá-lo mais fácil de entender, existem e possuem o valor 
+        \textit{null}.
+    \item[$\bullet$]
+        A numeração do sistema refere-se a ordem que os comandos serão 
+        executados, já a numeração do esquema enumera apenas a quantidade
+        de espaços de ação que foram utilizados, portanto as numerações
+        podem diferir.
+\end{itemize} 
+
+Agora será dada a exlicação sobre a cena \textit{ActionSpace}, parte fixa do 
+espaço de ação mostrada na figura 3.9, que é composta pelos seguintes nós:
 
 \begin{itemize}
     \item[$\bullet$]
@@ -392,7 +408,10 @@ identificará qual será o caminho que o processo visual deverá tomar.
 A lista \textit{processed\_input} guarda, na segunda posição (1), qual o
 caminho que deverá ser seguido, caso a posição esteja marcada com \textit{true},
 então será seguido o caminho do filho da direita, se o valor for \textit{false},
-então será seguido o caminho do filho da esquerda.
+então será seguido o caminho do filho da esquerda. Para entender esta parte
+talvez seja necessário relembrar o que significam estes "caminhos" observando 
+novamente a figura 3.11: Esquema de Árvore de Execução, definida na seção 
+"Espaço de Ação".
 
 Depois há a verificação se o processo visual chegou ao fim, na linha 75, ou 
 se há mais algum ponto a seguir, na linha 77-78. Por fim, na linha 79,
@@ -422,6 +441,16 @@ pasta \textit{RunEnvironment}
 
 Dentro dos arquivos do jogo (diretório \textit{Phoenix Rising}) é encontrado na
 pasta \textit{RunEnvironment}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/sistema_nao_conectado_arvore_execucao.png}
+    \caption{Sistema gerador da Árvore de Execução não Conectada}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/arvore_execucao_nao_conectada.png}
+    \caption{Esquema de Árvore de Execução não Conectada}
+\end{figure}
 
 \section{Ajuda ao Usuário}
 
