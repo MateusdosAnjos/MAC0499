@@ -495,8 +495,19 @@ Note a função que é chamada assim que o botão \textbf{Rodar!}, definido pelo
     \caption{Função do botão \textbf{Rodar!}}
 \end{figure}
 
-Daqui pra baixo apenas posicionei as figuras que serão utilizadas.
+O sinal emitido na linha 109 serve para armazenar a pontuação no momento em que
+o botão é pressionado, assim o jogador ganha os pontos independentemente de 
+quanto tempo a animação durou. As linhas 110 a 112 limpam o que estava escrito 
+anteriormente na saída do jogador e no mapa de variáveis, para iniciar a nova 
+execução.
 
+A verificação se o sistema está conectado é feita pela função 
+\textit{\_is\_system\_connected} que recebe a raíz da árvore de execução e
+verifica se para todos os espaços de ação que fazem parte do sistema existe 
+um caminho que o liga com a saída, sendo que não é válido passar mais de uma vez 
+pela mesma conexão.
+
+Veja as figuras abaixo que ilustram um sistema não conectado. 
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{../figuras/sistema_nao_conectado_arvore_execucao.png}
@@ -508,6 +519,14 @@ Daqui pra baixo apenas posicionei as figuras que serão utilizadas.
     \caption{Esquema de Árvore de Execução não Conectada}
 \end{figure}
 
+Note que o espaço de ação 4 faz parte do sistema, pois existe a conexão 
+(caminho) entre a entrada e ele, porém não está conectado com a saída, pois 
+não existe um caminho que o ligue com a saída sem repetir uma conexão. Note
+também que o espaço de ação 6 não faz parte do sistema, uma vez que não existe
+conexão entre ele e a entrada, portanto não é necessário que ele esteja 
+conectado com a saída.
+
+Caso seja possível executar o sistema....
 
 \section{Nível Base}
 
