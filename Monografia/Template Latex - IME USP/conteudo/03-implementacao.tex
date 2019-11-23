@@ -233,9 +233,17 @@ Depois que o sistema está totalmente conectado, podemos criar um esquema da
     \caption{Esquema de Árvore de Execução}
 \end{figure}
 
-Vale ressaltar dois pontos importantes:
+Vale ressaltar três pontos importantes:
 
 \begin{itemize}
+    \item[$\bullet$]
+        A conexão entre a \textit{Entrada} e o primeiro espaço de ação é apenas 
+        simbólica, pois a \textit{Entrada} não possui variáveis 
+        \textit{right\_child} e \textit{left\_child}. Foi escolhida esta 
+        representação de imagem para facilitar o entendimento do leitor que a 
+        árvore de execução representa o sistema do jogo, embora dentro do código
+        não exista a conexão entre a \textit{Entrada} e o primeiro espaço de 
+        ação.
     \item[$\bullet$]
         Os filhos da esquerda, conhecidos como \textit{left\_child}, que 
         não foram representados no esquema, para melhorar a apresentação e 
