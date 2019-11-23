@@ -526,7 +526,46 @@ também que o espaço de ação 6 não faz parte do sistema, uma vez que não ex
 conexão entre ele e a entrada, portanto não é necessário que ele esteja 
 conectado com a saída.
 
-Caso seja possível executar o sistema....
+Caso seja possível executar o sistema a função que faz o processamento do 
+\textit{input} será chamada. Veja abaixo:
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/process_input.png}
+    \caption{Processando o input}
+\end{figure}
+
+Primeiro deve-se encontrar em qual espaço de ação a árvore de execução se 
+inicia (linha 72), depois monta-se a árvore de execução completa (linha 73),
+por fim a função irá repetir os comandos das linhas 75 a 78 para cada valor
+definido no \textit{input}. Para processá-los a linha 75 emite o sinal 
+\textit{visual\_process\_arguments} para o processo visual, no \textit{script} 
+do processo visual a função chamada por este sinal recém enviado,
+\textit{\_on\_RunEnvironment\_visual\_process\_arguments}, preenche os pontos na
+curva referentes aos espaços de ação que estão na árvore de execução e inicia a
+animação que aparece na tela.
+
+Depois de iniciada a animação o processo visual irá tratar de executar os 
+scripts referentes aos comandos que foram posicionados. Enquanto isso a função 
+\textit{\_process\_input} estará esperando que o processo visual envie o sinal 
+\textit{end\_path}, marcando o fim do processo visual, para prosseguir sua 
+execução.
+
+Depois de receber o sinal, a função \textit{\_process\_input} irá verificar se 
+o sistema foi executado sem erros ou não e devolver \textit{true} caso o 
+sistema tenha sido executado com sucesso ou \textit{false} caso contrário.
+
+Este valor devolvido por \textit{\_process\_input} será armazenado na variável 
+\textit{was\_sucessfull}, localizada na linha 114 da função 
+\textit{\_on\_RunButton\_pressed}, servindo como verificação se o sistema foi 
+executado com sucesso ou não. Caso o sistema tenha sido executado com sucesso a
+rotina \textit{\_sucess\_routine} será chamada, adicionando os pontos para o
+jogador, fazendo o retângulo de saída piscar em verde e mostrando o botão que 
+permite ao jogador ir para o próximo nível. Caso o sistema não tenha sido 
+executado com sucesso a rotina \textit{\_failure\_routine} será executada,
+piscando o retângulo de saída em vermelho.
+
+Portanto, sempre que o botão \textbf{\textit{Rodar!}} é pressionado estas 
+subrotinas serão chamadas e tentarão executar o sistema.
 
 \section{Nível Base}
 
