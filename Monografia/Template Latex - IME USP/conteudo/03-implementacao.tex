@@ -578,11 +578,60 @@ subrotinas serão chamadas e tentarão executar o sistema.
 \section{Comandos do Jogo}
 
 Dentro dos arquivos do jogo (diretório \textit{Phoenix Rising}) a declaração 
-de quais itens serão disponíveis é encontrada na pasta 
-\textit{GenericGameScenes} no script \textit{ItemDB}, já os comportamentos 
+de quais comandos serão disponíveis é encontrada na pasta 
+\textit{GenericGameScenes} no script \textit{ItemDB.gd}, já os comportamentos 
 de cada comando estão no script \textit{RunScript.gd} localizado dentro da
 pasta \textit{RunEnvironment}.
 
+Vale ressaltar que o script \textit{ItemDB.gd} é um \textit{singleton} e é 
+carregado antes mesmo que a cena atual se inicie, portanto todas as cenas do 
+jogo podem acessar o conteúdo definido nele.
+
+Sendo assim, a declaração do comando, feita em \textit{ItemDB.gd}, deve conter 
+informações importantes a respeito dele, estas informações são:
+
+\begin{itemize}
+    \item[$\bullet$]
+        Caminho do ícone referente ao comando, para que as cenas o renderizem
+        na tela.
+    \item[$\bullet$]
+        Texto de ajuda para ser exibido na tela caso o jogador solicite.
+    \item[$\bullet$]
+        Nome da função que implementa o comportamento do comando.
+\end{itemize}
+
+Abaixo está ilustrado uma parte das declarações dos comandos.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/declaracao_comandos.png}
+    \caption{Parte do Script de Declaração dos Comandos}
+\end{figure}
+
+Para o melhor entendimento desta parte é importante saber um pouco sobre a 
+estrutura de um dicionário. Basicamente um dicionário é uma forma de estruturar
+os dados em que um elemento é chamado de chave e o outro elemento é chamado
+de valor. Em um dicionário as chaves são únicas e os valores podem se repetir,
+a partir disso o par chave e valor ficam atrelados e é possível obter
+o valor associado a uma chave apenas utilizando o elemento chave. O necessário
+para esta seção é entender que, em um dicionário, podemos utilizar o elemento 
+chave para obter facilmente o elemento valor associado.
+
+Na imagem acima a variável \textit{ITEMS} declarada na linha 4 é um dicionário 
+e irá armazenar todos os nomes
+dos comandos, portanto a chave no dicionário \textit{ITEMS} será a 
+\textit{string} que identifica o comando e o valor desta chave será outro 
+dicionário que armazena as informações referentes ao comando em questão. Desta 
+forma é possível acessar facilmente todas as informações importantes de um 
+comando apenas sabendo a \textit{string} de seu nome.
+
+Para recuperar as informações importantes de um comando específico é utilizado 
+o mesmo conceito de chave e valor, porém as chaves serão: \textit{icon}, 
+\textit{help} e \textit{funcName}.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.8]{../figuras/funcao_get_item.png}
+    \caption{Função get\_item}
+\end{figure}
 
 \section{Nível Base}
 
