@@ -583,11 +583,11 @@ de quais comandos serão disponíveis é encontrada na pasta
 de cada comando estão no script \textit{RunScript.gd} localizado dentro da
 pasta \textit{RunEnvironment}.
 
-Vale ressaltar que o script \textit{ItemDB.gd} é um \textit{singleton} e é 
+Para entender como foi estruturado o gerenciamento dos comandos do jogo é 
+importante saber que o script \textit{ItemDB.gd} é um \textit{singleton} e é 
 carregado antes mesmo que a cena atual se inicie, portanto todas as cenas do 
-jogo podem acessar o conteúdo definido nele.
-
-Sendo assim, a declaração do comando, feita em \textit{ItemDB.gd}, deve conter 
+jogo podem acessar o conteúdo definido nele. Além disso a declaração de cada
+comando, feita em \textit{ItemDB.gd}, deve conter 
 informações importantes a respeito dele, estas informações são:
 
 \begin{itemize}
@@ -600,18 +600,19 @@ informações importantes a respeito dele, estas informações são:
         Nome da função que implementa o comportamento do comando.
 \end{itemize}
 
-Abaixo está ilustrado uma parte das declarações dos comandos.
+Abaixo está ilustrado uma parte das declarações dos comandos, note que
+cada comando possui todas as informações importantes citadas acima.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{../figuras/declaracao_comandos.png}
     \caption{Parte do Script de Declaração dos Comandos}
 \end{figure}
 
-Para o melhor entendimento desta parte é importante saber um pouco sobre a 
-estrutura de um dicionário. Basicamente um dicionário é uma forma de estruturar
+Para o melhor entendimento desta parte é importante saber um pouco sobre o que é
+um dicionário. Basicamente um dicionário é uma forma de estruturar
 os dados em que um elemento é chamado de chave e o outro elemento é chamado
-de valor. Em um dicionário as chaves são únicas e os valores podem se repetir,
-a partir disso o par chave e valor ficam atrelados e é possível obter
+de valor. Nele as chaves são únicas e os valores podem se repetir, estes dois
+elementos formam um par e ficam atrelados, sendo assim é fácil obter
 o valor associado a uma chave apenas utilizando o elemento chave. O necessário
 para esta seção é entender que, em um dicionário, podemos utilizar o elemento 
 chave para obter facilmente o elemento valor associado.
@@ -628,10 +629,63 @@ Para recuperar as informações importantes de um comando específico é utiliza
 o mesmo conceito de chave e valor, porém as chaves serão: \textit{icon}, 
 \textit{help} e \textit{funcName}.
 
+A única função que está declarada neste script chama \textit{get\_item},
+ela recebe o identificador do comando, que no caso será o nome dele, e devolverá
+o dicionário que contém as informações importantes dele. Foi criado
+um comando chamado "error" que será devolvido pela função \textit{get\_item}
+caso o elemento procurado não exista, evitando assim que o programa quebre em 
+situações que algo deu errado.
+
 \begin{figure}[H]
     \includegraphics[scale=0.8]{../figuras/funcao_get_item.png}
     \caption{Função get\_item}
 \end{figure}
+
+Agora que os conceitos sobre como os comandos são declarados foram explicados é
+possível entender como o resto do programa utiliza o que foi definido.
+
+Todos os níveis possuem um \textit{script} atrelado ao nó principal da cena, 
+neste \textit{script} exite uma variável chamada \textit{pickup\_item\_list} que
+serve para armazenar quais os comandos que serão disponíveis em tal nível. No 
+exemplo abaixo estarão disponíveis os comandos de subtração e de \textit{print}.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.8]{../figuras/item_list.png}
+    \caption{Exemplo de pickup\_item\_list}
+\end{figure}
+
+Esta lista de itens é passada para o \textit{script} do nó \textit{Inventory}
+que utilizará a função \textit{pickup\_item} para colocar cada comando na área 
+de comandos e fazê-lo aparecer na tela, note que foi utilizado a chave 
+\textit{icon}.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.8]{../figuras/pickup_item.png}
+    \caption{Função pickup\_item}
+\end{figure}
+
+Depois disso o comando estará disponível para ser utilizado, sua
+mensagem de ajuda, chamada \textit{help}, será exibida sempre que o jogador 
+clicar, com o botão direito do mouse, sobre ele ou quando houver algum 
+erro durante a execução do programa devido a sua má utilização.
+
+A última informação importante de um comando é chamada \textit{funcName} e 
+guarda o nome da função que implementa o comportamento dele. Os comportamentos
+dos comandos estão definidos em \textit{RunScript.gd} e são utilizados durante
+a execução do programa que foi criado.
+
+Quando o jogador tenta executar o programa que foi criado a função 
+\textit{\_process\_input} chama \textit{\_build\_function\_tree} que 
+cria uma árvore com referências para os métodos que definem o comportamento de 
+cada item, nesta parte é utilizado o valor em \textit{funcName}. Construída a 
+árvore, ela será utilizada pelo \textit{visual\_process} enquanto a animação 
+for mostrada na tela. Desta forma é possível executar a função correspondente ao 
+comando durante o processo de execução.
+
+Um usuário que queira criar um novo comando só precisará preencher corretamente 
+o arquivo \textit{ItemDB.gd} seguindo o modelo e
+implementar o comportamento do comando em \textit{RunScript.gd}.
+
 
 \section{Nível Base}
 
