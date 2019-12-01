@@ -737,7 +737,28 @@ campo \textit{help} ao criá-lo no \textit{ItemDB.gd}.
 \section{Nível Base}
 
 Dentro dos arquivos do jogo (diretório \textit{Phoenix Rising}) é encontrado na
-pasta \textit{BaseLevel}
+pasta \textit{BaseLevel}. Dentro dessa pasta está um modelo de nível para ajudar 
+alguém que queira construir seu próprio desafio.
 
+A imagem abaixo ilustra os nós que compõem o nível base, nela é 
+possível entender sobre a organização dos nós na criação de um novo desafio. 
 
+\begin{figure}[H]
+    \includegraphics[width=0.6\textwidth]{../figuras/exemplo_base_level.png}
+    \caption{Exemplo de nível base}
+\end{figure}
 
+Para os interessados em criar um novo nível essa cena é muito útil, pois ao 
+abri-la utilizando a \textit{Godot Engine} é possível clicar em cada nó para ver
+o destino de cada sinal que é emitido por ele e qual a função que trata o 
+recebimento de tal sinal.
+
+Como as cenas mais importantes do jogo já foram explicadas , neste ponto basta
+entender como os sinais se conectam no nível base, copiar o diretório
+\textit{BaseLevel} e renomeá-lo (incluindo os arquivos dentro dele)
+seguindo o padrão "LevelX", depois pode-se editar o desafio a vontade.
+
+Para conectar o novo nível à sequência de jogo deve-se utilizar a função
+\textit{\_on\_NextLevel\_next\_level} definida em cada \textit{script}
+atrelado ao nó principal do nível. Se quiser adicionar o nível na tela de 
+seleção é só checar o diretório \textit{LevelSelection} e seguir os modelos.
