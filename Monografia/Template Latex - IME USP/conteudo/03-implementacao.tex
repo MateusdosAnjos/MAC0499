@@ -689,7 +689,50 @@ implementar o comportamento do comando em \textit{RunScript.gd}.
 \section{Ajuda ao Usuário}
 
 Dentro dos arquivos do jogo (diretório \textit{Phoenix Rising}) é encontrado na
-pastas \textit{UsersGuide} e em \textit{GenericGameScenes} 
+pastas \textit{UsersGuide} e em \textit{GenericGameScenes}.
+
+Estas cenas formam o conjunto de ajuda ao usuário. Nelas está definido a caixa 
+de diálogo, utilizada para guiar o usuário nos primeiros níveis e o painel de 
+ajuda que aparece na tela quando o jogador solicita mais informações sobre um 
+determinado comando.
+
+A caixa de diálogo exibe mensagens no início do nível dando uma sequência de 
+instruções para que o jogador consiga completar o nível mais facilmente. É claro 
+que nem sempre essas mensagens irão guiar totalmente o jogador, deixando o 
+desafio totalmente nas mãos dele.
+
+Abaixo está um exemplo de mensagem da caixa de diálogo. Esta é uma mensagem que
+aparece bem no início do jogo e está ensinando o jogador como fazer para que 
+seja possível rodar o programa criado.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/exemplo_users_guide.png}
+    \caption{Exemplo de mensagem da caixa de diálogo}
+\end{figure}
+
+O painel de ajuda aparece ao clicar, com o botão direito, sobre o 
+comando que deseja obter as informações de ajuda. Nele o jogador pode conferir 
+o que o comando faz, quais argumentos que ele deve receber e seu modo de 
+utilização.
+
+\begin{figure}[H]
+    \includegraphics[width=0.8\textwidth]{../figuras/exemplo_help_panel.png}
+    \caption{Exemplo de painel de ajuda}
+\end{figure}
+
+Como as mensagens da caixa de diálogo devem ser personalizadas para cada desafio, 
+existe uma cena no diretório \textit{UsersGuide} chamada \textit{UsersGuide.tscn}
+que pode ser instanciada em cada nível. Neste mesmo diretório existe um 
+\textit{script} chamado \textit{UsersGuide.gd} que é um modelo para criar as 
+mensagens de guia. Portanto, para personalizar as mensagens basta instanciar a 
+cena \textit{UsersGuide.tscn} no nível desejado e atrelar a ela um novo 
+\textit{script}, seguindo o modelo em \textit{UsersGuide.gd}. Por padrão o nome 
+do novo \textit{script} é sempre o nome do nível concatenado com a palavra 
+"Guide", ou seja, se o nível chama "NivelX" o nome do script será 
+\textit{NivelXGuide.gd}.
+
+A personalização do painel de ajuda para cada comando é feita preenchendo o 
+campo \textit{help} ao criá-lo no \textit{ItemDB.gd}.
 
 \section{Nível Base}
 
