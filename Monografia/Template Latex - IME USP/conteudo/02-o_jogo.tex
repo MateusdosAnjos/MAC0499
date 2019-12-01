@@ -1,0 +1,428 @@
+%!TeX root=../tese.tex
+%("dica" para o editor de texto: este arquivo é parte de um documento maior)
+% para saber mais: https://tex.stackexchange.com/q/78101/183146
+%% ------------------------------------------------------------------------- %%
+\chapter{O Jogo}
+\label{cap:introducao}
+
+\section{Objetivo Dentro do Jogo}
+\label{sec:consideracoes_preliminares}
+
+Para que seja mais fácil entender o projeto como um todo, esta seção explicará
+o objetivo que o jogador deve alcançar ao jogar 
+\textit{Phoenix Rising}. A imagem abaixo exemplifica um nível do jogo.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/exemplo_nivel.png}
+    \caption{Exemplo de um nível}
+\end{figure}
+
+O jogador irá receber dados que serão mostrados dentro do retângulo azul, 
+posicionado no lado esquerdo da tela. O exemplo abaixo mostra um nível que
+fornece  ao jogador os números 7 e 41 como dados iniciais.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{../figuras/entrada.png}
+    \caption{Exemplo de entrada}
+\end{figure}
+
+O objetivo do jogador é conseguir reproduzir o que está no retângulo verde, 
+posicionado no lado direito da tela,
+chamado "Resposta Esperada". No exemplo abaixo o nível exige que o jogador
+reproduza os números 8 e 42. Após o programa do jogador ser executado a saída 
+que ele obteve aparecerá abaixo de "Sua Resposta" \ que está no retângulo vermelho
+(fig(a)) e caso o resultado em "Sua Resposta" \ for igual ao que está em 
+"Resposta Esperada" o retângulo também ficará verde (fig (b)).
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{.4\textwidth}
+      \centering
+      \includegraphics[scale=0.3]{../figuras/saida.png}
+      \subcaption{Objetivo não alcançado}
+    \end{minipage}%
+    \begin{minipage}{.4\textwidth}
+      \centering
+      \includegraphics[scale=0.3]{../figuras/objetivo_alcancado.png}
+      \subcaption{Objetivo alcançado}
+    \end{minipage}
+    \caption{Objetivos}
+\end{figure}
+
+O jogador deve cumprir o objetivo dentro do tempo limite para acumular pontos.
+Este tempo é mostrado constantemente na tela e sempre iniciará com 120 segundos
+restantes.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{../figuras/tempo_restante.png}
+    \caption{Tempo restante no início do nível}
+\end{figure}
+
+Ao concluir o nível o jogador ganhará pontos iguais ao valor de tempo que 
+restava ao apertar o botão "rodar!", obviamente os pontos só serão obtidos caso
+o objetivo seja alcançado. Este fato está relacionado com a duração do processo 
+visual que o jogo possui e será explicado mais adiante, por hora deve-se 
+entender que existe um sistema de pontuação.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{../figuras/pontuacao.png}
+    \caption{Pontuação obtida}
+\end{figure}
+
+Note que, se o jogador tinha zero pontos quando concluiu este nível, o programa
+criado que alcançou o objetivo foi executado quando ainda havia 101 segundos
+restantes, porém a animação continuou executando, consequentemente o tempo
+continuou correndo, para que o usuário
+pudesse visualizar o que está acontecendo durante a execução do programa criado
+e aprender como funciona cada comando.
+
+Portanto o objetivo final de \textit{Phoenix Rising} é completar o maior número
+de níveis no menor tempo possível para maximizar o somatório de pontos. Para 
+isso o jogador deve aprender a mecânica de jogo, o que  e como cada comando
+executa sua instrução e como montar o quebra cabeça dos diferentes níveis.
+
+\section{Elementos do Jogo}
+\label{sec:consideracoes_preliminares}
+
+Agora que o objetivo do jogo foi explicitado, deve-se entender quais elementos 
+estão envolvidos para que o jogador possa concluir o desafio.
+
+\subsection{Entrada e Saída}
+
+Estes termos são recorrentes na computação e geralmente são chamados de
+\textit{Intput}\footnote{Dados fornecidos para o sistema processar} e 
+\textit{Output}\footnote{Dados que o sistema gera após o processamento} 
+respectivamente. Neste jogo a entrada e saída
+estão delimitadas pelos retângulos coloridos e servem para mostrar para o 
+jogador o que ele receberá para processar e o que ele deve produzir com o código
+gerado.
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{.4\textwidth}
+      \centering
+      \includegraphics[scale=0.3]{../figuras/exemplo_entrada.png}
+      \subcaption{Exemplo de Entrada}
+    \end{minipage}%
+    \begin{minipage}{.4\textwidth}
+      \centering
+      \includegraphics[scale=0.3]{../figuras/exemplo_saida.png}
+      \subcaption{Exemplo de Saída}
+    \end{minipage}
+    \caption{Entrada e Saída}
+\end{figure}
+
+\subsection{Espaço de Ação}
+
+Os espaços de ação são as áreas móveis do jogo que permitem montar o 
+quebra-cabeças e que recebem os comandos que executarão as ações de 
+processamento dos dados de entrada. Portanto este é um dos principais itens do 
+jogo.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/espaco_acao.png}
+    \caption{Um espaço de ação}
+\end{figure}
+\newpage
+O jogador pode:
+\begin{itemize}
+    \item[$\bullet$]
+        Movimentar o espaço de ação ao clicar no ícone de arrastar.
+        \begin{figure}[H]
+            \centering
+            \begin{minipage}{.4\textwidth}
+              \centering
+              \includegraphics[scale=0.1]{../figuras/open_hand_icon.png}
+              \subcaption{Ícone de arrastar não pressionado}
+            \end{minipage}%
+            \begin{minipage}{.4\textwidth}
+              \centering
+              \includegraphics[scale=0.1]{../figuras/closed_hand_icon.png}
+              \subcaption{Ícone de arrastar pressionado}
+            \end{minipage}
+            \caption{Ícones de arrastar}
+        \end{figure}
+    \item[$\bullet$]
+        Modificar as conexões de entrada e saída ao clicar nos ícones de troca de 
+        conexões.
+        \begin{figure}[H]
+            \includegraphics[scale=0.4]{../figuras/change_button.png}
+            \caption{Ícone de trocas de conexões}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{0.32\textwidth}
+                \centering
+                \includegraphics[width=1\textwidth]{../figuras/conexao_ex1.png}
+            \end{subfigure}
+            \begin{subfigure}{0.32\textwidth}
+                \centering
+                \includegraphics[width=1\textwidth]{../figuras/conexao_ex2.png}
+            \end{subfigure}
+            \begin{subfigure}{0.32\textwidth}
+                \centering
+                \includegraphics[width=1\textwidth]{../figuras/conexao_ex3.png}
+            \end{subfigure}    
+            \caption{Exemplos de conexões alteradas}
+        \end{figure}
+    \item[$\bullet$]
+        Verificar qual a posição do espaço de ação na sequência de 
+        operações.
+        \begin{figure}[H]
+            \includegraphics[scale=0.5]{../figuras/numero_posicao.png}
+            \caption{Posição na ordem de ações (1)}
+        \end{figure}
+    \item[$\bullet$]
+        Preencher os \textit{argumentos}\footnote{É um valor, proveniente 
+        de uma variável ou de uma expressão mais complexa, que pode ser passado para 
+        um comando (sub-rotina). Um comando utiliza os valores atribuídos aos 
+        parâmetros para alterar o seu comportamento em tempo de execução.}
+        necessários para os diferentes comandos
+        \begin{figure}[H]
+            \includegraphics[scale=0.6]{../figuras/argumentos.png}
+            \caption{Espaço para Argumentos}
+        \end{figure}
+    \item[$\bullet$]
+        Posicionar o comando a ser utilizado no respectivo espaço de ação.
+        \begin{figure}[H]
+            \includegraphics[scale=0.6]{../figuras/espaco_com_comando.png}
+            \caption{Espaço de Ação com Comando \textit{Print}}
+        \end{figure}
+\end{itemize}
+
+Note que, dentro do jogo, um espaço de ação não pode ser movimentado caso um 
+comando esteja posicionado, isso faz com que o jogador tenha que completar o
+quebra cabeças antes de pensar quais comandos serão utilizados.
+
+\subsection{Inventário e Comandos}
+
+Um comando é uma ação que processa o dado de uma forma específica de acordo com
+os argumentos que recebe, portanto todo comando possui nome e uma função.
+Os comandos do jogo estão em vermelho na imagem abaixo.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.5]{../figuras/inventario_comandos.png}
+    \caption{Inventário com Comandos}
+\end{figure}
+
+Os três primeiros comandos na imagem são de soma, subtração e multiplicação
+respectivamente. Estes comandos executam as operações básicas como conhecemos e
+apenas a operação de soma funciona como operador de concatenação caso o dado a
+ser processado seja uma string.
+
+O quarto comando da sequência, chamado \textit{Print}, escreve na saída 
+"Sua Resposta" o valor do \textit{Input} ou de uma variável do programa,
+dependendo de qual argumento passado.
+
+O quinto comando da sequência, chamado \textit{Pass}, serve apenas para conectar
+o sistema sem executar nenhum processamento dos dados.
+O sexto comando da sequência, chamado \textit{If/Else}, serve como controle de 
+fluxo do programa, ou seja, o comando recebe como argumento uma expressão, 
+nomeada condição, e durante a execução o comando \textit{If/Else} avalia se 
+tal condição é verdadeira ou falsa, executando o ramo de ação referente ao 
+resultado da avaliação.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{../figuras/avaliacao_if.png}
+        \caption{Avaliação da condição}
+    \end{subfigure}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{../figuras/caminho_if.png}
+        \caption{Caminho referente a avaliação}
+    \end{subfigure}  
+    \caption{Processo visual para If}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{../figuras/avaliacao_else.png}
+        \caption{Avaliação da condição}
+    \end{subfigure}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{../figuras/caminho_else.png}
+        \caption{Caminho referente a avaliação}
+    \end{subfigure}  
+    \caption{Processo visual para Else}
+\end{figure}
+
+Nos exemplos acima o input segue o caminho de cima caso ele seja maior que zero,
+caso contrário seguirá o caminho de baixo. Para o sistema ter esse comportamento
+basta passar como argumento para o comando \textit{If/Else} '' > 0 ''.
+
+O sétimo e oitavo comandos, chamados \textit{A} e \textit{B} respectivamente, 
+são variáveis e podem armazenar informações do programa para serem utilizadas
+posteriormente. Além disso o jogador pode acompanhar os valores de \textit{A} e
+\textit{B} durante a execução do programa olhando para a região de 
+\textit{Valores das Variáveis} localizada no canto superior direito da tela.
+
+
+\begin{figure}[H]
+    \includegraphics[scale=0.8]{../figuras/valores_variaveis.png}
+    \caption{Valores das Variáveis}
+\end{figure}
+
+Conforme a execução do programa estes valores serão modificados, veja na 
+imagem abaixo.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{../figuras/atribuicao_variavel.png}
+        \caption{Atribuição do valor 42 para variável \textit{A}}
+    \end{subfigure}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{../figuras/modific_tabela_variavel.png}
+        \caption{Mudança na região de \textit{Valores das Variáveis}}
+    \end{subfigure}  
+    \caption{Processo visual para mudança nas variáveis}
+\end{figure}
+
+Note também que o \textit{Input} era vazio, portanto valores de variáveis podem
+ser valores fixos atribuidos pelo jogador, como o exemplo acima mostra, ou podem
+ser dinâmicos, ou seja, o jogador pode armazenar em uma variável o valor 
+corrente do \textit{Input}.
+
+O nono comando, chamado \textit{Error}, não deve ser utilizado, pois só aparece
+caso a importação de algum dos comandos anteriores dê errado. Por conta disso
+o comando de erro não possui comportamento algum e, se tudo der certo durante
+o jogo, este comando não aparecerá em nenhum momento.
+
+\subsection{Setas de Entrada e Saída}
+
+Estas setas são as conexões iniciais que o jogador deve se preocupar. O programa
+do jogador irá receber os valores disponibilizados a serem processados a partir
+da \textit{Seta de Entrada}, portanto a primeira conexão que deve
+ser feita é entre um espaço de ação e esta seta. Já a \textit{Seta de Saída}
+será a última conexão que o jogador terá que fazer, pois o programa só estará 
+apto a ser executado quando existir uma conexão entre a duas setas.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{../figuras/seta_entrada.png}
+        \caption{Seta de Entrada}
+    \end{subfigure}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{../figuras/seta_saida.png}
+        \caption{Seta de Saída}
+    \end{subfigure}  
+    \caption{Setas de Entrada e Saída}
+\end{figure}
+
+\subsection{Botões}
+
+Na tela de jogo constam os seguintes botões cujo comportamento está especificado
+ao lado:
+
+\begin{itemize}
+    \item[$\bullet$]
+        \textbf{Tela Cheia} - Coloca o jogo em tela cheia.
+    \item[$\bullet$] 
+        \textbf{Menu Principal} - Retorna ao menu principal
+    \item[$\bullet$] 
+        \textbf{Velocidade da Animação} - Modifica a velocidade da animação de execução
+        do programa.
+    \item[$\bullet$]
+        \textbf{Rodar!} - Inicia a execução do programa criado caso o sistema esteja
+        conectado e não haja erro na utilização dos comandos.
+    \item[$\bullet$]
+        \textbf{Reiniciar Nível} - Recomeça o nível atual.
+    \item[$\bullet$]
+        \textbf{Próximo Nível} - Inicia o nível sequente do nível atual.
+\end{itemize}
+
+\section{Forma de Jogar}
+\label{sec:consideracoes_preliminares}
+
+Para conseguir completar o objetivo o jogo \textit{Phoenix Rising} funciona
+da seguinte forma:
+
+O jogador deve resolver o quebra cabeças conectando os blocos da forma correta
+até que a Seta de Entrada esteja conectada com a Seta de Saída.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/jogo_nao_conectado.png}
+    \caption{Jogo não conectado}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/jogo_conectado.png}
+    \caption{Jogo conectado}
+\end{figure}
+
+Desta forma o jogador deve compreender que, para criar um programa, é necessário
+pensar sobre a estrutura que o código terá antes de começar a utilizar os 
+comandos, pois tentar criar um código apenas inserindo comandos sem pensar
+previamente em uma estrutura base leva a códigos confusos e que muitas vezes
+não funcionam corretamente. É claro que para sistemas maiores as reestruturações
+do modelo ocorrem com certa frequência, porém o objetivo deste jogo é apenas
+introduzir os conceitos básicos de programação.
+
+Após ter o sistema conectado, o jogador deve utilizar os comandos que são
+disponibilizados no inventário, posicionados no canto inferior esquerdo da tela 
+de jogo.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.5]{../figuras/exemplo_comandos.png}
+    \caption{Exemplo de comandos disponíveis}
+\end{figure}
+
+Depois de posicionar os comandos, o jogador deve preencher os argumentos que 
+cada comando recebe e então o sistema estará pronto para ser executado.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/preenchendo_argumentos.png}
+    \caption{Jogador preenchendo os argumentos}
+\end{figure}
+
+Agora o sistema está pronto para ser executado.
+
+\begin{figure}[H]
+    \includegraphics[width=100mm, height=80mm]{../figuras/sistema_pronto.png}
+    \caption{Sistema pronto para execu\c{c}\~{a}o}
+\end{figure}
+
+Para iniciar o processamento dos dados de entrada, ou seja, rodar o programa,
+basta o jogador clicar no botão \textit{rodar!} e ficar atento à animação.
+No exemplo abaixo a primeira entrada era o número 7 e está sinalizada na 
+animação pelo nome \textit{Input:}.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/inicio_da_execucao.png}
+    \caption{Início da execu\c{c}\~{a}o do sistema}
+\end{figure}
+
+Agora o programa está rodando e o jogador pode acompanhar o que está 
+acontecendo, pois o valor do \textit{Input} será exibido constantemente na tela.
+Após passar por algum comando o valor de \textit{Input} será modificado de 
+acordo com a operação executada.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/antes_da_soma.png}
+    \caption{Valor do \textit{Input} antes da opera\c{c}\~{a}o}
+\end{figure}
+
+Note que após passar pelo comando de soma, o valor de \textit{Input} será 
+incrementado em 1, pois foi passado como argumento "input, 1", fazendo com que 
+seja somado 1 ao valor corrente do \textit{Input}.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../figuras/depois_da_soma.png}
+    \caption{Valor do \textit{Input} após a opera\c{c}\~{a}o}
+\end{figure}
+
+Esta maneira de conseguir acompanhar o que está acontecendo com os valores do 
+programa enquanto é executada cada ação permite que o jogador entenda realmente
+como cada comando funciona, facilitando o aprendizado principalmente das 
+instruções que controlam o fluxo de operação e loops.
