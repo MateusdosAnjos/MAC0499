@@ -55,3 +55,38 @@ principal ponto do projeto mas sim a legibilidade e a flexibilidade do
 código, portanto em algumas partes preferiu-se utilizar um pouco mais de memória
 e/ou processamento, embora tais escolhas não tenham grande impacto na 
 jogabilidade.
+
+%% ------------------------------------------------------------------------- %%
+\section{Visão Geral do Jogo}
+\label{sec:consideracoes_preliminares}
+
+Para nortear o leitor neste trabalho, aqui está uma breve descrição sobre como o
+jogo funciona.
+
+O objetivo do jogador é completar o maior número de desafios no menor tempo
+possível, maximizando o somatório de pontos. Para isso ele deve resolver o 
+problema de cada nível criando um programa que processa os dados de entrada e 
+devolve dados de saída iguais ao dados de saída esperados no nível.
+
+A resolução do desafio pode ser dividido em duas etapas, a primeira é resolver 
+quebra cabeças e a segunda é posicionar os comandos de programação da forma 
+correta, para que o programa processe corretamente os dados. O quebra cabeças 
+consiste em conectar a entrada dos dados com a saída da resposta esperada, 
+utilizando conexões específicas. 
+Após completado o primeiro desafio, o jogador deve posicionar os comandos
+disponibilizados para criar o programa que solucionará o problema daquele nível.
+
+Tudo isso deve ser feito no menor tempo possível, pois há um cronômetro que 
+marca quanto tempo o jogador tem para solucionar o nível e os pontos ganhos são 
+diretamente porporcionais ao tempo restante.
+
+Para auxiliar o processo de aprendizado jogador conta com mensagens de guia no 
+início do jogo além de uma animação que aparece na tela ao executar o programa 
+criado. Nesta animação é possível ver o que acontece com os valores de entrada 
+e até mesmo acompanhar como as variáveis do programa estão mudando.
+
+As informações sobre o código do jogo estarão explicadas mais adiante. As 
+explicações incluem como os arquivos estão organizado, como cenas mais 
+importantes foram implementadas e algumas imagens que exemplificam trechos de 
+alguns \textit{scripts}\footnote{conjunto de instruções para que uma função 
+(ou método) seja executada em determinado aplicativo.} mais importantes.
