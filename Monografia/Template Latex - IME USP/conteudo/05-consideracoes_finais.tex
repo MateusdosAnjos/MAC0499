@@ -66,5 +66,38 @@ e tornaram \textit{Phoenix Rising} jogável.
 
 \section{Refatorações do Código}
 
+Fazer a refatoração é muito importante para manter a qualidade do código e esse 
+processo foi repetido em diversos momentos durante a criação do jogo. Todavia 
+essa seção irá tratar de uma refatoração específica que mudou a estrutura do 
+projeto e permitiu que a animação mostrada na tela aconteça em tempo de 
+execução.
+
+No início da implementação havia apenas os comandos sequenciais, ou seja, 
+apenas as operações que não geram desvio. Para tratá-las primeiro era armazenado 
+em uma lista todos os comandos do programa criado pelo jogador e, antes da 
+animação ocorrer, os dados de entrada eram processados por cada um deles. Em 
+outra lista era armazenado o resultado depois da operação de cada comando e 
+essa lista era passada para o processo visual exibir na tela.
+
+Da forma que estava o jogador não conseguia ver o momento exato do erro, já que 
+todo o programa criado era verificado antes mesmo da animação iniciar, o que
+acabava dificultando muito o aprendizado. Ao tentar criar o comando condicional 
+a idea de criar uma árvore de execução surgiu, afinal havia a necessidade de 
+utilizar uma estrutura de dados que permitisse mapear com facilidade 
+as bifurcações.
+
+Criar a árvore de execução envolveu mudanças em vários arquivos, além de 
+mudanças nos argumentos recebidos por funções. Entretando essas mudanças 
+fizeram com que o comando condicional pudesse existir, abriram possibilidade 
+para inserir mais comandos que fazem operações não sequenciais e facilitaram o 
+trabalho do processo visual para exibir a animação durante a execução do 
+programa.
+
+Mesmo sem entrar em detalhes de como foram feitas essas modificações para 
+criar a árvore de execução é válido notar a importância de dispor tempo 
+para refatorar o código e pensar em melhorias para o projeto, pois sem esse 
+momento de refatoração o código ficaria ruim e tornaria muito difícil a 
+contribuição de terceiros, além de atrasar o próprio desenvolvimento.
+
 \section{Trabalhos Futuros}
 
