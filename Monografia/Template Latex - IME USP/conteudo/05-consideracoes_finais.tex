@@ -17,10 +17,52 @@ montar o sistema até a forma de funcionamento dos comandos. Para evitar um
 tutorial demasiado longo e que dificultasse a memorização foi utilizada uma 
 linguagem tecnica e concisa.
 
-A primeira experiência com um jogador leigo foi desastrosa. A linguagem tecnica 
+A primeira experiência com um jogador leigo foi desastrosa. A linguagem técnica 
 dificultou muito o entendimento, apenas quem já conhecia programação há algum 
 tempo entendia a ideia do jogo. O tamanho do tutorial também dificultou o 
 entendimento, pois era passada muita informação de uma só vez.
+
+Houve a primeira refatoração do tutorial, tentando fazer analogia entre a ideia
+do jogo e a confecção de um bolo. Os comandos de ajuda de cada comando faziam 
+referência ao processo de criação de um bolo, por exemplo, a soma era comparada 
+a adicionar ingredientes, os dados de entrada eram os ingredientes iniciais e 
+a saída esperada era o sabor de bolo a ser feito.
+
+Apesar de ter melhorado um pouco do entendimento por parte de um leigo, a
+quantidade de informação em apenas um nível de tutorial atrapalhava o
+entendimento e impossibilitou que a curva de aprendizado fosse satisfatória,
+para completar o único nível de tutorial foram necessários aproximadamente 20
+minutos, lendo o menu de ajuda e entendendo as mensagens de erro.
+
+Surgiram algumas sugestões de melhorias que eram focadas em modificar as imagens
+dos comando, por exemplo, mudar os números de entrada para imagens de 
+ingredientes e modificar a saída esperada para a imagem de um bolo. Apesar de 
+parecer interessante, já existem diversos jogos com esse estilo e muito 
+difícilmente um jogador consegue compreender a relação que existe entre a 
+montagem de um sistema que confecciona um bolo utilizando imagens e uma 
+sequência de instruções em um código de computador sem ser induzido a isso.
+
+Como \textit{Phoenix Rising} tem o objetivo de ensinar conceitos de programação 
+foi decidido manter os comandos o mais próximo do que é utilizado em linguagens
+de alto nível e dados de entrada e saída que fossem compatíveis com os que são 
+utilizados em tutoriais que introduzem as ideias básicas de programação, 
+facilitando a relação entre o jogo e um \textit{script} que automatiza alguma 
+tarefa.
+
+A segunda refatoração, portanto, dividiu o tutorial em vários níveis, tentando 
+ensinar ao jogador uma ideia de cada vez, ou seja, o primeiro tutorial ensina 
+a conectar o sistema, o segundo a mudar as conexões, o terceiro a utilizar o 
+primeiro comando e assim por diante. Foi abolida a analogia com o bolo e a 
+linguagem, apesar de não ser muito técnica, tentou não se distanciar do que é
+utilizado no dia a dia de quem já tem certa experiência com programação, pois 
+conhecer os termos técnicos e o modo matemático de se expressar também é 
+importante no aprendizado de computação.
+
+Após a segunda refatoração o tutorial foi muito mais efetivo para um leigo
+(cada indivíduo leigo jogou o jogo sem nenhuma informação prévia e apenas uma 
+vez, portanto o aprendizado foi exclusivamente pela experiência com o 
+tutorial), as imagens que ilustram o que é pra ser feito ajudaram bastante
+e tornaram \textit{Phoenix Rising} jogável.
 
 \section{Refatorações do Código}
 
