@@ -101,3 +101,47 @@ contribuição de terceiros, além de atrasar o próprio desenvolvimento.
 
 \section{Trabalhos Futuros}
 
+\textit{Phoenix Rising} possui o arcabouço que permite a inserção de várias 
+melhorias, como novos comandos, novas conexões e o aperfeiçoamento dos 
+aspectos de jogo (\textit{gamification}).
+
+Pelo que já foi explicado em capítulos anteriores a inserção de novas conexões é
+trivial, entretanto alguns comandos seriam interessantes, as ideias gerais
+sorbe eles são:
+
+\begin{itemize}
+    \item[$\bullet$]
+        Alocação de memória - Um comando como esse poderia contar com 
+        alguma imagem que mostrasse para o jogador qual espaço que foi alocado
+        e poderia ser feito com base no comando "variável" trocando
+        a variável simples por uma lista.
+    \item[$\bullet$]
+        Repeat - Um comando de loop poderia ser feito utilizando o filho 
+        esquerdo do espaço de ação e um contador de repetições.
+    \item[$\bullet$]
+        Funções - Criar um comando que permite definir uma função é mais 
+        sofisticado, mas permitira ao jogador aprender sobre escopo.
+        
+        Para criá-lo talvez seja preciso definir um novo comando em 
+        \textit{itemDB.gd}, chamado Func, que funcione como apelido para uma 
+        sequência de comandos. Então deve-se definir uma forma do jogador criar 
+        a sequência de comandos que corresponderá a Func, talvez até uma janela 
+        extra na tela de jogo (popup).
+\end{itemize}
+
+Estas ideias apenas ilustram o potencial de crescimento do jogo e os possíveis
+caminhos para implementar tais ideias mostram que seria factível.
+
+Outro ponto a ser explorado é a \textit{gamificação}. No momento o jogo conta 
+apenas com o sistema de pontos simples, porém poderia ser implementado um 
+sistema que permitisse ao jogador comprar dicas para cada nível com os pontos 
+obtidos, melhorar a função que calcula a pontuação (no momento é uma função
+linear) ou até mesmo criar um sistema que permitisse compartilhar soluções entre
+amigos em troca de pontos, parecendo um sistema de ajuda entre a comunidade.
+
+O design do jogo também pode ser melhorado, desde a paleta de cores até o 
+\textit{leve design},\footnote{Level design é uma parte do desenvolvimento de 
+jogos eletrônicos. Envolve a criação de um nível, campanhas e missões.
+Level design é também um processo artístico e técnico} já que os quebra cabeças
+estão muito simples e os desafios criados não necessitam que o jogador utilize 
+muitos comandos para terminá-los.
