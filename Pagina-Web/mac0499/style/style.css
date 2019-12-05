@@ -99,7 +99,7 @@ ol li
 
 #header
 { background: #353534 url(back.png) repeat-x;
-  height: 177px;}
+  height: 218px;}
   
 #banner
 {  background: transparent url(BluePhoenix.png) no-repeat;
@@ -111,7 +111,7 @@ ol li
 #logo
 { width: 1024px;
   position: relative;
-  height: 140px;
+  height: 178px;
   background: transparent;}
 
 #logo #logo_text 
@@ -154,7 +154,7 @@ ul#menu li
 { float: left;
   padding: 0 0 0 9px;
   list-style: none;
-  margin: 1px 2px 0 0;
+  margin: 4px 2px 0 0;
   background: #5A5A5A url(tab.png) no-repeat 0 0;}
 
 ul#menu li a
