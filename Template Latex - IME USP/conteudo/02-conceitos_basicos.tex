@@ -10,21 +10,21 @@
 
 Para facilitar o entendimento, deve-se entender um pouco sobre o que
 é uma árvore no escopo da programação, pois tal conceito aparecerá muitas
-vezes neste trabalho, entretanto a definição informal, passando apenas a ideia 
+vezes neste trabalho. Entretanto a definição informal, passando apenas a ideia 
 do funcionamento, bastará para entender este projeto.
 
-Árvore refere-se a uma forma de estruturar os dados de um programa,
-informalmente pode ser definido como um conjunto de elementos que armazenam 
+Árvore refere-se a uma forma de estruturar os dados de um programa;
+informalmente, pode ser definido como um conjunto de elementos que armazenam 
 informações, por sua vez são os chamados nós. Toda árvore possui o elemento 
 chamado raiz, que é primeiro nó, de onde a árvore começa, e que possui ligações
-para outros elementos denominados filhos, por sua vez também são nós.
+para outros elementos denominados filhos, que por sua vez também são nós.
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{../figuras/arvore.png}
     \caption{Exemplo de árvore}
 \end{figure}   
 
-Perceba que a árvore cresce para baixo, sendo que a raiz dá origem a tudo.
+Note que a árvore cresce para baixo, sendo que a raiz dá origem a tudo.
 Os nós A, B, C, D são filhos da Raiz. Os nós E, F são filhos do nó A. O nó
 D é filho da Raiz e não tem filhos.
 
@@ -44,7 +44,7 @@ para detectar colisões e fazer animações, além de suporte para sons,
 inteligência artificial, gerenciamento de arquivos, programação, entre outros.
 Por conta dessas facilidades, a partir do uso de uma \textit{game engine}, é 
 possível criar um jogo do zero de maneira mais simples e replicar vários estilos
-jogos com mais facilidade.
+de jogos com mais facilidade.
 
 Pelas facilidades com a estrutura e organização do código, a linguagem própria 
 e por ser um \textit{software open source} sob a licença MIT, desenvolvido de 
@@ -153,13 +153,13 @@ permite que um projeto seja separado em qualquer número de cenas. Isso fornece
 uma ferramenta poderosa que ajuda a organizar os diferentes componentes do seu
 jogo.
 
-Em Cenas e nós, você aprendeu que uma cena é uma coleção de nós organizados em 
+Em Cenas e nós, uma cena é uma coleção de nós organizados em 
 uma estrutura de árvore, com um único nó como raiz da árvore.
-Você pode criar quantas cenas quiser e salvá-las em disco. As cenas salvas dessa
+Pode-se criar quantas cenas forem desejadas e salvá-las em disco. As cenas salvas dessa
 maneira são chamadas de "Cenas compactadas" \ (\textit{packed scenes}) e têm uma 
 extensão de nome de arquivo ".tscn".
 
-Veja no exemplo abaixo que a cena \textit{Tutorial} é composta por vários
+No exemplo mostrado na figura a cena \textit{Tutorial} é composta por vários
 outros nós, dentre eles o nó \textit{InputOutput} também é uma cena e foi
 instanciada.
 
@@ -182,7 +182,7 @@ instanciada.
     \end{figure}
 \end{minipage}
 
-Instanciar uma cena utilizando \textit{Godot} é bem fácil, basta clicar no botão
+Instanciar uma cena utilizando \textit{Godot} é bem fácil; basta clicar no botão
 de instanciar cena e selecionar qual cena salva que se deseja instanciar.
  
 \begin{figure}[H]
@@ -205,10 +205,10 @@ linguagens de script, sistema de cenas e outros recursos são carregados.
 
 Quando a inicialização estiver concluída, o sistema operacional precisará 
 receber um \textit{MainLoop} para executar. Até o momento, tudo isso funciona 
-internamente (você pode verificar o arquivo "main.cpp" no código-fonte se 
+internamente (pode-se verificar o arquivo "main.cpp" no código-fonte se 
 estiver interessado em ver como isso funciona internamente).
 
-Este \textit{MainLoop} da inicio ao programa do usuário, ou jogo. Essa classe
+Este \textit{MainLoop} dá início ao programa do usuário, ou jogo. Essa classe
 possui alguns métodos, para inicialização, \textit{callbacks} e \textit{input}. 
 Novamente, esse é um nível baixo e, ao fazer jogos em Godot, escrever seu 
 próprio \textit{MainLoop} raramente faz sentido.
@@ -244,7 +244,7 @@ comportamentos indesejados.
 
 A importância de se entender tudo isso, para este projeto, se dá pois a maioria
 das operações de nó em \textit{Godot}, como desenhar 2D, processar ou obter 
-notificações, são feitas seguindo a ordem que os nós estão na árvore.
+notificações, são feitas seguindo a ordem na qual os nós estão na árvore.
 
 O processo de tornar um nó ativo ao entrar na \textit{SceneTree} se dá seguindo
 os passos:
@@ -277,12 +277,12 @@ mais de uma cena.
 Existem alternativas de implementação ao se deparar com estes problemas, porém
 na maioria dos casos o padrão \textit{Singleton} irá consumir menos tempo e
 memória. Isso deve-se ao fato de \textit{Singleton} ser uma ferramenta útil para
-resolver o caso de uso comum em que você precisa armazenar informações 
+resolver o caso de uso comum no qual há necessidade de se armazenar informações 
 persistentes entre as cenas. No nosso caso, é possível reutilizar a mesma cena 
 ou classe para vários \textit{Singletons}, desde que eles tenham 
 nomes diferentes.
 
-Resumindo, usando esse conceito, você pode criar objetos que:
+Resumindo, usando esse conceito, pode-se criar objetos que:
 
 \begin{itemize}
     \item[$\bullet$]
@@ -355,7 +355,7 @@ baseados em identação e muitas palavras-chave são semelhantes).
 Seu objetivo é ser otimizada e fortemente integrada ao Godot Engine, permitindo
 grande flexibilidade para criação e integração de conteúdo.
 
-Quando adicionado ao nó o script adiciona comportamento a ele, controlando seu
+Quando adicionado ao nó, o script adiciona comportamento a ele, controlando seu
 funcionamento e as interações com outros nós: filhos, pais, irmãos e assim por 
 diante. O escopo local do script é o próprio nó. Em outras palavras, o script 
 herda as funções fornecidas por esse nó.
