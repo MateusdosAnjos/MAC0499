@@ -292,13 +292,13 @@ ser dinâmicos, ou seja, o jogador pode armazenar em uma variável o valor
 corrente do \textit{Input}.
 
 O nono comando, chamado \textit{Error}, não deve ser utilizado, pois só aparece
-caso a importação de algum dos comandos anteriores dê errado. Por conta disso
+caso haja algum erro na obtenção dos comandos anteriores. Por conta disso
 o comando de erro não possui comportamento algum e, se tudo der certo durante
 o jogo, este comando não aparecerá em nenhum momento.
 
 \subsection{Setas de Entrada e Saída}
 
-Estas setas são as conexões iniciais que o jogador deve se preocupar. O programa
+Estas setas são as conexões iniciais com a qual o jogador deve se preocupar. O programa
 do jogador irá receber os valores disponibilizados a serem processados a partir
 da \textit{Seta de Entrada}, portanto a primeira conexão que deve
 ser feita é entre um espaço de ação e esta seta. Já a \textit{Seta de Saída}
@@ -310,12 +310,12 @@ apto a ser executado quando existir uma conexão entre a duas setas.
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=0.6\textwidth]{../figuras/seta_entrada.png}
-        \caption{Seta de Entrada}
+        \caption{Seta de onde saem dados de Entrada}
     \end{subfigure}
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=0.6\textwidth]{../figuras/seta_saida.png}
-        \caption{Seta de Saída}
+        \caption{Seta que recebe dados de Saída}
     \end{subfigure}  
     \caption{Setas de Entrada e Saída}
 \end{figure}
@@ -339,7 +339,7 @@ ao lado:
     \item[$\bullet$]
         \textbf{Reiniciar Nível} - Recomeça o nível atual.
     \item[$\bullet$]
-        \textbf{Próximo Nível} - Inicia o nível sequente do nível atual.
+        \textbf{Próximo Nível} - Inicia o nível subsequente do nível atual.
 \end{itemize}
 
 \section{Forma de Jogar}
