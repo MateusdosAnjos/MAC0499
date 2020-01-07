@@ -57,7 +57,7 @@ posteriormente.
 O nó \textit{Grid} tem grande importância dentro da cena, pois é ele quem separa
 cada recipiente da tela de jogo em pequenos quadradinhos, facilitando a mecânica
 de mover os comandos disponíveis. Estes recipientes são adicionados na lista de 
-\textit{containers}, definida na linha 11 da figura 3.3.
+\textit{containers}, definida na linha 11 da figura 4.3.
 
 Para facilitar o entendimento, veja as variáveis mais importantes e o método de 
 inicialização da grade (do inglês \textit{grid}):
@@ -75,7 +75,8 @@ inicialização da grade (do inglês \textit{grid}):
     \end{figure}
 \end{minipage}
 
-O tamanho de cada quadrado é armazenado e definido na linha 8 da figura 3.4
+O tamanho de cada quadrado é armazenado e definido na linha 8 do código mostrado
+na figura 4.4
 e as medidas da grade são armazenadas pelas variáveis definidas nas linhas
 10 e 11 da mesma figura.
 
@@ -150,8 +151,8 @@ A cena \textit{MovableActionSpace} é formada pelos seguintes nós:
         \textbf{\textit{ConvergeArea}} Conexão complexa para unir os dois 
         caminhos gerados a partir de um \textit{if/else}.
     \item[$\bullet$]
-        \textbf{\textit{ActionNumber}} - Indica em qual posição na ordem de 
-        processamento que está aquela ação.
+        \textbf{\textit{ActionNumber}} - Indica qual a posição na ordem de 
+        processamento.
     \item[$\bullet$]
         \textbf{\textit{OutputChangeButton}} - Área que permite a troca da 
         conexão de saída (\textit{output})
@@ -164,7 +165,7 @@ A cena \textit{MovableActionSpace} é formada pelos seguintes nós:
 \end{itemize}
 
 O \textit{script} atrelado ao nó \textit{MovableActionSpace} torna possível
-os comportamentos descritos acima, os detalhes de como isso é feito não são
+os comportamentos descritos acima. Os detalhes de como isso é feito não são
 relevantes neste momento, por isso não haverá explicação detalhada sobre o 
 código, entretanto os curiosos que quiserem adicionar uma nova conexão simples
 de \textit{input} devem seguir os passos:
@@ -188,14 +189,14 @@ de \textit{input} devem seguir os passos:
         \textit{CollisionShape2D} que foi criado, seguindo o exemplo: 
         $$[\$InputArea/NewCollisionShape]$$
     \item[$\bullet$]
-        Adicionar na lista \textit{input\_connected\_textures} o caminho que
+        Adicionar na lista \textit{input\_connected\_textures} o caminho no qual
         está a imagem referente a nova conexão quando conectada.
         O DEFAULT\_PATH está definido como "res://Accessories/art/", se a imagem
         estiver neste diretório basta adicionar:
         $$DEFAULT\_PATH + \ ''minha\_nova\_conexao.png''$$
     \item[$\bullet$]
         Adicionar na lista \textit{input\_not\_connected\_textures} o caminho
-        que está a imagem referente a nova conexão quando não conectada.
+        no qual está a imagem referente a nova conexão quando não conectada.
         O DEFAULT\_PATH está definido como "res://Accessories/art/", se a imagem
         estiver neste diretório basta adicionar:
         $$DEFAULT\_PATH + \ ''minha\_nova\_conexao\_nao\_conectada.png''$$
@@ -204,7 +205,7 @@ de \textit{input} devem seguir os passos:
         \textit{num\_input\_connections} e pronto.
 \end{itemize}
 
-Esta sequência de ações pode ser utilizada para criar conexões de saída,
+Esta sequência de ações pode ser utilizada para criar conexões de saída;
 basta preencher as respectivas listas que controlam as conexões de 
 \textit{output}.
 
@@ -257,7 +258,7 @@ Vale ressaltar três pontos importantes:
 \end{itemize} 
 
 Agora será dada a exlicação sobre a cena \textit{ActionSpace}, parte fixa do 
-espaço de ação mostrada na figura 3.9, que é composta pelos seguintes nós:
+espaço de ação mostrada na figura 4.9, que é composta pelos seguintes nós:
 
 \begin{itemize}
     \item[$\bullet$]
@@ -265,7 +266,7 @@ espaço de ação mostrada na figura 3.9, que é composta pelos seguintes nós:
         espaço ocupado pelo espaço de ação.  
     \item[$\bullet$]
         \textbf{\textit{Name}} - Coloca o nome "Espaço de Ação" dentro do 
-        retângulo preto, pois tutorial faz referências a este item. 
+        retângulo preto.(O tutorial dentro do jogo faz referências a este item.) 
     \item[$\bullet$]
         \textbf{\textit{ArgumentButton}} - Botão que permite ao jogador 
         abrir a área de preenchimento dos argumentos que serão passados para um 
@@ -418,7 +419,7 @@ caminho que deverá ser seguido, caso a posição esteja marcada com \textit{tru
 então será seguido o caminho do filho da direita, se o valor for \textit{false},
 então será seguido o caminho do filho da esquerda. Para entender esta parte
 talvez seja necessário relembrar o que significam estes "caminhos" observando 
-novamente a figura 3.11: Esquema de Árvore de Execução, definida na seção 
+novamente a figura 4.11: Esquema de Árvore de Execução, definida na seção 
 "Espaço de Ação".
 
 Depois há a verificação se o processo visual chegou ao fim, na linha 75, ou 
@@ -427,7 +428,7 @@ atualiza-se o texto que aparece na tela para o jogador visualizar.
 
 Note que a execução dos comandos acontece enquanto o processo visual é mostrado
 na tela, assim o jogador pode acompanhar o andamento do seu programa até que
-algo de arrado aconteça, facilitando o entendimento de cada comando 
+algo de errado aconteça, facilitando o entendimento de cada comando 
 individualmente e a correçao dos erros que aparecerem.
 
 \section{Ambiente de Execução}
@@ -487,7 +488,7 @@ As imagens abaixo ilustram os nós que compõem a cena principal, chamada
 \end{itemize}
 
 Depois de definir algumas variáveis como o texto do mapa de variáveis e qual a
-saída esperada esta cena estará pronta para exercer seu papel mais importante:
+saída esperada, esta cena estará pronta para exercer seu papel mais importante:
 \textbf{Iniciar a tentativa de execução do sistema}.
 
 Inicialmente será apenas uma tentativa, pois o sistema pode não estar 
@@ -595,12 +596,12 @@ informações importantes a respeito dele, estas informações são:
         Caminho do ícone referente ao comando, para que as cenas o renderizem
         na tela.
     \item[$\bullet$]
-        Texto de ajuda para ser exibido na tela caso o jogador solicite.
+        Texto de ajuda para ser exibido na tela, caso o jogador solicite.
     \item[$\bullet$]
         Nome da função que implementa o comportamento do comando.
 \end{itemize}
 
-Abaixo está ilustrado uma parte das declarações dos comandos, note que
+Abaixo está ilustrado uma parte das declarações dos comandos. Note que
 cada comando possui todas as informações importantes citadas acima.
 
 \begin{figure}[H]
